@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datos curiosos de la física — Pura Física!</title>
+<meta name="description" content="Datos sorprendentes de la física, con el juego ¿mito o realidad?">
+<meta name="theme-color" content="#F1F5F2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%2317253F' stroke-width='3'%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(60 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(-60 32 32)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='8' fill='%23D2402E'/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="es" href="Datos%20curiosos.html"><link rel="alternate" hreflang="en" href="en/Datos%20curiosos.html"><link rel="alternate" hreflang="pt" href="pt/Datos%20curiosos.html">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/pf.css">
+<script>try{var L="es",s=localStorage.getItem("pf:lang");if(s&&s!==L&&/^(es|en|pt)$/.test(s)){var f=location.pathname.split("/").pop()||"";location.replace((L==="es"?"":"../")+(s==="es"?"":s+"/")+f+location.hash);}var t=localStorage.getItem("pf:tema");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="pizarron";document.documentElement.setAttribute("data-tema",t||"papel");document.documentElement.setAttribute("data-nivel",localStorage.getItem("pf:nivel")||"3");}catch(e){}</script>
+<script defer src="assets/katex/katex.min.js"></script>
+<script defer src="assets/katex/auto-render.min.js"></script>
+<script defer src="assets/indice.js"></script>
+<script defer src="assets/pf.js"></script>
+<script defer src="assets/sims-base.js"></script>
+</head>
+<body data-pagina="datos" data-traducida>
+<main id="contenido" class="pf-main">
+<header class="cabeza">
+  <div class="migas"><a href="Pura%20F%C3%ADsica%21.html">Inicio</a> / Datos curiosos</div>
+  <h1>Datos curiosos de la física</h1>
+  <p>Hechos sorprendentes, comprobados y explicados. Primero ponte a prueba con «¿mito o realidad?» y luego explora las tarjetas.</p>
+</header>
+
+<section aria-labelledby="mito">
+  <h2 id="mito">¿Mito o realidad?</h2>
+  <div class="mito" id="mito-caja"></div>
+</section>
+
+<section aria-labelledby="tarjetas">
+  <h2 id="tarjetas">Tarjetas sorprendentes</h2>
+  <div class="chips" id="dc-cats" role="group" aria-label="Filtrar"></div>
+  <p class="chico">Toca una tarjeta para ver la explicación.</p>
+  <div class="cartas" id="cartas"></div>
+</section>
+
+<script>
+(function(){
+var CAT={cua:["Cuántica","var(--n2)"],cos:["Cosmos","var(--tinta)"],rel:["Relatividad y gravedad","var(--n3)"],dia:["Física de todos los días","var(--n1)"],nuc:["Átomos y partículas","var(--n5)"]};
+// categoría, frase gancho, explicación sencilla, explicación avanzada, ancla
+var C=[
+["cua","Un gato «vivo y muerto» a la vez","Schrödinger (1935) imaginó un gato en una caja cuyo destino depende de un átomo que puede o no decaer. Lo inventó para mostrar lo raro que sería aplicar la cuántica a cosas grandes.","En la práctica, la decoherencia hace que los objetos macroscópicos pierdan la superposición casi al instante al interactuar con su entorno.","cuantica"],
+["cua","No se puede saber todo a la vez","El principio de incertidumbre de Heisenberg (1927) dice que no puedes conocer con precisión perfecta, al mismo tiempo, dónde está una partícula y qué tan rápido se mueve. No es culpa de los aparatos: así es la naturaleza.","Δx·Δp ≥ ħ/2 se deduce de que los operadores de posición y momento no conmutan.","cuantica"],
+["cua","La luz es onda… y partícula","En el experimento de la doble rendija, la luz forma franjas como las olas, pero llega a la pantalla en puntitos, como partículas. ¡Y con electrones pasa lo mismo!","De Broglie (1924): toda partícula tiene λ = h/p. Se ha observado interferencia hasta con moléculas de más de 2 000 átomos.","cuantica"],
+["cua","Atravesar paredes (si eres muy pequeño)","Una partícula puede cruzar una barrera aunque no tenga energía suficiente: es el efecto túnel. Gracias a él brilla el Sol y funcionan las memorias USB.","La probabilidad cae exponencialmente con el ancho de la barrera: T ≈ e^(−2κL). Las memorias flash usan túnel Fowler–Nordheim.","cuantica"],
+["cua","El entrelazamiento no sirve para mandar mensajes","Dos partículas entrelazadas muestran resultados conectados aunque estén lejísimos… pero cada resultado individual es al azar, así que no se puede enviar información más rápido que la luz.","Es el teorema de no comunicación: las estadísticas locales no dependen de lo que se mida en el otro extremo.","cuantica"],
+["cos","El Big Bang no fue una explosión","No hubo un punto desde el que todo saliera volando: es el propio espacio el que se estira, en todas partes a la vez, desde hace unos 13 800 millones de años.","En la métrica FLRW las galaxias están casi quietas en coordenadas comóviles; lo que crece es el factor de escala a(t).","cosmologia"],
+["cos","Solo conocemos el 5 % del universo","La materia «normal» (estrellas, planetas, tú) es cerca del 5 %. El resto es materia oscura (27 %) y energía oscura (68 %), que todavía no entendemos.","Valores del satélite Planck (2018) en el modelo ΛCDM.","cosmologia"],
+["cos","Ves el pasado","La luz del Sol tarda unos 8 minutos y 20 segundos en llegar: ves al Sol como era hace 8 minutos. La estrella más cercana después del Sol, Próxima Centauri, la ves como era hace unos 4.2 años.","Cuanto más lejos miras, más atrás en el tiempo: la radiación cósmica de fondo es la luz más antigua que podemos ver.","cosmologia"],
+["rel","Einstein no ganó el Nobel por la relatividad","Recibió el Premio Nobel de Física de 1921 por explicar el efecto fotoeléctrico, que ayudó a fundar la física cuántica.","El comité consideró la relatividad todavía controvertida; el premio se entregó en 1922.","relatividad"],
+["rel","El tiempo pasa más rápido en lo alto","Cuanto más fuerte es la gravedad, más lento pasa el tiempo. Por eso los relojes de los satélites GPS, que están lejos de la Tierra, se adelantan.","Los relojes del GPS ganan unos 45 µs/día por la gravedad más débil y pierden unos 7 µs/día por su velocidad: neto +38 µs/día, que se corrige.","relatividad"],
+["rel","La gravedad dobla la luz","Una galaxia muy masiva puede funcionar como una lupa gigante y hacer ver varias copias de una galaxia más lejana: son las lentes gravitacionales.","Para el Sol, la desviación en el borde es 1.75″, el doble de lo que predice un cálculo newtoniano.","relatividad"],
+["rel","Los cohetes funcionan en el vacío","No necesitan aire para «empujarse»: lanzan gas hacia atrás y, por la tercera ley de Newton, el gas los empuja hacia adelante.","Ecuación de Tsiolkovski: Δv = v_e ln(m₀/m_f).","newton"],
+["dia","En la Ciudad de México el agua hierve antes","A 2 240 m de altura hay menos presión de aire, así que el agua hierve a unos 93 °C. Por eso algunos alimentos tardan más en cocerse… y existen las ollas de presión.","La temperatura de ebullición depende de la presión, según la relación de Clausius–Clapeyron.","termodinamica"],
+["dia","El cielo es azul por la misma razón que el atardecer es rojo","El aire dispersa mucho más la luz azul que la roja. De día, el azul llega desde todas partes del cielo; al atardecer, la luz cruza tanto aire que solo sobrevive el rojo.","Dispersión de Rayleigh: intensidad ∝ 1/λ⁴.","luz-sonido"],
+["dia","Un rayo es más caliente que la superficie del Sol","El aire dentro de un rayo puede llegar a unos 30 000 °C, cerca de cinco veces la temperatura de la superficie del Sol. Ese calentamiento brusco produce el trueno.","La expansión supersónica del canal de plasma genera una onda de choque que se vuelve sonido.","electromagnetismo"],
+["dia","La luz se frena en el agua","La luz viaja a casi 300 000 km/s en el vacío, pero en el agua va a unos 225 000 km/s y en el diamante a unos 124 000 km/s. Ese cambio de rapidez la «dobla»: es la refracción.","En el vacío c es constante para todos los observadores; en un medio, la rapidez de fase es c/n.","optica"],
+["dia","Hay más átomos en un vaso de agua que vasos de agua en los océanos","Un vaso tiene unos 25 cuatrillones (2.5×10²⁵) de átomos; los océanos llenarían «solo» unos 5×10²¹ vasos.","250 g de agua son ≈ 13.9 mol ≈ 8.4×10²⁴ moléculas, cada una con 3 átomos.","particulas"],
+["nuc","El Sol es una fábrica de fusión","Cada segundo el Sol convierte unos 600 millones de toneladas de hidrógeno en helio; unos 4 millones de toneladas de esa masa se vuelven energía.","L☉ ≈ 3.8×10²⁶ W; con E = mc², eso son ≈ 4.3×10⁹ kg/s.","nuclear"],
+["nuc","El Higgs no explica casi toda tu masa","El bosón de Higgs da masa a los electrones y a los quarks, pero casi toda la masa de los protones y neutrones (y por tanto la tuya) viene de la energía de la fuerza fuerte que los mantiene unidos.","Los quarks u y d aportan ~1 % de la masa del protón; el resto es energía de gluones y movimiento de quarks (QCD).","particulas"],
+["nuc","Miles de millones de neutrinos te atraviesan ahora","Del Sol llegan unos 65 mil millones de neutrinos por centímetro cuadrado cada segundo. Pasan a través de ti y de toda la Tierra sin que lo notes.","Interactúan tan poco que se necesitan detectores gigantes, como IceCube (Nobel 2026 para Francis Halzen).","particulas"],
+["nuc","Los plátanos son un poquito radiactivos","Contienen potasio, y una pequeña parte del potasio natural es radiactivo (potasio‑40). No es peligroso: tu propio cuerpo también lo tiene.","Una dosis equivalente a un plátano es del orden de 0.1 µSv.","nuclear"],
+["nuc","Frío extremo, comportamiento extraño","Por debajo de unos −271 °C, el helio se vuelve superfluido: fluye sin fricción y hasta trepa por las paredes del recipiente.","El helio‑4 tiene su transición superfluida (punto lambda) a 2.17 K.","cuantica"]
+];
+var M=[
+["En el espacio no hay gravedad.",false,"A 400 km de altura la gravedad es casi el 90 % de la de la superficie. Los astronautas flotan porque están en caída libre continua."],
+["Sin aire, un objeto pesado cae más rápido que uno ligero.",false,"Sin aire todos caen con la misma aceleración. Galileo lo razonó y el astronauta David Scott lo mostró en la Luna."],
+["Un rayo nunca cae dos veces en el mismo lugar.",false,"El Empire State de Nueva York recibe en promedio unas 20 descargas al año. Los lugares altos y puntiagudos atraen rayos una y otra vez."],
+["En la Ciudad de México el agua hierve a menos de 100 °C.",true,"A unos 2 240 m de altura hierve cerca de 93 °C porque la presión atmosférica es menor."],
+["Las estaciones del año se deben a que la Tierra se acerca y se aleja del Sol.",false,"Se deben a la inclinación del eje terrestre (~23.4°). De hecho, la Tierra está más cerca del Sol a principios de enero, en pleno invierno del hemisferio norte."],
+["La Gran Muralla China se ve a simple vista desde la Luna.",false,"Es larga pero muy angosta: desde la Luna no se distingue. Ni siquiera desde la órbita baja es fácil verla sin ayuda."],
+["El sonido viaja más rápido en el agua que en el aire.",true,"En el agua va a unos 1 480 m/s; en el aire, a unos 343 m/s."],
+["El entrelazamiento cuántico permite enviar mensajes más rápido que la luz.",false,"Los resultados están correlacionados, pero cada uno es aleatorio: no se puede usar para transmitir información."],
+["Los vitrales antiguos son más gruesos abajo porque el vidrio escurre como un líquido muy lento.",false,"A temperatura ambiente el vidrio tardaría muchísimo más que la edad del universo en fluir de forma apreciable. Las diferencias se deben a cómo se fabricaba el vidrio."],
+["Un plátano es ligeramente radiactivo.",true,"Contiene potasio‑40, un isótopo natural. La dosis es pequeñísima."],
+["Si saltas justo antes de que choque un elevador que cae, te salvas.",false,"Al saltar solo restarías unos pocos km/h a una velocidad de caída de decenas o cientos de km/h."],
+["La mayor parte de tu masa no viene directamente del bosón de Higgs.",true,"Viene de la energía de la fuerza fuerte dentro de protones y neutrones; el Higgs da masa a los quarks y electrones, que aportan poco."],
+["La luz siempre viaja a la misma rapidez, en cualquier material.",false,"En el vacío sí es constante (c). En el agua o el vidrio viaja más lento; por eso se refracta."],
+["Los astronautas en la Estación Espacial envejecen un poquito más lento que nosotros.",true,"Su alta velocidad los hace envejecer más lento y la menor gravedad los hace envejecer más rápido; a esa altura gana el primer efecto: unas decenas de microsegundos menos por día."]
+];
+var cat="todas";
+function cartas(){
+  var n=PF.nivel();
+  document.getElementById("dc-cats").innerHTML='<button type="button" class="chip" data-c="todas" aria-pressed="'+(cat==="todas")+'">Todas</button>'+Object.keys(CAT).map(function(k){return '<button type="button" class="chip" data-c="'+k+'" aria-pressed="'+(cat===k)+'"><span class="pt" style="--c:'+CAT[k][1]+'"></span>'+CAT[k][0]+'</button>';}).join("");
+  document.getElementById("cartas").innerHTML=C.filter(function(c){return cat==="todas"||c[0]===cat;}).map(function(c){
+    return '<details class="carta" style="--c:'+CAT[c[0]][1]+'"><summary><small>'+CAT[c[0]][0]+'</small><b>'+c[1]+'</b><span class="ver">Ver por qué</span></summary><div><p>'+c[2]+'</p>'+(n>=3?'<p class="avz">'+c[3]+'</p>':'')+'<a href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#'+c[4]+'">Aprender más</a></div></details>';
+  }).join("");
+}
+var orden=[], i=0, aciertos=0, resp=null;
+function nueva(){ orden=M.map(function(_,k){return k;}).sort(function(){return Math.random()-.5;}).slice(0,8); i=0; aciertos=0; resp=null; mito(); }
+function mito(){
+  var caja=document.getElementById("mito-caja");
+  if(i>=orden.length){ caja.innerHTML='<p class="mito-frase">Acertaste '+aciertos+' de '+orden.length+'.</p><p>'+(aciertos>=7?"¡Excelente! Tienes olfato de física.":(aciertos>=5?"¡Muy bien! Revisa las que fallaste.":"Los mitos engañan a mucha gente. ¡Inténtalo otra vez!"))+'</p><button type="button" class="btn prim" id="m-otra">Jugar otra vez</button>'; document.getElementById("m-otra").onclick=nueva; return; }
+  var m=M[orden[i]];
+  caja.innerHTML='<p class="chico">Afirmación '+(i+1)+' de '+orden.length+' · aciertos: '+aciertos+'</p><p class="mito-frase">«'+m[0]+'»</p>'+
+    (resp===null?'<div class="fila-btn"><button type="button" class="btn" data-r="0">Mito</button><button type="button" class="btn" data-r="1">Realidad</button></div>':
+    '<div class="quiz__exp"><b>'+(resp===m[1]?"¡Correcto! ":"No. ")+'Es '+(m[1]?"realidad":"un mito")+'.</b>'+m[2]+'</div><div class="fila-btn" style="margin-top:.8rem"><button type="button" class="btn prim" id="m-sig">Siguiente</button></div>');
+  caja.querySelectorAll("[data-r]").forEach(function(b){ b.onclick=function(){ resp = b.dataset.r==="1"; if(resp===m[1]) aciertos++; mito(); var s=document.getElementById("m-sig"); if(s) s.focus(); }; });
+  var s=document.getElementById("m-sig"); if(s) s.onclick=function(){ i++; resp=null; mito(); };
+}
+document.addEventListener("pf:listo",function(){
+  cartas(); nueva();
+  document.getElementById("dc-cats").addEventListener("click",function(e){var b=e.target.closest(".chip"); if(!b) return; cat=b.dataset.c; cartas();});
+  document.addEventListener("pf:nivel",cartas);
+});
+})();
+</script>
+
+</main>
+</body>
+</html>

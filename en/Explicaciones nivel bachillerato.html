@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>High-school physics guide — Pura Física!</title>
+<meta name="description" content="Theory, formula sheet, step-by-step solved problems and self-grading exercises.">
+<meta name="theme-color" content="#F1F5F2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%2317253F' stroke-width='3'%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(60 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(-60 32 32)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='8' fill='%23D2402E'/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="es" href="../Explicaciones%20nivel%20bachillerato.html"><link rel="alternate" hreflang="en" href="../en/Explicaciones%20nivel%20bachillerato.html"><link rel="alternate" hreflang="pt" href="../pt/Explicaciones%20nivel%20bachillerato.html">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/pf.css">
+<script>try{var L="en",s=localStorage.getItem("pf:lang");if(s&&s!==L&&/^(es|en|pt)$/.test(s)){var f=location.pathname.split("/").pop()||"";location.replace((L==="es"?"":"../")+(s==="es"?"":s+"/")+f+location.hash);}var t=localStorage.getItem("pf:tema");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="pizarron";document.documentElement.setAttribute("data-tema",t||"papel");document.documentElement.setAttribute("data-nivel",localStorage.getItem("pf:nivel")||"3");}catch(e){}</script>
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/indice.en.js"></script>
+<script defer src="../assets/pf.js"></script>
+<script defer src="../assets/sims-base.en.js"></script><script defer src="../assets/sims-ondas.en.js"></script>
+</head>
+<body data-pagina="bach" data-traducida>
+<main id="contenido" class="pf-main">
+<header class="cabeza">
+  <div class="migas"><a href="Pura%20F%C3%ADsica%21.html">Home</a> / High-school guide</div>
+  <h1>High-school physics guide</h1>
+  <p>Everything that usually comes up in high-school physics courses and entrance exams: key ideas, formulas, a step-by-step worked problem and exercises that are generated at random and grade themselves. At the end there's the complete formula sheet to print.</p>
+</header>
+
+<div class="cuaderno">
+<nav class="indice" data-auto="main h2[id]" data-titulo="Units" aria-label="Contents"></nav>
+
+<div class="recuadro idea"><b>How to use this guide</b><p>1) Read the key ideas. 2) Try the example before opening the steps. 3) Solve at least three exercises in a row without mistakes before moving on to the next topic. Use g = 9.81 m/s² unless stated otherwise and round to two decimals.</p></div>
+
+<section class="seccion"><h2 id="unidades">1. Quantities, units and scientific notation</h2>
+<ul><li>The International System (SI) uses the meter (m), kilogram (kg), second (s), ampere (A), kelvin (K), mole and candela.</li>
+<li>To convert, multiply by factors equal to 1: \(72\ \tfrac{\text{km}}{\text{h}}\cdot\tfrac{1000\ \text{m}}{1\ \text{km}}\cdot\tfrac{1\ \text{h}}{3600\ \text{s}}=20\ \text{m/s}\). Shortcut: from km/h to m/s, divide by 3.6.</li>
+<li>Scientific notation: \(0.00045=4.5\times10^{-4}\). Prefixes: kilo (10³), mega (10⁶), giga (10⁹), milli (10⁻³), micro (10⁻⁶), nano (10⁻⁹).</li>
+<li>Significant figures: the result can't be more precise than the least precise piece of data.</li></ul>
+<div class="practica" data-gen="conv"></div>
+<div class="recuadro error"><b>Common mistake</b><p>Mixing units: using speed in km/h with time in seconds. Convert everything to SI before substituting.</p></div>
+</section>
+
+<section class="seccion"><h2 id="vectores">2. Vectors</h2>
+<ul><li>A scalar has only magnitude (mass, time, temperature); a vector has magnitude and direction (velocity, force, displacement).</li>
+<li>Components: \(A_x=A\cos\theta\), \(A_y=A\sin\theta\). Magnitude: \(A=\sqrt{A_x^2+A_y^2}\). Direction: \(\theta=\tan^{-1}(A_y/A_x)\) (watch out for the quadrant).</li>
+<li>To add vectors, add the components separately.</li></ul>
+<div class="sim" data-sim="vectores"></div>
+<div class="pasos"><b>Example: a boat sails 30 km east and then 40 km north. What is its displacement?</b><ol>
+<li>Components: \(R_x=30\ \text{km}\), \(R_y=40\ \text{km}\).</li>
+<li>Magnitude: \(R=\sqrt{30^2+40^2}=\sqrt{2500}=50\ \text{km}\).</li>
+<li>Direction: \(\theta=\tan^{-1}(40/30)=53.1^\circ\) north of east.</li>
+<li>Note: the distance traveled was 70 km, but the displacement is 50 km.</li></ol></div>
+<div class="practica" data-gen="vector"></div>
+</section>
+
+<section class="seccion"><h2 id="mru">3. Uniform motion, uniformly accelerated motion and free fall</h2>
+<ul><li><b>UM</b> (constant velocity): \(d=vt\).</li>
+<li><b>UAM</b> (constant acceleration): \(v=v_0+at\), \(d=v_0t+\tfrac12at^2\), \(v^2=v_0^2+2ad\), \(d=\tfrac{v_0+v}{2}\,t\).</li>
+<li><b>Free fall</b>: it's UAM with \(a=g=9.81\ \text{m/s}^2\) downward. From rest: \(h=\tfrac12gt^2\), \(v=gt\), \(v=\sqrt{2gh}\).</li>
+<li>In an upward vertical throw, at the highest point the velocity is zero, but the acceleration is still g.</li></ul>
+<div class="sim" data-sim="cinematica"></div>
+<div class="pasos"><b>Example: a stone is dropped from a bridge and takes 2.5 s to reach the water. How high is the bridge and how fast does it hit?</b><ol>
+<li>Given: \(v_0=0\), \(t=2.5\ \text{s}\), \(g=9.81\ \text{m/s}^2\).</li>
+<li>\(h=\tfrac12gt^2=\tfrac12(9.81)(2.5)^2=30.66\ \text{m}\).</li>
+<li>\(v=gt=(9.81)(2.5)=24.53\ \text{m/s}\) (about 88 km/h).</li></ol></div>
+<div class="practica" data-gen="mru"></div>
+<div class="practica" data-gen="mrua"></div>
+<div class="practica" data-gen="caida"></div>
+</section>
+
+<section class="seccion"><h2 id="tiro">4. Projectile motion</h2>
+<ul><li>It splits into two independent motions: horizontal (UM, \(v_x=v_0\cos\theta\)) and vertical (UAM, \(v_{0y}=v_0\sin\theta\), \(a=-g\)).</li>
+<li>Flight time (same level): \(t_v=\dfrac{2v_0\sin\theta}{g}\). Maximum height: \(H=\dfrac{v_0^2\sin^2\theta}{2g}\). Range: \(R=\dfrac{v_0^2\sin2\theta}{g}\).</li>
+<li>Maximum range is reached at 45°, and complementary angles (30° and 60°) give the same range.</li></ul>
+<div class="sim" data-sim="lanzador"></div>
+<div class="practica" data-gen="tiro"></div>
+</section>
+
+<section class="seccion"><h2 id="dinamica">5. Newton's laws and friction</h2>
+<ul><li>Always draw the free-body diagram and choose axes. Apply \(\sum F_x=ma_x\) and \(\sum F_y=ma_y\).</li>
+<li>Weight \(W=mg\). On a horizontal surface with no other vertical forces, \(N=mg\).</li>
+<li>Friction: \(f_s\le\mu_sN\) (before moving), \(f_k=\mu_kN\) (while moving).</li>
+<li>Inclined plane: \(N=mg\cos\theta\), the component of weight along the plane \(mg\sin\theta\).</li></ul>
+<div class="sim" data-sim="newton"></div>
+<div class="pasos"><b>Example: you push a 20 kg box with 100 N across a floor with μₖ = 0.3. What is its acceleration?</b><ol>
+<li>\(N=mg=(20)(9.81)=196.2\ \text{N}\).</li>
+<li>\(f_k=\mu_kN=(0.3)(196.2)=58.86\ \text{N}\).</li>
+<li>\(F_{neta}=100-58.86=41.14\ \text{N}\).</li>
+<li>\(a=F_{neta}/m=41.14/20=2.06\ \text{m/s}^2\).</li></ol></div>
+<div class="practica" data-gen="newton"></div>
+</section>
+
+<section class="seccion"><h2 id="energia">6. Work, energy and power</h2>
+<ul><li>Work: \(W=Fd\cos\theta\). Kinetic energy: \(E_k=\tfrac12mv^2\). Potential: \(E_p=mgh\). Elastic: \(E_e=\tfrac12kx^2\).</li>
+<li>Without friction, \(E_k+E_p\) is conserved. With friction, the difference is the work done by friction.</li>
+<li>Power: \(P=W/t=Fv\). 1 hp ≈ 746 W.</li></ul>
+<div class="sim" data-sim="energia"></div>
+<div class="practica" data-gen="energia"></div>
+<div class="practica" data-gen="potencia"></div>
+</section>
+
+<section class="seccion"><h2 id="momento">7. Momentum and collisions</h2>
+<ul><li>Momentum: \(\vec p=m\vec v\). Impulse: \(\vec J=\vec F\Delta t=\Delta\vec p\).</li>
+<li>In every collision (isolated system) it is conserved: \(m_1v_1+m_2v_2=m_1v_1'+m_2v_2'\).</li>
+<li>Perfectly inelastic collision (they stick together): \(v'=\dfrac{m_1v_1+m_2v_2}{m_1+m_2}\). Elastic collision: kinetic energy is also conserved.</li></ul>
+<div class="sim" data-sim="choques"></div>
+<div class="practica" data-gen="momento"></div>
+</section>
+
+<section class="seccion"><h2 id="fluidos">8. Hydrostatics: pressure, Pascal and Archimedes</h2>
+<ul><li>Density \(\rho=m/V\) (water: 1000 kg/m³). Pressure \(P=F/A\), in pascals (Pa).</li>
+<li>Hydrostatic pressure: \(P=\rho gh\); absolute pressure \(P=P_{atm}+\rho gh\).</li>
+<li>Pascal: a pressure applied to an enclosed fluid is transmitted equally throughout the fluid. Hydraulic press: \(F_1/A_1=F_2/A_2\).</li>
+<li>Archimedes: buoyant force \(E=\rho_{fluid}\,g\,V_{submerged}\). A body floats if its average density is less than the fluid's.</li></ul>
+<div class="sim" data-sim="arquimedes"></div>
+<div class="practica" data-gen="presion"></div>
+<div class="practica" data-gen="empuje"></div>
+</section>
+
+<section class="seccion"><h2 id="calor">9. Heat and temperature</h2>
+<ul><li>Scales: \(T(\text{K})=T(^\circ\text{C})+273.15\); \(T(^\circ\text{F})=\tfrac95T(^\circ\text{C})+32\).</li>
+<li>Sensible heat: \(Q=mc\Delta T\) (water: c = 4186 J/kg·°C = 1 cal/g·°C). Latent heat: \(Q=mL\).</li>
+<li>Linear expansion: \(\Delta L=\alpha L_0\Delta T\).</li>
+<li>Heat transfer: conduction, convection and radiation.</li></ul>
+<div class="practica" data-gen="temp"></div>
+<div class="practica" data-gen="calor"></div>
+</section>
+
+<section class="seccion"><h2 id="electricidad">10. Electricity: Coulomb, Ohm and circuits</h2>
+<ul><li>Coulomb's law: \(F=k\dfrac{|q_1q_2|}{r^2}\), \(k=8.99\times10^9\ \text{N·m}^2/\text{C}^2\).</li>
+<li>Ohm's law: \(V=IR\). Power: \(P=VI=I^2R=V^2/R\).</li>
+<li>Series: \(R_{eq}=R_1+R_2+\dots\). Parallel: \(\dfrac1{R_{eq}}=\dfrac1{R_1}+\dfrac1{R_2}+\dots\)</li>
+<li>Energy used: \(E=Pt\); on your bill, in kWh.</li></ul>
+<div class="sim" data-sim="circuito"></div>
+<div class="practica" data-gen="ohm"></div>
+<div class="practica" data-gen="serie"></div>
+<div class="practica" data-gen="coulomb"></div>
+</section>
+
+<section class="seccion"><h2 id="ondas">11. Waves and sound</h2>
+<ul><li>\(v=\lambda f\), \(T=1/f\). Transverse waves (string, light) and longitudinal waves (sound).</li>
+<li>Speed of sound in air ≈ 343 m/s at 20 °C. The human ear hears from 20 Hz to 20 kHz.</li>
+<li>Doppler effect: an approaching source sounds higher; a receding one, lower.</li></ul>
+<div class="sim" data-sim="sonido"></div>
+<div class="practica" data-gen="onda"></div>
+</section>
+
+<section class="seccion"><h2 id="optica-b">12. Geometrical optics</h2>
+<ul><li>Reflection: \(\theta_i=\theta_r\). Refractive index: \(n=c/v\). Snell: \(n_1\sin\theta_1=n_2\sin\theta_2\).</li>
+<li>Lenses and mirrors: \(\dfrac1f=\dfrac1{d_o}+\dfrac1{d_i}\), magnification \(m=-\dfrac{d_i}{d_o}\). Real image if \(d_i>0\).</li>
+<li>Lens power: \(P=1/f\) (diopters, with f in meters).</li></ul>
+<div class="sim" data-sim="optica"></div>
+<div class="practica" data-gen="snell"></div>
+<div class="practica" data-gen="lente"></div>
+</section>
+
+<section class="seccion"><h2 id="formulario">Formula sheet</h2>
+<p class="chico">Print it with Ctrl + P: the site is set up to look clean on paper.</p>
+<div class="tabla-env"><table class="tabla"><thead><tr><th>Topic</th><th>Formulas</th></tr></thead><tbody>
+<tr><th>Kinematics</th><td>\(d=vt\quad v=v_0+at\quad d=v_0t+\tfrac12at^2\quad v^2=v_0^2+2ad\)</td></tr>
+<tr><th>Projectile motion</th><td>\(t_v=\frac{2v_0\sin\theta}{g}\quad H=\frac{v_0^2\sin^2\theta}{2g}\quad R=\frac{v_0^2\sin2\theta}{g}\)</td></tr>
+<tr><th>Circular motion</th><td>\(v=\frac{2\pi r}{T}\quad a_c=\frac{v^2}{r}\quad F_c=\frac{mv^2}{r}\)</td></tr>
+<tr><th>Dynamics</th><td>\(\sum F=ma\quad W=mg\quad f_k=\mu_kN\quad F_e=-kx\)</td></tr>
+<tr><th>Gravitation</th><td>\(F=G\frac{m_1m_2}{r^2}\quad g=\frac{GM}{R^2}\quad G=6.674\times10^{-11}\)</td></tr>
+<tr><th>Energy</th><td>\(W=Fd\cos\theta\quad E_c=\tfrac12mv^2\quad E_p=mgh\quad P=\frac{W}{t}\)</td></tr>
+<tr><th>Momentum</th><td>\(p=mv\quad J=F\Delta t=\Delta p\quad \sum p_i=\sum p_f\)</td></tr>
+<tr><th>Fluids</th><td>\(\rho=\frac mV\quad P=\frac FA\quad P=\rho gh\quad E=\rho gV\quad \frac{F_1}{A_1}=\frac{F_2}{A_2}\)</td></tr>
+<tr><th>Heat</th><td>\(Q=mc\Delta T\quad Q=mL\quad \Delta L=\alpha L_0\Delta T\quad T_K=T_C+273.15\)</td></tr>
+<tr><th>Gases</th><td>\(PV=nRT\quad R=8.314\ \text{J/mol·K}\)</td></tr>
+<tr><th>Electricity</th><td>\(F=k\frac{|q_1q_2|}{r^2}\quad V=IR\quad P=VI\quad R_s=\sum R_i\quad \frac1{R_p}=\sum\frac1{R_i}\)</td></tr>
+<tr><th>Magnetism</th><td>\(F=qvB\sin\theta\quad F=ILB\sin\theta\quad B=\frac{\mu_0I}{2\pi r}\quad \mathcal E=-N\frac{\Delta\Phi}{\Delta t}\)</td></tr>
+<tr><th>Waves</th><td>\(v=\lambda f\quad T=\frac1f\quad c=3\times10^8\ \text{m/s}\)</td></tr>
+<tr><th>Optics</th><td>\(n=\frac cv\quad n_1\sin\theta_1=n_2\sin\theta_2\quad \frac1f=\frac1{d_o}+\frac1{d_i}\quad m=-\frac{d_i}{d_o}\)</td></tr>
+<tr><th>Modern physics</th><td>\(E=hf\quad E=mc^2\quad \lambda=\frac hp\quad h=6.626\times10^{-34}\ \text{J·s}\)</td></tr>
+</tbody></table></div>
+</section>
+</div>
+
+<script>
+(function(){
+var g=9.81;
+function r(a,b,p){ var x=a+Math.random()*(b-a); var f=Math.pow(10,p||0); return Math.round(x*f)/f; }
+function e(a,b){ return Math.floor(a+Math.random()*(b-a+1)); }
+function f2(x){ return PF.fmt(x,2); }
+var G = {
+ conv:function(){ var v=e(18,144); return {t:"Unit conversion",p:"A car travels at "+v+" km/h. What is its speed in m/s?",r:v/3.6,u:"m/s",s:"\\("+v+"\\div3.6="+f2(v/3.6)+"\\ \\text{m/s}\\)"}; },
+ vector:function(){ var a=e(3,20), b=e(3,20); return {t:"Vectors",p:"A vector has components A<sub>x</sub> = "+a+" y A<sub>y</sub> = "+b+". What is its magnitude?",r:Math.hypot(a,b),u:"",s:"\\(A=\\sqrt{"+a+"^2+"+b+"^2}="+f2(Math.hypot(a,b))+"\\)"}; },
+ mru:function(){ var v=e(5,30), t=e(4,60); return {t:"MRU",p:"A cyclist rides at "+v+" m/s constant for "+t+" s. How far does she go?",r:v*t,u:"m",s:"\\(d=vt=("+v+")("+t+")="+v*t+"\\ \\text{m}\\)"}; },
+ mrua:function(){ var v0=e(0,15), a=r(1,5,1), t=e(2,10), d=v0*t+.5*a*t*t; return {t:"MRUA",p:"An object starts with v₀ = "+v0+" m/s and accelerates at "+a+" m/s² for "+t+" s. How far does she go?",r:d,u:"m",s:"\\(d=v_0t+\\tfrac12at^2=("+v0+")("+t+")+\\tfrac12("+a+")("+t+")^2="+f2(d)+"\\ \\text{m}\\)"}; },
+ caida:function(){ var h=e(5,120), t=Math.sqrt(2*h/g); return {t:"Free fall",p:"A ball is dropped from "+h+" m high. How long does it take to hit the ground? (no air)",r:t,u:"s",s:"\\(t=\\sqrt{2h/g}=\\sqrt{2("+h+")/9.81}="+f2(t)+"\\ \\text{s}\\)"}; },
+ tiro:function(){ var v=e(10,40), a=[15,20,30,37,45,53,60,70][e(0,7)], R=v*v*Math.sin(2*a*Math.PI/180)/g; return {t:"Projectile motion",p:"A ball is kicked at "+v+" m/s at an angle of "+a+"° above the horizontal. What is its horizontal range (same level)?",r:R,u:"m",s:"\\(R=\\dfrac{v_0^2\\sin2\\theta}{g}=\\dfrac{("+v+")^2\\sin"+(2*a)+"^\\circ}{9.81}="+f2(R)+"\\ \\text{m}\\)"}; },
+ newton:function(){ var m=e(2,40), mu=r(.1,.5,2), F=Math.ceil(mu*m*g)+e(5,80), a=(F-mu*m*g)/m; return {t:"Newton's laws",p:"A box of "+m+" kg is pulled with a horizontal force of "+F+" N. The coefficient of kinetic friction is "+mu+". What is its acceleration?",r:a,u:"m/s²",s:"\\(f_k=\\mu mg="+f2(mu*m*g)+"\\ \\text{N};\\quad a=\\dfrac{F-f_k}{m}=\\dfrac{"+F+"-"+f2(mu*m*g)+"}{"+m+"}="+f2(a)+"\\ \\text{m/s}^2\\)"}; },
+ energia:function(){ var h=e(2,60), v=Math.sqrt(2*g*h); return {t:"Conservation of energy",p:"A cart starts from rest at "+h+" m high down a frictionless ramp. How fast is it going at the bottom?",r:v,u:"m/s",s:"\\(mgh=\\tfrac12mv^2\\Rightarrow v=\\sqrt{2gh}=\\sqrt{2(9.81)("+h+")}="+f2(v)+"\\ \\text{m/s}\\)"}; },
+ potencia:function(){ var m=e(20,200), h=e(2,20), t=e(2,30), P=m*g*h/t; return {t:"Power",p:"An engine lifts "+m+" kg a "+h+" m high in "+t+" s. What power does it develop?",r:P,u:"W",s:"\\(P=\\dfrac{mgh}{t}=\\dfrac{("+m+")(9.81)("+h+")}{"+t+"}="+f2(P)+"\\ \\text{W}\\)"}; },
+ momento:function(){ var m1=e(1,10), v1=e(2,15), m2=e(1,10), v=m1*v1/(m1+m2); return {t:"Collisions",p:"A cart of "+m1+" kg a "+v1+" m/s hits another of "+m2+" kg at rest and they stick together. How fast do they move together?",r:v,u:"m/s",s:"\\(v'=\\dfrac{m_1v_1}{m_1+m_2}=\\dfrac{("+m1+")("+v1+")}{"+(m1+m2)+"}="+f2(v)+"\\ \\text{m/s}\\)"}; },
+ presion:function(){ var h=e(2,50), P=1000*g*h/1000; return {t:"Hydrostatic pressure",p:"What hydrostatic pressure (not counting the atmosphere) is there at "+h+" m depth in fresh water? Answer in kPa.",r:P,u:"kPa",s:"\\(P=\\rho gh=(1000)(9.81)("+h+")="+f2(P*1000)+"\\ \\text{Pa}="+f2(P)+"\\ \\text{kPa}\\)"}; },
+ empuje:function(){ var V=e(1,50), E=1000*g*V/1000; return {t:"Archimedes' principle",p:"An object of "+V+" liters is completely submerged in water. What buoyant force does it receive? (1 L = 0.001 m³)",r:E,u:"N",s:"\\(E=\\rho gV=(1000)(9.81)("+(V/1000)+")="+f2(E)+"\\ \\text{N}\\)"}; },
+ temp:function(){ var c=e(-30,120); return {t:"Temperature scales",p:"Convert "+c+" °C to degrees Fahrenheit.",r:c*9/5+32,u:"°F",s:"\\(T_F=\\tfrac95("+c+")+32="+f2(c*9/5+32)+"\\ ^\\circ\\text{F}\\)"}; },
+ calor:function(){ var m=r(.2,5,1), dT=e(5,80), Q=m*4186*dT; return {t:"Heat",p:"How much heat is needed to heat "+m+" kg of water by "+dT+" °C? (c = 4186 J/kg·°C)",r:Q,u:"J",s:"\\(Q=mc\\Delta T=("+m+")(4186)("+dT+")="+f2(Q)+"\\ \\text{J}\\)"}; },
+ ohm:function(){ var V=[1.5,3,5,9,12,24,127][e(0,6)], R=e(2,500), I=V/R; return {t:"Ohm's law",p:"A resistor of "+R+" Ω is connected to "+V+" V. What current flows? Answer in mA.",r:I*1000,u:"mA",s:"\\(I=V/R="+V+"/"+R+"="+PF.fmt(I,5)+"\\ \\text{A}="+f2(I*1000)+"\\ \\text{mA}\\)"}; },
+ serie:function(){ var a=e(10,100), b=e(10,100), p=a*b/(a+b); return {t:"Resistors in parallel",p:"What is the equivalent resistance of "+a+" Ω y "+b+" Ω connected in parallel?",r:p,u:"Ω",s:"\\(R=\\dfrac{R_1R_2}{R_1+R_2}=\\dfrac{("+a+")("+b+")}{"+(a+b)+"}="+f2(p)+"\\ \\Omega\\)"}; },
+ coulomb:function(){ var q1=e(1,9), q2=e(1,9), d=r(.1,2,1), F=8.99e9*q1*1e-6*q2*1e-6/(d*d); return {t:"Coulomb's law",p:"Two charges of "+q1+" µC y "+q2+" µC are separated by "+d+" m. What force do they exert on each other?",r:F,u:"N",s:"\\(F=k\\dfrac{q_1q_2}{r^2}=(8.99\\times10^9)\\dfrac{("+q1+"\\times10^{-6})("+q2+"\\times10^{-6})}{("+d+")^2}="+f2(F)+"\\ \\text{N}\\)"}; },
+ onda:function(){ var f=e(50,2000), l=343/f; return {t:"Waves",p:"A sound of "+f+" Hz travels in air at 343 m/s. What is its wavelength? Answer in cm.",r:l*100,u:"cm",s:"\\(\\lambda=v/f=343/"+f+"="+PF.fmt(l,4)+"\\ \\text{m}="+f2(l*100)+"\\ \\text{cm}\\)"}; },
+ snell:function(){ var t1=e(10,70), n2=[1.33,1.5,2.42][e(0,2)], t2=Math.asin(Math.sin(t1*Math.PI/180)/n2)*180/Math.PI; return {t:"Snell's law",p:"Light goes from air (n = 1.00) into a material with n = "+n2+" at an angle of incidence of "+t1+"°. What is the angle of refraction?",r:t2,u:"°",s:"\\(\\sin\\theta_2=\\dfrac{1.00\\sin"+t1+"^\\circ}{"+n2+"}="+PF.fmt(Math.sin(t2*Math.PI/180),4)+"\\Rightarrow\\theta_2="+f2(t2)+"^\\circ\\)"}; },
+ lente:function(){ var f=e(5,30), d=f+e(3,40), di=1/(1/f-1/d); return {t:"Lenses",p:"An object is "+d+" cm from a converging lens with focal length "+f+" cm. How far away does the image form?",r:di,u:"cm",s:"\\(\\dfrac1{d_i}=\\dfrac1{"+f+"}-\\dfrac1{"+d+"}\\Rightarrow d_i="+f2(di)+"\\ \\text{cm}\\)"}; }
+};
+function montar(el){
+  var gen=G[el.getAttribute("data-gen")]; if(!gen) return;
+  var racha=0, ej;
+  function nuevo(){
+    ej=gen();
+    el.innerHTML='<div class="pr-cab"><b>Practice: '+ej.t+'</b><span class="chico">Streak: '+racha+'</span></div><p>'+ej.p+'</p><div class="pr-fila"><label><span class="oculto">Your answer</span><input type="text" inputmode="decimal" placeholder="Your answer"></label><span class="pr-u">'+ej.u+'</span><button type="button" class="btn chico prim" data-c>Check</button><button type="button" class="btn chico" data-s>See solution</button><button type="button" class="btn chico" data-n>Another exercise</button></div><div class="pr-res" aria-live="polite"></div>';
+    var inp=el.querySelector("input"), res=el.querySelector(".pr-res");
+    function comprobar(){
+      var v=parseFloat(inp.value.replace(",",".").replace(/\s/g,""));
+      if(isNaN(v)){ res.innerHTML='<p class="pr-mal">Type a number (you can use a decimal point).</p>'; return; }
+      var ok=Math.abs(v-ej.r)<=Math.max(Math.abs(ej.r)*0.02,0.011);
+      racha = ok ? racha+1 : 0;
+      el.querySelector(".pr-cab .chico").textContent="Streak: "+racha;
+      res.innerHTML = ok ? '<p class="pr-bien">Correct! '+(racha>=3?"You've got "+racha+" in a row: you've mastered this kind of problem.":"")+'</p>' : '<p class="pr-mal">Not yet. Check your units and operations or look at the solution.</p>';
+    }
+    el.querySelector("[data-c]").onclick=comprobar;
+    inp.addEventListener("keydown",function(e){ if(e.key==="Enter") comprobar(); });
+    el.querySelector("[data-s]").onclick=function(){ res.innerHTML='<p class="pr-sol">'+ej.s+'</p><p class="chico">Answer: '+f2(ej.r)+' '+ej.u+'</p>'; PF.tex(res); };
+    el.querySelector("[data-n]").onclick=nuevo;
+  }
+  nuevo();
+}
+document.addEventListener("pf:listo",function(){ document.querySelectorAll(".practica").forEach(montar); });
+})();
+</script>
+
+</main>
+</body>
+</html>

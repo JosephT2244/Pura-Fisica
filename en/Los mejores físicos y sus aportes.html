@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Physicists and their contributions — Pura Física!</title>
+<meta name="description" content="The people who built physics, with their contributions and a timeline of lives.">
+<meta name="theme-color" content="#F1F5F2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%2317253F' stroke-width='3'%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(60 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(-60 32 32)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='8' fill='%23D2402E'/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="es" href="../Los%20mejores%20f%C3%ADsicos%20y%20sus%20aportes.html"><link rel="alternate" hreflang="en" href="../en/Los%20mejores%20f%C3%ADsicos%20y%20sus%20aportes.html"><link rel="alternate" hreflang="pt" href="../pt/Los%20mejores%20f%C3%ADsicos%20y%20sus%20aportes.html">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/pf.css">
+<script>try{var L="en",s=localStorage.getItem("pf:lang");if(s&&s!==L&&/^(es|en|pt)$/.test(s)){var f=location.pathname.split("/").pop()||"";location.replace((L==="es"?"":"../")+(s==="es"?"":s+"/")+f+location.hash);}var t=localStorage.getItem("pf:tema");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="pizarron";document.documentElement.setAttribute("data-tema",t||"papel");document.documentElement.setAttribute("data-nivel",localStorage.getItem("pf:nivel")||"3");}catch(e){}</script>
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/indice.en.js"></script>
+<script defer src="../assets/pf.js"></script>
+<script defer src="../assets/sims-base.en.js"></script>
+</head>
+<body data-pagina="fisicos" data-traducida>
+<main id="contenido" class="pf-main">
+<header class="cabeza">
+  <div class="migas"><a href="Pura%20F%C3%ADsica%21.html">Home</a> / Physicists</div>
+  <h1>Physicists and their contributions</h1>
+  <p>Thirty people who built physics, from Archimedes to Jocelyn Bell Burnell, including two key Mexicans. The parallel-lives chart shows who overlapped with whom: tap a bar to read their story.</p>
+</header>
+
+<section aria-labelledby="vidas">
+  <h2 id="vidas">Parallel lives</h2>
+  <p class="chico">Each bar runs from birth to death. Did you know Stephen Hawking was born exactly 300 years after Galileo died?</p>
+  <div class="vidas" id="vidas-graf"></div>
+</section>
+
+<section aria-labelledby="todos">
+  <h2 id="todos">Their stories</h2>
+  <div class="linea-ctrl">
+    <div class="chips" id="areas" role="group" aria-label="Filter by area"></div>
+    <label class="buscador"><span class="oculto">Search</span><input type="search" id="qf" placeholder="Search for a name or a contribution…"></label>
+  </div>
+  <div class="chips" role="group" aria-label="Sort"><button type="button" class="chip" data-o="nac" aria-pressed="true">By date of birth</button><button type="button" class="chip" data-o="nom" aria-pressed="false">By name</button></div>
+  <div class="fisicos" id="fisicos"></div>
+</section>
+
+<section aria-labelledby="influyeron">
+  <h2 id="influyeron">Also influenced physics</h2>
+  <p>They weren't physicists, but their ideas crossed paths with physics in surprising ways.</p>
+  <div class="fichas">
+    <div class="ficha" style="--c:var(--n1)"><h4>Leonardo da Vinci</h4><p class="meta">1452–1519 · Italy</p><p>In his notebooks he described that friction doesn't depend on contact area and is proportional to weight, two centuries before Amontons. He also studied the optics of the eye and the flight of birds.</p></div>
+    <div class="ficha" style="--c:var(--n2)"><h4>Charles Darwin</h4><p class="meta">1809–1882 · England</p><p>His theory of evolution needed a very old Earth. Lord Kelvin, using cooling calculations, gave it only tens of millions of years. When radioactivity (the Earth's internal heat) was discovered, it was shown that the Earth is about 4.5 billion years old.</p></div>
+    <div class="ficha" style="--c:var(--n4)"><h4>Gregor Mendel</h4><p class="meta">1822–1884 · Austrian Silesia</p><p>Before his famous peas, he studied physics at the University of Vienna with Christian Doppler, of the Doppler effect. His statistical analysis of heredity owes a lot to that training.</p></div>
+    <div class="ficha" style="--c:var(--n5)"><h4>Louis Pasteur</h4><p class="meta">1822–1895 · France</p><p>In 1848 he discovered that certain molecules exist in two «mirror» versions that rotate polarized light in opposite directions: the birth of molecular chirality, a key idea in optics and chemistry.</p></div>
+    <div class="ficha" style="--c:var(--n3)"><h4>Thomas Alva Edison</h4><p class="meta">1847–1931 · United States</p><p>A prolific inventor (phonograph, commercial light bulb, direct-current power grids). He observed that a hot filament emits electrons in a vacuum, the «Edison effect», the basis of the vacuum tubes of early electronics.</p></div>
+  </div>
+</section>
+
+<script>
+(function(){
+var AREA = {mec:["Mechanics and gravity","var(--n3)"], em:["Electromagnetism","var(--n4)"], ter:["Thermodynamics","var(--n5)"], cua:["Quantum","var(--n2)"], nuc:["Nucleus and particles","#C2185B"], cos:["Astronomy and relativity","var(--tinta)"], opt:["Optics","var(--n1)"]};
+// nombre, nacimiento, muerte (null si vive), lugar, área, ecuación TeX, aportes, biografía, dato curioso, nivel-niño, mexicano
+var P = [
+["Archimedes of Syracuse",-287,-212,"Syracuse (Sicily)","mec","E=\\rho_{\\text{liq}}\\,g\\,V",["Principle of the lever","Principle of buoyancy","Approximated π with 96-sided polygons","The Archimedes screw for raising water"],"Greek mathematician, physicist and engineer. He defended Syracuse with ingenious machines during the Roman siege, in which he died.","The story of «Eureka!» in the bathtub was told by a Roman author two centuries later: it's probably a legend.","He discovered why ships float."],
+["Galileo Galilei",1564,1642,"Pisa (Italy)","mec","d=\\tfrac12 g t^2",["All bodies fall with the same acceleration (without air)","Principle of inertia","Moons of Jupiter and phases of Venus (1610)","Experimental method with measurement"],"Considered the father of modern science. His defense of heliocentrism brought him to trial before the Inquisition in 1633; he spent his last years under house arrest, where he wrote «Two New Sciences».","He probably never dropped balls from the Tower of Pisa: his real experiments were with inclined planes.","He showed that a big stone and a small one fall together."],
+["Johannes Kepler",1571,1630,"Weil der Stadt (Germany)","cos","\\dfrac{T^2}{a^3}=\\text{const}",["Planetary orbits are ellipses","Equal areas in equal times","T² ∝ a³","Explained how the eye forms the image on the retina"],"Tycho Brahe's assistant, he inherited his precise observations of Mars and spent years discovering that its orbit was an ellipse.","He also wrote «Somnium», one of the first science-fiction stories, about a journey to the Moon.","He discovered the exact path the planets follow."],
+["Christiaan Huygens",1629,1695,"The Hague (Netherlands)","opt","T=2\\pi\\sqrt{L/g}",["Wave theory of light","Pendulum clock (1656)","Discovered Titan and Saturn's rings","Conservation in elastic collisions"],"Dutch physicist, mathematician and astronomer; his pendulum clock greatly improved the precision of timekeeping.","The probe that landed on Titan in 2005 was named Huygens in his honor.","He invented the pendulum clock."],
+["Isaac Newton",1643,1727,"Woolsthorpe (England)","mec","\\vec F=m\\vec a",["Three laws of motion","Universal gravitation","Calculus (alongside Leibniz)","Splitting white light","Reflecting telescope"],"He was born on Christmas Day 1642 according to the Julian calendar then used in England (January 4, 1643, in today's calendar). During the plague of 1665–1666 he developed many of his ideas at home. He published the Principia in 1687.","He was Master of the Royal Mint and personally pursued counterfeiters.","He explained why apples fall and why the Moon doesn't."],
+["Henry Cavendish",1731,1810,"Nice (France)","mec","F=G\\dfrac{m_1m_2}{r^2}",["Measured the Earth's density (1798), from which G is obtained","Discovered hydrogen (1766)","Pioneering electrical experiments"],"An extremely reserved British scientist. His torsion balance measured tiny forces between lead spheres.","Many of his electrical discoveries went unpublished; Maxwell edited them almost a century later.","He «weighed» the Earth in his laboratory."],
+["Michael Faraday",1791,1867,"Newington (England)","em","\\mathcal E=-\\dfrac{d\\Phi_B}{dt}",["Electromagnetic induction (1831)","First electric motor (1821)","Laws of electrolysis","Faraday cage","The concept of field lines"],"The son of a blacksmith, with almost no formal schooling, he started as a bookbinder's apprentice and joined the Royal Institution as Humphry Davy's assistant.","He started the Royal Institution's Christmas lectures for young people, which are still given every year.","He discovered how to make electricity with magnets."],
+["James Clerk Maxwell",1831,1879,"Edinburgh (Scotland)","em","\\nabla\\times\\vec B=\\mu_0\\vec J+\\mu_0\\varepsilon_0\\dfrac{\\partial\\vec E}{\\partial t}",["Equations of electromagnetism","Light is an electromagnetic wave","Velocity distribution of gases","First color photograph (1861)"],"He unified electricity, magnetism and optics. Einstein had his portrait on the wall next to those of Newton and Faraday.","His theory predicted radio waves twenty years before Hertz produced them.","He discovered that light is electricity and magnetism traveling together."],
+["Ludwig Boltzmann",1844,1906,"Vienna (Austria)","ter","S=k_B\\ln W",["Statistical interpretation of entropy","Boltzmann transport equation","Maxwell–Boltzmann distribution"],"He defended the existence of atoms when many colleagues denied it. His work is the foundation of statistical physics.","His entropy formula is engraved on his tomb in Vienna.","He explained heat by counting how atoms move."],
+["Nikola Tesla",1856,1943,"Smiljan (present-day Croatia)","em","B\\ [\\text{T}]",["Polyphase alternating-current system","Induction motor","Tesla coil","Pioneer of wireless transmission"],"An engineer and inventor who worked briefly with Edison and then with Westinghouse; his alternating current won the «war of the currents».","The SI unit of magnetic field, the tesla, is named after him.","He helped bring electricity into homes."],
+["Max Planck",1858,1947,"Kiel (Germany)","cua","E=hf",["Quantization of energy (1900)","Black-body radiation law","Planck's constant h"],"Nobel Prize in Physics 1918. He introduced the quantum «as an act of desperation» to explain the light from hot bodies.","As a young man, a professor advised him not to study physics because «almost everything had already been discovered».","He discovered that energy comes in tiny packets."],
+["Marie Curie",1867,1934,"Warsaw (Poland)","nuc","N=N_0e^{-\\lambda t}",["Discovered polonium and radium","Coined the word «radioactivity»","Mobile X-ray units in World War I"],"The first woman to win a Nobel Prize and the only person with Nobels in two different sciences: Physics (1903) and Chemistry (1911).","Her notebooks are still radioactive and are kept in lead-lined boxes.","She discovered elements that glow with their own energy."],
+["Ernest Rutherford",1871,1937,"Brightwater (New Zealand)","nuc","",["Discovered the atomic nucleus (1911)","Classified alpha and beta radiation","First artificial transmutation and discovery of the proton (1919)"],"The father of nuclear physics. Many of his students also won the Nobel Prize.","His Nobel Prize (1908) was in Chemistry, not Physics.","He discovered that the atom has a tiny center."],
+["Lise Meitner",1878,1968,"Vienna (Austria)","nuc","E=\\Delta m\\,c^2",["Explained nuclear fission together with Otto Frisch (1939)","Pioneering studies of radioactivity"],"She worked for decades with Otto Hahn in Berlin and had to flee Nazi Germany in 1938. From Sweden, with her nephew Frisch, she understood that uranium was splitting.","The 1944 Nobel Prize in Chemistry went to Hahn alone. Element 109, meitnerium, is named after her.","She understood how the uranium nucleus splits."],
+["Albert Einstein",1879,1955,"Ulm (Germany)","cos","E=mc^2",["Special (1905) and general (1915) relativity","Photoelectric effect","Brownian motion","Stimulated emission (the basis of the laser)"],"He was working at the patent office in Bern when, in 1905, he published four papers that changed physics.","He received the 1921 Nobel Prize for the photoelectric effect, not for relativity.","He discovered that time can run slower if you travel very fast."],
+["Emmy Noether",1882,1935,"Erlangen (Germany)","mec","\\partial_\\mu j^\\mu=0",["Noether's theorem (1918): every symmetry implies a conservation law","Foundations of abstract algebra"],"For years she taught at Göttingen without pay because she was a woman. Her theorem is one of the pillars of all modern physics.","In a letter to the New York Times after her death, Einstein called her the most significant creative mathematical genius since higher education was opened to women.","She discovered why energy is never lost."],
+["Niels Bohr",1885,1962,"Copenhagen (Denmark)","cua","E_n=-\\dfrac{13.6\\ \\text{eV}}{n^2}",["Atomic model with energy levels (1913)","Correspondence principle","Copenhagen interpretation"],"Nobel Prize 1922. His institute in Copenhagen was the world center of quantum physics in the 1920s and 30s.","He was a soccer goalkeeper for a university club; his brother Harald played for Denmark at the 1908 Olympic Games.","He explained why each atom glows with its own colors."],
+["Erwin Schrödinger",1887,1961,"Vienna (Austria)","cua","i\\hbar\\dfrac{\\partial\\Psi}{\\partial t}=\\hat H\\Psi",["Schrödinger equation (1926)","Schrödinger's cat (1935)"],"Nobel Prize 1933 together with Dirac.","His book «What Is Life?» (1944) inspired several of the discoverers of the structure of DNA.","He wrote the equation for matter waves."],
+["Manuel Sandoval Vallarta",1899,1977,"Mexico City","cos","",["Theory of the effects of the Earth's magnetic field on cosmic rays (with Georges Lemaître)","A pioneer of physics in Mexico","Director general of the IPN from 1944"],"He studied and taught at MIT, where he was Richard Feynman's mentor and co-author of his first scientific publication. He returned to Mexico and drove forward national scientific research.","Before becoming a famous physicist, Feynman published his first paper with this Mexican, on cosmic rays.","He studied the rays that arrive from space and was director of the IPN.",true],
+["Werner Heisenberg",1901,1976,"Würzburg (Germany)","cua","\\Delta x\\,\\Delta p\\ge\\dfrac{\\hbar}{2}",["Matrix mechanics (1925)","Uncertainty principle (1927)"],"Nobel Prize 1932. One of the central figures of quantum mechanics.","He came up with matrix mechanics on the island of Heligoland, where he went to recover from severe hay fever.","He discovered that you can't know everything about a particle at once."],
+["Enrico Fermi",1901,1954,"Rome (Italy)","nuc","",["Theory of beta decay","First nuclear reactor (1942)","Fermi–Dirac statistics"],"Nobel Prize 1938. One of the few great physicists equally brilliant in theory and experiment.","His «Fermi problems» teach you to estimate almost anything with simple reasoning.","He built the first nuclear reactor."],
+["Paul Dirac",1902,1984,"Bristol (England)","cua","(i\\gamma^\\mu\\partial_\\mu-m)\\psi=0",["Relativistic equation of the electron (1928)","Prediction of antimatter","Foundations of quantum electrodynamics"],"Nobel Prize 1933. His equation joined quantum mechanics with relativity and predicted the positron.","He was famous for saying very little and answering with almost literal precision.","He predicted that antimatter exists."],
+["Maria Goeppert Mayer",1906,1972,"Katowice (present-day Poland)","nuc","",["Nuclear shell model (1949)","Nuclear magic numbers"],"Nobel Prize 1963. For years she did research without a paid position because of rules that barred hiring professors' wives.","She was the second woman to win the Nobel Prize in Physics, sixty years after Marie Curie.","She discovered how protons and neutrons are arranged in the nucleus."],
+["Chien-Shiung Wu",1912,1997,"Liuhe (China)","nuc","",["The experiment that demonstrated parity violation (1956–1957)","Precision measurements of beta decay"],"An exceptional experimentalist, called «the First Lady of Physics». Her experiment changed our idea of nature's symmetries.","The 1957 Nobel Prize for parity violation went to the theorists Lee and Yang; she received the first Wolf Prize in Physics (1978).","She showed that nature tells left from right."],
+["Richard Feynman",1918,1988,"New York (United States)","cua","",["Quantum electrodynamics","Feynman diagrams","Path integrals","Outreach: The Feynman Lectures"],"Nobel Prize 1965. A great teacher and communicator; his physics course for beginners is read all over the world.","During the investigation of the Challenger shuttle accident (1986), he used a glass of ice water to show how a rubber O-ring failed.","He invented drawings to understand how particles collide."],
+["Marcos Moshinsky",1921,2009,"Kyiv (Ukraine); Mexican since childhood","nuc","",["Moshinsky brackets (nuclear physics)","Diffraction in time (1952)","Group theory applied to physics"],"He came to Mexico as a child, studied at UNAM and earned his PhD at Princeton under Eugene Wigner. Founder of theoretical nuclear physics in Mexico and a member of El Colegio Nacional.","He received the Prince of Asturias Award for Scientific and Technical Research in 1988.","He helped us understand how atomic nuclei work.",true],
+["Vera Rubin",1928,2016,"Philadelphia (United States)","cos","v(r)\\approx\\text{const}",["Galaxy rotation curves: evidence for dark matter"],"She measured that stars at the edge of galaxies orbit as fast as those near the center: there must be invisible mass.","The Vera C. Rubin Observatory in Chile is named after her and showed its first images in 2025.","She discovered clues to an invisible matter."],
+["Peter Higgs",1929,2024,"Newcastle (England)","nuc","",["Higgs mechanism (1964)","Prediction of the Higgs boson"],"Nobel Prize 2013 together with François Englert, after the boson was discovered at CERN in 2012.","He had to wait 48 years to see his prediction confirmed.","He predicted the particle that gives mass to others."],
+["Stephen Hawking",1942,2018,"Oxford (England)","cos","T_H=\\dfrac{\\hbar c^3}{8\\pi GMk_B}",["Hawking radiation (1974)","Singularity theorems (with Penrose)","Outreach: «A Brief History of Time»"],"Diagnosed with ALS at 21, he kept doing research and outreach for more than five decades.","He was born on January 8, 1942, exactly 300 years after Galileo's death.","He discovered that black holes can glow a tiny bit."],
+["Jocelyn Bell Burnell",1943,null,"Lurgan (Northern Ireland)","cos","",["Discovery of pulsars (1967)"],"As a PhD student she noticed a strangely regular radio signal: it was spinning neutron stars.","In 2018 she donated the $3 million from her Breakthrough Prize to fund scholarships for physics students from underrepresented groups.","She discovered stars that spin like lighthouses."]
+];
+var area="todas", q="", orden="nac", abierta=null;
+function anio(a){ return a<0 ? (-a)+" a.C." : String(a); }
+function vidas(){
+  var lista = P.slice().sort(function(a,b){return a[1]-b[1];});
+  var W=1000, fila=17, H=lista.length*fila+30, x0=-300, x1=2026;
+  var esc=function(a){ return a<1500 ? 160*(a-x0)/(1500-x0) : 160+(W-170)*(a-1500)/(x1-1500); };
+  var s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Línea de vidas de los físicos">';
+  [1500,1600,1700,1800,1900,2000].forEach(function(a){ var x=esc(a); s+='<line x1="'+x+'" y1="0" x2="'+x+'" y2="'+(H-18)+'" stroke="var(--linea)"/><text x="'+x+'" y="'+(H-4)+'" font-size="11" text-anchor="middle" fill="var(--tinta-3)">'+a+'</text>'; });
+  s+='<text x="4" y="'+(H-4)+'" font-size="11" fill="var(--tinta-3)">300 a.C. (escala comprimida)</text>';
+  lista.forEach(function(p,i){ var y=i*fila+6, a=esc(p[1]), b=esc(p[2]==null?2026:p[2]);
+    s+='<g class="vida" data-n="'+P.indexOf(p)+'" tabindex="0" role="button" aria-label="'+p[0]+'"><rect x="'+a+'" y="'+y+'" width="'+Math.max(4,b-a)+'" height="11" rx="3" fill="'+AREA[p[4]][1]+'"'+(p[2]==null?' opacity=".6"':'')+'/><text x="'+(b+5 > W-160 ? a-5 : b+5)+'" y="'+(y+9.5)+'" font-size="11" fill="var(--tinta)" text-anchor="'+(b+5 > W-160 ? "end":"start")+'">'+p[0]+(p[10]?" 🇲🇽":"")+'</text></g>'; });
+  s+='</svg>';
+  var el=document.getElementById("vidas-graf"); el.innerHTML=s;
+  function ir(g){ var i=+g.getAttribute("data-n"); area="todas"; q=""; document.getElementById("qf").value=""; abierta=i; chips(); tarjetas(); var t=document.getElementById("f-"+i); if(t){ t.scrollIntoView({behavior:"smooth",block:"center"}); } }
+  el.querySelectorAll(".vida").forEach(function(g){ g.addEventListener("click",function(){ir(g);}); g.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); ir(g);} }); });
+}
+function chips(){
+  document.getElementById("areas").innerHTML = '<button type="button" class="chip" data-a="todas" aria-pressed="'+(area==="todas")+'">Todas</button>' + Object.keys(AREA).map(function(k){ return '<button type="button" class="chip" data-a="'+k+'" aria-pressed="'+(area===k)+'"><span class="pt" style="--c:'+AREA[k][1]+'"></span>'+AREA[k][0]+'</button>'; }).join("") + '<button type="button" class="chip" data-a="mx" aria-pressed="'+(area==="mx")+'">From Mexico</button>';
+}
+function norm(s){ return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""); }
+function tarjetas(){
+  var n=PF.nivel(), nq=norm(q);
+  var lista = P.map(function(p,i){return [p,i];}).filter(function(x){ var p=x[0]; if(area==="mx") return !!p[10]; if(area!=="todas" && p[4]!==area) return false; return !nq || norm(p.join(" ")).indexOf(nq)>=0; });
+  lista.sort(function(a,b){ return orden==="nac" ? a[0][1]-b[0][1] : a[0][0].localeCompare(b[0][0],"es"); });
+  document.getElementById("fisicos").innerHTML = lista.map(function(x){
+    var p=x[0], i=x[1];
+    var ec = (n>=3 && p[5]) ? '<div class="f-ec">'+PF.texStr(p[5], true)+'</div>' : '';
+    var cuerpo = n<=1 ? '<p>'+p[9]+'</p><p class="f-dato"><b>Fun fact:</b> '+p[8]+'</p>'
+      : '<p>'+p[7]+'</p><ul>'+p[6].map(function(a){return '<li>'+a+'</li>';}).join("")+'</ul>'+ec+'<p class="f-dato"><b>Fun fact:</b> '+p[8]+'</p>';
+    return '<details class="fisico" id="f-'+i+'" style="--c:'+AREA[p[4]][1]+'"'+(abierta===i?' open':'')+'><summary><span class="f-ini" aria-hidden="true">'+p[0].split(" ").filter(function(w){return w.length>1&&w[0]===w[0].toUpperCase()&&w[0]!=="(";}).slice(0,2).map(function(w){return w[0];}).join("")+'</span><span><b>'+p[0]+(p[10]?' <span class="mx">Mexico</span>':'')+'</b><small>'+anio(p[1])+' – '+(p[2]==null?'':anio(p[2]))+' · '+p[3]+'</small><small>'+p[6][0]+'</small></span></summary><div class="f-cuerpo">'+cuerpo+'</div></details>';
+  }).join("") || '<p>Nobody matches your search.</p>';
+}
+document.addEventListener("pf:listo", function(){
+  vidas(); chips(); tarjetas();
+  document.getElementById("areas").addEventListener("click", function(e){ var b=e.target.closest(".chip"); if(!b) return; area=b.dataset.a; chips(); tarjetas(); });
+  document.querySelectorAll("[data-o]").forEach(function(b){ b.addEventListener("click", function(){ orden=b.dataset.o; document.querySelectorAll("[data-o]").forEach(function(x){ x.setAttribute("aria-pressed", String(x===b)); }); tarjetas(); }); });
+  document.getElementById("qf").addEventListener("input", function(){ q=this.value; tarjetas(); });
+  document.addEventListener("pf:nivel", tarjetas);
+});
+})();
+</script>
+
+</main>
+</body>
+</html>

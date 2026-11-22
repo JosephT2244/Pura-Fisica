@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Como estudar física — Pura Física!</title>
+<meta name="description" content="Método de estudo, trilha de aprendizagem e recursos por nível.">
+<meta name="theme-color" content="#F1F5F2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%2317253F' stroke-width='3'%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(60 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(-60 32 32)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='8' fill='%23D2402E'/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="es" href="../Recomendaciones%20para%20estudiar%20f%C3%ADsica.html"><link rel="alternate" hreflang="en" href="../en/Recomendaciones%20para%20estudiar%20f%C3%ADsica.html"><link rel="alternate" hreflang="pt" href="../pt/Recomendaciones%20para%20estudiar%20f%C3%ADsica.html">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/pf.css">
+<script>try{var L="pt",s=localStorage.getItem("pf:lang");if(s&&s!==L&&/^(es|en|pt)$/.test(s)){var f=location.pathname.split("/").pop()||"";location.replace((L==="es"?"":"../")+(s==="es"?"":s+"/")+f+location.hash);}var t=localStorage.getItem("pf:tema");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="pizarron";document.documentElement.setAttribute("data-tema",t||"papel");document.documentElement.setAttribute("data-nivel",localStorage.getItem("pf:nivel")||"3");}catch(e){}</script>
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/indice.pt.js"></script>
+<script defer src="../assets/pf.js"></script>
+<script defer src="../assets/sims-base.pt.js"></script>
+</head>
+<body data-pagina="recom" data-traducida>
+<main id="contenido" class="pf-main">
+<header class="cabeza">
+  <div class="migas"><a href="Pura%20F%C3%ADsica%21.html">Início</a> / Como estudar física</div>
+  <h1>Como estudar física</h1>
+  <p>Um método que funciona, uma lista para resolver qualquer problema, a trilha completa do que é preciso aprender e os melhores recursos para cada nível. Inclui um cronômetro para estudar em blocos.</p>
+</header>
+
+<div class="cuaderno">
+<nav class="indice" data-auto="main h2[id]" data-titulo="Nesta página" aria-label="Índice"></nav>
+
+<section class="seccion"><h2 id="metodo">Um método que funciona</h2>
+<div class="niveles">
+  <div data-n="1"><p>Para aprender física, brinque e pergunte! Faça experimentos simples em casa (com bolas, ímãs, lanternas), pergunte «por quê?» e procure a resposta com um adulto. Desenhe o que você observa e conte para alguém: se você consegue explicar, você entendeu.</p></div>
+  <div data-n="3"><ol>
+    <li><b>Primeiro a ideia, depois a fórmula.</b> Antes de decorar \(F=ma\), entenda o que significa: mais força, mais aceleração; mais massa, menos aceleração.</li>
+    <li><b>Faça problemas, muitos.</b> A física se aprende com lápis na mão. Ler soluções não é o mesmo que resolver.</li>
+    <li><b>Lembrança ativa.</b> Feche o caderno e escreva o que lembra; depois compare. É muito mais eficaz que reler.</li>
+    <li><b>Revisão espaçada.</b> Revise um tema no dia seguinte, depois de uma semana e de um mês. Assim ele fica na memória de longo prazo.</li>
+    <li><b>Técnica Feynman.</b> Explique o tema com palavras simples, como para uma criança. Onde você travar, ali está o que não entende.</li>
+    <li><b>Verifique unidades e ordens de grandeza.</b> Se um carro sai a 3 000 m/s, algo está errado.</li>
+    <li><b>Durma.</b> O sono consolida o aprendido; virar a noite antes da prova rende menos que dormir bem.</li>
+  </ol></div>
+  <div data-n="4"><p>Além disso: domine as ferramentas matemáticas ao mesmo tempo que a física (cálculo vetorial, equações diferenciais, álgebra linear); deduza as fórmulas em vez de decorá-las; resolva problemas de vários livros, porque cada autor treina intuições diferentes; aprenda a programar simulações simples (Python com NumPy e Matplotlib) e forme grupos de estudo onde cada um explique um problema no quadro.</p></div>
+  <div data-n="5"><p>Na pós-graduação e na pesquisa, o desafio já não é resolver problemas, mas formulá-los. Leia artigos originais (arXiv), reproduza resultados clássicos com seus próprios cálculos, mantenha um caderno de pesquisa, discuta suas ideias cedo com outras pessoas e pratique a escrita: um resultado que não se comunica bem quase não existe.</p></div>
+</div>
+</section>
+
+<section class="seccion"><h2 id="problemas">Lista para resolver qualquer problema</h2>
+<p>Baseada no método de George Pólya. Vá marcando cada passo enquanto resolve.</p>
+<ul class="checklist" id="check">
+  <li><label><input type="checkbox"> <b>Leio o problema duas vezes</b> e sublinho o que se pede.</label></li>
+  <li><label><input type="checkbox"> <b>Faço um desenho ou diagrama</b> (de corpo livre, de raios, de circuito…).</label></li>
+  <li><label><input type="checkbox"> <b>Anoto os dados com unidades</b> e os converto para o SI.</label></li>
+  <li><label><input type="checkbox"> <b>Identifico o princípio físico</b>: leis de Newton? Conservação da energia? Do momento?</label></li>
+  <li><label><input type="checkbox"> <b>Escrevo a equação em símbolos</b> e isolo a incógnita antes de substituir números.</label></li>
+  <li><label><input type="checkbox"> <b>Substituo e calculo</b> com cuidado, atento aos algarismos significativos.</label></li>
+  <li><label><input type="checkbox"> <b>Verifico:</b> as unidades batem? O resultado é razoável? O que acontece em casos extremos?</label></li>
+</ul>
+<button type="button" class="btn chico" id="check-borrar">Começar outro problema</button>
+</section>
+
+<section class="seccion"><h2 id="pomodoro">Cronômetro de estudo</h2>
+<p>Estude em blocos de concentração total seguidos de pausas curtas (técnica Pomodoro). Durante o bloco: celular longe e uma só tarefa.</p>
+<div class="pomo" id="pomo">
+  <div class="pomo-modo" role="group" aria-label="Duração"><button type="button" class="chip" data-m="25" aria-pressed="true">Estudo 25 min</button><button type="button" class="chip" data-m="50" aria-pressed="false">Estudo 50 min</button><button type="button" class="chip" data-m="5" aria-pressed="false">Pausa 5 min</button><button type="button" class="chip" data-m="15" aria-pressed="false">Pausa 15 min</button></div>
+  <div class="pomo-reloj" aria-live="polite" id="pomo-t">25:00</div>
+  <div class="fila-btn"><button type="button" class="btn prim" id="pomo-ir">Iniciar</button><button type="button" class="btn" id="pomo-re">Reiniciar</button></div>
+  <p class="chico" id="pomo-n">Blocos concluídos hoje: 0</p>
+</div>
+</section>
+
+<section class="seccion"><h2 id="ruta">Trilha de aprendizagem</h2>
+<p>O que aprender, em que ordem, do ensino fundamental à pós-graduação. Abra cada etapa para ver seus temas de física e a matemática de que você precisa.</p>
+<div class="mapa" data-titulo="Trilha de aprendizagem da física" data-abrir="1"><script type="application/json">
+{"t":"Seu caminho na física","d":"Cada etapa se apoia na anterior. A matemática e a física avançam juntas.","h":[
+ {"t":"Ensino fundamental I (Explorador)","d":"Curiosidade e observação.","h":[{"t":"Física","d":"Forças e movimento no pátio, luz e sombras, ímãs, calor e estados da água, o Sistema Solar."},{"t":"Matemática","d":"Medir, tabelas e gráficos simples, frações."}]},
+ {"t":"Ensino fundamental II (Curioso)","d":"Primeiras leis e primeiras fórmulas.","h":[{"t":"Física","d":"Velocidade e aceleração, leis de Newton, energia, ondas e som, modelo de partículas, eletricidade básica.","a":"Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#basico"},{"t":"Matemática","d":"Álgebra, isolar incógnitas, proporcionalidade, notação científica, geometria e teorema de Pitágoras."}]},
+ {"t":"Ensino médio (Ensino médio)","d":"Física quantitativa com problemas.","h":[{"t":"Física","d":"Cinemática e dinâmica, energia e momento, fluidos, termodinâmica, eletricidade e magnetismo, ondas e óptica, introdução à física moderna.","a":"Explicaciones%20nivel%20bachillerato.html"},{"t":"Matemática","d":"Trigonometria, vetores, funções, geometria analítica e introdução ao cálculo diferencial e integral."}]},
+ {"t":"Graduação (Universitário)","d":"De onde saem as equações.","h":[{"t":"Física","d":"Mecânica clássica (lagrangiana e hamiltoniana), eletromagnetismo, mecânica quântica, termodinâmica e física estatística, óptica, relatividade especial, laboratórios e física computacional."},{"t":"Matemática","d":"Cálculo vetorial, equações diferenciais, álgebra linear, variável complexa, séries de Fourier, probabilidade e métodos numéricos."}]},
+ {"t":"Pós-graduação (Físico)","d":"Especialização e pesquisa.","h":[{"t":"Física","d":"Teoria quântica de campos, relatividade geral, matéria condensada, física nuclear e de partículas, astrofísica e cosmologia, informação quântica."},{"t":"Matemática","d":"Teoria de grupos, geometria diferencial, análise funcional, topologia e métodos computacionais avançados."}]}]}
+</script></div>
+</section>
+
+<section class="seccion"><h2 id="recursos">Recursos por nível</h2>
+<p>Os recursos do seu nível aparecem primeiro. Você pode ver os de outro nível com os botões.</p>
+<div class="chips" id="rec-n" role="group" aria-label="Nível dos recursos"></div>
+<div class="recursos" id="rec"></div>
+</section>
+
+<section class="seccion"><h2 id="experimentar">Experimente com seu celular</h2>
+<p>Seu telefone tem acelerômetro, giroscópio, magnetômetro, microfone e sensor de luz: é um laboratório de bolso! O aplicativo gratuito <b>phyphox</b> (da Universidade RWTH Aachen) permite medir a aceleração de um elevador, o período de um pêndulo, a frequência da sua voz ou o campo magnético de um ímã. E com o <b>Tracker</b> você pode analisar vídeos de movimentos quadro a quadro.</p>
+</section>
+
+<section class="seccion"><h2 id="errores">Erros comuns ao estudar física</h2>
+<ul class="lista-tic">
+  <li>Decorar fórmulas sem entender o que significa cada letra.</li>
+  <li>Substituir números desde o começo em vez de trabalhar com símbolos.</li>
+  <li>Esquecer as unidades ou misturar sistemas (km/h com segundos).</li>
+  <li>Não desenhar: um bom diagrama resolve metade do problema.</li>
+  <li>Ler a solução antes de tentar o problema durante pelo menos 15 minutos.</li>
+  <li>Estudar tudo na véspera em vez de um pouco a cada dia.</li>
+</ul>
+</section>
+
+<section class="seccion"><h2 id="olimpiadas">Olimpíadas e competições</h2>
+<p>Se você gosta de física, as olimpíadas são a melhor forma de ir mais longe. No México, a <b>Olimpíada Nacional de Física</b> organizada pela Sociedade Mexicana de Física seleciona quem representa o país na Olimpíada Ibero-Americana e na Olimpíada Internacional de Física. Os problemas de olimpíadas passadas são um excelente material de prática.</p>
+</section>
+</div>
+
+<script>
+(function(){
+// nivel, tipo, título, descripción
+var R=[
+[1,"Livro","George e o segredo do universo — Lucy e Stephen Hawking","Romance de aventuras com ciência real sobre o espaço e os buracos negros."],
+[1,"Simulações","PhET (Universidade do Colorado)","Centenas de simulações gratuitas em português: forças, circuitos, ondas, átomos."],
+[1,"Vídeo","Date un Vlog e QuantumFracture (YouTube, em espanhol)","Explicações claras e com muito humor sobre perguntas de física."],
+[1,"Experimentos","phyphox","Aplicativo gratuito para medir com os sensores do seu celular."],
+[2,"Livro","Física conceitual — Paul G. Hewitt","Toda a física com ideias e quase sem fórmulas. Ideal para começar a sério."],
+[2,"Livro","O senhor Tompkins no país das maravilhas — George Gamow","Um clássico que imagina um mundo onde a relatividade e a quântica se veem a olho nu."],
+[2,"Curso","Khan Academy em português","Aulas e exercícios de física e matemática, grátis."],
+[2,"Vídeo","CdeCiencia e Veritasium","Experimentos e perguntas surpreendentes; CdeCiencia em espanhol, Veritasium em inglês com legendas."],
+[3,"Livro","Física general — Héctor Pérez Montiel","Livro mexicano muito usado no ensino médio, com muitos exercícios resolvidos."],
+[3,"Livro","Física básica — Paul E. Tippens","Claro, organizado e com problemas graduados."],
+[3,"Livro","Física: princípios com aplicações — Douglas Giancoli","Excelente para se preparar para vestibulares."],
+[3,"Livro","Uma breve história do tempo — Stephen Hawking","Divulgação clássica sobre cosmologia e buracos negros."],
+[3,"Site","HyperPhysics (Georgia State University)","Mapa conceitual interligado de quase toda a física, com fórmulas."],
+[3,"Prática","Olimpíada Nacional de Física (Sociedade Mexicana de Física)","Provas anteriores: o melhor treino para ir além."],
+[4,"Livro","Física — Sears, Zemansky, Young e Freedman","O texto padrão dos primeiros semestres."],
+[4,"Livro","Física para cientistas e engenheiros — Serway e Jewett","Alternativa muito completa com muitos problemas."],
+[4,"Livro","An Introduction to Mechanics — Kleppner e Kolenkow","Mecânica com mais profundidade; problemas desafiadores."],
+[4,"Livro","Introduction to Electrodynamics / Quantum Mechanics — David J. Griffiths","Os dois livros mais queridos da graduação."],
+[4,"Livro","Mathematical Methods in the Physical Sciences — Mary L. Boas","A matemática de que você precisa, explicada para físicos."],
+[4,"Curso","MIT OpenCourseWare (8.01, 8.02, 8.04…)","Cursos completos e gratuitos com notas, tarefas e provas."],
+[4,"Livro","The Feynman Lectures on Physics","Grátis on-line em feynmanlectures.caltech.edu. Uma forma única de pensar a física."],
+[4,"Vídeo","3Blue1Brown e PBS Space Time","Intuição visual de matemática e física de fronteira (em inglês)."],
+[5,"Livro","Classical Mechanics — Herbert Goldstein","Mecânica analítica de referência."],
+[5,"Livro","Classical Electrodynamics — J. D. Jackson","O clássico do eletromagnetismo de pós-graduação."],
+[5,"Livro","Modern Quantum Mechanics — Sakurai e Napolitano","Quântica moderna, com enfoque algébrico."],
+[5,"Livro","Spacetime and Geometry — Sean Carroll","Relatividade geral clara e moderna."],
+[5,"Livro","An Introduction to Quantum Field Theory — Peskin e Schroeder","O texto padrão de teoria quântica de campos."],
+[5,"Livro","Curso de física teórica — Landau e Lifshitz","Dez volumes lendários por sua profundidade e concisão."],
+[5,"Notas","Lecture notes de David Tong (Universidade de Cambridge)","Notas gratuitas e excelentes de quase todos os cursos de pós-graduação."],
+[5,"Artigos","arXiv.org","Onde se publicam os preprints de quase toda a física atual."]
+];
+var nv;
+function pintar(){
+  document.getElementById("rec-n").innerHTML=PF.NIVELES.map(function(x){ return '<button type="button" class="chip" data-n="'+x.n+'" aria-pressed="'+(x.n===nv)+'">'+x.nom+'</button>'; }).join("");
+  document.getElementById("rec").innerHTML=R.filter(function(r){return r[0]===nv;}).map(function(r){ return '<div class="ficha" style="--c:var(--n'+r[0]+')"><p class="meta">'+r[1]+'</p><h4>'+r[2]+'</h4><p>'+r[3]+'</p></div>'; }).join("");
+}
+// pomodoro
+var dur=25*60, rest=dur, timer=null, hechos=0;
+try{ var hoy=new Date().toDateString(); var g=JSON.parse(localStorage.getItem("pf:pomo")||"{}"); if(g.d===hoy) hechos=g.n||0; }catch(e){}
+function fmt(s){ return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0"); }
+function tic(){ rest--; document.getElementById("pomo-t").textContent=fmt(Math.max(0,rest)); document.title=fmt(Math.max(0,rest))+" · Como estudar física"; if(rest<=0){ clearInterval(timer); timer=null; document.getElementById("pomo-ir").textContent="Iniciar"; if(dur>=25*60){ hechos++; try{ localStorage.setItem("pf:pomo",JSON.stringify({d:new Date().toDateString(),n:hechos})); }catch(e){} } document.getElementById("pomo-n").textContent="Blocos concluídos hoje: "+hechos+". Tempo! "+(dur>=25*60?"Faça uma pausa.":"De volta aos estudos."); try{ var ac=new (window.AudioContext||window.webkitAudioContext)(), o=ac.createOscillator(), gg=ac.createGain(); o.frequency.value=880; gg.gain.value=.1; o.connect(gg); gg.connect(ac.destination); o.start(); o.stop(ac.currentTime+.6); }catch(e){} } }
+document.addEventListener("pf:listo",function(){
+  nv=PF.nivel(); pintar();
+  document.getElementById("rec-n").addEventListener("click",function(e){ var b=e.target.closest(".chip"); if(!b) return; nv=+b.dataset.n; pintar(); });
+  document.addEventListener("pf:nivel",function(e){ nv=e.detail; pintar(); });
+  document.getElementById("check-borrar").onclick=function(){ document.querySelectorAll("#check input").forEach(function(i){ i.checked=false; }); };
+  document.getElementById("pomo-n").textContent="Blocos concluídos hoje: "+hechos;
+  document.querySelectorAll(".pomo-modo .chip").forEach(function(b){ b.onclick=function(){ document.querySelectorAll(".pomo-modo .chip").forEach(function(x){x.setAttribute("aria-pressed",String(x===b));}); dur=+b.dataset.m*60; rest=dur; if(timer){clearInterval(timer);timer=null;} document.getElementById("pomo-ir").textContent="Iniciar"; document.getElementById("pomo-t").textContent=fmt(rest); }; });
+  document.getElementById("pomo-ir").onclick=function(){ if(timer){ clearInterval(timer); timer=null; this.textContent="Continuar"; } else { if(rest<=0) rest=dur; timer=setInterval(tic,1000); this.textContent="Pausar"; } };
+  document.getElementById("pomo-re").onclick=function(){ if(timer){clearInterval(timer);timer=null;} rest=dur; document.getElementById("pomo-t").textContent=fmt(rest); document.getElementById("pomo-ir").textContent="Iniciar"; };
+});
+})();
+</script>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pura Física! — física para todos los niveles</title>
+<meta name="description" content="Aprende física jugando con simulaciones, a tu nivel: de los 6 años al posgrado.">
+<meta name="theme-color" content="#F1F5F2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%2317253F' stroke-width='3'%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(60 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(-60 32 32)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='8' fill='%23D2402E'/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="es" href="Pura%20F%C3%ADsica%21.html"><link rel="alternate" hreflang="en" href="en/Pura%20F%C3%ADsica%21.html"><link rel="alternate" hreflang="pt" href="pt/Pura%20F%C3%ADsica%21.html">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/pf.css">
+<script>try{var L="es",s=localStorage.getItem("pf:lang");if(s&&s!==L&&/^(es|en|pt)$/.test(s)){var f=location.pathname.split("/").pop()||"";location.replace((L==="es"?"":"../")+(s==="es"?"":s+"/")+f+location.hash);}var t=localStorage.getItem("pf:tema");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="pizarron";document.documentElement.setAttribute("data-tema",t||"papel");document.documentElement.setAttribute("data-nivel",localStorage.getItem("pf:nivel")||"3");}catch(e){}</script>
+<script defer src="assets/katex/katex.min.js"></script>
+<script defer src="assets/katex/auto-render.min.js"></script>
+<script defer src="assets/indice.js"></script>
+<script defer src="assets/pf.js"></script>
+<script defer src="assets/sims-base.js"></script><script defer src="assets/sims-ondas.js"></script><script defer src="assets/sims-moderna.js"></script><script defer src="assets/historia.js"></script>
+</head>
+<body data-pagina="inicio" data-traducida>
+<main id="contenido" class="pf-main">
+<section class="intro" aria-labelledby="titulo-portada">
+  <div>
+    <h1 id="titulo-portada" aria-label="Pura Física!"><span aria-hidden="true"><span class="l" style="--i:0">P</span><span class="l" style="--i:1">u</span><span class="l" style="--i:2">r</span><span class="l" style="--i:3">a</span><span class="l" style="--i:4">&nbsp;</span><span class="l" style="--i:5">F</span><span class="l" style="--i:6">í</span><span class="l" style="--i:7">s</span><span class="l" style="--i:8">i</span><span class="l" style="--i:9">c</span><span class="l" style="--i:10">a</span><span class="l" style="--i:11">!</span></span><svg class="subraya" viewBox="0 0 400 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 18 C 80 6, 170 26, 250 12 S 360 8, 396 16" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></h1>
+    <p class="lema" data-i18n="i.lema">Un viaje desde una manzana que cae hasta el borde del universo. Aquí la física no se lee: se toca, se lanza, se enciende y se mide, al nivel que tú elijas.</p>
+    <div class="fila-btn">
+      <a class="btn prim grande" href="#viaje" data-i18n="i.cta1">Comenzar el viaje</a>
+      <a class="btn grande" href="Laboratorio.html" data-i18n="i.cta2">Ir al laboratorio</a>
+    </div>
+  </div>
+  <div class="intro-atomo" aria-hidden="true">
+    <svg viewBox="0 0 520 520">
+      <defs>
+        <radialGradient id="gNuc" cx="38%" cy="34%" r="70%"><stop offset="0" stop-color="var(--tinta-2)"/><stop offset=".55" stop-color="var(--tinta)"/><stop offset="1" stop-color="var(--tinta)"/></radialGradient>
+        <radialGradient id="gHalo" r="50%"><stop offset="0" stop-color="var(--boli)" stop-opacity=".22"/><stop offset="1" stop-color="var(--boli)" stop-opacity="0"/></radialGradient>
+        <filter id="fBrillo" x="-1" y="-1" width="3" height="3"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <circle cx="260" cy="260" r="250" fill="url(#gHalo)"/>
+      <g class="gira">
+        <ellipse class="orb" cx="260" cy="260" rx="230" ry="88"/>
+        <ellipse class="orb" cx="260" cy="260" rx="230" ry="88" transform="rotate(60 260 260)"/>
+        <ellipse class="orb" cx="260" cy="260" rx="230" ry="88" transform="rotate(-60 260 260)"/>
+        <circle r="13" fill="var(--rojo)" filter="url(#fBrillo)"><animateMotion dur="5s" repeatCount="indefinite" path="M490 260 A230 88 0 1 1 30 260 A230 88 0 1 1 490 260"/></circle>
+        <g transform="rotate(60 260 260)"><circle r="13" fill="var(--boli)" filter="url(#fBrillo)"><animateMotion dur="6.5s" repeatCount="indefinite" path="M30 260 A230 88 0 1 1 490 260 A230 88 0 1 1 30 260"/></circle></g>
+        <g transform="rotate(-60 260 260)"><circle r="13" fill="var(--verde)" filter="url(#fBrillo)"><animateMotion dur="8s" repeatCount="indefinite" path="M490 260 A230 88 0 1 0 30 260 A230 88 0 1 0 490 260"/></circle></g>
+      </g>
+      <circle class="nucleo" cx="260" cy="260" r="46" fill="url(#gNuc)"/>
+      <text x="260" y="272" text-anchor="middle" font-family="Young Serif, Georgia, serif" font-size="34" fill="var(--papel)">PF!</text>
+      <text class="etq" x="392" y="78" data-i18n="i.etq1">electrón</text>
+      <path d="M388 84 q-24 20 -38 46" fill="none" stroke="var(--rojo)" stroke-width="2"/>
+      <text class="etq" x="58" y="470" data-i18n="i.etq2">núcleo: casi toda la masa</text>
+      <path d="M150 448 q40 -60 84 -150" fill="none" stroke="var(--rojo)" stroke-width="2"/>
+    </svg>
+  </div>
+  <a class="desliza" href="#viaje"><span data-i18n="i.desliza">desliza para comenzar</span><i></i></a>
+</section>
+
+<div class="historia-cab" id="viaje">
+  <h2 data-i18n="h.titulo">Un viaje de 41 órdenes de magnitud</h2>
+  <p class="sub" data-i18n="h.sub">Siete paradas, de lo que cabe en tu mano a lo más pequeño y a lo más grande que conocemos. El dibujo cambia mientras bajas.</p>
+</div>
+
+<section class="historia" aria-label="Historia de la física">
+  <div class="historia__lienzo"><canvas aria-hidden="true"></canvas><div class="escala" aria-live="polite"></div><div class="puntos" role="group" aria-label="Paradas del viaje"></div></div>
+  <div class="historia__textos">
+    <article class="capitulo" data-esc="10⁰ m">
+      <div class="capitulo__caja"><span class="capitulo__n" data-i18n="c1.n">Parada 1 · tu mano</span><h3 data-i18n="c1.t">Todo empieza con una pregunta</h3>
+      <p data-i18n="c1.p">¿Por qué cae una manzana? Galileo mostró que, sin aire, todo cae con la misma aceleración, y Newton descubrió que la misma fuerza que jala a la manzana mantiene a la Luna en órbita. Mira los puntos: marcan dónde está la pelota a intervalos iguales de tiempo. Cada vez quedan más separados: está acelerando.</p>
+      <a href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#gravedad" data-i18n="c1.a">Explorar la gravedad</a></div>
+    </article>
+    <article class="capitulo" data-esc="10⁻⁷ m">
+      <div class="capitulo__caja"><span class="capitulo__n" data-i18n="c2.n">Parada 2 · la luz</span><h3 data-i18n="c2.t">La luz blanca esconde un arcoíris</h3>
+      <p data-i18n="c2.p">Newton pasó luz del Sol por un prisma y la separó en colores. Cada color es una onda con una longitud distinta, de unos 400 a 700 nanómetros. Y la luz visible es solo una rebanada de un espectro que va de las ondas de radio a los rayos gamma.</p>
+      <a href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#luz-sonido" data-i18n="c2.a">Explorar la luz</a></div>
+    </article>
+    <article class="capitulo" data-esc="10⁻¹⁰ m">
+      <div class="capitulo__caja"><span class="capitulo__n" data-i18n="c3.n">Parada 3 · el átomo</span><h3 data-i18n="c3.t">Dentro de todo hay átomos</h3>
+      <p data-i18n="c3.p">Si agrandaras una manzana al tamaño de la Tierra, sus átomos serían como canicas. Los electrones no giran como planetas: forman nubes de probabilidad, y cuando saltan de un nivel a otro sueltan luz de un color exacto. Así sabemos de qué están hechas las estrellas.</p>
+      <a href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#cuantica" data-i18n="c3.a">Explorar la cuántica</a></div>
+    </article>
+    <article class="capitulo" data-esc="10⁻¹⁵ m">
+      <div class="capitulo__caja"><span class="capitulo__n" data-i18n="c4.n">Parada 4 · el núcleo</span><h3 data-i18n="c4.t">Más adentro: quarks y gluones</h3>
+      <p data-i18n="c4.p">El núcleo es decenas de miles de veces más pequeño que el átomo, pero guarda casi toda su masa. Cada protón tiene tres quarks unidos por gluones, con una fuerza que no se debilita aunque los separes: por eso nunca vemos un quark suelto. Casi toda tu masa viene de la energía de esa unión.</p>
+      <a href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#particulas" data-i18n="c4.a">Explorar las partículas</a></div>
+    </article>
+    <article class="capitulo" data-esc="10¹¹ m">
+      <div class="capitulo__caja"><span class="capitulo__n" data-i18n="c5.n">Parada 5 · el espacio-tiempo</span><h3 data-i18n="c5.t">La masa curva el espacio y el tiempo</h3>
+      <p data-i18n="c5.p">Einstein descubrió que la gravedad no es un jalón misterioso: el Sol hunde el espacio-tiempo y la Tierra sigue la curva. Cerca de una masa, el tiempo pasa más lento; tu GPS lo corrige todos los días.</p>
+      <a href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#relatividad" data-i18n="c5.a">Explorar la relatividad</a></div>
+    </article>
+    <article class="capitulo" data-esc="10²⁶ m">
+      <div class="capitulo__caja"><span class="capitulo__n" data-i18n="c6.n">Parada 6 · el universo</span><h3 data-i18n="c6.t">El espacio mismo se estira</h3>
+      <p data-i18n="c6.p">Las galaxias lejanas se alejan unas de otras porque el espacio entre ellas crece, y lo hace desde hace unos 13 800 millones de años. La materia de la que están hechas las estrellas, los planetas y tú es apenas el 5 % del universo: el resto es materia oscura y energía oscura, dos de los grandes misterios de hoy.</p>
+      <a href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#cosmologia" data-i18n="c6.a">Explorar el cosmos</a></div>
+    </article>
+    <article class="capitulo" data-esc="tú">
+      <div class="capitulo__caja"><span class="capitulo__n" data-i18n="c7.n">Parada 7 · tú</span><h3 data-i18n="c7.t">Ahora es tu turno</h3>
+      <p data-i18n="c7.p">Elige cómo quieres que te expliquemos todo. Puedes cambiarlo cuando quieras.</p>
+      <div data-regla></div></div>
+    </article>
+  </div>
+</section>
+
+<section class="banda banda-nivel" aria-labelledby="tu-nivel">
+  <div class="banda__in">
+    <div class="banda__txt" data-revela>
+      <h2 id="tu-nivel" data-i18n="n.t">Una pregunta, cinco respuestas</h2>
+      <p data-i18n="n.p">Así funciona todo el sitio: la misma idea contada para cada edad. Prueba los botones de colores.</p>
+    </div>
+    <div class="banda__demo" data-revela style="--i:1">
+      <p class="demo-preg" data-i18n="n.q">¿Por qué la Luna no se cae a la Tierra?</p>
+      <div class="niveles">
+        <div data-n="1"><p data-i18n="n.1">¡Sí se está cayendo! Pero va tan rápido de lado que, mientras cae, la Tierra «se curva» debajo de ella. Es como dar vueltas a una pelota amarrada a un hilo: el hilo es la gravedad.</p></div>
+        <div data-n="2"><p data-i18n="n.2">La gravedad de la Tierra jala a la Luna todo el tiempo. Como la Luna también avanza de lado a unos 1 km/s, en lugar de chocar sigue una curva alrededor de nosotros: una órbita. Newton se dio cuenta de que es la misma fuerza que hace caer una manzana.</p></div>
+        <div data-n="3"><p data-i18n="n.3">La Luna está en caída libre: la atracción gravitacional \(F=GMm/r^2\) actúa como fuerza centrípeta, \(GMm/r^2=mv^2/r\). Con \(r\approx384\,000\) km se obtiene \(v\approx1.02\) km/s y un periodo de unos 27.3 días, justo lo que se observa.</p></div>
+        <div data-n="4"><p data-i18n="n.4">Es un problema de dos cuerpos con potencial \(-GMm/r\): la energía \(E=\tfrac12\mu\dot r^2+\frac{L^2}{2\mu r^2}-\frac{GMm}{r}\) es negativa, así que la órbita está ligada (una elipse con excentricidad ≈ 0.055). El momento angular conservado impide que \(r\to0\).</p></div>
+        <div data-n="5"><p data-i18n="n.5">En relatividad general la Luna sigue una geodésica del espacio-tiempo curvado por la Tierra; las correcciones a Newton son del orden de \(GM/rc^2\sim10^{-11}\), pero el láser lunar las mide (precesión geodésica ≈ 19 mas/año). Además, las mareas transfieren momento angular: la Luna se aleja unos 3.8 cm por año.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion-l" aria-labelledby="curiosidad">
+  <h2 id="curiosidad" data-i18n="q.t">¿Qué te da curiosidad hoy?</h2>
+  <p class="sub" data-i18n="q.s">Empieza por una pregunta. Cada una te lleva a la explicación y a un experimento.</p>
+  <div class="preguntas">
+    <a data-revela style="--i:0;--c:var(--n3)" class="preg" href="Datos%20curiosos.html#tarjetas"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="50" cy="20" r="9"/><path d="M50 4v4M50 32v4M34 20h4M62 20h4M39 9l3 3M58 28l3 3M39 31l3-3M58 12l3-3"/><path d="M6 60c10-8 20-8 30 0s20 8 30 0"/><path d="M6 48c10-8 20-8 30 0s20 8 30 0" opacity=".5"/></svg><b data-i18n="q1.t">¿Por qué el cielo es azul?</b><span data-i18n="q1.s">Y por qué el atardecer es rojo, con la misma respuesta.</span></a>
+    <a data-revela style="--i:1;--c:var(--tinta)" class="preg" href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#penrose"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="11" fill="currentColor"/><ellipse cx="36" cy="36" rx="28" ry="9"/><path d="M8 36c4-14 52-14 56 0" opacity=".5"/></svg><b data-i18n="q2.t">¿Qué hay dentro de un agujero negro?</b><span data-i18n="q2.s">Un lugar de donde ni la luz escapa, dibujado en un mapa.</span></a>
+    <a data-revela style="--i:2;--c:var(--n2)" class="preg" href="Laboratorio.html#sim=arquimedes"><svg viewBox="0 0 72 72" aria-hidden="true"><path d="M14 34h44l-6 14H20z"/><path d="M30 34V14l14 12H30"/><path d="M4 54c8-5 14-5 22 0s14 5 22 0 14-5 20 0"/></svg><b data-i18n="q3.t">¿Cómo flota un barco de acero?</b><span data-i18n="q3.s">El empuje de Arquímedes, con bloques que puedes hundir.</span></a>
+    <a data-revela style="--i:3;--c:var(--n4)" class="preg" href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#relatividad"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="38" r="22"/><path d="M36 38V24M36 38l10 6"/><path d="M28 10h16M36 10v6"/></svg><b data-i18n="q4.t">¿Puede el tiempo ir más lento?</b><span data-i18n="q4.s">Sí: tu GPS lo corrige todos los días gracias a Einstein.</span></a>
+    <a data-revela style="--i:4;--c:var(--n5)" class="preg" href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#particulas"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="6" fill="currentColor"/><ellipse cx="36" cy="36" rx="28" ry="10"/><ellipse cx="36" cy="36" rx="28" ry="10" transform="rotate(60 36 36)"/><ellipse cx="36" cy="36" rx="28" ry="10" transform="rotate(-60 36 36)"/></svg><b data-i18n="q5.t">¿De qué estás hecho, en el fondo?</b><span data-i18n="q5.s">Quarks, electrones y un campo que da masa.</span></a>
+    <a data-revela style="--i:5;--c:var(--n3)" class="preg" href="Laboratorio.html#sim=orbita"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="26" cy="40" r="16"/><circle cx="58" cy="16" r="6"/><path d="M8 26c20-24 56-20 60 8" stroke-dasharray="4 5"/></svg><b data-i18n="q6.t">¿Cómo se queda en órbita un satélite?</b><span data-i18n="q6.s">Cae, pero nunca llega. Dispara el cañón de Newton.</span></a>
+    <a data-revela style="--i:6;--c:var(--n2)" class="preg" href="Laboratorio.html#sim=rendija"><svg viewBox="0 0 72 72" aria-hidden="true"><path d="M30 8v22M30 42v22"/><path d="M8 36h14"/><path d="M40 12c10 6 10 18 0 24s-10 18 0 24"/><path d="M52 12c10 6 10 18 0 24s-10 18 0 24" opacity=".5"/></svg><b data-i18n="q7.t">¿Se puede estar en dos lugares a la vez?</b><span data-i18n="q7.s">Lanza partículas una por una por dos rendijas.</span></a>
+    <a data-revela style="--i:7;--c:var(--n1)" class="preg" href="La%20f%C3%ADsica.html#r-cosmos"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="3" fill="currentColor"/><circle cx="36" cy="36" r="12" opacity=".7"/><circle cx="36" cy="36" r="22" opacity=".45"/><circle cx="36" cy="36" r="32" opacity=".25"/></svg><b data-i18n="q8.t">¿Cómo empezó todo?</b><span data-i18n="q8.s">Del Big Bang a ti, comprimido en un solo año.</span></a>
+  </div>
+</section>
+
+<section class="banda banda-dia" aria-labelledby="del-dia">
+  <div class="banda__in banda__in--col">
+    <div class="dia-cab">
+      <h2 id="del-dia" data-i18n="d.t">Experimento del día</h2>
+      <p class="sub" id="dia-txt"></p>
+      <a class="btn" id="dia-lab" href="Laboratorio.html" data-i18n="d.b">Ver los 35 experimentos</a>
+    </div>
+    <div id="dia-sim"></div>
+  </div>
+</section>
+
+<section class="seccion-l" aria-labelledby="sellos">
+  <div class="sellos-cab">
+    <div>
+      <h2 id="sellos" data-i18n="s.t">Tu cuaderno de sellos</h2>
+      <p class="sub" data-i18n="s.p">Cada tema termina con un quiz. Si aciertas al menos el 60 %, ganas su sello. Tu avance se guarda en este navegador.</p>
+    </div>
+    <p class="sellos-cuenta" id="sellos-cuenta" aria-live="polite"></p>
+  </div>
+  <div class="sellos" id="sellos-grid"></div>
+</section>
+
+<section class="seccion-l" aria-labelledby="sigue">
+  <h2 id="sigue" data-i18n="p.t">Sigue explorando</h2>
+  <div class="puertas">
+    <a data-revela style="--i:0" class="puerta" href="La%20f%C3%ADsica.html"><span class="puerta__k" data-i18n="p1.k">Empieza aquí</span><b data-i18n="p1.t">La física</b><span data-i18n="p1.s">Qué es, para qué sirve, sus grandes ramas con mapas explorables y dónde estudiarla en México.</span></a>
+    <a data-revela style="--i:1" class="puerta" href="L%C3%ADnea%20del%20tiempo.html"><span class="puerta__k" data-i18n="p2.k">73 momentos</span><b data-i18n="p2.t">Línea del tiempo</b><span data-i18n="p2.s">De Tales de Mileto frotando ámbar al Nobel de 2026.</span></a>
+    <a data-revela style="--i:2" class="puerta" href="Los%20mejores%20f%C3%ADsicos%20y%20sus%20aportes.html"><span class="puerta__k" data-i18n="p3.k">30 historias</span><b data-i18n="p3.t">Físicos y sus aportes</b><span data-i18n="p3.s">Quién coincidió con quién, y dos mexicanos que cambiaron la física.</span></a>
+    <a data-revela style="--i:3" class="puerta" href="Datos%20curiosos.html"><span class="puerta__k" data-i18n="p4.k">Juego</span><b data-i18n="p4.t">¿Mito o realidad?</b><span data-i18n="p4.s">¿Un rayo nunca cae dos veces en el mismo lugar? Ponte a prueba.</span></a>
+    <a data-revela style="--i:4" class="puerta" href="Los%20mejores%20descubrimientos.html"><span class="puerta__k" data-i18n="p5.k">18 descubrimientos</span><b data-i18n="p5.t">¿De qué física está hecho tu celular?</b><span data-i18n="p5.s">Elige un objeto y mira qué descubrimientos lo hicieron posible.</span></a>
+    <a data-revela style="--i:5" class="puerta" href="Explicaciones%20nivel%20bachillerato.html"><span class="puerta__k" data-i18n="p6.k">Ejercicios</span><b data-i18n="p6.t">Guía de bachillerato</b><span data-i18n="p6.s">Problemas que se generan al azar y se corrigen solos, más formulario.</span></a>
+  </div>
+</section>
+
+<section class="seccion-l" aria-labelledby="reto">
+  <h2 id="reto" data-i18n="r.t">Reto rápido</h2>
+  <div id="reto-caja"></div>
+  <blockquote class="cita-real" data-revela><span data-i18n="r.c">«Lo eternamente incomprensible del mundo es que sea comprensible.»</span><footer>Albert Einstein, «Physik und Realität» (1936)</footer></blockquote>
+</section>
+
+</main>
+</body>
+</html>

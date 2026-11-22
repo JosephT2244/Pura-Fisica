@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The great discoveries of physics — Pura Física!</title>
+<meta name="description" content="The discoveries that changed the world and the technology they made possible.">
+<meta name="theme-color" content="#F1F5F2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%2317253F' stroke-width='3'%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(60 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(-60 32 32)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='8' fill='%23D2402E'/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="es" href="../Los%20mejores%20descubrimientos.html"><link rel="alternate" hreflang="en" href="../en/Los%20mejores%20descubrimientos.html"><link rel="alternate" hreflang="pt" href="../pt/Los%20mejores%20descubrimientos.html">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/pf.css">
+<script>try{var L="en",s=localStorage.getItem("pf:lang");if(s&&s!==L&&/^(es|en|pt)$/.test(s)){var f=location.pathname.split("/").pop()||"";location.replace((L==="es"?"":"../")+(s==="es"?"":s+"/")+f+location.hash);}var t=localStorage.getItem("pf:tema");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="pizarron";document.documentElement.setAttribute("data-tema",t||"papel");document.documentElement.setAttribute("data-nivel",localStorage.getItem("pf:nivel")||"3");}catch(e){}</script>
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/indice.en.js"></script>
+<script defer src="../assets/pf.js"></script>
+<script defer src="../assets/sims-base.en.js"></script><script defer src="../assets/sims-ondas.en.js"></script><script defer src="../assets/sims-moderna.en.js"></script>
+</head>
+<body data-pagina="descubrimientos" data-traducida>
+<main id="contenido" class="pf-main">
+<header class="cabeza">
+  <div class="migas"><a href="Pura%20F%C3%ADsica%21.html">Home</a> / Discoveries</div>
+  <h1>The great discoveries of physics</h1>
+  <p>Eighteen discoveries that changed how we live. For each one you'll see what was discovered, why it matters and what technologies it made possible. Tap a technology to see which discoveries it depends on.</p>
+</header>
+
+<section aria-labelledby="red">
+  <h2 id="red">What physics is your phone made of?</h2>
+  <p>Pick an object and the discoveries it couldn't exist without will light up.</p>
+  <div class="chips" id="objetos" role="group" aria-label="Pick a technology"></div>
+  <p class="chico" id="obj-nota" aria-live="polite"></p>
+</section>
+
+<section aria-labelledby="lista-d">
+  <h2 id="lista-d">The discoveries</h2>
+  <ol class="descubrimientos" id="desc"></ol>
+</section>
+
+<section aria-labelledby="juego">
+  <h2 id="juego">Game: put history in order</h2>
+  <p>Tap the five discoveries in the order they happened, from oldest to most recent.</p>
+  <div class="juego" id="juego-caja"></div>
+</section>
+
+<script>
+(function(){
+// año, nombre, quién, qué (sencillo), por qué importa (avanzado), tecnologías, sim, tema
+var D = [
+[1687,"The laws of motion and gravitation","Isaac Newton","The same rules explain how an apple falls and how the Moon goes around.","The first universal, mathematical physical theory; it made it possible to predict orbits, tides and the return of comets.",["Satellites","Rockets","Bridges and buildings","Tide prediction"],"orbita","newton"],
+[1800,"Direct electric current","Alessandro Volta","The battery: for the first time, an electric current that lasts.","It made possible the experiments of Ørsted, Ampère, Ohm and Faraday; the basis of electrochemistry.",["Batteries","Phone","Electric car"],"circuito","circuitos"],
+[1831,"Electromagnetic induction","Michael Faraday","Moving a magnet near a wire produces electricity.","The principle of every generator and transformer; without it there would be no power grid.",["Power grid","Electric motors","Wireless charger","Electric car","Electric guitar"],"campoB","electromagnetismo"],
+[1850,"The laws of thermodynamics","Carnot, Joule, Clausius, Kelvin","Energy is conserved and heat flows from hot to cold.","It set the limits of every machine and gave time a direction through entropy.",["Engines","Refrigerator","Power plants","Air conditioning"],"carnot","termodinamica"],
+[1865,"Light is an electromagnetic wave","James Clerk Maxwell","Electricity, magnetism and light are the same thing.","It predicted radio waves (produced by Hertz in 1888) and unified three areas of physics.",["Radio and television","Wi‑Fi","Phone","Radar","Microwaves"],"espectro","luz-sonido"],
+[1895,"X-rays","Wilhelm Röntgen","An invisible light that passes through skin but not bones.","It revolutionized medicine within months and, through diffraction, revealed the structure of crystals and of DNA.",["X-ray images","CT scans","Luggage screening","Crystallography"],"espectro","luz-sonido"],
+[1896,"Radioactivity","Becquerel, Marie and Pierre Curie","Some atoms release energy on their own.","It opened up nuclear physics and gave us natural clocks to date rocks and fossils.",["Carbon‑14 dating","Nuclear medicine","Smoke detectors","Nuclear power"],"decaimiento","nuclear"],
+[1897,"The electron","J. J. Thomson","The atom has parts: the first subatomic particle.","The basis of all electronics and of modern chemistry.",["Computers","Screens","Electron microscope","Phone"],"atomo","particulas"],
+[1900,"Energy quanta and the photon","Max Planck and Albert Einstein","Light and energy come in tiny packets.","The beginning of quantum physics; it explains the photoelectric effect.",["Solar cells","Digital cameras","Barcode scanners"],"fotoelectrico","cuantica"],
+[1905,"Relativity","Albert Einstein","Time and space change depending on how you move, and mass is energy.","E = mc² explains the energy of stars and nuclei; general relativity describes gravity.",["GPS","Nuclear power","Particle accelerators"],"relatividad","relatividad"],
+[1911,"The atomic nucleus","Ernest Rutherford","Almost all of the atom's mass is in a tiny center.","It led to Bohr's model and to nuclear physics.",["Nuclear power","Nuclear medicine"],"atomo","nuclear"],
+[1911.1,"Superconductivity","Heike Kamerlingh Onnes","Some very cold materials conduct electricity with no losses.","A macroscopic quantum phenomenon; explained in 1957 (BCS theory).",["MRI","Accelerators (LHC)","Maglev trains","Quantum computers"],"","cuantica"],
+[1926,"Quantum mechanics","Heisenberg, Schrödinger, Born, Dirac","The rules of the world of atoms.","It explains chemical bonds, solids, semiconductors and the light from atoms.",["Computers","Laser","MRI","LED","Phone"],"caja","cuantica"],
+[1938,"Nuclear fission","Meitner, Frisch, Hahn and Strassmann","The uranium nucleus can be split and releases an enormous amount of energy.","One fission releases about 200 MeV; the chain reaction makes reactors possible and, sadly, weapons too.",["Nuclear power","Nuclear medicine"],"fision","nuclear"],
+[1947,"The transistor","Bardeen, Brattain and Shockley","A tiny switch controlled by electricity, with no moving parts.","Today a chip contains tens of billions of transistors.",["Computers","Phone","Internet","Electric car"],"","circuitos"],
+[1960,"The laser","Theodore Maiman (with ideas from Einstein, Townes and others)","Light of a single color, highly ordered and concentrated.","Stimulated emission; it transformed communications, medicine and metrology.",["Internet","Barcode scanners","Eye surgery","Laser printers"],"optica","optica"],
+[1965,"The cosmic microwave background","Arno Penzias and Robert Wilson","The «echo» of the Big Bang arrives from every direction.","It confirmed the Big Bang; its tiny variations reveal the composition of the universe.",["Precision cosmology"],"cosmos","cosmologia"],
+[2012,"The Higgs boson","ATLAS and CMS collaborations (CERN)","The particle of the field that gives mass to the others.","It completed the Standard Model after a 48-year search.",["Internet","Medical accelerators"],"modelo","particulas"],
+[2015,"Gravitational waves","LIGO","We heard two black holes collide 1.3 billion light-years away.","It launched gravitational-wave astronomy; Nobel 2017.",["A new astronomy"],"","relatividad"]
+];
+var NOTAS = {"Internet":"The World Wide Web was invented at CERN in 1989, in the lab where the Higgs was later found."};
+var sel = null, abiertoSim = null;
+function objetos(){
+  var t = {}; D.forEach(function(d){ d[5].forEach(function(x){ t[x]=(t[x]||0)+1; }); });
+  var orden = Object.keys(t).sort(function(a,b){ return t[b]-t[a] || a.localeCompare(b,"es"); });
+  document.getElementById("objetos").innerHTML = orden.map(function(x){ return '<button type="button" class="chip" data-t="'+x+'" aria-pressed="'+(x===sel)+'">'+x+'</button>'; }).join("");
+  var n = sel ? D.filter(function(d){ return d[5].indexOf(sel)>=0; }).length : 0;
+  document.getElementById("obj-nota").textContent = sel ? (sel+": depends directly on "+n+" descubrimiento"+(n>1?"s":"")+" of these. "+(NOTAS[sel]||"")) : "";
+}
+function lista(){
+  var n = PF.nivel();
+  document.getElementById("desc").innerHTML = D.map(function(d,i){
+    var on = sel && d[5].indexOf(sel)>=0, off = sel && !on;
+    return '<li class="desc'+(on?' on':'')+(off?' off':'')+'"><span class="d-anio">'+Math.floor(d[0])+'</span><div><h3>'+d[1]+'</h3><p class="quien">'+d[2]+'</p><p>'+d[3]+(n>=3?' '+d[4]:'')+'</p><p class="hizo">Made possible: '+d[5].map(function(x){ return '<span'+(x===sel?' class="sel"':'')+'>'+x+'</span>'; }).join("")+'</p>'+
+      '<div class="fila-btn">'+(d[6]?'<button type="button" class="btn chico" data-sim="'+i+'">'+(abiertoSim===i?'Hide experiment':'Try it')+'</button>':'')+'<a class="btn chico" href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#'+d[7]+'">Read the topic</a></div>'+
+      (abiertoSim===i?'<div class="sim" data-sim="'+d[6]+'" data-ya></div>':'')+'</div></li>';
+  }).join("");
+  var s = document.querySelector("#desc .sim"); if(s) PFSim.montar(s);
+}
+// juego
+var ronda=[], hechos=[], fallo=false;
+function nuevaRonda(){
+  var idx = D.map(function(_,i){return i;}).sort(function(){return Math.random()-.5;}).slice(0,5);
+  ronda = idx; hechos=[]; fallo=false; pintarJuego();
+}
+function pintarJuego(){
+  var caja=document.getElementById("juego-caja");
+  var correcto = ronda.slice().sort(function(a,b){return D[a][0]-D[b][0];});
+  var fin = hechos.length===5;
+  caja.innerHTML = '<div class="juego-ops">'+ronda.map(function(i){ var k=hechos.indexOf(i); return '<button type="button" class="juego-op'+(k>=0?' hecho':'')+'" data-i="'+i+'"'+(k>=0||fin?' disabled':'')+'>'+(k>=0?'<b>'+(k+1)+'</b> ':'')+D[i][1]+(k>=0?' <small>('+Math.floor(D[i][0])+')</small>':'')+'</button>'; }).join("")+'</div>'+
+    '<p class="juego-msg" aria-live="polite">'+(fallo?'That wasn\'t the next one. Look at the years already shown and try again.':(fin?'Perfect! You put history in the right order.':'Pick the '+["first","second","third","fourth","fifth"][hechos.length]+'.'))+'</p><button type="button" class="btn" id="otra">Another round</button>';
+  caja.querySelectorAll(".juego-op").forEach(function(b){ b.onclick=function(){ var i=+b.dataset.i; if(i===correcto[hechos.length]){ hechos.push(i); fallo=false; } else fallo=true; pintarJuego(); }; });
+  document.getElementById("otra").onclick=nuevaRonda;
+}
+document.addEventListener("pf:listo", function(){
+  objetos(); lista(); nuevaRonda();
+  document.getElementById("objetos").addEventListener("click", function(e){ var b=e.target.closest(".chip"); if(!b) return; sel = sel===b.dataset.t ? null : b.dataset.t; objetos(); lista(); });
+  document.getElementById("desc").addEventListener("click", function(e){ var b=e.target.closest("[data-sim]"); if(!b||b.classList.contains("sim")) return; var i=+b.getAttribute("data-sim"); abiertoSim = abiertoSim===i ? null : i; lista(); });
+  document.addEventListener("pf:nivel", lista);
+});
+})();
+</script>
+
+</main>
+</body>
+</html>

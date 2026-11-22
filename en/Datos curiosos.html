@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fun facts about physics — Pura Física!</title>
+<meta name="description" content="Surprising facts about physics, with the game «myth or fact?»">
+<meta name="theme-color" content="#F1F5F2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%2317253F' stroke-width='3'%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(60 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(-60 32 32)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='8' fill='%23D2402E'/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="es" href="../Datos%20curiosos.html"><link rel="alternate" hreflang="en" href="../en/Datos%20curiosos.html"><link rel="alternate" hreflang="pt" href="../pt/Datos%20curiosos.html">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/pf.css">
+<script>try{var L="en",s=localStorage.getItem("pf:lang");if(s&&s!==L&&/^(es|en|pt)$/.test(s)){var f=location.pathname.split("/").pop()||"";location.replace((L==="es"?"":"../")+(s==="es"?"":s+"/")+f+location.hash);}var t=localStorage.getItem("pf:tema");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="pizarron";document.documentElement.setAttribute("data-tema",t||"papel");document.documentElement.setAttribute("data-nivel",localStorage.getItem("pf:nivel")||"3");}catch(e){}</script>
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/indice.en.js"></script>
+<script defer src="../assets/pf.js"></script>
+<script defer src="../assets/sims-base.en.js"></script>
+</head>
+<body data-pagina="datos" data-traducida>
+<main id="contenido" class="pf-main">
+<header class="cabeza">
+  <div class="migas"><a href="Pura%20F%C3%ADsica%21.html">Home</a> / Fun facts</div>
+  <h1>Fun facts about physics</h1>
+  <p>Surprising facts, checked and explained. First test yourself with «myth or fact?» and then explore the cards.</p>
+</header>
+
+<section aria-labelledby="mito">
+  <h2 id="mito">Myth or fact?</h2>
+  <div class="mito" id="mito-caja"></div>
+</section>
+
+<section aria-labelledby="tarjetas">
+  <h2 id="tarjetas">Surprising cards</h2>
+  <div class="chips" id="dc-cats" role="group" aria-label="Filter"></div>
+  <p class="chico">Tap a card to see the explanation.</p>
+  <div class="cartas" id="cartas"></div>
+</section>
+
+<script>
+(function(){
+var CAT={cua:["Quantum","var(--n2)"],cos:["Cosmos","var(--tinta)"],rel:["Relativity and gravity","var(--n3)"],dia:["Everyday physics","var(--n1)"],nuc:["Atoms and particles","var(--n5)"]};
+// categoría, frase gancho, explicación sencilla, explicación avanzada, ancla
+var C=[
+["cua","A cat that's «alive and dead» at once","Schrödinger (1935) imagined a cat in a box whose fate depends on an atom that may or may not decay. He invented it to show how strange it would be to apply quantum mechanics to big things.","In practice, decoherence makes macroscopic objects lose superposition almost instantly by interacting with their surroundings.","cuantica"],
+["cua","You can't know everything at once","Heisenberg's uncertainty principle (1927) says you can't know with perfect precision, at the same time, where a particle is and how fast it's moving. It's not the instruments' fault: that's how nature is.","Δx·Δp ≥ ħ/2 follows from the fact that the position and momentum operators don't commute.","cuantica"],
+["cua","Light is a wave… and a particle","In the double-slit experiment, light forms fringes like water waves, but it reaches the screen as dots, like particles. And the same happens with electrons!","De Broglie (1924): every particle has λ = h/p. Interference has been observed even with molecules of more than 2,000 atoms.","cuantica"],
+["cua","Walking through walls (if you're very small)","A particle can cross a barrier even without enough energy: that's quantum tunneling. Thanks to it the Sun shines and USB drives work.","The probability falls exponentially with the barrier's width: T ≈ e^(−2κL). Flash memory uses Fowler–Nordheim tunneling.","cuantica"],
+["cua","Entanglement can't be used to send messages","Two entangled particles show connected results even when they're very far apart… but each individual result is random, so information can't be sent faster than light.","It's the no-communication theorem: local statistics don't depend on what is measured at the other end.","cuantica"],
+["cos","The Big Bang wasn't an explosion","There was no point from which everything flew out: it's space itself that is stretching, everywhere at once, for about 13.8 billion years.","In the FLRW metric galaxies are almost at rest in comoving coordinates; what grows is the scale factor a(t).","cosmologia"],
+["cos","We only know 5% of the universe","«Normal» matter (stars, planets, you) is about 5%. The rest is dark matter (27%) and dark energy (68%), which we still don't understand.","Values from the Planck satellite (2018) in the ΛCDM model.","cosmologia"],
+["cos","You see the past","Sunlight takes about 8 minutes and 20 seconds to arrive: you see the Sun as it was 8 minutes ago. The nearest star after the Sun, Proxima Centauri, you see as it was about 4.2 years ago.","The farther you look, the further back in time: the cosmic microwave background is the oldest light we can see.","cosmologia"],
+["rel","Einstein didn't win the Nobel for relativity","He received the 1921 Nobel Prize in Physics for explaining the photoelectric effect, which helped found quantum physics.","The committee still considered relativity controversial; the prize was awarded in 1922.","relatividad"],
+["rel","Time runs faster up high","The stronger the gravity, the slower time passes. That's why the clocks on GPS satellites, which are far from the Earth, run fast.","GPS clocks gain about 45 µs/day from weaker gravity and lose about 7 µs/day from their speed: a net +38 µs/day, which is corrected.","relatividad"],
+["rel","Gravity bends light","A very massive galaxy can work like a giant magnifying glass and show several copies of a more distant galaxy: these are gravitational lenses.","For the Sun, the deflection at its edge is 1.75″, twice what a Newtonian calculation predicts.","relatividad"],
+["rel","Rockets work in a vacuum","They don't need air to «push off»: they throw gas backward and, by Newton's third law, the gas pushes them forward.","Tsiolkovsky equation: Δv = v_e ln(m₀/m_f).","newton"],
+["dia","In Mexico City water boils sooner","At 2,240 m altitude there's less air pressure, so water boils at about 93 °C. That's why some foods take longer to cook… and why pressure cookers exist.","The boiling temperature depends on pressure, according to the Clausius–Clapeyron relation.","termodinamica"],
+["dia","The sky is blue for the same reason sunsets are red","Air scatters blue light much more than red. By day, blue arrives from every part of the sky; at sunset, the light crosses so much air that only red survives.","Rayleigh scattering: intensity ∝ 1/λ⁴.","luz-sonido"],
+["dia","Lightning is hotter than the surface of the Sun","The air inside a lightning bolt can reach about 30,000 °C, roughly five times the temperature of the Sun's surface. That sudden heating produces thunder.","The supersonic expansion of the plasma channel creates a shock wave that becomes sound.","electromagnetismo"],
+["dia","Light slows down in water","Light travels at almost 300,000 km/s in a vacuum, but in water it goes about 225,000 km/s and in diamond about 124,000 km/s. That change in speed «bends» it: that's refraction.","In a vacuum c is constant for all observers; in a medium, the phase speed is c/n.","optica"],
+["dia","There are more atoms in a glass of water than glasses of water in the oceans","A glass holds about 25 septillion (2.5×10²⁵) atoms; the oceans would fill «only» about 5×10²¹ glasses.","250 g of water is ≈ 13.9 mol ≈ 8.4×10²⁴ molecules, each with 3 atoms.","particulas"],
+["nuc","The Sun is a fusion factory","Every second the Sun turns about 600 million tons of hydrogen into helium; about 4 million tons of that mass becomes energy.","L☉ ≈ 3.8×10²⁶ W; with E = mc², that's ≈ 4.3×10⁹ kg/s.","nuclear"],
+["nuc","The Higgs doesn't explain most of your mass","The Higgs boson gives mass to electrons and quarks, but almost all the mass of protons and neutrons (and therefore yours) comes from the energy of the strong force that holds them together.","The u and d quarks contribute ~1% of the proton's mass; the rest is gluon energy and quark motion (QCD).","particulas"],
+["nuc","Billions of neutrinos are passing through you right now","About 65 billion neutrinos per square centimeter arrive from the Sun every second. They pass through you and the whole Earth without you noticing.","They interact so little that giant detectors are needed, like IceCube (Nobel 2026 for Francis Halzen).","particulas"],
+["nuc","Bananas are a tiny bit radioactive","They contain potassium, and a small fraction of natural potassium is radioactive (potassium‑40). It isn't dangerous: your own body has it too.","A banana-equivalent dose is on the order of 0.1 µSv.","nuclear"],
+["nuc","Extreme cold, strange behavior","Below about −271 °C, helium becomes a superfluid: it flows without friction and even climbs the walls of its container.","Helium‑4 has its superfluid transition (the lambda point) at 2.17 K.","cuantica"]
+];
+var M=[
+["There's no gravity in space.",false,"At 400 km altitude gravity is almost 90% of what it is at the surface. Astronauts float because they're in continuous free fall."],
+["Without air, a heavy object falls faster than a light one.",false,"Without air everything falls with the same acceleration. Galileo reasoned it out and astronaut David Scott showed it on the Moon."],
+["Lightning never strikes the same place twice.",false,"The Empire State Building in New York gets about 20 strikes a year on average. Tall, pointed places attract lightning again and again."],
+["In Mexico City water boils below 100 °C.",true,"At about 2,240 m altitude it boils at around 93 °C because atmospheric pressure is lower."],
+["The seasons happen because the Earth moves closer to and farther from the Sun.",false,"They're due to the tilt of the Earth's axis (~23.4°). In fact, the Earth is closest to the Sun in early January, in the middle of the northern hemisphere's winter."],
+["The Great Wall of China can be seen with the naked eye from the Moon.",false,"It's long but very narrow: from the Moon you can't make it out. Even from low orbit it's hard to see unaided."],
+["Sound travels faster in water than in air.",true,"In water it goes about 1,480 m/s; in air, about 343 m/s."],
+["Quantum entanglement lets you send messages faster than light.",false,"The results are correlated, but each one is random: it can't be used to transmit information."],
+["Old stained-glass windows are thicker at the bottom because glass flows like a very slow liquid.",false,"At room temperature, glass would take far longer than the age of the universe to flow noticeably. The differences are due to how glass used to be made."],
+["A banana is slightly radioactive.",true,"It contains potassium‑40, a natural isotope. The dose is tiny."],
+["If you jump right before a falling elevator hits the bottom, you'll be saved.",false,"Jumping would only subtract a few km/h from a falling speed of tens or hundreds of km/h."],
+["Most of your mass doesn't come directly from the Higgs boson.",true,"It comes from the energy of the strong force inside protons and neutrons; the Higgs gives mass to quarks and electrons, which contribute little."],
+["Light always travels at the same speed, in any material.",false,"In a vacuum it is constant (c). In water or glass it travels slower; that's why it refracts."],
+["Astronauts on the Space Station age a tiny bit more slowly than we do.",true,"Their high speed makes them age more slowly and the weaker gravity makes them age faster; at that altitude the first effect wins: a few tens of microseconds less per day."]
+];
+var cat="todas";
+function cartas(){
+  var n=PF.nivel();
+  document.getElementById("dc-cats").innerHTML='<button type="button" class="chip" data-c="todas" aria-pressed="'+(cat==="todas")+'">Todas</button>'+Object.keys(CAT).map(function(k){return '<button type="button" class="chip" data-c="'+k+'" aria-pressed="'+(cat===k)+'"><span class="pt" style="--c:'+CAT[k][1]+'"></span>'+CAT[k][0]+'</button>';}).join("");
+  document.getElementById("cartas").innerHTML=C.filter(function(c){return cat==="todas"||c[0]===cat;}).map(function(c){
+    return '<details class="carta" style="--c:'+CAT[c[0]][1]+'"><summary><small>'+CAT[c[0]][0]+'</small><b>'+c[1]+'</b><span class="ver">See why</span></summary><div><p>'+c[2]+'</p>'+(n>=3?'<p class="avz">'+c[3]+'</p>':'')+'<a href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#'+c[4]+'">Learn more</a></div></details>';
+  }).join("");
+}
+var orden=[], i=0, aciertos=0, resp=null;
+function nueva(){ orden=M.map(function(_,k){return k;}).sort(function(){return Math.random()-.5;}).slice(0,8); i=0; aciertos=0; resp=null; mito(); }
+function mito(){
+  var caja=document.getElementById("mito-caja");
+  if(i>=orden.length){ caja.innerHTML='<p class="mito-frase">You got '+aciertos+' de '+orden.length+'.</p><p>'+(aciertos>=7?"Excellent! You have a nose for physics.":(aciertos>=5?"Very good! Review the ones you missed.":"Myths fool a lot of people. Try again!"))+'</p><button type="button" class="btn prim" id="m-otra">Play again</button>'; document.getElementById("m-otra").onclick=nueva; return; }
+  var m=M[orden[i]];
+  caja.innerHTML='<p class="chico">Statement '+(i+1)+' de '+orden.length+' · correct: '+aciertos+'</p><p class="mito-frase">«'+m[0]+'»</p>'+
+    (resp===null?'<div class="fila-btn"><button type="button" class="btn" data-r="0">Myth</button><button type="button" class="btn" data-r="1">Fact</button></div>':
+    '<div class="quiz__exp"><b>'+(resp===m[1]?"Correct! ":"No. ")+'It\'s '+(m[1]?"a fact":"a myth")+'.</b>'+m[2]+'</div><div class="fila-btn" style="margin-top:.8rem"><button type="button" class="btn prim" id="m-sig">Next</button></div>');
+  caja.querySelectorAll("[data-r]").forEach(function(b){ b.onclick=function(){ resp = b.dataset.r==="1"; if(resp===m[1]) aciertos++; mito(); var s=document.getElementById("m-sig"); if(s) s.focus(); }; });
+  var s=document.getElementById("m-sig"); if(s) s.onclick=function(){ i++; resp=null; mito(); };
+}
+document.addEventListener("pf:listo",function(){
+  cartas(); nueva();
+  document.getElementById("dc-cats").addEventListener("click",function(e){var b=e.target.closest(".chip"); if(!b) return; cat=b.dataset.c; cartas();});
+  document.addEventListener("pf:nivel",cartas);
+});
+})();
+</script>
+
+</main>
+</body>
+</html>

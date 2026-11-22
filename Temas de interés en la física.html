@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Temas de interés en la física — Pura Física!</title>
+<meta name="description" content="Veinte temas de física explicados a cinco niveles, con simulaciones, mapas explorables y preguntas.">
+<meta name="theme-color" content="#F1F5F2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%2317253F' stroke-width='3'%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(60 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(-60 32 32)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='8' fill='%23D2402E'/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="es" href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html"><link rel="alternate" hreflang="en" href="en/Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html"><link rel="alternate" hreflang="pt" href="pt/Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/pf.css">
+<script>try{var L="es",s=localStorage.getItem("pf:lang");if(s&&s!==L&&/^(es|en|pt)$/.test(s)){var f=location.pathname.split("/").pop()||"";location.replace((L==="es"?"":"../")+(s==="es"?"":s+"/")+f+location.hash);}var t=localStorage.getItem("pf:tema");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="pizarron";document.documentElement.setAttribute("data-tema",t||"papel");document.documentElement.setAttribute("data-nivel",localStorage.getItem("pf:nivel")||"3");}catch(e){}</script>
+<script defer src="assets/katex/katex.min.js"></script>
+<script defer src="assets/katex/auto-render.min.js"></script>
+<script defer src="assets/indice.js"></script>
+<script defer src="assets/pf.js"></script>
+<script defer src="assets/sims-base.js"></script><script defer src="assets/sims-ondas.js"></script><script defer src="assets/sims-moderna.js"></script>
+</head>
+<body data-pagina="temas" data-traducida>
+<main id="contenido" class="pf-main">
+<header class="cabeza">
+  <div class="migas"><a href="Pura%20F%C3%ADsica%21.html">Inicio</a> / Temas</div>
+  <h1>Temas de interés en la física</h1>
+  <p>Veinte temas, de las leyes de Newton a los diagramas de Penrose. Cada uno se explica a cinco niveles, con simulaciones, esquemas que puedes abrir, tablas y preguntas para comprobar lo que aprendiste. Cambia tu nivel arriba a la derecha o usa los botones de cada explicación.</p>
+</header>
+
+<div class="cuaderno">
+<nav class="indice" data-auto="main h2[id], main h3[id]" data-titulo="Temas" aria-label="Índice de temas"></nav>
+
+<div class="tabla-env" style="background:none;border:0">
+<div class="temas-mapa">
+  <div><b><span class="etiq" data-n="1">Básico</span></b>
+    <a href="#newton">Leyes de Newton</a><a href="#energia-trabajo">Energía y trabajo</a><a href="#gravedad">Gravedad</a><a href="#cinematica">Cinemática</a><a href="#luz-sonido">La luz y el sonido</a></div>
+  <div><b><span class="etiq" data-n="2">Intermedio</span></b>
+    <a href="#electromagnetismo">Electromagnetismo</a><a href="#fuerzas-friccion">Fuerzas y fricción</a><a href="#conservacion-energia">Conservación de la energía</a><a href="#circuitos">Circuitos eléctricos</a><a href="#optica">Óptica</a></div>
+  <div><b><span class="etiq" data-n="3">Avanzado</span></b>
+    <a href="#termodinamica">Termodinámica</a><a href="#relatividad">Relatividad</a><a href="#cuantica">Mecánica cuántica</a><a href="#nuclear">Física nuclear</a><a href="#cuerdas">Teoría de cuerdas</a></div>
+  <div><b><span class="etiq" data-n="5">Experto</span></b>
+    <a href="#tcc">Teoría cuántica de campos</a><a href="#gravitacion-cuantica">Gravitación cuántica</a><a href="#particulas">Física de partículas</a><a href="#cosmologia">Cosmología</a><a href="#penrose">Diagramas de Penrose</a></div>
+</div>
+</div>
+<p class="chico">El bloque indica la dificultad del tema, no a quién va dirigido: incluso los temas expertos tienen una explicación para Explorador.</p>
+
+<section class="bloque" aria-labelledby="basico">
+<h2 id="basico">Básico</h2>
+<p>Los cimientos: movimiento, fuerzas, energía, gravedad, luz y sonido.</p>
+</section>
+
+<!-- ======================= LEYES DE NEWTON ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="newton">Las leyes de Newton</h3><span class="etiq" data-n="1">Desde Explorador</span></div>
+<div class="niveles">
+  <div data-n="1"><p>Imagina que estás en un carrito de supermercado. Si nadie lo empuja, se queda quieto. Si lo empujas, se mueve, y si empujas más fuerte, acelera más rápido. Y si empujas una pared… ¡la pared te empuja a ti! Esas son las tres reglas que descubrió Isaac Newton hace más de 300 años.</p></div>
+  <div data-n="2"><p>Isaac Newton (1642–1727) describió el movimiento con tres leyes:</p>
+    <ol><li><b>Inercia:</b> un objeto sigue quieto o moviéndose en línea recta a velocidad constante mientras ninguna fuerza neta actúe sobre él. Por eso te vas hacia adelante cuando el camión frena.</li>
+    <li><b>F = m·a:</b> una fuerza produce una aceleración; cuanto más masa tiene un objeto, más fuerza se necesita para acelerarlo igual.</li>
+    <li><b>Acción y reacción:</b> si A empuja a B, B empuja a A con la misma fuerza en sentido contrario. Los cohetes avanzan empujando gases hacia atrás.</li></ol></div>
+  <div data-n="3"><p>Las leyes de Newton, publicadas en los <i>Principia</i> (1687), son la base de la mecánica clásica. La primera define los <b>sistemas de referencia inerciales</b>; la segunda relaciona la fuerza neta con la aceleración, \(\vec F_{neta}=m\vec a\); la tercera afirma que las fuerzas aparecen en pares de igual magnitud y dirección opuesta que actúan sobre cuerpos distintos (por eso no se cancelan entre sí). La unidad de fuerza es el newton: \(1\ \text{N}=1\ \text{kg·m/s}^2\).</p></div>
+  <div data-n="4"><p>En su forma general, la segunda ley es \(\vec F=\dfrac{d\vec p}{dt}\), válida también para masa variable (cohetes, con la ecuación de Tsiolkovski). La tercera ley, en su forma fuerte (fuerzas centrales), garantiza la conservación del momento lineal y angular de un sistema aislado. Las leyes de Newton valen en sistemas inerciales; en sistemas acelerados aparecen fuerzas ficticias (centrífuga, Coriolis).</p></div>
+  <div data-n="5"><p>La mecánica newtoniana es el límite \(v\ll c\) de la relatividad especial y el límite clásico (\(S\gg\hbar\)) de la cuántica, donde el teorema de Ehrenfest da \(\frac{d\langle\hat p\rangle}{dt}=-\langle\nabla V\rangle\). La tercera ley falla para fuerzas electromagnéticas entre cargas en movimiento: el momento se conserva solo si se incluye el momento del propio campo, \(\vec p_{campo}=\varepsilon_0\int \vec E\times\vec B\,dV\).</p></div>
+</div>
+<div class="sim" data-sim="newton"></div>
+<div data-desde="2">
+<div class="formula"><b>Primera ley (inercia)</b>\[\vec F_{neta}=0\;\Longrightarrow\;\Delta\vec v=0\]</div>
+<div class="formula"><b>Segunda ley</b>\[\vec F_{neta}=m\vec a\qquad\Longleftrightarrow\qquad a=\frac{F_{neta}}{m}\]<dl><dt>F</dt><dd>fuerza neta, en newtons (N)</dd><dt>m</dt><dd>masa, en kilogramos (kg)</dd><dt>a</dt><dd>aceleración, en m/s²</dd></dl></div>
+<div class="formula"><b>Tercera ley</b>\[\vec F_{AB}=-\vec F_{BA}\]<p>La fuerza que A ejerce sobre B es igual y opuesta a la que B ejerce sobre A.</p></div>
+</div>
+<div class="pasos" data-desde="2"><b>Ejemplo resuelto: ¿qué aceleración produce un empujón?</b><p>Se aplica una fuerza neta de 10 N a una caja de 2 kg sobre una superficie sin fricción.</p><ol>
+<li>Datos: \(F=10\ \text{N}\), \(m=2\ \text{kg}\). Buscamos \(a\).</li>
+<li>Despejamos de la segunda ley: \(a=F/m\).</li>
+<li>Sustituimos: \(a=\dfrac{10\ \text{N}}{2\ \text{kg}}=5\ \text{m/s}^2\).</li>
+<li>Interpretación: la velocidad de la caja aumenta 5 m/s cada segundo.</li></ol></div>
+<div class="tabla-env"><table class="tabla"><caption>Resumen de las leyes de Newton</caption>
+<thead><tr><th>Ley</th><th>Qué dice</th><th>Fórmula</th><th>Ejemplo</th></tr></thead><tbody>
+<tr><th>Primera</th><td>Sin fuerza neta, un objeto mantiene su estado de reposo o de movimiento rectilíneo uniforme.</td><td>\(\vec F_{neta}=0\Rightarrow\Delta\vec v=0\)</td><td>Un libro sobre la mesa sigue ahí hasta que alguien lo empuja.</td></tr>
+<tr><th>Segunda</th><td>La aceleración es proporcional a la fuerza neta e inversamente proporcional a la masa.</td><td>\(\vec F=m\vec a\)</td><td>10 N sobre 2 kg producen 5 m/s².</td></tr>
+<tr><th>Tercera</th><td>Las fuerzas aparecen en pares iguales y opuestos sobre cuerpos distintos.</td><td>\(\vec F_{AB}=-\vec F_{BA}\)</td><td>El nadador empuja el agua hacia atrás y el agua lo empuja hacia adelante.</td></tr>
+</tbody></table></div>
+<div class="recuadro error"><b>Error común</b><p>«Si las fuerzas de acción y reacción son iguales y opuestas, se cancelan y nada se mueve». Falso: actúan sobre cuerpos <i>distintos</i>. El caballo jala la carreta y la carreta jala al caballo, pero lo que decide si cada uno se mueve son las fuerzas que actúan sobre <i>él</i>.</p></div>
+<div class="quiz" data-titulo="Ponte a prueba: Newton"><script type="application/json">[
+{"p":"Vas en un camión que frena de golpe. ¿Por qué te vas hacia adelante?","o":["Porque una fuerza te empuja hacia adelante","Porque tu cuerpo tiende a seguir moviéndose (inercia)","Porque el camión te jala"],"r":1,"e":"Primera ley: tu cuerpo quiere seguir con la misma velocidad; el camión frena y tú no, hasta que el cinturón te detiene.","n":1},
+{"p":"Empujas con la misma fuerza un carrito vacío y uno lleno. ¿Cuál acelera más?","o":["El vacío","El lleno","Igual"],"r":0,"e":"Con la misma fuerza, menos masa significa más aceleración: a = F/m.","n":2},
+{"p":"Una fuerza neta de 30 N actúa sobre 6 kg. ¿Cuál es la aceleración?","o":["180 m/s²","5 m/s²","0.2 m/s²"],"r":1,"e":"a = 30/6 = 5 m/s².","n":3},
+{"p":"La Tierra atrae a una manzana con 1 N. ¿Con qué fuerza atrae la manzana a la Tierra?","o":["Casi cero","1 N","Depende de la masa de la Tierra"],"r":1,"e":"Tercera ley: la misma fuerza. La Tierra casi no acelera porque su masa es enorme.","n":3},
+{"p":"Un cohete expulsa gas: su masa disminuye. ¿Qué forma de la segunda ley conviene usar?","o":["F = ma con m constante","F = dp/dt","F = 0"],"r":1,"e":"Con masa variable hay que usar F = dp/dt (o la ecuación del cohete de Tsiolkovski).","n":4},
+{"p":"¿En qué caso falla la tercera ley en su forma ingenua (fuerzas iguales y opuestas en cada instante)?","o":["Entre dos bloques en contacto","Entre cargas en movimiento que interactúan por campos electromagnéticos","Entre la Tierra y la Luna"],"r":1,"e":"El campo transporta momento; el momento total (partículas + campo) sí se conserva.","n":5}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Newton, I. <i>Philosophiæ Naturalis Principia Mathematica</i> (1687).</li><li>Young y Freedman, <i>Física universitaria</i>, cap. 4–5.</li><li>Alonso y Finn, <i>Física</i>, vol. I.</li><li>HyperPhysics (Georgia State University), sección de leyes de Newton.</li><li>Khan Academy en español: fuerzas y leyes de Newton.</li></ul></details>
+</article>
+
+<!-- ======================= ENERGÍA Y TRABAJO ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="energia-trabajo">Energía y trabajo</h3><span class="etiq" data-n="1">Desde Explorador</span></div>
+<div class="niveles">
+  <div data-n="1"><p>La energía es lo que permite que pasen cosas: que corras, que un foco brille o que un coche avance. Viene en muchas formas: energía de movimiento, energía guardada en la altura, en la comida, en las pilas… ¡y siempre se puede convertir de una forma a otra!</p></div>
+  <div data-n="2"><p>La <b>energía</b> es la capacidad de un sistema para hacer trabajo. El <b>trabajo</b> se hace cuando una fuerza mueve algo: si empujas una caja a lo largo de un pasillo, le transfieres energía. Un objeto en movimiento tiene <b>energía cinética</b> y uno elevado tiene <b>energía potencial gravitacional</b>. Ambas se miden en joules (J).</p></div>
+  <div data-n="3"><p>El trabajo de una fuerza constante es \(W=Fd\cos\theta\), donde θ es el ángulo entre la fuerza y el desplazamiento: si la fuerza es perpendicular al movimiento, no hace trabajo. El <b>teorema trabajo–energía</b> dice que el trabajo neto sobre un cuerpo es igual al cambio de su energía cinética, \(W_{neto}=\Delta E_c\). La potencia es la rapidez con que se hace trabajo, \(P=W/t\), y se mide en watts (W).</p></div>
+  <div data-n="4"><p>Para fuerzas variables, \(W=\int_C\vec F\cdot d\vec r\). Si la fuerza es conservativa (\(\nabla\times\vec F=0\)), el trabajo no depende del camino y existe una energía potencial con \(\vec F=-\nabla U\). La gravedad cerca de la Tierra da \(U=mgh\); un resorte, \(U=\tfrac12kx^2\); la gravedad newtoniana general, \(U=-GMm/r\).</p></div>
+  <div data-n="5"><p>En mecánica analítica, la energía es la cantidad conservada asociada a la invariancia temporal del lagrangiano (Noether): \(E=\sum_i\dot q_i\,\partial L/\partial\dot q_i-L\), que coincide con el hamiltoniano. En relatividad general, la energía no se define localmente de forma covariante; solo en espacio-tiempos con un vector de Killing temporal o asintóticamente planos (masa ADM).</p></div>
+</div>
+<div class="sim" data-sim="energia"></div>
+<div data-desde="2">
+<div class="formula"><b>Trabajo</b>\[W=F\,d\cos\theta\]<dl><dt>W</dt><dd>trabajo (J)</dd><dt>F</dt><dd>fuerza (N)</dd><dt>d</dt><dd>desplazamiento (m)</dd><dt>θ</dt><dd>ángulo entre fuerza y desplazamiento</dd></dl></div>
+<div class="formula"><b>Energía cinética y potencial gravitacional</b>\[E_c=\tfrac12mv^2\qquad\qquad E_p=mgh\]</div>
+<div class="formula"><b>Potencia</b>\[P=\frac{W}{t}=F\,v\]</div>
+</div>
+<div class="pasos" data-desde="2"><b>Ejemplo resuelto: un coche y una maceta</b><ol>
+<li>Coche de 1000 kg a 20 m/s: \(E_c=\tfrac12(1000)(20)^2=200\,000\ \text{J}=200\ \text{kJ}\).</li>
+<li>Maceta de 5 kg en un balcón a 10 m: \(E_p=(5)(9.81)(10)=490.5\ \text{J}\).</li>
+<li>Si la maceta cae, esa energía potencial se vuelve cinética: \(\tfrac12mv^2=mgh\Rightarrow v=\sqrt{2gh}=\sqrt{2(9.81)(10)}\approx14\ \text{m/s}\).</li>
+<li>Observa que la masa se cancela: todos los objetos llegan con la misma rapidez si no hay aire.</li></ol></div>
+<div class="tabla-env"><table class="tabla"><caption>Resumen de energía y trabajo</caption>
+<thead><tr><th>Concepto</th><th>Definición</th><th>Fórmula</th><th>Unidades</th><th>Ejemplo</th></tr></thead><tbody>
+<tr><th>Energía cinética</th><td>Energía asociada al movimiento</td><td>\(E_c=\tfrac12mv^2\)</td><td>J</td><td>Coche de 1000 kg a 20 m/s: 200 000 J</td></tr>
+<tr><th>Energía potencial</th><td>Energía almacenada por la posición en un campo de fuerzas</td><td>\(E_p=mgh\)</td><td>J</td><td>5 kg a 10 m: 490.5 J</td></tr>
+<tr><th>Trabajo</th><td>Energía transferida por una fuerza a lo largo de un desplazamiento</td><td>\(W=Fd\cos\theta\)</td><td>J</td><td>5 N a lo largo de 10 m: 50 J</td></tr>
+<tr><th>Potencia</th><td>Rapidez con la que se transfiere energía</td><td>\(P=W/t\)</td><td>W = J/s</td><td>Un foco LED típico: alrededor de 9 W</td></tr>
+</tbody></table></div>
+<div class="quiz" data-titulo="Ponte a prueba: energía y trabajo"><script type="application/json">[
+{"p":"¿Qué tiene más energía de movimiento?","o":["Una bicicleta parada","Una bicicleta rodando rápido","Las dos igual"],"r":1,"e":"La energía cinética depende de la velocidad: si no se mueve, es cero.","n":1},
+{"p":"Cargas una mochila caminando en línea recta y horizontal a velocidad constante. ¿Cuánto trabajo hace tu fuerza vertical sobre la mochila?","o":["Mucho","Cero","Depende de la mochila"],"r":1,"e":"La fuerza es vertical y el desplazamiento horizontal: cos 90° = 0. Te cansas por otros motivos (tus músculos), pero el trabajo mecánico sobre la mochila es cero.","n":3},
+{"p":"Si duplicas la velocidad de un coche, su energía cinética…","o":["se duplica","se cuadruplica","no cambia"],"r":1,"e":"E = ½mv²: (2v)² = 4v². Por eso los choques a alta velocidad son tan peligrosos.","n":2},
+{"p":"Un motor hace 6000 J de trabajo en 30 s. ¿Qué potencia desarrolla?","o":["200 W","180 000 W","0.005 W"],"r":0,"e":"P = W/t = 6000/30 = 200 W.","n":3},
+{"p":"Para una fuerza conservativa, el trabajo a lo largo de un camino cerrado es…","o":["siempre positivo","cero","igual a la energía cinética"],"r":1,"e":"Si ∇×F = 0, existe U con F = −∇U y el trabajo en un ciclo cerrado es cero.","n":4}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Halliday, Resnick y Walker, <i>Fundamentos de física</i>, cap. 7–8.</li><li>Tipler y Mosca, <i>Física para la ciencia y la tecnología</i>.</li><li>HyperPhysics: trabajo y energía.</li></ul></details>
+</article>
+
+<!-- ======================= GRAVEDAD ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="gravedad">La gravedad</h3><span class="etiq" data-n="1">Desde Explorador</span></div>
+<div class="niveles">
+  <div data-n="1"><p>La gravedad es la fuerza invisible que hace que las cosas caigan y que nos mantiene pegados al suelo. ¡Todo atrae a todo! Tú también atraes a la Tierra, pero ella es tan grandota que gana. La gravedad también mantiene a la Luna dando vueltas alrededor de la Tierra.</p></div>
+  <div data-n="2"><p>La gravedad es la atracción entre cuerpos con masa. Cerca de la superficie de la Tierra, todo cae con una aceleración de unos 9.8 m/s² si no hay aire. Newton se dio cuenta de que la misma fuerza que hace caer una manzana mantiene a la Luna en órbita: la Luna está «cayendo» todo el tiempo, pero va tan rápido de lado que nunca choca.</p></div>
+  <div data-n="3"><p>La ley de gravitación universal de Newton dice que la fuerza entre dos masas es proporcional al producto de las masas e inversamente proporcional al cuadrado de la distancia entre sus centros: \(F=Gm_1m_2/r^2\). De ella sale la aceleración de la gravedad en la superficie de un planeta, \(g=GM/R^2\), que en la Tierra vale unos 9.81 m/s² y en la Luna 1.62 m/s².</p></div>
+  <div data-n="4"><p>El campo gravitacional \(\vec g=-\nabla\Phi\) cumple la ecuación de Poisson \(\nabla^2\Phi=4\pi G\rho\). Por el teorema de Gauss, una distribución esféricamente simétrica atrae desde fuera como si toda su masa estuviera en el centro. Las leyes de Kepler se deducen del problema de dos cuerpos con fuerza central \(1/r^2\); la energía orbital \(E=-GMm/2a\) depende solo del semieje mayor.</p></div>
+  <div data-n="5"><p>En relatividad general la gravedad no es una fuerza sino la curvatura del espacio-tiempo: los cuerpos libres siguen geodésicas, \(\ddot x^\mu+\Gamma^\mu_{\alpha\beta}\dot x^\alpha\dot x^\beta=0\). El límite newtoniano aparece con \(g_{00}\approx-(1+2\Phi/c^2)\). Predicciones verificadas: precesión del perihelio de Mercurio (43″ por siglo), desviación de la luz, corrimiento al rojo gravitacional, retraso de Shapiro y ondas gravitacionales (LIGO, 2015).</p></div>
+</div>
+<h4>De Aristóteles a Einstein</h4>
+<ul class="descubre">
+  <li><b>s. IV a.C.</b> — Aristóteles piensa que los cuerpos pesados caen más rápido. La idea domina casi 2000 años, pero es incorrecta.</li>
+  <li><b>1604–1638</b> — Galileo muestra con planos inclinados que, sin resistencia del aire, todo cae con la misma aceleración.</li>
+  <li><b>1687</b> — Newton publica la ley de gravitación universal.</li>
+  <li><b>1798</b> — Cavendish mide la atracción entre esferas de plomo en el laboratorio; de ahí se obtiene \(G\) y la masa de la Tierra.</li>
+  <li><b>1915</b> — Einstein: la gravedad es curvatura del espacio-tiempo.</li>
+  <li><b>2015</b> — LIGO detecta ondas gravitacionales de dos agujeros negros que chocaron.</li>
+</ul>
+<div class="sim" data-sim="caida"></div>
+<div class="sim" data-sim="orbita"></div>
+<div data-desde="2">
+<div class="formula"><b>Ley de gravitación universal</b>\[F=G\frac{m_1m_2}{r^2},\qquad G=6.674\times10^{-11}\ \text{N·m}^2/\text{kg}^2\]</div>
+<div class="formula"><b>Gravedad en la superficie de un planeta</b>\[g=\frac{GM}{R^2}\]</div>
+</div>
+<div class="pasos" data-desde="3"><b>Ejemplo resuelto: ¿cuánto pesa 1 kg en la Tierra?</b><ol>
+<li>Datos: \(M_\oplus=5.972\times10^{24}\ \text{kg}\), \(R_\oplus=6.371\times10^{6}\ \text{m}\), \(m=1\ \text{kg}\).</li>
+<li>\(F=G\dfrac{Mm}{R^2}=6.674\times10^{-11}\dfrac{(5.972\times10^{24})(1)}{(6.371\times10^{6})^2}\).</li>
+<li>El denominador vale \(4.059\times10^{13}\); el numerador, \(3.986\times10^{14}\).</li>
+<li>\(F\approx9.82\ \text{N}\): justo el valor de \(g\) multiplicado por 1 kg.</li></ol></div>
+<div class="tabla-env"><table class="tabla"><caption>La gravedad en el Sistema Solar (aceleración en la superficie, valores aproximados)</caption>
+<thead><tr><th>Lugar</th><th>g (m/s²)</th><th>Lo que pesaría una persona de 50 kg en una báscula calibrada en la Tierra</th></tr></thead><tbody>
+<tr><th>Luna</th><td class="num">1.62</td><td>≈ 8 kg</td></tr>
+<tr><th>Mercurio</th><td class="num">3.7</td><td>≈ 19 kg</td></tr>
+<tr><th>Marte</th><td class="num">3.71</td><td>≈ 19 kg</td></tr>
+<tr><th>Venus</th><td class="num">8.87</td><td>≈ 45 kg</td></tr>
+<tr><th>Tierra</th><td class="num">9.81</td><td>50 kg</td></tr>
+<tr><th>Saturno*</th><td class="num">10.4</td><td>≈ 53 kg</td></tr>
+<tr><th>Júpiter*</th><td class="num">24.8</td><td>≈ 126 kg</td></tr>
+</tbody></table></div>
+<p class="chico">* Saturno y Júpiter no tienen superficie sólida; el valor corresponde a la altura donde la presión es de 1 bar. Fuente: NASA, <i>Planetary Fact Sheet</i>.</p>
+<div class="tabla-env"><table class="tabla"><caption>Resumen de la gravedad</caption>
+<thead><tr><th>Concepto</th><th>Definición</th><th>Fórmula</th><th>Unidades</th><th>Ejemplo</th></tr></thead><tbody>
+<tr><th>Fuerza gravitacional</th><td>Atracción entre dos masas</td><td>\(F=G\frac{m_1m_2}{r^2}\)</td><td>N</td><td>La Tierra atrae a 1 kg con ≈ 9.8 N</td></tr>
+<tr><th>Aceleración gravitacional</th><td>Aceleración de un cuerpo en caída libre</td><td>\(g=F/m\)</td><td>m/s²</td><td>En la superficie terrestre: 9.81 m/s²</td></tr>
+<tr><th>Gravedad en otros cuerpos</th><td>Depende de la masa y el radio del astro</td><td>\(g=\frac{GM}{R^2}\)</td><td>m/s²</td><td>Marte: 3.71 m/s²</td></tr>
+</tbody></table></div>
+<div class="recuadro idea"><b>¿Y los astronautas «sin gravedad»?</b><p>En la Estación Espacial Internacional, a unos 400 km de altura, la gravedad todavía es cerca del 90 % de la de la superficie. Los astronautas flotan porque ellos y la estación están en caída libre continua alrededor de la Tierra. Esa ingravidez prolongada les hace perder masa ósea y muscular, por eso hacen ejercicio a diario.</p></div>
+<div class="quiz" data-titulo="Ponte a prueba: gravedad"><script type="application/json">[
+{"p":"Si sueltas una pelota de tenis y una de boliche desde la misma altura (con poco aire), ¿cuál llega primero?","o":["La de boliche","La de tenis","Casi al mismo tiempo"],"r":2,"e":"Galileo: la aceleración de caída no depende de la masa. Solo el aire marca pequeñas diferencias.","n":1},
+{"p":"¿Por qué la Luna no cae sobre la Tierra?","o":["Porque no hay gravedad en el espacio","Porque está cayendo pero se mueve tan rápido de lado que sigue la curvatura","Porque la empuja el Sol"],"r":1,"e":"La Luna está en caída libre permanente: eso es una órbita.","n":2},
+{"p":"Si la distancia entre dos masas se triplica, la fuerza gravitacional se vuelve…","o":["1/3","1/9","3 veces mayor"],"r":1,"e":"Proporcional a 1/r²: (1/3)² = 1/9.","n":3},
+{"p":"Un planeta tiene el doble de masa que la Tierra y el doble de radio. Su g es…","o":["El doble","La mitad","Igual"],"r":1,"e":"g = GM/R²: 2/(2²) = 1/2.","n":3},
+{"p":"¿Qué observación confirmó en 1919 la relatividad general?","o":["La precesión de Mercurio","La desviación de la luz de estrellas cerca del Sol durante un eclipse","Las ondas gravitacionales"],"r":1,"e":"La expedición de Eddington midió la desviación durante el eclipse del 29 de mayo de 1919.","n":5}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Newton, I. <i>Principia</i>, libro III.</li><li>NASA, <i>Planetary Fact Sheet</i> (nssdc.gsfc.nasa.gov).</li><li>Hewitt, P. <i>Física conceptual</i>, cap. 9–10.</li><li>Schutz, B. <i>A First Course in General Relativity</i> (para el nivel Físico).</li></ul></details>
+</article>
+
+<!-- ======================= CINEMÁTICA ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="cinematica">Cinemática: velocidad, aceleración y movimiento rectilíneo</h3><span class="etiq" data-n="1">Desde Explorador</span></div>
+<div class="niveles">
+  <div data-n="1"><p>La cinemática describe cómo se mueven las cosas: qué tan rápido van y si van cada vez más rápido o frenando. Cuando dices «llegué en 10 minutos caminando a la escuela», ¡ya estás haciendo cinemática!</p></div>
+  <div data-n="2"><p>La cinemática describe el movimiento sin preguntar qué lo causa. La <b>velocidad</b> dice qué tan rápido cambia la posición (y hacia dónde) y la <b>aceleración</b> dice qué tan rápido cambia la velocidad. Si vas en línea recta siempre igual de rápido es un <b>MRU</b>; si aceleras de manera constante, un <b>MRUA</b>, como un objeto que cae.</p></div>
+  <div data-n="3"><p>En una dimensión: la velocidad media es \(\bar v=\Delta x/\Delta t\) y la aceleración media \(\bar a=\Delta v/\Delta t\). En el <b>MRU</b> (a = 0) se cumple \(x=x_0+vt\). En el <b>MRUA</b> (a constante): \(v=v_0+at\), \(x=x_0+v_0t+\tfrac12at^2\) y \(v^2=v_0^2+2a\Delta x\). En la gráfica x–t la pendiente es la velocidad; en la gráfica v–t la pendiente es la aceleración y el área bajo la curva es el desplazamiento.</p></div>
+  <div data-n="4"><p>Las definiciones instantáneas son derivadas: \(\vec v=d\vec r/dt\), \(\vec a=d\vec v/dt\); las ecuaciones del MRUA salen de integrar dos veces con \(a\) constante. En movimiento curvilíneo, la aceleración se descompone en tangencial \(a_t=d|\vec v|/dt\) y normal \(a_n=v^2/\rho\), con ρ el radio de curvatura.</p></div>
+</div>
+<div class="sim" data-sim="cinematica"></div>
+<div class="mapa" data-titulo="Esquema: tipos de movimiento rectilíneo"><script type="application/json">
+{"t":"Movimiento rectilíneo","d":"Movimiento a lo largo de una línea recta.","h":[
+ {"t":"Uniforme (MRU)","d":"Velocidad constante, sin aceleración.","h":[{"t":"Velocidad constante","d":"Recorre distancias iguales en tiempos iguales."},{"t":"Sin aceleración","f":"a=0"},{"t":"Ecuación","f":"x=x_0+vt"}]},
+ {"t":"Uniformemente acelerado (MRUA)","d":"Aceleración constante; la velocidad cambia lo mismo cada segundo.","h":[{"t":"Aceleración constante","f":"a=\\text{cte}"},{"t":"Velocidad variable","f":"v=v_0+at"},{"t":"Posición","f":"x=x_0+v_0t+\\tfrac12at^2"},{"t":"Sin tiempo","f":"v^2=v_0^2+2a\\Delta x"},{"t":"Caída libre","d":"Caso particular con a = g ≈ 9.81 m/s² hacia abajo."}]}]}
+</script></div>
+<div class="pasos" data-desde="2"><b>Ejemplos resueltos</b><ol>
+<li><b>MRU.</b> Un autobús viaja a 60 km/h constantes durante 2 h: \(d=vt=(60)(2)=120\ \text{km}\).</li>
+<li><b>MRUA.</b> Un objeto parte del reposo con \(a=2\ \text{m/s}^2\). En 5 s recorre \(d=\tfrac12at^2=\tfrac12(2)(5)^2=25\ \text{m}\).</li>
+<li>Su velocidad final es \(v=v_0+at=0+2(5)=10\ \text{m/s}\).</li>
+<li>Comprobación con la tercera ecuación: \(v^2=0+2(2)(25)=100\Rightarrow v=10\ \text{m/s}\). ✓</li></ol></div>
+<div class="tabla-env"><table class="tabla"><caption>Ejemplo de MRUA con a = 2 m/s² partiendo del reposo</caption>
+<thead><tr><th>Tiempo (s)</th><th>Velocidad (m/s)</th><th>Posición (m)</th><th>Aceleración (m/s²)</th></tr></thead><tbody>
+<tr><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">2</td></tr>
+<tr><td class="num">1</td><td class="num">2</td><td class="num">1</td><td class="num">2</td></tr>
+<tr><td class="num">2</td><td class="num">4</td><td class="num">4</td><td class="num">2</td></tr>
+<tr><td class="num">3</td><td class="num">6</td><td class="num">9</td><td class="num">2</td></tr>
+<tr><td class="num">4</td><td class="num">8</td><td class="num">16</td><td class="num">2</td></tr>
+<tr><td class="num">5</td><td class="num">10</td><td class="num">25</td><td class="num">2</td></tr>
+</tbody></table></div>
+<p class="nota">Fíjate: la velocidad crece en línea recta, pero la posición crece como un cuadrado (1, 4, 9, 16, 25).</p>
+<div class="recuadro error"><b>Error común</b><p>Confundir rapidez con velocidad. La rapidez es un número (qué tan rápido); la velocidad es un vector (qué tan rápido y hacia dónde). Un coche que da una vuelta completa a una pista a 60 km/h constantes tiene rapidez constante, pero su velocidad cambia todo el tiempo… y su velocidad media en la vuelta completa es cero.</p></div>
+<div class="quiz" data-titulo="Ponte a prueba: cinemática"><script type="application/json">[
+{"p":"Caminas 300 m en 5 minutos. ¿Cuál es tu rapidez media?","o":["60 m/min","1500 m/min","0.6 m/min"],"r":0,"e":"300 m ÷ 5 min = 60 m/min (1 m/s).","n":1},
+{"p":"En una gráfica velocidad–tiempo, ¿qué representa el área bajo la curva?","o":["La aceleración","El desplazamiento","La fuerza"],"r":1,"e":"Área = velocidad × tiempo = desplazamiento.","n":3},
+{"p":"Un coche va a 20 m/s y frena con a = −4 m/s². ¿En cuánto tiempo se detiene?","o":["5 s","80 s","0.2 s"],"r":0,"e":"0 = 20 − 4t ⇒ t = 5 s.","n":3},
+{"p":"¿Qué distancia recorre ese coche mientras frena?","o":["50 m","100 m","25 m"],"r":0,"e":"v² = v₀² + 2aΔx ⇒ 0 = 400 − 8Δx ⇒ Δx = 50 m.","n":3},
+{"p":"Si x(t) = 3t³ − 2t (SI), ¿cuál es la aceleración en t = 2 s?","o":["36 m/s²","18 m/s²","34 m/s²"],"r":0,"e":"v = 9t² − 2, a = 18t ⇒ a(2) = 36 m/s².","n":4}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Serway y Jewett, <i>Física para ciencias e ingeniería</i>, cap. 2.</li><li>Khan Academy en español: movimiento en una dimensión.</li><li><a href="Explicaciones%20nivel%20bachillerato.html#mru">Guía de bachillerato: MRU y MRUA con ejercicios autocorregibles</a></li></ul></details>
+</article>
+
+<!-- ======================= LUZ Y SONIDO ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="luz-sonido">La luz y el sonido: ondas electromagnéticas y sonoras</h3><span class="etiq" data-n="1">Desde Explorador</span></div>
+<div class="niveles">
+  <div data-n="1"><p>La luz y el sonido son ondas, como las olas en un estanque. El sonido es el aire que vibra y llega a tus oídos; la luz viaja incluso por el espacio vacío, ¡por eso vemos el Sol pero no lo escuchamos! Y la luz es rapidísima: en un segundo podría darle más de 7 vueltas a la Tierra.</p></div>
+  <div data-n="2"><p>El <b>sonido</b> es una onda mecánica: necesita un medio (aire, agua, sólidos) y viaja a unos 343 m/s en el aire. La <b>luz</b> es una onda electromagnética: no necesita medio y viaja a casi 300 000 km/s. En ambas, la <b>frecuencia</b> (cuántas vibraciones por segundo) decide el tono de un sonido o el color de la luz.</p></div>
+  <div data-n="3"><p>Toda onda cumple \(v=\lambda f\). El sonido es una onda <b>longitudinal</b> (las partículas vibran en la dirección de propagación) y su rapidez depende del medio. La luz es una onda <b>transversal</b> de campos eléctrico y magnético; en el vacío viaja a \(c\approx3\times10^8\ \text{m/s}\). La luz visible es una franja muy pequeña del espectro electromagnético, que va de las ondas de radio a los rayos gamma.</p></div>
+  <div data-n="4"><p>Ambas cumplen la ecuación de onda \(\partial^2\psi/\partial t^2=v^2\nabla^2\psi\). Para el sonido en un gas ideal \(v=\sqrt{\gamma RT/M}\); en sólidos, \(v=\sqrt{E/\rho}\). Para la luz, las ecuaciones de Maxwell dan \(c=1/\sqrt{\mu_0\varepsilon_0}\). La intensidad sonora se mide en decibeles: \(\beta=10\log_{10}(I/I_0)\) con \(I_0=10^{-12}\ \text{W/m}^2\).</p></div>
+</div>
+<h4>Historia</h4>
+<ul class="descubre">
+  <li><b>s. VI a.C.</b> — Los pitagóricos relacionan la longitud de una cuerda con la altura del sonido.</li>
+  <li><b>1666</b> — Newton descompone la luz blanca con un prisma.</li>
+  <li><b>1676</b> — Rømer estima la rapidez de la luz observando las lunas de Júpiter.</li>
+  <li><b>1864</b> — Maxwell muestra que la luz es una onda electromagnética.</li>
+  <li><b>1863</b> — Helmholtz publica su obra sobre la percepción de los tonos.</li>
+</ul>
+<div class="sim" data-sim="espectro"></div>
+<div class="sim" data-sim="sonido"></div>
+<div data-desde="2">
+<div class="formula"><b>Relación fundamental de las ondas</b>\[v=\lambda f\qquad\text{(para la luz en el vacío: } c=\lambda f\text{)}\]<dl><dt>v</dt><dd>rapidez de la onda (m/s)</dd><dt>λ</dt><dd>longitud de onda (m)</dd><dt>f</dt><dd>frecuencia (Hz = 1/s)</dd></dl></div>
+</div>
+<div class="tabla-env"><table class="tabla"><caption>Rapidez del sonido en distintos medios (valores típicos)</caption>
+<thead><tr><th>Medio</th><th>Rapidez (m/s)</th></tr></thead><tbody>
+<tr><td>Aire a 0 °C</td><td class="num">331</td></tr><tr><td>Aire a 20 °C</td><td class="num">343</td></tr>
+<tr><td>Helio</td><td class="num">≈ 1007</td></tr><tr><td>Agua (25 °C)</td><td class="num">≈ 1497</td></tr><tr><td>Agua de mar</td><td class="num">≈ 1530</td></tr>
+<tr><td>Acero</td><td class="num">≈ 5900</td></tr><tr><td>Diamante</td><td class="num">≈ 12 000</td></tr>
+</tbody></table></div>
+<div class="tabla-env"><table class="tabla"><caption>Frecuencia y altura del sonido</caption>
+<thead><tr><th>Rango</th><th>Frecuencia</th><th>Ejemplo</th></tr></thead><tbody>
+<tr><td>Infrasonido (no se oye)</td><td>&lt; 20 Hz</td><td>Elefantes, sismos</td></tr>
+<tr><td>Graves</td><td>20 – 250 Hz</td><td>Bombo, voz masculina grave</td></tr>
+<tr><td>Medios</td><td>250 – 4000 Hz</td><td>La mayor parte de la voz humana</td></tr>
+<tr><td>Agudos</td><td>4000 – 20 000 Hz</td><td>Platillos, silbidos</td></tr>
+<tr><td>Ultrasonido (no se oye)</td><td>&gt; 20 000 Hz</td><td>Murciélagos, ecografías</td></tr>
+</tbody></table></div>
+<div class="pasos" data-desde="2"><b>Ejemplo resuelto: ¿a qué distancia cayó el rayo?</b><ol>
+<li>Ves el relámpago y cuentas 6 segundos hasta oír el trueno. La luz llega casi instantáneamente.</li>
+<li>El sonido viaja a ≈ 343 m/s: \(d=vt=(343)(6)\approx2060\ \text{m}\).</li>
+<li>Regla práctica: divide los segundos entre 3 para obtener los kilómetros.</li></ol></div>
+<div class="quiz" data-titulo="Ponte a prueba: luz y sonido"><script type="application/json">[
+{"p":"¿Por qué en el espacio no se oyen las explosiones?","o":["Porque está muy lejos","Porque no hay aire que transmita el sonido","Porque el sonido es muy lento"],"r":1,"e":"El sonido necesita un medio material. La luz no.","n":1},
+{"p":"¿Qué tiene mayor frecuencia?","o":["La luz roja","La luz azul","Las ondas de radio"],"r":1,"e":"El azul tiene menor longitud de onda que el rojo, y por tanto mayor frecuencia (c = λf).","n":2},
+{"p":"Un sonido de 686 Hz viaja en el aire a 343 m/s. ¿Su longitud de onda?","o":["0.5 m","2 m","235 000 m"],"r":0,"e":"λ = v/f = 343/686 = 0.5 m.","n":3},
+{"p":"Las ondas sonoras en el aire son…","o":["Transversales","Longitudinales","Electromagnéticas"],"r":1,"e":"Las moléculas vibran en la misma dirección en que avanza la onda: compresiones y rarefacciones.","n":2},
+{"p":"Si la intensidad de un sonido se multiplica por 100, el nivel sonoro aumenta…","o":["100 dB","20 dB","2 dB"],"r":1,"e":"β = 10 log₁₀(I/I₀): un factor 100 suma 10·log₁₀(100) = 20 dB.","n":4}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Hecht, E. <i>Óptica</i>. Addison-Wesley.</li><li>Hewitt, P. <i>Física conceptual</i>, cap. 25–27.</li><li>HyperPhysics: sonido y espectro electromagnético.</li></ul></details>
+</article>
+
+<section class="bloque" aria-labelledby="intermedio">
+<h2 id="intermedio">Intermedio</h2>
+<p>Electricidad, magnetismo, fuerzas reales, la gran ley de conservación, circuitos y óptica.</p>
+</section>
+
+<!-- ======================= ELECTROMAGNETISMO ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="electromagnetismo">Electromagnetismo: campo eléctrico y magnético</h3><span class="etiq" data-n="1">Desde Explorador</span></div>
+<div class="niveles">
+  <div data-n="1"><p>Todo está hecho de partículas con «carga»: algunas positivas y otras negativas. Las cargas iguales se empujan y las distintas se atraen, ¡como imanes! Cuando las cargas se mueven por un cable tenemos electricidad, y esa electricidad puede crear un imán. Así funcionan los motores de los juguetes.</p></div>
+  <div data-n="2"><p>Una carga eléctrica crea a su alrededor un <b>campo eléctrico</b>: una zona donde otras cargas sienten fuerza. Una corriente eléctrica (cargas en movimiento) crea un <b>campo magnético</b>, como el de un imán. Y al revés: mover un imán cerca de un cable genera corriente. Esa es la idea de los generadores de las presas y de los transformadores.</p></div>
+  <div data-n="3"><p>El campo eléctrico es la fuerza por unidad de carga, \(\vec E=\vec F/q\), y se mide en N/C (o V/m). Para una carga puntual, \(E=kq/r^2\). Las líneas de campo salen de las cargas positivas y entran en las negativas. Una corriente \(I\) en un cable recto crea un campo magnético circular de magnitud \(B=\mu_0I/2\pi r\), medido en teslas (T). Una carga en movimiento dentro de un campo magnético siente la fuerza de Lorentz \(\vec F=q\vec v\times\vec B\), perpendicular a su velocidad.</p></div>
+  <div data-n="4"><p>Las ecuaciones de Maxwell en forma integral: ley de Gauss \(\oint\vec E\cdot d\vec A=Q_{enc}/\varepsilon_0\); no hay monopolos magnéticos \(\oint\vec B\cdot d\vec A=0\); ley de Faraday \(\oint\vec E\cdot d\vec l=-d\Phi_B/dt\); ley de Ampère–Maxwell \(\oint\vec B\cdot d\vec l=\mu_0I_{enc}+\mu_0\varepsilon_0\,d\Phi_E/dt\). El término de corriente de desplazamiento que añadió Maxwell es el que permite las ondas electromagnéticas.</p></div>
+  <div data-n="5"><p>Con el potencial \(A^\mu=(\phi/c,\vec A)\) y \(F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu\), el lagrangiano \(\mathcal L=-\frac{1}{4\mu_0}F_{\mu\nu}F^{\mu\nu}-J^\mu A_\mu\) da las ecuaciones de Maxwell y es invariante de norma ante \(A_\mu\to A_\mu+\partial_\mu\chi\). El efecto Aharonov–Bohm muestra que, en mecánica cuántica, los potenciales tienen efectos físicos aun donde los campos son cero.</p></div>
+</div>
+<div class="sim" data-sim="campoE"></div>
+<div class="sim" data-sim="campoB"></div>
+<div data-desde="2">
+<div class="formula"><b>Ley de Coulomb y campo eléctrico</b>\[F=k\frac{|q_1q_2|}{r^2}\qquad E=\frac{F}{q}=k\frac{|q|}{r^2},\qquad k=8.988\times10^9\ \text{N·m}^2/\text{C}^2\]</div>
+<div class="formula"><b>Campo magnético de un cable largo</b>\[B=\frac{\mu_0 I}{2\pi r},\qquad \mu_0=4\pi\times10^{-7}\ \text{T·m/A}\ (\text{aprox.})\]</div>
+<div class="formula" data-desde="3"><b>Ley de inducción de Faraday</b>\[\mathcal E=-N\frac{d\Phi_B}{dt},\qquad \Phi_B=BA\cos\theta\]</div>
+</div>
+<div class="tabla-env"><table class="tabla"><caption>Comparación entre campo eléctrico y campo magnético</caption>
+<thead><tr><th>Característica</th><th>Campo eléctrico</th><th>Campo magnético</th></tr></thead><tbody>
+<tr><th>Lo produce</th><td>Cargas eléctricas (en reposo o en movimiento)</td><td>Cargas en movimiento (corrientes) e imanes</td></tr>
+<tr><th>Unidad</th><td>N/C = V/m</td><td>Tesla (T) = N·s/(C·m)</td></tr>
+<tr><th>Sobre qué actúa</th><td>Cualquier carga</td><td>Cargas en movimiento</td></tr>
+<tr><th>Líneas de campo</th><td>Salen de + y entran en −</td><td>Lazos cerrados: no tienen principio ni fin</td></tr>
+<tr><th>¿Hace trabajo?</th><td>Sí</td><td>No: la fuerza magnética es perpendicular a la velocidad</td></tr>
+</tbody></table></div>
+<div class="mapa" data-titulo="Esquema: el electromagnetismo"><script type="application/json">
+{"t":"Electromagnetismo","h":[
+ {"t":"Fuerzas eléctricas","h":[{"t":"Ley de Coulomb","f":"F=k\\dfrac{|q_1q_2|}{r^2}","d":"Fuerza entre cargas puntuales."},{"t":"Campo eléctrico","f":"\\vec E=\\vec F/q","d":"Lo que siente una carga de prueba."},{"t":"Potencial eléctrico","f":"\\Delta V=-\\int\\vec E\\cdot d\\vec l","d":"Energía por unidad de carga; el «voltaje»."}]},
+ {"t":"Fuerzas magnéticas","h":[{"t":"Fuerza de Lorentz","f":"\\vec F=q(\\vec E+\\vec v\\times\\vec B)","d":"Fuerza total sobre una carga en movimiento."},{"t":"Ley de Ampère","f":"\\oint\\vec B\\cdot d\\vec l=\\mu_0I","d":"Las corrientes crean campo magnético."},{"t":"Ley de Faraday","f":"\\mathcal E=-\\dfrac{d\\Phi_B}{dt}","d":"Un campo magnético que cambia induce voltaje."},{"t":"Inducción electromagnética","d":"Generadores, transformadores, cargadores inalámbricos."}]}]}
+</script></div>
+<div class="quiz" data-titulo="Ponte a prueba: electromagnetismo"><script type="application/json">[
+{"p":"Frotas un globo y lo acercas a tu cabello. El cabello se levanta porque…","o":["el globo tiene imanes","el globo quedó cargado y atrae al cabello","el aire empuja al cabello"],"r":1,"e":"Al frotarlo, el globo gana electrones y atrae al cabello, que queda con carga opuesta.","n":1},
+{"p":"¿Qué produce un campo magnético?","o":["Solo los imanes","Las cargas en movimiento (corrientes) y los imanes","Las cargas en reposo"],"r":1,"e":"Una corriente eléctrica crea un campo magnético: lo descubrió Ørsted en 1820.","n":2},
+{"p":"Si la distancia a un cable con corriente se duplica, su campo magnético…","o":["se reduce a la mitad","se reduce a la cuarta parte","no cambia"],"r":0,"e":"B = μ₀I/(2πr) va como 1/r.","n":3},
+{"p":"¿Por qué el campo magnético no cambia la rapidez de una carga?","o":["Porque es muy débil","Porque su fuerza es siempre perpendicular a la velocidad","Porque solo actúa sobre imanes"],"r":1,"e":"F = qv×B es perpendicular a v: cambia la dirección pero no hace trabajo.","n":3},
+{"p":"¿Qué término agregó Maxwell a la ley de Ampère?","o":["La corriente de desplazamiento ε₀ dΦ_E/dt","La fuerza de Lorentz","La ley de Coulomb"],"r":0,"e":"Sin él, las ecuaciones serían inconsistentes con la conservación de la carga y no habría ondas electromagnéticas.","n":4}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Griffiths, D. J. <i>Introduction to Electrodynamics</i>.</li><li>Purcell y Morin, <i>Electricity and Magnetism</i>.</li><li>Feynman, <i>Lectures</i>, vol. II.</li></ul></details>
+</article>
+
+<!-- ======================= FUERZAS Y FRICCIÓN ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="fuerzas-friccion">Fuerzas y fricción</h3><span class="etiq" data-n="1">Desde Explorador</span></div>
+<div class="niveles">
+  <div data-n="1"><p>Una fuerza es un empujón o un jalón. La fricción es la fuerza que hace que las cosas se «atoren» al deslizarse: por ella tus zapatos no resbalan y una pelota que rueda termina deteniéndose. Sobre hielo hay poquita fricción, ¡por eso es tan fácil resbalar!</p></div>
+  <div data-n="2"><p>Las fuerzas más comunes son el <b>peso</b> (la gravedad que jala hacia abajo), la <b>normal</b> (el empuje de una superficie que te sostiene), la <b>tensión</b> (de cuerdas y cables) y la <b>fricción</b>, que se opone al deslizamiento entre superficies. La fricción <b>estática</b> evita que algo empiece a moverse; la <b>cinética</b> lo frena cuando ya se mueve, y suele ser menor.</p></div>
+  <div data-n="3"><p>Para analizar fuerzas se dibuja un <b>diagrama de cuerpo libre</b> y se aplica \(\sum\vec F=m\vec a\) en cada eje. La fricción estática se ajusta según haga falta, hasta un máximo \(f_s\le\mu_sN\); la cinética vale \(f_k=\mu_kN\). Los coeficientes μ dependen de los materiales y no tienen unidades. En un plano inclinado, el bloque empieza a deslizar cuando \(\tan\theta>\mu_s\).</p></div>
+  <div data-n="4"><p>El modelo de Amontons–Coulomb (fricción proporcional a la normal e independiente del área aparente de contacto) es empírico: microscópicamente, el área real de contacto entre asperezas crece con la carga. La fricción viscosa en fluidos depende de la velocidad: lineal \(F=-bv\) a bajo número de Reynolds (ley de Stokes, \(b=6\pi\eta r\)) y cuadrática \(F=\tfrac12\rho C_dAv^2\) a alto número de Reynolds.</p></div>
+</div>
+<div class="sim" data-sim="plano"></div>
+<div class="tabla-env"><table class="tabla"><caption>Tipos de fuerzas comunes</caption>
+<thead><tr><th>Fuerza</th><th>Qué es</th><th>Fórmula</th></tr></thead><tbody>
+<tr><th>Peso</th><td>Atracción gravitacional de la Tierra</td><td>\(W=mg\)</td></tr>
+<tr><th>Normal</th><td>Fuerza perpendicular que ejerce una superficie</td><td>Se calcula con \(\sum F=ma\)</td></tr>
+<tr><th>Tensión</th><td>Fuerza a lo largo de una cuerda o cable</td><td>Se calcula con \(\sum F=ma\)</td></tr>
+<tr><th>Elástica</th><td>Fuerza de un resorte (ley de Hooke)</td><td>\(F=-kx\)</td></tr>
+<tr><th>Fricción</th><td>Se opone al deslizamiento entre superficies</td><td>\(f_s\le\mu_sN,\;f_k=\mu_kN\)</td></tr>
+</tbody></table></div>
+<div class="tabla-env"><table class="tabla"><caption>Fricción estática y cinética</caption>
+<thead><tr><th>Característica</th><th>Fricción estática</th><th>Fricción cinética</th></tr></thead><tbody>
+<tr><th>Cuándo actúa</th><td>Antes de que empiece el movimiento</td><td>Mientras hay deslizamiento</td></tr>
+<tr><th>Valor del coeficiente</th><td>Mayor: \(\mu_s\)</td><td>Menor: \(\mu_k\lt\mu_s\)</td></tr>
+<tr><th>Fórmula</th><td>\(f_s\le\mu_sN\) (se ajusta)</td><td>\(f_k=\mu_kN\)</td></tr>
+<tr><th>Aplicación</th><td>Caminar, que las llantas «agarren», que un librero no se deslice</td><td>Frenar derrapando, lijar, esquiar</td></tr>
+</tbody></table></div>
+<div class="tabla-env"><table class="tabla"><caption>Coeficientes de fricción aproximados</caption>
+<thead><tr><th>Superficies</th><th>μₛ</th><th>μₖ</th></tr></thead><tbody>
+<tr><td>Hule sobre concreto seco</td><td class="num">1.0</td><td class="num">0.8</td></tr>
+<tr><td>Acero sobre acero</td><td class="num">0.74</td><td class="num">0.57</td></tr>
+<tr><td>Madera sobre madera</td><td class="num">0.25–0.5</td><td class="num">0.2</td></tr>
+<tr><td>Hielo sobre hielo</td><td class="num">0.1</td><td class="num">0.03</td></tr>
+<tr><td>Teflón sobre teflón</td><td class="num">0.04</td><td class="num">0.04</td></tr>
+<tr><td>Articulaciones humanas</td><td class="num">0.01</td><td class="num">0.003</td></tr>
+</tbody></table></div>
+<p class="chico">Valores típicos de libros de texto (Serway); cambian mucho con la limpieza, humedad y acabado de las superficies.</p>
+<div class="pasos" data-desde="3"><b>Ejemplo resuelto: empujar un librero</b><p>Un librero de 40 kg descansa sobre un piso con \(\mu_s=0.5\) y \(\mu_k=0.3\).</p><ol>
+<li>Normal: \(N=mg=(40)(9.81)=392.4\ \text{N}\).</li>
+<li>Fuerza mínima para moverlo: \(f_{s,max}=\mu_sN=0.5(392.4)=196.2\ \text{N}\).</li>
+<li>Una vez en movimiento basta vencer \(f_k=\mu_kN=117.7\ \text{N}\): por eso «cuesta arrancar» y luego es más fácil.</li>
+<li>Si sigues empujando con 196.2 N, la aceleración es \(a=(196.2-117.7)/40\approx1.96\ \text{m/s}^2\).</li></ol></div>
+<div class="quiz" data-titulo="Ponte a prueba: fuerzas y fricción"><script type="application/json">[
+{"p":"¿Por qué es fácil resbalar en el hielo?","o":["Porque está frío","Porque hay muy poca fricción","Porque el hielo empuja"],"r":1,"e":"El coeficiente de fricción entre zapato y hielo es muy pequeño.","n":1},
+{"p":"Un libro descansa sobre la mesa. ¿Qué fuerzas actúan sobre él?","o":["Ninguna","Peso y normal","Solo el peso"],"r":1,"e":"El peso lo jala hacia abajo y la mesa lo empuja hacia arriba con la normal. Se equilibran.","n":2},
+{"p":"Una caja de 10 kg con μₖ = 0.2 se desliza sobre el piso. ¿Cuánto vale la fricción cinética?","o":["2 N","19.6 N","98 N"],"r":1,"e":"f = μₖmg = 0.2·10·9.8 = 19.6 N.","n":3},
+{"p":"Un bloque está a punto de deslizar en una rampa de 30°. ¿Cuánto vale μₛ?","o":["0.5","0.58","0.87"],"r":1,"e":"tan 30° ≈ 0.577.","n":3},
+{"p":"Para una esfera pequeña que cae en miel (Reynolds bajo), la fuerza de arrastre es proporcional a…","o":["v","v²","v³"],"r":0,"e":"Ley de Stokes: F = 6πηrv.","n":4}
+]</script></div>
+</article>
+
+<!-- ======================= CONSERVACIÓN DE LA ENERGÍA ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="conservacion-energia">La ley de la conservación de la energía</h3><span class="etiq" data-n="1">Desde Explorador</span></div>
+<div class="niveles">
+  <div data-n="1"><p>La energía es como un juguete que nunca se rompe ni desaparece: solo cambia de disfraz. En un columpio, cuando subes tienes energía de «altura» y cuando bajas se vuelve energía de «velocidad». Con el tiempo te detienes porque un poquito se vuelve calor por el roce con el aire.</p></div>
+  <div data-n="2"><p>La energía no se crea ni se destruye, solo se transforma. En una presa, la energía potencial del agua se vuelve cinética al caer, luego mueve una turbina y se convierte en energía eléctrica. Siempre una parte termina como calor, pero si sumas todas las formas, el total es el mismo.</p></div>
+  <div data-n="3"><p>Si solo actúan fuerzas conservativas, la energía mecánica se conserva: \(E_c+E_p=\text{constante}\). Con fricción, la energía mecánica disminuye en la cantidad de trabajo de la fricción, que se convierte en energía térmica: \(E_{mec,i}=E_{mec,f}+f_kd\). Considerando todas las formas (térmica, química, eléctrica, nuclear…), la energía total de un sistema aislado se conserva siempre.</p></div>
+  <div data-n="4"><p>La conservación de la energía es consecuencia de la invariancia de las leyes físicas ante traslaciones en el tiempo (teorema de Noether, 1918). En termodinámica se expresa como la primera ley, \(dU=\delta Q-\delta W\). En relatividad especial se unifica con la conservación del momento en el cuadrimomento \(p^\mu=(E/c,\vec p)\); la masa en reposo es una forma de energía.</p></div>
+</div>
+<div class="sim" data-sim="pendulo"></div>
+<div class="mapa" data-titulo="Esquema: una cadena de transformaciones (central hidroeléctrica)" data-abrir="5"><script type="application/json">
+{"t":"Energía del Sol","d":"El Sol evapora el agua y la sube a las montañas en forma de lluvia.","h":[{"t":"Energía potencial del agua en la presa","f":"E_p=mgh","d":"El agua almacenada en lo alto guarda energía por su altura.","h":[{"t":"Energía cinética del agua que cae","f":"E_c=\\tfrac12mv^2","d":"Al bajar por las tuberías, la altura se convierte en velocidad.","h":[{"t":"Energía mecánica de la turbina","d":"El agua hace girar la turbina.","h":[{"t":"Energía eléctrica","d":"El generador usa la inducción de Faraday.","h":[{"t":"Luz, calor, movimiento en tu casa","d":"Y al final, casi todo termina como energía térmica."}]}]}]}]}]}
+</script></div>
+<div class="tabla-env"><table class="tabla"><caption>Tipos de energía</caption>
+<thead><tr><th>Tipo</th><th>Descripción</th><th>Ejemplo</th></tr></thead><tbody>
+<tr><th>Cinética</th><td>Energía del movimiento</td><td>Un coche en marcha</td></tr>
+<tr><th>Potencial gravitacional</th><td>Energía por la posición en un campo gravitacional</td><td>Agua en lo alto de una presa</td></tr>
+<tr><th>Potencial elástica</th><td>Energía almacenada al deformar un material</td><td>Un resorte comprimido, un arco tenso</td></tr>
+<tr><th>Térmica</th><td>Energía interna relacionada con la temperatura</td><td>El calor de una estufa</td></tr>
+<tr><th>Química</th><td>Energía almacenada en enlaces químicos</td><td>Los alimentos, la gasolina, una pila</td></tr>
+<tr><th>Electromagnética</th><td>Energía de los campos eléctricos y magnéticos</td><td>La luz solar, las ondas de radio</td></tr>
+<tr><th>Nuclear</th><td>Energía de enlace de los núcleos atómicos</td><td>El Sol, una central nuclear</td></tr>
+</tbody></table></div>
+<div class="pasos" data-desde="2"><b>Ejemplo resuelto: un tobogán sin fricción</b><p>Un niño se lanza desde el reposo por un tobogán de 3 m de altura. ¿Con qué rapidez llega abajo?</p><ol>
+<li>Energía arriba: \(E=mgh+0\). Energía abajo: \(E=0+\tfrac12mv^2\).</li>
+<li>Igualamos: \(mgh=\tfrac12mv^2\Rightarrow v=\sqrt{2gh}\).</li>
+<li>\(v=\sqrt{2(9.81)(3)}\approx7.7\ \text{m/s}\), no importa la forma del tobogán ni la masa del niño.</li>
+<li>Con fricción llegaría más lento: la diferencia de energía se convirtió en calor.</li></ol></div>
+<div class="quiz" data-titulo="Ponte a prueba: conservación de la energía"><script type="application/json">[
+{"p":"Una pelota que rebota cada vez sube menos. ¿A dónde se fue la energía?","o":["Desapareció","Se transformó en calor y sonido","Se la quedó el piso para siempre como altura"],"r":1,"e":"La energía no desaparece: se transforma en energía térmica y sonora en cada rebote.","n":1},
+{"p":"En una montaña rusa sin fricción, ¿dónde va más rápido el carrito?","o":["En la cima más alta","En el punto más bajo","Igual en todas partes"],"r":1,"e":"Donde la energía potencial es mínima, la cinética es máxima.","n":2},
+{"p":"Un objeto cae desde 20 m sin aire. ¿Con qué rapidez llega al suelo?","o":["≈ 14 m/s","≈ 19.8 m/s","≈ 392 m/s"],"r":1,"e":"v = √(2gh) = √(2·9.81·20) ≈ 19.8 m/s.","n":3},
+{"p":"¿Qué simetría implica la conservación de la energía según el teorema de Noether?","o":["Invariancia ante rotaciones","Invariancia ante traslaciones temporales","Invariancia ante reflexiones"],"r":1,"e":"Si las leyes no cambian con el tiempo, la energía se conserva.","n":4}
+]</script></div>
+</article>
+
+<!-- ======================= CIRCUITOS ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="circuitos">Circuitos eléctricos: resistencia, voltaje y corriente</h3><span class="etiq" data-n="1">Desde Explorador</span></div>
+<div class="niveles">
+  <div data-n="1"><p>Un circuito es un camino cerrado por donde viaja la electricidad, como una pista de carreras para los electrones. La pila es el motor que los empuja, los cables son la pista y el foco es un lugar donde los electrones «trabajan» y hacen luz. Si la pista se rompe, ¡todo se detiene!</p></div>
+  <div data-n="2"><p>El <b>voltaje</b> (V) es el «empujón» que da la pila; la <b>corriente</b> (I) es cuántas cargas pasan por segundo; la <b>resistencia</b> (R) es qué tanto se opone un material al paso de la corriente. Se relacionan con la ley de Ohm: V = I·R. En <b>serie</b>, los focos están uno tras otro y comparten la corriente; en <b>paralelo</b>, cada foco tiene su propio camino (así está conectada tu casa).</p></div>
+  <div data-n="3"><p>Ley de Ohm: \(V=IR\). Potencia eléctrica: \(P=VI=I^2R=V^2/R\). Resistencias en serie: \(R_{eq}=R_1+R_2+\dots\) (misma corriente, el voltaje se reparte). En paralelo: \(1/R_{eq}=1/R_1+1/R_2+\dots\) (mismo voltaje, la corriente se reparte). La energía consumida es \(E=Pt\); el recibo de luz la cobra en kilowatt-hora (1 kWh = 3.6 MJ).</p></div>
+  <div data-n="4"><p>Las <b>leyes de Kirchhoff</b> resuelven cualquier red: la suma de corrientes en un nodo es cero (conservación de la carga) y la suma de voltajes en una malla es cero (campo conservativo). Con capacitores e inductores aparecen ecuaciones diferenciales: un circuito RC se carga como \(q(t)=C\mathcal E(1-e^{-t/RC})\); un LC oscila con \(\omega=1/\sqrt{LC}\). En corriente alterna se usan impedancias complejas \(Z_R=R\), \(Z_C=1/(i\omega C)\), \(Z_L=i\omega L\).</p></div>
+</div>
+<div class="sim" data-sim="circuito"></div>
+<div class="tabla-env"><table class="tabla"><caption>Magnitudes de un circuito</caption>
+<thead><tr><th>Magnitud</th><th>Símbolo</th><th>Unidad</th><th>Se mide con</th></tr></thead><tbody>
+<tr><td>Voltaje (diferencia de potencial)</td><td>V</td><td>volt (V)</td><td>Voltímetro, en paralelo</td></tr>
+<tr><td>Corriente</td><td>I</td><td>ampere (A)</td><td>Amperímetro, en serie</td></tr>
+<tr><td>Resistencia</td><td>R</td><td>ohm (Ω)</td><td>Óhmetro, con el circuito apagado</td></tr>
+<tr><td>Potencia</td><td>P</td><td>watt (W)</td><td>Wattímetro</td></tr>
+<tr><td>Energía</td><td>E</td><td>joule (J) o kWh</td><td>Medidor de la compañía de luz</td></tr>
+</tbody></table></div>
+<div class="pasos" data-desde="3"><b>Ejemplo resuelto: dos focos de 6 Ω con una batería de 12 V</b><ol>
+<li><b>En serie:</b> \(R_{eq}=6+6=12\ \Omega\), \(I=12/12=1\ \text{A}\). Cada foco tiene 6 V y disipa \(P=VI=6\ \text{W}\).</li>
+<li><b>En paralelo:</b> \(1/R_{eq}=1/6+1/6\Rightarrow R_{eq}=3\ \Omega\), \(I_{total}=12/3=4\ \text{A}\).</li>
+<li>Cada foco recibe los 12 V completos: \(I=2\ \text{A}\) y \(P=24\ \text{W}\). ¡Brillan cuatro veces más que en serie!</li>
+<li>Pero la batería entrega 48 W en lugar de 12 W: se descarga cuatro veces más rápido.</li></ol></div>
+<div class="recuadro"><b>Seguridad</b><p>En México la instalación doméstica es de unos 127 V de corriente alterna. Una corriente de unas cuantas decenas de miliamperes que atraviese el pecho puede ser peligrosa. Nunca manipules contactos ni cables conectados a la red; los experimentos se hacen con pilas.</p></div>
+<div class="quiz" data-titulo="Ponte a prueba: circuitos"><script type="application/json">[
+{"p":"En una serie de foquitos navideños conectados en serie, se funde uno. ¿Qué pasa?","o":["Se apagan todos","Solo se apaga ese","Brillan más los demás"],"r":0,"e":"En serie hay un solo camino: si se rompe, ya no circula corriente.","n":1},
+{"p":"¿Qué mide un amperímetro?","o":["El voltaje","La corriente","La resistencia"],"r":1,"e":"El amperímetro mide corriente y se conecta en serie.","n":2},
+{"p":"Una plancha de 1200 W conectada a 120 V. ¿Qué corriente consume?","o":["10 A","0.1 A","144 000 A"],"r":0,"e":"I = P/V = 1200/120 = 10 A.","n":3},
+{"p":"Tres resistencias de 30 Ω en paralelo equivalen a…","o":["90 Ω","10 Ω","30 Ω"],"r":1,"e":"1/R = 3/30 ⇒ R = 10 Ω.","n":3},
+{"p":"La constante de tiempo de un circuito RC con R = 1 kΩ y C = 100 µF es…","o":["0.1 s","10 s","100 s"],"r":0,"e":"τ = RC = 1000·100×10⁻⁶ = 0.1 s.","n":4}
+]</script></div>
+</article>
+
+<!-- ======================= ÓPTICA ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="optica">Óptica: reflexión, refracción y lentes</h3><span class="etiq" data-n="1">Desde Explorador</span></div>
+<div class="niveles">
+  <div data-n="1"><p>La luz viaja en línea recta hasta que choca con algo. En un espejo rebota (por eso te ves), y al entrar al agua o al vidrio se «dobla». Las lupas y los lentes usan ese doblez para hacer que las cosas se vean más grandes o más claras.</p></div>
+  <div data-n="2"><p>En la <b>reflexión</b>, la luz rebota con el mismo ángulo con el que llega. En la <b>refracción</b>, la luz cambia de dirección al pasar de un material a otro porque cambia su rapidez. Las <b>lentes convergentes</b> (más gruesas en el centro) juntan los rayos y forman imágenes, como en una cámara o en tu ojo; las <b>divergentes</b> los separan, como en los lentes para miopía.</p></div>
+  <div data-n="3"><p>Ley de reflexión: \(\theta_i=\theta_r\), medidos respecto a la normal. Ley de Snell: \(n_1\sin\theta_1=n_2\sin\theta_2\), con el índice de refracción \(n=c/v\). Si la luz va de un medio más denso a uno menos denso y supera el ángulo crítico \(\sin\theta_c=n_2/n_1\), hay reflexión total interna. Para lentes delgadas: \(1/f=1/d_o+1/d_i\) y aumento \(m=-d_i/d_o\); la potencia de una lente se mide en dioptrías, \(P=1/f\) (f en metros).</p></div>
+  <div data-n="4"><p>El principio de Fermat (la luz sigue caminos de tiempo estacionario) deduce las leyes de reflexión y refracción. Para una lente delgada, la ecuación del fabricante de lentes es \(1/f=(n-1)(1/R_1-1/R_2)\). En óptica matricial (ABCD), cada elemento es una matriz 2×2 que actúa sobre (altura, ángulo) en aproximación paraxial. La dispersión \(n(\lambda)\) explica arcoíris y aberración cromática.</p></div>
+</div>
+<div class="sim" data-sim="optica"></div>
+<div class="sim" data-sim="optica" data-o-modo="lente" data-titulo="Lente delgada: arrastra el objeto"></div>
+<div class="tabla-env"><table class="tabla"><caption>Índices de refracción (luz amarilla, aproximados)</caption>
+<thead><tr><th>Material</th><th>n</th><th>Rapidez de la luz (km/s)</th></tr></thead><tbody>
+<tr><td>Vacío</td><td class="num">1 (exacto)</td><td class="num">299 792</td></tr><tr><td>Aire</td><td class="num">1.0003</td><td class="num">≈ 299 700</td></tr>
+<tr><td>Agua</td><td class="num">1.333</td><td class="num">≈ 225 000</td></tr><tr><td>Vidrio común</td><td class="num">≈ 1.5</td><td class="num">≈ 200 000</td></tr>
+<tr><td>Diamante</td><td class="num">2.42</td><td class="num">≈ 124 000</td></tr>
+</tbody></table></div>
+<div class="tabla-env"><table class="tabla"><caption>Reflexión y refracción, lado a lado</caption>
+<thead><tr><th>Propiedad</th><th>Reflexión</th><th>Refracción</th></tr></thead><tbody>
+<tr><th>Ángulos</th><td>Igual al de incidencia</td><td>Relacionados por la ley de Snell</td></tr>
+<tr><th>Dónde ocurre</th><td>En superficies lisas (especular) o rugosas (difusa)</td><td>En la frontera entre dos medios</td></tr>
+<tr><th>Imágenes</th><td>Espejo plano: virtual y del mismo tamaño</td><td>Lentes: reales o virtuales según la posición del objeto</td></tr>
+<tr><th>Ejemplos</th><td>Espejos, periscopios</td><td>Lentes, popote «quebrado», arcoíris, fibra óptica (reflexión total interna)</td></tr>
+</tbody></table></div>
+<div class="pasos" data-desde="3"><b>Ejemplo resuelto: luz del aire al agua</b><ol>
+<li>Datos: \(n_1=1.00\), \(n_2=1.33\), \(\theta_1=45^\circ\).</li>
+<li>\(\sin\theta_2=\dfrac{n_1}{n_2}\sin\theta_1=\dfrac{1.00(0.707)}{1.33}=0.532\).</li>
+<li>\(\theta_2=\arcsin(0.532)\approx32.1^\circ\): el rayo se acerca a la normal.</li>
+<li>Lente: con \(f=10\ \text{cm}\) y \(d_o=20\ \text{cm}\), \(1/d_i=1/10-1/20=1/20\Rightarrow d_i=20\ \text{cm}\), \(m=-1\): imagen real, invertida y del mismo tamaño.</li></ol></div>
+<div class="quiz" data-titulo="Ponte a prueba: óptica"><script type="application/json">[
+{"p":"¿Por qué un popote se ve «roto» en un vaso con agua?","o":["Porque el agua lo dobla de verdad","Porque la luz cambia de dirección al pasar del agua al aire","Porque el vaso es curvo y nada más"],"r":1,"e":"Es la refracción: la luz se desvía al cambiar de medio.","n":1},
+{"p":"Un rayo llega a un espejo plano con 35° respecto a la normal. ¿Con qué ángulo se refleja?","o":["35°","55°","70°"],"r":0,"e":"Ley de la reflexión: θᵢ = θᵣ.","n":2},
+{"p":"¿Cuál es el ángulo crítico del agua (n = 1.33) hacia el aire?","o":["≈ 48.8°","≈ 41.8°","≈ 90°"],"r":0,"e":"sin θc = 1/1.33 = 0.752 ⇒ θc ≈ 48.8°.","n":3},
+{"p":"Una lente de +2 dioptrías tiene distancia focal de…","o":["2 m","50 cm","20 cm"],"r":1,"e":"f = 1/P = 1/2 m = 50 cm.","n":3},
+{"p":"¿Qué principio deduce a la vez la reflexión y la ley de Snell?","o":["El de Arquímedes","El de Fermat (tiempo estacionario)","El de Pascal"],"r":1,"e":"La luz sigue caminos en los que el tiempo de recorrido es estacionario.","n":4}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Hecht, E. <i>Óptica</i>.</li><li>Feynman, <i>QED: la extraña teoría de la luz y la materia</i> (divulgación).</li></ul></details>
+</article>
+
+<section class="bloque" aria-labelledby="avanzado">
+<h2 id="avanzado">Avanzado</h2>
+<p>Las teorías que cambiaron el siglo XX: calor y entropía, relatividad, cuántica, el núcleo atómico y la primera gran candidata a «teoría de todo».</p>
+</section>
+
+<!-- ======================= TERMODINÁMICA ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="termodinamica">Termodinámica: las leyes y sus aplicaciones</h3><span class="etiq" data-n="1">Desde Explorador</span></div>
+<div class="niveles">
+  <div data-n="1"><p>Todo está hecho de partículas diminutas que se mueven sin parar. Cuando algo está caliente, sus partículas se mueven muy rápido; cuando está frío, más despacio. El calor siempre pasa de lo caliente a lo frío: por eso tu chocolate caliente se enfría y tus manos se calientan al sostener la taza.</p></div>
+  <div data-n="2"><p>La <b>temperatura</b> mide qué tan rápido se mueven, en promedio, las partículas de algo. El <b>calor</b> es energía que pasa de un cuerpo caliente a uno frío. Los motores aprovechan ese flujo: queman combustible, el gas caliente empuja un pistón y una parte del calor se convierte en movimiento. Nunca se aprovecha el 100 %: siempre se pierde algo de calor.</p></div>
+  <div data-n="3"><p><b>Ley cero:</b> si A y B están en equilibrio térmico con C, lo están entre sí (esto define la temperatura). <b>Primera ley:</b> \(\Delta U=Q-W\). <b>Segunda ley:</b> la entropía de un sistema aislado no disminuye; el calor no fluye espontáneamente de frío a caliente y ninguna máquina convierte todo el calor en trabajo. <b>Tercera ley:</b> el cero absoluto no se alcanza en un número finito de pasos. La eficiencia máxima de una máquina entre \(T_h\) y \(T_c\) es la de Carnot, \(\eta=1-T_c/T_h\).</p></div>
+  <div data-n="4"><p>Para un gas ideal, \(PV=nRT\) y \(U=\tfrac{f}{2}nRT\) (f grados de libertad). En un proceso adiabático reversible, \(PV^\gamma=\text{cte}\) con \(\gamma=C_p/C_v\). La entropía es función de estado: \(dS=\delta Q_{rev}/T\). La desigualdad de Clausius, \(\oint\delta Q/T\le0\), contiene a la segunda ley. Los potenciales termodinámicos (U, H, F, G) y las relaciones de Maxwell organizan todo el formalismo.</p></div>
+  <div data-n="5"><p>La física estadística fundamenta la termodinámica: en el ensamble canónico \(Z=\mathrm{Tr}\,e^{-\beta\hat H}\), \(F=-k_BT\ln Z\) y \(S=-k_B\sum p_i\ln p_i\). La segunda ley es estadística: las fluctuaciones que disminuyen la entropía son exponencialmente improbables (teoremas de fluctuación de Crooks y Jarzynski). El principio de Landauer vincula información y termodinámica: borrar un bit disipa al menos \(k_BT\ln2\).</p></div>
+</div>
+<div class="sim" data-sim="gas"></div>
+<div class="sim" data-sim="carnot"></div>
+<div data-desde="2">
+<div class="formula"><b>Primera ley</b>\[\Delta U=Q-W\]<p>Convención: Q &gt; 0 si el sistema recibe calor; W &gt; 0 si el sistema hace trabajo.</p></div>
+<div class="formula"><b>Calor sensible y gas ideal</b>\[Q=mc\,\Delta T\qquad\qquad PV=nRT\]</div>
+<div class="formula" data-desde="3"><b>Entropía y eficiencia de Carnot</b>\[\Delta S=\int\frac{\delta Q_{rev}}{T}\qquad\qquad \eta_{Carnot}=1-\frac{T_c}{T_h}\]</div>
+</div>
+<div class="tabla-env"><table class="tabla"><caption>Las leyes de la termodinámica</caption>
+<thead><tr><th>Ley</th><th>Qué dice</th><th>Expresión</th><th>Importancia</th></tr></thead><tbody>
+<tr><th>Cero</th><td>El equilibrio térmico es transitivo</td><td>A ~ C y B ~ C ⇒ A ~ B</td><td>Permite definir y medir la temperatura (termómetros)</td></tr>
+<tr><th>Primera</th><td>Conservación de la energía</td><td>\(\Delta U=Q-W\)</td><td>No existe una máquina que produzca energía de la nada</td></tr>
+<tr><th>Segunda</th><td>La entropía de un sistema aislado no disminuye</td><td>\(\Delta S\ge0\)</td><td>Limita la eficiencia de motores y refrigeradores; da dirección al tiempo</td></tr>
+<tr><th>Tercera</th><td>El cero absoluto es inalcanzable</td><td>\(S\to S_0\) cuando \(T\to0\)</td><td>Fija una referencia absoluta para la entropía</td></tr>
+</tbody></table></div>
+<div class="mapa" data-titulo="Esquema: termodinámica"><script type="application/json">
+{"t":"Termodinámica","h":[{"t":"Leyes","h":[{"t":"Primera ley","f":"\\Delta U=Q-W","d":"Conservación de la energía."},{"t":"Segunda ley","f":"\\Delta S\\ge0","d":"Dirección de los procesos naturales."},{"t":"Tercera ley","d":"El cero absoluto es inalcanzable."}]},{"t":"Aplicaciones","h":[{"t":"Motores","d":"Ciclos de Otto (gasolina), Diésel, Rankine (vapor) y Brayton (turbinas)."},{"t":"Refrigeración","d":"Bombas de calor: usan trabajo para mover calor de lo frío a lo caliente.","f":"COP=\\dfrac{Q_c}{W}"},{"t":"Procesos químicos","d":"La energía libre de Gibbs decide si una reacción ocurre sola.","f":"\\Delta G=\\Delta H-T\\Delta S"}]}]}
+</script></div>
+<div class="pasos" data-desde="3"><b>Ejemplo resuelto: el límite de un motor</b><ol>
+<li>Un motor recibe calor de una cámara a 600 K y expulsa calor al ambiente a 300 K.</li>
+<li>Eficiencia máxima: \(\eta=1-300/600=0.5\), es decir 50 %.</li>
+<li>Si recibe 1000 J por ciclo, como mucho produce 500 J de trabajo y expulsa al menos 500 J de calor.</li>
+<li>Los motores reales de gasolina se quedan muy por debajo de su límite de Carnot por fricción, combustión incompleta y procesos irreversibles.</li></ol></div>
+<div class="quiz" data-titulo="Ponte a prueba: termodinámica"><script type="application/json">[
+{"p":"Pones hielo en un refresco tibio. ¿Qué pasa con el calor?","o":["Pasa del hielo al refresco","Pasa del refresco al hielo","No pasa nada"],"r":1,"e":"El calor fluye de lo caliente a lo frío: el refresco se enfría y el hielo se derrite.","n":1},
+{"p":"¿Cuántos joules hacen falta para calentar 2 kg de agua de 20 °C a 30 °C? (c = 4186 J/kg·°C)","o":["83 720 J","8 372 J","41 860 J"],"r":0,"e":"Q = mcΔT = 2·4186·10 = 83 720 J.","n":3},
+{"p":"Un gas recibe 500 J de calor y hace 200 J de trabajo. ¿Cuánto cambió su energía interna?","o":["700 J","300 J","−300 J"],"r":1,"e":"ΔU = Q − W = 500 − 200 = 300 J.","n":3},
+{"p":"¿Por qué no existe un motor 100 % eficiente?","o":["Por falta de tecnología","Por la segunda ley de la termodinámica","Por la primera ley"],"r":1,"e":"Siempre hay que ceder calor a un foco frío; solo con Tc = 0 K sería 100 %, y es inalcanzable.","n":3},
+{"p":"En un proceso adiabático reversible de un gas ideal monoatómico se cumple…","o":["PV = cte","PV^(5/3) = cte","P/V = cte"],"r":1,"e":"γ = Cp/Cv = 5/3 para un gas monoatómico.","n":4},
+{"p":"Según el principio de Landauer, borrar un bit a temperatura T disipa como mínimo…","o":["k_B T ln 2","h f","Nada"],"r":0,"e":"Es el costo termodinámico mínimo de borrar información; se ha verificado experimentalmente.","n":5}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Çengel y Boles, <i>Termodinámica</i>.</li><li>Callen, H. B. <i>Thermodynamics and an Introduction to Thermostatistics</i>.</li><li>Reif, F. <i>Fundamentals of Statistical and Thermal Physics</i>.</li></ul></details>
+</article>
+
+<!-- ======================= RELATIVIDAD ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="relatividad">Teoría de la relatividad</h3><span class="etiq" data-n="1">Desde Explorador</span></div>
+<div class="niveles">
+  <div data-n="1"><p>Albert Einstein descubrió algo asombroso: si pudieras viajar casi tan rápido como la luz, tu reloj iría más lento que el de tus amigos en la Tierra. ¡Regresarías más joven que ellos! También descubrió que los planetas y estrellas «hunden» el espacio como una bola de boliche sobre una cama elástica, y eso es la gravedad.</p></div>
+  <div data-n="2"><p>La <b>relatividad especial</b> (1905) dice que la luz viaja igual de rápido para todos, sin importar cómo se muevan. Para que eso funcione, el tiempo y las distancias tienen que cambiar: los relojes en movimiento van más lento y los objetos en movimiento se acortan. De ahí sale la ecuación más famosa, E = mc²: la masa es una forma de energía. La <b>relatividad general</b> (1915) explica la gravedad como la curvatura del espacio y el tiempo.</p></div>
+  <div data-n="3"><p>Postulados de la relatividad especial: (1) las leyes de la física son iguales en todos los sistemas inerciales; (2) la rapidez de la luz en el vacío, \(c\), es la misma para todos. Consecuencias: <b>dilatación del tiempo</b> \(\Delta t=\gamma\Delta t_0\), <b>contracción de longitudes</b> \(L=L_0/\gamma\), relatividad de la simultaneidad y equivalencia masa–energía \(E=mc^2\), con \(\gamma=1/\sqrt{1-v^2/c^2}\). La relatividad general parte del <b>principio de equivalencia</b>: localmente, un campo gravitacional no se distingue de una aceleración.</p></div>
+  <div data-n="4"><p>Las transformaciones de Lorentz, \(t'=\gamma(t-vx/c^2)\), \(x'=\gamma(x-vt)\), dejan invariante el intervalo \(s^2=c^2t^2-x^2-y^2-z^2\). La energía y el momento forman el cuadrivector \(p^\mu\) con \(E^2=(pc)^2+(mc^2)^2\). En relatividad general, la métrica \(g_{\mu\nu}\) obedece las ecuaciones de campo \(G_{\mu\nu}+\Lambda g_{\mu\nu}=\frac{8\pi G}{c^4}T_{\mu\nu}\); la solución de Schwarzschild describe el exterior de una masa esférica.</p></div>
+  <div data-n="5"><p>La relatividad general es una teoría geométrica difeomorfismo-invariante derivable de la acción de Einstein–Hilbert \(S=\frac{c^4}{16\pi G}\int R\sqrt{-g}\,d^4x\). Sus pruebas modernas incluyen ondas gravitacionales (LIGO/Virgo desde 2015, con velocidad igual a \(c\) a una parte en \(10^{15}\) según GW170817), la sombra de agujeros negros (EHT, 2019 y 2022) y los parámetros PPN medidos por Cassini. Los teoremas de singularidad de Penrose y Hawking muestran sus propios límites.</p></div>
+</div>
+<div class="sim" data-sim="relatividad"></div>
+<div class="sim" data-sim="minkowski" data-desde="3"></div>
+<div data-desde="2">
+<div class="formula"><b>Factor de Lorentz y dilatación del tiempo</b>\[\gamma=\frac{1}{\sqrt{1-v^2/c^2}}\qquad\Delta t=\gamma\,\Delta t_0\]</div>
+<div class="formula"><b>Energía en relatividad</b>\[E=\gamma mc^2,\qquad E_0=mc^2,\qquad E^2=(pc)^2+(mc^2)^2\]</div>
+</div>
+<div class="tabla-env"><table class="tabla"><caption>Las dos teorías de la relatividad</caption>
+<thead><tr><th>Aspecto</th><th>Relatividad especial (1905)</th><th>Relatividad general (1915)</th></tr></thead><tbody>
+<tr><th>Postulados</th><td>Principio de relatividad; c constante</td><td>Principio de equivalencia; covariancia general</td></tr>
+<tr><th>Ecuación clave</th><td>\(E=mc^2\)</td><td>\(G_{\mu\nu}=\frac{8\pi G}{c^4}T_{\mu\nu}\)</td></tr>
+<tr><th>Efectos</th><td>Dilatación del tiempo, contracción de longitudes, simultaneidad relativa</td><td>Desviación de la luz, corrimiento al rojo gravitacional, ondas gravitacionales, agujeros negros</td></tr>
+<tr><th>Dónde se nota</th><td>A velocidades cercanas a la luz</td><td>Con masas o campos gravitacionales grandes</td></tr>
+<tr><th>Uso diario</th><td>Aceleradores de partículas; GPS</td><td>GPS; cosmología</td></tr>
+</tbody></table></div>
+<div class="mapa" data-titulo="Esquema: la teoría de la relatividad"><script type="application/json">
+{"t":"Teoría de la relatividad","h":[{"t":"Relatividad especial","h":[{"t":"Postulados","d":"Las leyes son iguales para todos los observadores inerciales; c es la misma para todos."},{"t":"Efectos","h":[{"t":"Dilatación del tiempo","f":"\\Delta t=\\gamma\\Delta t_0"},{"t":"Contracción de longitudes","f":"L=L_0/\\gamma"},{"t":"E = mc²","f":"E=mc^2"}]}]},{"t":"Relatividad general","h":[{"t":"Postulados","d":"Equivalencia entre gravedad y aceleración; la masa-energía curva el espacio-tiempo."},{"t":"Consecuencias","h":[{"t":"Agujeros negros","a":"#penrose"},{"t":"Ondas gravitacionales","d":"Detectadas por LIGO en 2015."},{"t":"Expansión del universo","a":"#cosmologia"}]}]}]}
+</script></div>
+<div class="recuadro idea"><b>Evidencia: los muones de los rayos cósmicos</b><p>Los muones se crean a unos 15 km de altura y viven, en reposo, unos 2.2 µs. Aun a casi la velocidad de la luz recorrerían solo unos 660 m antes de decaer. Sin embargo, llegan muchísimos al suelo: a v ≈ 0.995c, γ ≈ 10, así que para nosotros viven unas 10 veces más. Y el GPS adelanta sus relojes unos 38 µs por día respecto a la Tierra (+45 µs por la gravedad más débil, −7 µs por su velocidad).</p></div>
+<div class="quiz" data-titulo="Ponte a prueba: relatividad"><script type="application/json">[
+{"p":"Según Einstein, si viajaras casi a la velocidad de la luz, tu reloj…","o":["iría más rápido","iría más lento comparado con el de la Tierra","se detendría por completo"],"r":1,"e":"Es la dilatación del tiempo: el de un viajero muy rápido avanza más despacio visto desde la Tierra.","n":1},
+{"p":"¿Qué tienen de especial las mediciones de la rapidez de la luz?","o":["Dan el mismo valor para todos los observadores","Dependen de quién mide","Cambian con el color"],"r":0,"e":"Es el segundo postulado de la relatividad especial (en el vacío).","n":2},
+{"p":"¿Cuánto vale γ a v = 0.6c?","o":["1.25","1.67","0.8"],"r":0,"e":"γ = 1/√(1−0.36) = 1/0.8 = 1.25.","n":3},
+{"p":"¿Cuánta energía hay en 1 g de masa según E = mc²?","o":["9×10¹³ J","3×10⁸ J","9×10¹⁶ J"],"r":0,"e":"0.001 kg × (3×10⁸)² = 9×10¹³ J: aproximadamente la energía de 20 000 toneladas de TNT.","n":3},
+{"p":"Para una partícula sin masa, la relación entre energía y momento es…","o":["E = 0","E = pc","E = ½pv"],"r":1,"e":"De E² = (pc)² + (mc²)² con m = 0.","n":4},
+{"p":"¿Qué evento de 2017 limitó la diferencia entre la rapidez de las ondas gravitacionales y la de la luz a menos de ~10⁻¹⁵?","o":["GW150914","GW170817 y su estallido de rayos gamma","La imagen de M87*"],"r":1,"e":"La fusión de estrellas de neutrones GW170817 llegó casi a la vez que el destello GRB 170817A.","n":5}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Einstein, A. <i>Sobre la teoría de la relatividad especial y general</i> (divulgación del propio autor).</li><li>Taylor y Wheeler, <i>Spacetime Physics</i>.</li><li>Hartle, J. <i>Gravity: An Introduction to Einstein's General Relativity</i>.</li><li>Carroll, S. <i>Spacetime and Geometry</i> (nivel Físico).</li></ul></details>
+</article>
+
+<!-- ======================= MECÁNICA CUÁNTICA ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="cuantica">Mecánica cuántica: conceptos básicos</h3><span class="etiq" data-n="1">Desde Explorador</span></div>
+<div class="niveles">
+  <div data-n="1"><p>Cuando miramos cosas diminutas, como los átomos, el mundo se vuelve muy raro. La luz viene en paquetitos llamados fotones. Las partículas pueden comportarse como ondas, como las olas del mar. Y hasta que no las miras, ¡no tienen un lugar exacto! Es como si estuvieran «un poquito en muchos lugares».</p></div>
+  <div data-n="2"><p>La mecánica cuántica describe átomos y partículas. Sus ideas clave: la energía viene en <b>paquetes</b> (cuantos); la luz y la materia se comportan como <b>onda y partícula</b>; solo podemos predecir <b>probabilidades</b>; y hay un límite a lo bien que podemos conocer a la vez la posición y la velocidad de una partícula (<b>principio de incertidumbre</b>). Gracias a ella existen los láseres, los transistores y las resonancias magnéticas.</p></div>
+  <div data-n="3"><p>Planck (1900) propuso que la energía de la radiación se intercambia en cuantos \(E=hf\). Einstein (1905) explicó el efecto fotoeléctrico con fotones. Bohr (1913) cuantizó los niveles del hidrógeno, \(E_n=-13.6\ \text{eV}/n^2\). De Broglie (1924) asoció a toda partícula una longitud de onda \(\lambda=h/p\). La función de onda Ψ obedece la ecuación de Schrödinger y \(|\Psi|^2\) es una densidad de probabilidad (interpretación de Born). Heisenberg: \(\Delta x\,\Delta p\ge\hbar/2\).</p></div>
+  <div data-n="4"><p>Un estado es un vector \(|\psi\rangle\) en un espacio de Hilbert; los observables son operadores hermíticos, y los resultados posibles de una medición son sus valores propios. Observables que no conmutan, \([\hat x,\hat p]=i\hbar\), cumplen relaciones de incertidumbre de Robertson. La evolución es unitaria: \(|\psi(t)\rangle=e^{-i\hat Ht/\hbar}|\psi(0)\rangle\). El espín, el principio de exclusión de Pauli y el entrelazamiento no tienen análogo clásico.</p></div>
+  <div data-n="5"><p>El entrelazamiento viola las desigualdades de Bell (CHSH: hasta \(2\sqrt2\) frente al límite clásico 2), lo que excluye teorías de variables ocultas locales (experimentos sin lagunas de 2015; Nobel 2022). El problema de la medición sigue abierto: decoherencia, Copenhague, muchos mundos, Bohm, colapso objetivo y QBism dan respuestas distintas con las mismas predicciones operativas. La información cuántica (qubits, corrección de errores, ventaja cuántica) es hoy un área experimental en rápido crecimiento.</p></div>
+</div>
+<div class="sim" data-sim="fotoelectrico"></div>
+<div class="sim" data-sim="atomo"></div>
+<div class="sim" data-sim="rendija"></div>
+<div class="sim" data-sim="caja" data-desde="3"></div>
+<div data-desde="2">
+<div class="formula"><b>Energía de un fotón y longitud de onda de De Broglie</b>\[E=hf=\frac{hc}{\lambda}\qquad\qquad\lambda=\frac{h}{p},\qquad h=6.626\times10^{-34}\ \text{J·s}\]</div>
+<div class="formula" data-desde="3"><b>Principio de incertidumbre</b>\[\Delta x\,\Delta p\ge\frac{\hbar}{2},\qquad\hbar=\frac{h}{2\pi}\]</div>
+<div class="formula" data-desde="3"><b>Ecuación de Schrödinger (independiente del tiempo)</b>\[-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}+V(x)\psi=E\psi\]</div>
+</div>
+<div class="tabla-env"><table class="tabla"><caption>Conceptos cuánticos clave</caption>
+<thead><tr><th>Concepto</th><th>Descripción</th><th>Importancia</th></tr></thead><tbody>
+<tr><th>Cuantización</th><td>Ciertas magnitudes solo toman valores discretos</td><td>Explica espectros atómicos y la estabilidad de los átomos</td></tr>
+<tr><th>Función de onda</th><td>Describe el estado; \(|\Psi|^2\) da probabilidades</td><td>Permite calcular todo lo medible</td></tr>
+<tr><th>Superposición</th><td>Un sistema puede estar en combinación de varios estados</td><td>Base de la interferencia y de la computación cuántica</td></tr>
+<tr><th>Entrelazamiento</th><td>Estados de varias partículas que no se pueden describir por separado</td><td>Criptografía cuántica, teleportación cuántica</td></tr>
+<tr><th>Incertidumbre</th><td>Límite a la precisión conjunta de observables que no conmutan</td><td>Energía de punto cero, estabilidad del átomo</td></tr>
+</tbody></table></div>
+<div class="mapa" data-titulo="Esquema: la mecánica cuántica"><script type="application/json">
+{"t":"Mecánica cuántica","h":[{"t":"Fundamentos","h":[{"t":"Cuantización","f":"E=hf"},{"t":"Función de onda","f":"P(x)=|\\psi(x)|^2"},{"t":"Superposición","f":"|\\psi\\rangle=\\alpha|0\\rangle+\\beta|1\\rangle"},{"t":"Entrelazamiento","f":"\\tfrac{1}{\\sqrt2}(|01\\rangle-|10\\rangle)"},{"t":"Incertidumbre","f":"\\Delta x\\Delta p\\ge\\hbar/2"}]},{"t":"Aplicaciones","h":[{"t":"Tecnología moderna","d":"Transistores, láseres, LED, resonancia magnética, relojes atómicos."},{"t":"Computación cuántica","d":"Qubits que aprovechan superposición y entrelazamiento."},{"t":"Criptografía cuántica","d":"Distribución de claves cuya seguridad la garantiza la física."},{"t":"Nanotecnología","d":"Puntos cuánticos, microscopio de efecto túnel."}]}]}
+</script></div>
+<div class="quiz" data-titulo="Ponte a prueba: cuántica"><script type="application/json">[
+{"p":"¿Cómo se llama el «paquetito» de luz?","o":["Electrón","Fotón","Átomo"],"r":1,"e":"La luz está hecha de fotones.","n":1},
+{"p":"En el efecto fotoeléctrico, para arrancar electrones de un metal importa…","o":["solo la intensidad de la luz","la frecuencia (energía de cada fotón)","el tamaño del metal"],"r":1,"e":"Si cada fotón no tiene energía suficiente (hf < φ), no sale ningún electrón aunque la luz sea muy intensa.","n":2},
+{"p":"¿Qué energía tiene un fotón de 620 nm? (hc ≈ 1240 eV·nm)","o":["2 eV","0.5 eV","620 eV"],"r":0,"e":"E = 1240/620 = 2 eV.","n":3},
+{"p":"El electrón del hidrógeno baja de n = 3 a n = 2. ¿De qué color es la luz emitida?","o":["Roja (656 nm)","Azul (486 nm)","Ultravioleta (122 nm)"],"r":0,"e":"ΔE = 13.6(1/4 − 1/9) ≈ 1.89 eV ⇒ λ ≈ 656 nm: la línea H-alfa.","n":3},
+{"p":"Si [x̂, p̂] = iħ, entonces…","o":["x y p pueden medirse juntas con precisión arbitraria","Δx Δp ≥ ħ/2","x y p son el mismo observable"],"r":1,"e":"La relación de Robertson da σₓσₚ ≥ |⟨[x,p]⟩|/2 = ħ/2.","n":4},
+{"p":"¿Qué probaron los experimentos de Aspect, Clauser y Zeilinger (Nobel 2022)?","o":["Que la luz es una onda","La violación de las desigualdades de Bell","La existencia del bosón de Higgs"],"r":1,"e":"Excluyen teorías locales de variables ocultas.","n":5}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Griffiths, D. J. <i>Introduction to Quantum Mechanics</i>.</li><li>Feynman, <i>Lectures</i>, vol. III.</li><li>Sakurai y Napolitano, <i>Modern Quantum Mechanics</i> (nivel Físico).</li><li>Susskind y Friedman, <i>Quantum Mechanics: The Theoretical Minimum</i>.</li></ul></details>
+</article>
+
+<!-- ======================= FÍSICA NUCLEAR ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="nuclear">Física nuclear: energía y reacciones nucleares</h3><span class="etiq" data-n="2">Desde Curioso</span></div>
+<div class="niveles">
+  <div data-n="1"><p>En el centro de cada átomo hay un núcleo diminuto con muchísima energía guardada. Si un núcleo grande se rompe, o si dos núcleos chiquitos se juntan, sale muchísima energía. ¡Así brilla el Sol: juntando núcleos de hidrógeno!</p></div>
+  <div data-n="2"><p>El núcleo atómico está formado por protones y neutrones unidos por la fuerza nuclear fuerte. Hay dos formas de liberar su energía: la <b>fisión</b> (un núcleo pesado, como el uranio, se parte en dos) y la <b>fusión</b> (dos núcleos ligeros, como los del hidrógeno, se unen). Algunos núcleos son inestables y se transforman solos: eso es la <b>radiactividad</b>.</p></div>
+  <div data-n="3"><p>La masa de un núcleo es menor que la suma de las masas de sus nucleones; ese <b>defecto de masa</b> es la energía de enlace, \(E=\Delta m\,c^2\). El hierro-56 y el níquel-62 son de los núcleos más estables; por eso los núcleos pesados liberan energía al fisionarse y los ligeros al fusionarse. Una fisión típica de U-235 libera unos 200 MeV. El decaimiento radiactivo sigue \(N(t)=N_0e^{-\lambda t}\), con vida media \(T_{1/2}=\ln2/\lambda\). Tipos de radiación: alfa (núcleos de helio), beta (electrones o positrones) y gamma (fotones).</p></div>
+  <div data-n="4"><p>La fórmula semiempírica de masas (Bethe–Weizsäcker) modela la energía de enlace con términos de volumen, superficie, Coulomb, asimetría y apareamiento. El modelo de capas (Goeppert Mayer y Jensen, 1949) explica los números mágicos (2, 8, 20, 28, 50, 82, 126) con un fuerte acoplamiento espín–órbita. La fusión requiere superar la barrera de Coulomb; en el Sol ocurre gracias al efecto túnel cuántico.</p></div>
+</div>
+<div class="sim" data-sim="fision"></div>
+<div class="sim" data-sim="decaimiento"></div>
+<div class="formula" data-desde="2"><b>Una fisión típica del uranio-235</b>\[{}^{1}_{0}n+{}^{235}_{92}\mathrm{U}\;\rightarrow\;{}^{141}_{56}\mathrm{Ba}+{}^{92}_{36}\mathrm{Kr}+3\,{}^{1}_{0}n+\approx200\ \text{MeV}\]<p>Los tres neutrones liberados pueden provocar nuevas fisiones: reacción en cadena.</p></div>
+<div class="formula" data-desde="2"><b>La fusión en el Sol (cadena protón–protón, balance neto)</b>\[4\,{}^1\mathrm{H}\;\rightarrow\;{}^4\mathrm{He}+2e^++2\nu_e+26.7\ \text{MeV}\]</div>
+<div class="tabla-env"><table class="tabla"><caption>Fisión y fusión</caption>
+<thead><tr><th>Característica</th><th>Fisión nuclear</th><th>Fusión nuclear</th></tr></thead><tbody>
+<tr><th>Definición</th><td>División de un núcleo pesado</td><td>Unión de núcleos ligeros</td></tr>
+<tr><th>Combustible</th><td>Uranio-235, plutonio-239</td><td>Deuterio y tritio; hidrógeno en las estrellas</td></tr>
+<tr><th>Energía por reacción</th><td>≈ 200 MeV</td><td>≈ 17.6 MeV (D + T), pero mucho más por kilogramo de combustible</td></tr>
+<tr><th>Condiciones</th><td>Neutrones lentos y masa crítica</td><td>Temperaturas de decenas a cientos de millones de grados</td></tr>
+<tr><th>Residuos</th><td>Radiactivos de larga vida</td><td>Mucho menores (activación de materiales)</td></tr>
+<tr><th>Uso actual</th><td>Centrales nucleares (en México, Laguna Verde, Veracruz)</td><td>Estrellas; reactores experimentales como ITER</td></tr>
+</tbody></table></div>
+<div class="quiz" data-titulo="Ponte a prueba: física nuclear"><script type="application/json">[
+{"p":"¿De dónde saca su energía el Sol?","o":["Quemando carbón","De la fusión de núcleos de hidrógeno","De la fisión del uranio"],"r":1,"e":"En el núcleo del Sol, el hidrógeno se fusiona en helio.","n":1},
+{"p":"Una muestra tiene 800 átomos radiactivos y su vida media es 1 día. ¿Cuántos quedan a los 3 días?","o":["100","200","0"],"r":0,"e":"800 → 400 → 200 → 100.","n":2},
+{"p":"¿Qué tipo de radiación es un núcleo de helio?","o":["Alfa","Beta","Gamma"],"r":0,"e":"La radiación alfa son núcleos de helio-4 (2 protones y 2 neutrones).","n":3},
+{"p":"¿Por qué los núcleos pesados liberan energía al fisionarse?","o":["Porque los fragmentos tienen mayor energía de enlace por nucleón","Porque pierden electrones","Porque se calientan"],"r":0,"e":"La curva de energía de enlace por nucleón tiene su máximo cerca del hierro.","n":3},
+{"p":"¿Qué fenómeno permite la fusión en el Sol aunque la temperatura sea insuficiente para superar clásicamente la barrera de Coulomb?","o":["El efecto túnel","La fuerza débil","La radiación gamma"],"r":0,"e":"Los protones atraviesan la barrera por efecto túnel cuántico (factor de Gamow).","n":4}
+]</script></div>
+</article>
+
+<!-- ======================= TEORÍA DE CUERDAS ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="cuerdas">Teoría de cuerdas: una introducción</h3><span class="etiq" data-n="3">Desde Bachiller</span></div>
+<div class="niveles">
+  <div data-n="1"><p>¿Y si todo estuviera hecho de cuerditas diminutas que vibran, como las de una guitarra? Cada forma de vibrar sería una partícula distinta: una nota sería un electrón, otra un fotón… Esa es la idea de la teoría de cuerdas. ¡Pero todavía nadie ha podido comprobarla!</p></div>
+  <div data-n="2"><p>La teoría de cuerdas propone que las partículas fundamentales no son puntos, sino cuerdas extremadamente pequeñas (unas \(10^{-35}\) m) que vibran. Distintos modos de vibración corresponderían a distintas partículas, incluida una que transmite la gravedad (el gravitón). Para que la teoría sea consistente necesita más dimensiones de las que vemos: 10 en total.</p></div>
+  <div data-n="3"><p>En la teoría de cuerdas, el objeto fundamental es unidimensional. Una cuerda que se mueve barre una «hoja de mundo» bidimensional. Las cuerdas pueden ser abiertas (con extremos) o cerradas (lazos); las cerradas siempre contienen un modo sin masa de espín 2: el gravitón. La versión con supersimetría (supercuerdas) es consistente en 10 dimensiones; las 6 extra estarían «enrolladas» en espacios diminutos (variedades de Calabi–Yau).</p></div>
+  <div data-n="4"><p>La acción de Polyakov, \(S=-\frac{T}{2}\int d^2\sigma\sqrt{-h}\,h^{ab}\partial_aX^\mu\partial_bX_\mu\), con \(T=1/2\pi\alpha'\), describe la cuerda bosónica (26 dimensiones, con taquión). Las supercuerdas eliminan el taquión y existen cinco teorías consistentes en 10D. Las dualidades T y S las relacionan; Witten (1995) propuso que son límites de una teoría en 11 dimensiones, la teoría M, cuyo límite de baja energía es la supergravedad 11D.</p></div>
+  <div data-n="5"><p>Logros: incorpora la gravedad cuántica de manera finita en perturbaciones, reproduce la entropía de Bekenstein–Hawking de ciertos agujeros negros extremales (Strominger–Vafa, 1996) y dio lugar a la correspondencia AdS/CFT (Maldacena, 1997), hoy una herramienta en física de materia condensada y de iones pesados. Problemas: el enorme «paisaje» de vacíos (del orden de \(10^{500}\) según estimaciones), la falta de predicciones falsables a energías accesibles y la ausencia, hasta ahora, de supersimetría en el LHC.</p></div>
+</div>
+<div class="sim" data-sim="cuerda"></div>
+<div class="tabla-env"><table class="tabla"><caption>Las cinco teorías de supercuerdas (y la teoría M)</caption>
+<thead><tr><th>Teoría</th><th>Dimensiones</th><th>Tipo de cuerdas</th><th>Característica</th></tr></thead><tbody>
+<tr><th>Tipo I</th><td>10</td><td>Abiertas y cerradas, no orientadas</td><td>Grupo de norma SO(32)</td></tr>
+<tr><th>Tipo IIA</th><td>10</td><td>Cerradas, orientadas</td><td>Supersimetría no quiral</td></tr>
+<tr><th>Tipo IIB</th><td>10</td><td>Cerradas, orientadas</td><td>Supersimetría quiral; autodual bajo dualidad S</td></tr>
+<tr><th>Heterótica SO(32)</th><td>10</td><td>Cerradas</td><td>Mezcla una cuerda bosónica (modos izquierdos) con una supercuerda (modos derechos)</td></tr>
+<tr><th>Heterótica E₈×E₈</th><td>10</td><td>Cerradas</td><td>La favorita para construir modelos parecidos al Modelo Estándar</td></tr>
+<tr><th>Teoría M</th><td>11</td><td>Membranas (M2, M5)</td><td>Unifica las cinco mediante dualidades (Witten, 1995)</td></tr>
+</tbody></table></div>
+<div class="mapa" data-titulo="Esquema: la teoría de cuerdas"><script type="application/json">
+{"t":"Espacio-tiempo (10 dimensiones)","d":"4 dimensiones que vemos + 6 compactificadas.","h":[{"t":"Cuerdas vibrantes","d":"Objetos de una dimensión, de tamaño cercano a la longitud de Planck.","h":[{"t":"Modos bosónicos","d":"Incluyen el gravitón (espín 2) y bosones de norma."},{"t":"Modos fermiónicos","d":"Con supersimetría aparecen las partículas de materia."}]},{"t":"Dimensiones extra","d":"Enrolladas en espacios de Calabi–Yau; su forma decide qué partículas veríamos."},{"t":"Branas","d":"Superficies donde pueden terminar las cuerdas abiertas."}]}
+</script></div>
+<div class="quiz" data-titulo="Ponte a prueba: cuerdas"><script type="application/json">[
+{"p":"En la teoría de cuerdas, ¿qué serían las partículas?","o":["Bolitas sólidas","Distintas formas de vibrar de cuerdas diminutas","Ondas de sonido"],"r":1,"e":"Cada modo de vibración correspondería a una partícula.","n":1},
+{"p":"¿Cuántas dimensiones necesitan las supercuerdas?","o":["4","10","26"],"r":1,"e":"10 (las cuerdas bosónicas, sin supersimetría, necesitan 26).","n":3},
+{"p":"¿Por qué interesó tanto que las cuerdas cerradas tengan un modo de espín 2 sin masa?","o":["Porque es el fotón","Porque es el gravitón: la teoría incluye la gravedad","Porque es el Higgs"],"r":1,"e":"La gravedad aparece de forma automática.","n":4},
+{"p":"¿Qué propuso Maldacena en 1997?","o":["La teoría M","La correspondencia AdS/CFT","La supersimetría"],"r":1,"e":"Una equivalencia entre gravedad en un espacio anti-de Sitter y una teoría de campos conforme en su frontera.","n":5}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Greene, B. <i>El universo elegante</i> (divulgación).</li><li>Zwiebach, B. <i>A First Course in String Theory</i>.</li><li>Tong, D. <i>Lectures on String Theory</i> (gratuitas en línea, Universidad de Cambridge).</li></ul></details>
+</article>
+
+<section class="bloque" aria-labelledby="experto">
+<h2 id="experto">Experto</h2>
+<p>La frontera: campos cuánticos, gravedad cuántica, partículas elementales, el universo entero y la geometría de los agujeros negros. Aun así, cada tema empieza con una explicación para Explorador.</p>
+</section>
+
+<!-- ======================= TCC ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="tcc">Teoría cuántica de campos</h3><span class="etiq" data-n="4">Desde Universitario</span></div>
+<div class="niveles">
+  <div data-n="1"><p>Imagina que todo el universo está lleno de «gelatinas» invisibles, una para cada tipo de partícula. Cuando tocas una gelatina, se forma una vibración: ¡eso es una partícula! Un electrón es una vibración en la gelatina de los electrones y un fotón, en la de la luz.</p></div>
+  <div data-n="2"><p>La teoría cuántica de campos dice que lo fundamental no son las partículas, sino <b>campos</b> que llenan todo el espacio. Las partículas son pequeñas ondas o «paquetes» de energía en esos campos. Por eso todos los electrones del universo son idénticos: son vibraciones del mismo campo. Las fuerzas aparecen cuando las partículas intercambian otras partículas, como el fotón.</p></div>
+  <div data-n="3"><p>La teoría cuántica de campos (TCC) une la mecánica cuántica con la relatividad especial. Fue necesaria porque, a altas energías, \(E=mc^2\) permite <b>crear y destruir partículas</b>, algo que la mecánica cuántica ordinaria no describe. Su primera versión exitosa fue la electrodinámica cuántica (QED), desarrollada en los años 40 por Feynman, Schwinger, Tomonaga y Dyson. Hoy toda la física de partículas (el Modelo Estándar) es una TCC.</p></div>
+  <div data-n="4"><p>Cada modo de Fourier de un campo libre es un oscilador armónico; al cuantizar, \(\hat\phi(x)=\int\frac{d^3k}{(2\pi)^3}\frac{1}{\sqrt{2\omega_k}}\big(a_ke^{-ik\cdot x}+a_k^\dagger e^{ik\cdot x}\big)\) con \([a_k,a^\dagger_{k'}]=(2\pi)^3\delta^3(k-k')\). El estado de vacío cumple \(a_k|0\rangle=0\) y \(a_k^\dagger\) crea una partícula de momento \(k\). Las interacciones se calculan perturbativamente con diagramas de Feynman; las amplitudes dan secciones eficaces y tasas de decaimiento.</p></div>
+  <div data-n="5"><p>La QED tiene lagrangiano \(\mathcal L=\bar\psi(i\gamma^\mu D_\mu-m)\psi-\tfrac14F_{\mu\nu}F^{\mu\nu}\), \(D_\mu=\partial_\mu+ieA_\mu\). Las divergencias ultravioleta se absorben por <b>renormalización</b>; el grupo de renormalización explica la evolución de los acoplamientos con la escala (libertad asintótica de QCD: Gross, Wilczek y Politzer, 1973). Problemas abiertos: la existencia matemática rigurosa de teorías de Yang–Mills con brecha de masa (problema del milenio) y el problema de la constante cosmológica.</p></div>
+</div>
+<div class="sim" data-sim="oscilador"></div>
+<div class="sim" data-sim="feynman"></div>
+<div data-desde="4">
+<div class="formula"><b>Ecuación de Klein–Gordon (campo escalar libre)</b>\[\left(\partial_\mu\partial^\mu+\frac{m^2c^2}{\hbar^2}\right)\phi=0\qquad\Leftarrow\qquad\mathcal L=\tfrac12\partial_\mu\phi\,\partial^\mu\phi-\tfrac12m^2\phi^2\]</div>
+<div class="formula"><b>Ecuación de Dirac</b>\[(i\hbar\gamma^\mu\partial_\mu-mc)\psi=0\]<p>Predijo el espín ½ del electrón y la existencia de la antimateria (positrón, descubierto en 1932).</p></div>
+<div class="formula"><b>Función de partición (TCC a temperatura finita)</b>\[Z=\mathrm{Tr}\,e^{-\beta\hat H},\qquad\beta=\frac{1}{k_BT}\]</div>
+</div>
+<div class="tabla-env"><table class="tabla"><caption>Partículas y sus campos</caption>
+<thead><tr><th>Partícula</th><th>Campo asociado</th><th>Espín</th><th>Interacción que media o siente</th></tr></thead><tbody>
+<tr><td>Electrón</td><td>Campo de Dirac del electrón</td><td>½</td><td>Electromagnética y débil</td></tr>
+<tr><td>Fotón</td><td>Campo electromagnético \(A_\mu\)</td><td>1</td><td>Media la electromagnética</td></tr>
+<tr><td>Gluón</td><td>Campo de gluones (8 colores)</td><td>1</td><td>Media la fuerte</td></tr>
+<tr><td>W±, Z</td><td>Campos de norma débiles</td><td>1</td><td>Median la débil</td></tr>
+<tr><td>Higgs</td><td>Campo escalar de Higgs</td><td>0</td><td>Da masa a W, Z y fermiones</td></tr>
+</tbody></table></div>
+<div class="mapa" data-titulo="Esquema: la teoría cuántica de campos"><script type="application/json">
+{"t":"Teoría cuántica de campos","h":[{"t":"Partículas","h":[{"t":"Fermiones (materia)","d":"Espín semientero; cumplen el principio de exclusión de Pauli."},{"t":"Bosones (interacciones)","d":"Espín entero; median las fuerzas."}]},{"t":"Campos cuánticos","h":[{"t":"Campo electromagnético","d":"Sus cuantos son los fotones."},{"t":"Campo de electrones","d":"Sus cuantos son electrones y positrones."},{"t":"Otros campos","d":"Quarks, gluones, W, Z, Higgs…"}]},{"t":"Interacciones","h":[{"t":"Electromagnética","d":"QED, grupo U(1)."},{"t":"Débil","d":"Unificada con la electromagnética: SU(2)×U(1)."},{"t":"Fuerte","d":"QCD, grupo SU(3)."}]},{"t":"Aplicaciones","h":[{"t":"Física de partículas","a":"#particulas"},{"t":"Cosmología","d":"Inflación, bariogénesis.","a":"#cosmologia"},{"t":"Materia condensada","d":"Superconductividad, transiciones de fase, efecto Hall cuántico."}]}]}
+</script></div>
+<div class="quiz" data-titulo="Ponte a prueba: TCC"><script type="application/json">[
+{"p":"En la teoría cuántica de campos, ¿qué es un electrón?","o":["Una bolita sólida","Una vibración (excitación) del campo del electrón","Un pedazo de átomo"],"r":1,"e":"Las partículas son excitaciones cuantizadas de campos.","n":1},
+{"p":"¿Por qué se necesitó la TCC además de la mecánica cuántica?","o":["Para describir la creación y destrucción de partículas a altas energías","Para explicar los planetas","Para calcular la fricción"],"r":0,"e":"E = mc² permite convertir energía en nuevas partículas.","n":3},
+{"p":"Si a|n⟩ = √n |n−1⟩, ¿qué es a|0⟩?","o":["|−1⟩","0","|0⟩"],"r":1,"e":"El vacío es aniquilado por a.","n":4},
+{"p":"¿Qué predijo la ecuación de Dirac que luego se descubrió en 1932?","o":["El neutrino","El positrón (antimateria)","El bosón de Higgs"],"r":1,"e":"Carl Anderson lo observó en rayos cósmicos.","n":4},
+{"p":"La libertad asintótica significa que el acoplamiento de QCD…","o":["crece a altas energías","disminuye a altas energías (cortas distancias)","es constante"],"r":1,"e":"Por eso los quarks se comportan casi libres en colisiones muy energéticas y están confinados a bajas energías.","n":5}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Zee, A. <i>Quantum Field Theory in a Nutshell</i>.</li><li>Peskin y Schroeder, <i>An Introduction to Quantum Field Theory</i>.</li><li>Srednicki, M. <i>Quantum Field Theory</i>.</li><li>Tong, D. <i>Lectures on Quantum Field Theory</i> (gratuitas en línea).</li><li>Feynman, R. <i>QED</i> (divulgación, nivel Curioso).</li></ul></details>
+</article>
+
+<!-- ======================= GRAVITACIÓN CUÁNTICA ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="gravitacion-cuantica">Gravitación cuántica</h3><span class="etiq" data-n="4">Desde Universitario</span></div>
+<div class="niveles">
+  <div data-n="1"><p>Los científicos tienen dos libros de reglas: uno para cosas gigantes (planetas y estrellas) y otro para cosas diminutas (átomos). Los dos funcionan muy bien… pero no se ponen de acuerdo. En el centro de un agujero negro o al principio del universo se necesitan los dos a la vez. ¡Encontrar un solo libro de reglas es uno de los grandes misterios de la física!</p></div>
+  <div data-n="2"><p>La relatividad general explica la gravedad y la mecánica cuántica explica el mundo atómico, pero son incompatibles en situaciones extremas: el interior de los agujeros negros y el instante del Big Bang. La <b>gravitación cuántica</b> busca una teoría que las una. Hay varias propuestas, como la teoría de cuerdas y la gravedad cuántica de lazos, pero ninguna ha sido confirmada experimentalmente.</p></div>
+  <div data-n="3"><p>Al combinar \(\hbar\), \(G\) y \(c\) aparecen las <b>unidades de Planck</b>: longitud \(\ell_P=\sqrt{\hbar G/c^3}\approx1.6\times10^{-35}\) m y energía \(E_P\approx1.2\times10^{19}\) GeV. A esas escalas se esperan efectos cuánticos del espacio-tiempo, pero están unos 15 órdenes de magnitud por encima de la energía del LHC. Una pista importante: los agujeros negros tienen entropía y temperatura (Bekenstein, Hawking), lo que sugiere que el espacio-tiempo tiene grados de libertad microscópicos.</p></div>
+  <div data-n="4"><p>Cuantizar la relatividad general como una teoría de campos ordinaria falla: el acoplamiento \(G\) tiene dimensión de masa\(^{-2}\) y la teoría no es renormalizable (a dos lazos aparece la divergencia de Goroff–Sagnotti). Como teoría efectiva, sin embargo, da predicciones a bajas energías (correcciones cuánticas al potencial newtoniano). Enfoques: cuerdas, lazos (variables de Ashtekar, redes de espín), seguridad asintótica (Weinberg), triangulaciones dinámicas causales y conjuntos causales.</p></div>
+  <div data-n="5"><p>La paradoja de la información (Hawking, 1976) se ha reformulado con la curva de Page; cálculos semiclásicos con «islas» y superficies extremales cuánticas (2019) reproducen esa curva, apoyando la unitariedad de la evaporación. La holografía (AdS/CFT) sugiere que la geometría emerge del entrelazamiento (fórmula de Ryu–Takayanagi). Experimentos de mesa buscan probar si la gravedad puede entrelazar masas (propuestas tipo Bose–Marletto–Vedral).</p></div>
+</div>
+<div class="sim" data-sim="agujero"></div>
+<div data-desde="3">
+<div class="formula"><b>Longitud de Planck</b>\[\ell_P=\sqrt{\frac{\hbar G}{c^3}}\approx1.616\times10^{-35}\ \text{m}\]</div>
+<div class="formula"><b>Entropía de Bekenstein–Hawking</b>\[S_{BH}=\frac{k_B\,A}{4\,\ell_P^2}\]<dl><dt>A</dt><dd>área del horizonte de eventos</dd><dt>ℓ<sub>P</sub></dt><dd>longitud de Planck</dd></dl><p>La entropía crece con el área, no con el volumen: la base del principio holográfico.</p></div>
+<div class="formula" data-desde="4"><b>Acción de Nambu–Goto (cuerdas)</b>\[S=-\frac{1}{2\pi\alpha'}\int d^2\sigma\,\sqrt{-\det\big(\partial_aX^\mu\partial_bX_\mu\big)}\]</div>
+</div>
+<div class="tabla-env"><table class="tabla"><caption>Principales propuestas de gravitación cuántica</caption>
+<thead><tr><th>Propuesta</th><th>Idea básica</th><th>Origen</th><th>Logros y retos</th></tr></thead><tbody>
+<tr><th>Teoría de cuerdas</th><td>Partículas como cuerdas; la gravedad aparece de forma natural</td><td>Años 60–70 (Veneziano, Nambu, Susskind); supercuerdas en 1984 (Green y Schwarz)</td><td>Entropía de agujeros negros, AdS/CFT; sin predicciones verificadas aún</td></tr>
+<tr><th>Gravedad cuántica de lazos</th><td>El espacio está cuantizado: áreas y volúmenes discretos</td><td>Finales de los 80 y 90 (Ashtekar, Rovelli, Smolin)</td><td>Cosmología de rebote; difícil recuperar el límite clásico</td></tr>
+<tr><th>Gravedad emergente</th><td>La gravedad surge de la termodinámica o la información, no es fundamental</td><td>Jacobson (1995), Verlinde (2011)</td><td>Ideas sugerentes; sin formulación completa</td></tr>
+<tr><th>Seguridad asintótica</th><td>La gravedad sería renormalizable de forma no perturbativa</td><td>Weinberg (1979)</td><td>Evidencia numérica; sin prueba definitiva</td></tr>
+</tbody></table></div>
+<div class="mapa" data-titulo="Esquema: gravitación cuántica"><script type="application/json">
+{"t":"Gravitación cuántica","h":[{"t":"Teorías principales","h":[{"t":"Gravedad cuántica de lazos","d":"Espacio-tiempo discreto, redes de espín."},{"t":"Teoría de cuerdas","a":"#cuerdas"},{"t":"Gravedad emergente","d":"La gravedad como fenómeno colectivo."}]},{"t":"Objetivos","h":[{"t":"Unificación","d":"Un solo marco para todas las interacciones."},{"t":"Describir la gravedad cuántica","d":"Qué pasa a la escala de Planck."},{"t":"Resolver singularidades","d":"Big Bang e interior de agujeros negros."}]},{"t":"Dónde importa","h":[{"t":"Agujeros negros","a":"#penrose"},{"t":"Big Bang","a":"#cosmologia"},{"t":"Teoría unificada","d":"La meta de largo plazo."}]}]}
+</script></div>
+<div class="quiz" data-titulo="Ponte a prueba: gravitación cuántica"><script type="application/json">[
+{"p":"¿Cuáles son las dos grandes teorías que la gravitación cuántica quiere unir?","o":["Newton y Galileo","La relatividad general y la mecánica cuántica","La óptica y la termodinámica"],"r":1,"e":"Funcionan muy bien por separado, pero chocan en los agujeros negros y el Big Bang.","n":1},
+{"p":"¿Aproximadamente cuánto mide la longitud de Planck?","o":["10⁻¹⁵ m","10⁻³⁵ m","10⁻¹⁰ m"],"r":1,"e":"ℓ_P ≈ 1.6×10⁻³⁵ m.","n":3},
+{"p":"La entropía de un agujero negro es proporcional a…","o":["su volumen","el área de su horizonte","su temperatura"],"r":1,"e":"S = k_B A/(4ℓ_P²).","n":3},
+{"p":"¿Por qué no basta con cuantizar la relatividad general como el electromagnetismo?","o":["Porque G no existe","Porque la teoría resultante no es renormalizable","Porque la gravedad es demasiado fuerte"],"r":1,"e":"G tiene dimensiones de masa⁻²; aparecen infinitos que no se pueden absorber.","n":4}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Rovelli, C. <i>La realidad no es lo que parece</i> (divulgación) y <i>Quantum Gravity</i>.</li><li>Kiefer, C. <i>Quantum Gravity</i>.</li><li>Instituto Perimeter de Física Teórica (perimeterinstitute.ca): conferencias públicas.</li></ul></details>
+</article>
+
+<!-- ======================= PARTÍCULAS ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="particulas">Física de partículas y el Modelo Estándar</h3><span class="etiq" data-n="2">Desde Curioso</span></div>
+<div class="niveles">
+  <div data-n="1"><p>Si partes algo en pedacitos cada vez más pequeños, llegas a los átomos. Pero los átomos también tienen piezas: electrones alrededor y un núcleo de protones y neutrones. ¡Y los protones están hechos de piezas aún más chiquitas llamadas quarks! Son como los ladrillos de LEGO más pequeños del universo.</p></div>
+  <div data-n="2"><p>La física de partículas busca los componentes más pequeños de la materia. Según el <b>Modelo Estándar</b>, toda la materia está hecha de dos familias: <b>quarks</b> (que forman protones y neutrones) y <b>leptones</b> (como el electrón y los neutrinos). Las fuerzas se transmiten mediante <b>bosones</b>: el fotón (electromagnetismo), los gluones (fuerza fuerte) y los bosones W y Z (fuerza débil). El bosón de Higgs, hallado en 2012 en el CERN, explica la masa de muchas partículas.</p></div>
+  <div data-n="3"><p>El Modelo Estándar contiene 6 quarks (u, d, c, s, t, b), 6 leptones (e, μ, τ y sus neutrinos), 4 tipos de bosones de norma (fotón, 8 gluones, W±, Z) y el bosón de Higgs. Los quarks tienen carga fraccionaria (+2/3 o −1/3) y nunca aparecen aislados (confinamiento): un protón es uud y un neutrón udd. La materia se organiza en tres generaciones cada vez más pesadas; la materia ordinaria usa solo la primera. Cada partícula tiene su antipartícula.</p></div>
+  <div data-n="4"><p>El Modelo Estándar es una teoría de norma con grupo \(SU(3)_C\times SU(2)_L\times U(1)_Y\). La ruptura espontánea de simetría electrodébil por el campo de Higgs (\(\langle\phi\rangle\approx246\) GeV) da masa a W y Z y, mediante acoplamientos de Yukawa, a los fermiones. La mezcla de sabores de quarks se describe con la matriz CKM, cuya fase compleja viola CP. La masa de los neutrinos (oscilaciones, Nobel 2015) requiere extender el modelo.</p></div>
+  <div data-n="5"><p>Con 19 parámetros libres (más los de neutrinos), el Modelo Estándar ha superado todas las pruebas directas en el LHC. Tensiones y preguntas abiertas: la naturaleza de la materia oscura, la asimetría bariónica, el problema de jerarquía (estabilidad de la masa del Higgs), el problema CP fuerte (axiones), el origen de las masas y mezclas de neutrinos (¿Dirac o Majorana?) y el momento magnético anómalo del muón, cuya comparación teoría–experimento sigue en revisión.</p></div>
+</div>
+<div class="sim" data-sim="modelo"></div>
+<h4>Cómo se fueron descubriendo</h4>
+<ul class="descubre">
+  <li><b>1897</b> — J. J. Thomson descubre el electrón.</li>
+  <li><b>1911–1919</b> — Rutherford descubre el núcleo y el protón.</li>
+  <li><b>1932</b> — Chadwick descubre el neutrón; Anderson, el positrón.</li>
+  <li><b>1956</b> — Cowan y Reines detectan el neutrino.</li>
+  <li><b>1964</b> — Gell-Mann y Zweig proponen los quarks; Higgs, Englert, Brout y otros, el mecanismo de Higgs.</li>
+  <li><b>1983</b> — Se descubren los bosones W y Z en el CERN.</li>
+  <li><b>1995</b> — Se descubre el quark top en Fermilab.</li>
+  <li><b>2012</b> — ATLAS y CMS anuncian el bosón de Higgs en el LHC.</li>
+</ul>
+<div class="tabla-env"><table class="tabla"><caption>Las cuatro interacciones fundamentales</caption>
+<thead><tr><th>Interacción</th><th>Portador</th><th>Intensidad relativa (aprox.)</th><th>Alcance</th><th>Ejemplo</th></tr></thead><tbody>
+<tr><th>Fuerte</th><td>Gluones</td><td>1</td><td>≈ 10⁻¹⁵ m</td><td>Mantiene unido el núcleo</td></tr>
+<tr><th>Electromagnética</th><td>Fotón</td><td>≈ 10⁻²</td><td>Infinito</td><td>Química, luz, electricidad</td></tr>
+<tr><th>Débil</th><td>W±, Z</td><td>≈ 10⁻⁶</td><td>≈ 10⁻¹⁸ m</td><td>Decaimiento beta, fusión en el Sol</td></tr>
+<tr><th>Gravedad</th><td>¿Gravitón? (hipotético)</td><td>≈ 10⁻³⁹</td><td>Infinito</td><td>Órbitas, mareas</td></tr>
+</tbody></table></div>
+<p class="chico">Las intensidades relativas dependen de la energía y de cómo se comparen; son órdenes de magnitud a escalas nucleares.</p>
+<div class="mapa" data-titulo="Esquema: el Modelo Estándar"><script type="application/json">
+{"t":"Modelo Estándar","h":[{"t":"Fermiones","h":[{"t":"Quarks","h":[{"t":"up (u)"},{"t":"down (d)"},{"t":"charm (c)"},{"t":"strange (s)"},{"t":"top (t)"},{"t":"bottom (b)"}]},{"t":"Leptones","h":[{"t":"electrón (e)"},{"t":"muón (μ)"},{"t":"tau (τ)"},{"t":"neutrinos (νₑ, ν_μ, ν_τ)"}]}]},{"t":"Bosones","h":[{"t":"Fotón (γ)","d":"Fuerza electromagnética."},{"t":"Gluón (g)","d":"Fuerza fuerte."},{"t":"W y Z","d":"Fuerza débil."},{"t":"Higgs (H)","d":"Da masa."}]}]}
+</script></div>
+<div class="quiz" data-titulo="Ponte a prueba: partículas"><script type="application/json">[
+{"p":"¿De qué están hechos los protones?","o":["De electrones","De quarks","De fotones"],"r":1,"e":"Un protón tiene dos quarks up y uno down (uud), unidos por gluones.","n":1},
+{"p":"¿Qué partícula transmite la fuerza electromagnética?","o":["El gluón","El fotón","El neutrino"],"r":1,"e":"El fotón.","n":2},
+{"p":"¿Cuál es la carga de un neutrón (udd)?","o":["+1","0","−1"],"r":1,"e":"+2/3 − 1/3 − 1/3 = 0.","n":3},
+{"p":"¿Qué observación demostró que los neutrinos tienen masa?","o":["Las oscilaciones de neutrinos","La desintegración del protón","La radiación de Hawking"],"r":0,"e":"Super-Kamiokande (1998) y SNO (2001); Nobel 2015 para Kajita y McDonald.","n":4},
+{"p":"Tras la ruptura electrodébil, ¿qué combinación de campos queda sin masa?","o":["El fotón","El bosón Z","El bosón W"],"r":0,"e":"A = sin θ_W W³ + cos θ_W B permanece sin masa; U(1) electromagnético no se rompe.","n":5}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Griffiths, D. J. <i>Introduction to Elementary Particles</i>.</li><li>CERN (home.cern), sección educativa en español.</li><li>Particle Data Group, <i>Review of Particle Physics</i>.</li><li>Lederman, L. <i>La partícula divina</i> (divulgación).</li></ul></details>
+</article>
+
+<!-- ======================= COSMOLOGÍA ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="cosmologia">Origen, evolución y destino del universo</h3><span class="etiq" data-n="1">Desde Explorador</span></div>
+<div class="niveles">
+  <div data-n="1"><p>El universo no siempre fue como es hoy. Hace muchísimo tiempo todo estaba apretado y muy caliente, y empezó a estirarse como un globo que se infla. Al enfriarse se formaron los átomos, luego las estrellas, las galaxias, los planetas… ¡y nosotros! Y todavía se sigue estirando.</p></div>
+  <div data-n="2"><p>La cosmología estudia el universo completo. Sabemos que se está expandiendo porque las galaxias lejanas se alejan de nosotros (Hubble, 1929). Si «rebobinamos» la película, todo estuvo hace unos 13 800 millones de años en un estado muy caliente y denso: el Big Bang. No fue una explosión en un punto, sino la expansión del espacio mismo. Hoy sabemos que la expansión se está acelerando por algo que llamamos energía oscura.</p></div>
+  <div data-n="3"><p>El modelo ΛCDM se apoya en tres pilares: la ley de Hubble–Lemaître \(v=H_0d\), la radiación cósmica de fondo (CMB, 2.725 K, emitida unos 380 000 años después del inicio) y la abundancia de helio y deuterio producida en los primeros minutos (nucleosíntesis). Composición actual aproximada: 5 % materia ordinaria, 27 % materia oscura, 68 % energía oscura. El destino depende de la energía oscura: si es constante, la expansión acelerada continuará para siempre y el universo se enfriará (Gran Congelamiento).</p></div>
+  <div data-n="4"><p>Para un universo homogéneo e isótropo (métrica FLRW), las ecuaciones de Friedmann son \(\left(\frac{\dot a}{a}\right)^2=\frac{8\pi G}{3}\rho-\frac{kc^2}{a^2}+\frac{\Lambda c^2}{3}\) y \(\frac{\ddot a}{a}=-\frac{4\pi G}{3}\left(\rho+\frac{3p}{c^2}\right)+\frac{\Lambda c^2}{3}\). Con \(\Omega_i=\rho_i/\rho_c\) y \(\rho_c=3H_0^2/8\pi G\), la expansión es acelerada si \(\Omega_\Lambda>\Omega_m/2\). El corrimiento al rojo cumple \(1+z=a_0/a\).</p></div>
+  <div data-n="5"><p>La inflación (Guth, Linde, Starobinsky) explica la planitud, el horizonte y el espectro casi invariante de escala de las perturbaciones primordiales (\(n_s\approx0.965\), Planck 2018). Problemas abiertos: la tensión de Hubble (~73 frente a ~67 km/s/Mpc), indicios recientes de energía oscura dinámica en datos de DESI, la naturaleza de la materia oscura (WIMPs, axiones, otras), la bariogénesis y el valor de Λ, 120 órdenes de magnitud menor que la estimación ingenua de la energía del vacío.</p></div>
+</div>
+<div class="sim" data-sim="cosmos"></div>
+<h4>Línea del tiempo del universo</h4>
+<ul class="descubre">
+  <li><b>t ≈ 0</b> — Inicio de la expansión. La física conocida no describe el instante cero.</li>
+  <li><b>≈ 10⁻³⁶ – 10⁻³² s</b> — Inflación (hipótesis más aceptada): una expansión exponencial brevísima.</li>
+  <li><b>≈ 1 µs</b> — Los quarks se agrupan en protones y neutrones.</li>
+  <li><b>≈ 3 minutos</b> — Nucleosíntesis: se forman núcleos de helio, deuterio y litio.</li>
+  <li><b>≈ 380 000 años</b> — Se forman los átomos y el universo se vuelve transparente: la radiación cósmica de fondo.</li>
+  <li><b>≈ 100–200 millones de años</b> — Primeras estrellas.</li>
+  <li><b>≈ 9 200 millones de años</b> — Nace el Sistema Solar (hace unos 4 600 millones de años).</li>
+  <li><b>≈ 13 800 millones de años</b> — Hoy.</li>
+</ul>
+<div class="tabla-env"><table class="tabla"><caption>¿De qué está hecho el universo? (Planck 2018, aproximado)</caption>
+<thead><tr><th>Componente</th><th>Porcentaje</th><th>Qué sabemos</th></tr></thead><tbody>
+<tr><th>Energía oscura</th><td class="num">≈ 68 %</td><td>Acelera la expansión; se comporta casi como una constante cosmológica</td></tr>
+<tr><th>Materia oscura</th><td class="num">≈ 27 %</td><td>Solo la detectamos por su gravedad (rotación de galaxias, lentes gravitacionales)</td></tr>
+<tr><th>Materia ordinaria</th><td class="num">≈ 5 %</td><td>Estrellas, gas, planetas, nosotros</td></tr>
+</tbody></table></div>
+<div class="quiz" data-titulo="Ponte a prueba: cosmología"><script type="application/json">[
+{"p":"¿Qué edad tiene aproximadamente el universo?","o":["6 000 años","4 600 millones de años","13 800 millones de años"],"r":2,"e":"4 600 millones es la edad del Sistema Solar.","n":1},
+{"p":"¿Qué fue el Big Bang?","o":["Una explosión en un punto del espacio","El inicio de la expansión del propio espacio desde un estado caliente y denso","El choque de dos galaxias"],"r":1,"e":"No hay un «centro»: todo el espacio se expande.","n":2},
+{"p":"¿Qué es la radiación cósmica de fondo?","o":["Luz de las primeras estrellas","La luz liberada cuando se formaron los átomos, ~380 000 años después del inicio","Ruido de las antenas"],"r":1,"e":"Hoy la vemos como microondas a 2.7 K, enfriada por la expansión.","n":3},
+{"p":"Con Ωₘ = 0.3 y Ω_Λ = 0.7, ¿la expansión actual se acelera?","o":["Sí, porque Ω_Λ > Ωₘ/2","No","Solo si k = +1"],"r":0,"e":"q₀ = Ωₘ/2 − Ω_Λ = −0.55 < 0.","n":4},
+{"p":"¿Qué es la «tensión de Hubble»?","o":["La diferencia entre H₀ medido localmente (~73) y el inferido del CMB (~67 km/s/Mpc)","Un error del telescopio Hubble","La fuerza entre galaxias"],"r":0,"e":"Es una de las grandes preguntas abiertas de la cosmología actual.","n":5}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Weinberg, S. <i>Los tres primeros minutos del universo</i> (divulgación).</li><li>Ryden, B. <i>Introduction to Cosmology</i>.</li><li>Planck Collaboration (2020), <i>A&amp;A</i> 641, A6.</li><li>En la página «La física»: <a href="La%20f%C3%ADsica.html#r-cosmos">el calendario cósmico</a>.</li></ul></details>
+</article>
+
+<!-- ======================= PENROSE ======================= -->
+<article class="tema">
+<div class="tema-cab"><h3 id="penrose">Diagramas de Penrose–Carter y agujeros negros</h3><span class="etiq" data-n="4">Desde Universitario</span></div>
+<div class="niveles">
+  <div data-n="1"><p>Un agujero negro es un lugar donde la gravedad es tan fuerte que nada puede escapar, ni siquiera la luz. Tiene una «frontera sin regreso» llamada horizonte. Los físicos dibujan mapas especiales del espacio y el tiempo para entender qué pasaría si cayeras dentro.</p></div>
+  <div data-n="2"><p>Un diagrama de Penrose es un mapa del espacio y el tiempo juntos, donde todo un universo infinito cabe en una hoja. Su truco: la luz siempre viaja en diagonales de 45°. Así se ve de inmediato qué lugares pueden comunicarse entre sí. En el diagrama de un agujero negro se nota que, al cruzar el horizonte, todos los caminos hacia el futuro llevan al centro.</p></div>
+  <div data-n="3"><p>Un diagrama de espacio-tiempo grafica el tiempo (vertical) contra el espacio (horizontal); los rayos de luz van a 45° y los objetos con masa, a menos de 45° de la vertical. El diagrama de Penrose–Carter aplica una transformación que «encoge» el infinito a una distancia finita sin cambiar esos ángulos. Así aparecen como puntos y líneas el futuro temporal infinito (i⁺), el pasado (i⁻), el infinito espacial (i⁰) y los infinitos nulos (ℐ⁺ y ℐ⁻) por donde llega y se va la luz.</p></div>
+  <div data-n="4"><p>Para Minkowski, con coordenadas nulas \(u=t-r\), \(v=t+r\), se define \(U=\arctan u\), \(V=\arctan v\): la métrica queda conformemente equivalente a una región compacta. La métrica de Schwarzschild \(ds^2=-\left(1-\frac{r_s}{r}\right)c^2dt^2+\left(1-\frac{r_s}{r}\right)^{-1}dr^2+r^2d\Omega^2\) es singular en \(r=r_s\) solo por las coordenadas; en coordenadas de Kruskal–Szekeres se extiende y su diagrama de Penrose muestra cuatro regiones: dos exteriores, el agujero negro y el agujero blanco.</p></div>
+  <div data-n="5"><p>El horizonte de eventos es la frontera del pasado causal de ℐ⁺: es una noción global, teleológica. Los horizontes aparentes y dinámicos se usan en relatividad numérica. Para el agujero de Kerr (en rotación) y el de Reissner–Nordström (con carga), los diagramas muestran horizontes internos de Cauchy, cuya inestabilidad (inflación de masa) es tema de investigación, ligado a la conjetura de censura cósmica fuerte.</p></div>
+</div>
+<div class="sim" data-sim="penrose"></div>
+<div data-desde="4">
+<div class="formula"><b>Métrica de Schwarzschild</b>\[ds^2=-\left(1-\frac{2GM}{rc^2}\right)c^2dt^2+\left(1-\frac{2GM}{rc^2}\right)^{-1}dr^2+r^2(d\theta^2+\sin^2\theta\,d\varphi^2)\]</div>
+<div class="formula"><b>Compactificación conforme de Minkowski</b>\[U=\arctan(t-r),\quad V=\arctan(t+r),\qquad -\tfrac{\pi}{2}\lt U\le V\lt\tfrac{\pi}{2}\]</div>
+</div>
+<div class="tabla-env"><table class="tabla"><caption>Cómo leer un diagrama de Penrose</caption>
+<thead><tr><th>Símbolo</th><th>Nombre</th><th>Qué representa</th></tr></thead><tbody>
+<tr><th>i⁺</th><td>Infinito temporal futuro</td><td>A donde llegan todos los objetos con masa después de un tiempo infinito</td></tr>
+<tr><th>i⁻</th><td>Infinito temporal pasado</td><td>De donde vienen todos los objetos con masa</td></tr>
+<tr><th>i⁰</th><td>Infinito espacial</td><td>Los puntos infinitamente lejanos en el espacio</td></tr>
+<tr><th>ℐ⁺, ℐ⁻</th><td>Infinitos nulos («scri»)</td><td>A donde escapa y de donde llega la luz</td></tr>
+<tr><th>r = 0</th><td>Singularidad (en agujeros negros)</td><td>Donde la curvatura diverge y la relatividad general deja de valer</td></tr>
+<tr><th>Diagonal</th><td>Horizonte de eventos</td><td>Superficie de luz: se puede cruzar hacia dentro, nunca hacia fuera</td></tr>
+</tbody></table></div>
+<div class="quiz" data-titulo="Ponte a prueba: Penrose y agujeros negros"><script type="application/json">[
+{"p":"¿Qué es el horizonte de eventos de un agujero negro?","o":["Su superficie sólida","La frontera a partir de la cual nada puede escapar","Una nube de gas"],"r":1,"e":"No es una superficie material: es una frontera sin retorno.","n":1},
+{"p":"En un diagrama de Penrose, ¿con qué ángulo viajan los rayos de luz?","o":["0°","45°","90°"],"r":1,"e":"La transformación conserva los conos de luz.","n":3},
+{"p":"¿Qué representa ℐ⁺?","o":["El futuro de los objetos con masa","Adonde escapan los rayos de luz","La singularidad"],"r":1,"e":"El infinito nulo futuro.","n":4},
+{"p":"¿Por qué la métrica de Schwarzschild parece singular en r = r_s?","o":["Porque ahí la curvatura es infinita","Por la elección de coordenadas; en Kruskal es regular","Porque hay materia"],"r":1,"e":"Los invariantes de curvatura son finitos en el horizonte; solo r = 0 es una singularidad física.","n":4}
+]</script></div>
+<details class="mas"><summary>Para saber más</summary><ul><li>Hawking y Ellis, <i>The Large Scale Structure of Space-Time</i>.</li><li>Carroll, S. <i>Spacetime and Geometry</i>, cap. 5.</li><li>Thorne, K. <i>Agujeros negros y tiempo curvo</i> (divulgación).</li></ul></details>
+</article>
+</div>
+
+</main>
+</body>
+</html>

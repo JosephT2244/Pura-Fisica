@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to study physics — Pura Física!</title>
+<meta name="description" content="Study method, learning path and resources by level.">
+<meta name="theme-color" content="#F1F5F2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%2317253F' stroke-width='3'%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(60 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(-60 32 32)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='8' fill='%23D2402E'/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="es" href="../Recomendaciones%20para%20estudiar%20f%C3%ADsica.html"><link rel="alternate" hreflang="en" href="../en/Recomendaciones%20para%20estudiar%20f%C3%ADsica.html"><link rel="alternate" hreflang="pt" href="../pt/Recomendaciones%20para%20estudiar%20f%C3%ADsica.html">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/pf.css">
+<script>try{var L="en",s=localStorage.getItem("pf:lang");if(s&&s!==L&&/^(es|en|pt)$/.test(s)){var f=location.pathname.split("/").pop()||"";location.replace((L==="es"?"":"../")+(s==="es"?"":s+"/")+f+location.hash);}var t=localStorage.getItem("pf:tema");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="pizarron";document.documentElement.setAttribute("data-tema",t||"papel");document.documentElement.setAttribute("data-nivel",localStorage.getItem("pf:nivel")||"3");}catch(e){}</script>
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/indice.en.js"></script>
+<script defer src="../assets/pf.js"></script>
+<script defer src="../assets/sims-base.en.js"></script>
+</head>
+<body data-pagina="recom" data-traducida>
+<main id="contenido" class="pf-main">
+<header class="cabeza">
+  <div class="migas"><a href="Pura%20F%C3%ADsica%21.html">Home</a> / How to study physics</div>
+  <h1>How to study physics</h1>
+  <p>A method that works, a checklist for solving any problem, the complete path of what to learn and the best resources for each level. It includes a timer for studying in blocks.</p>
+</header>
+
+<div class="cuaderno">
+<nav class="indice" data-auto="main h2[id]" data-titulo="On this page" aria-label="Contents"></nav>
+
+<section class="seccion"><h2 id="metodo">A method that works</h2>
+<div class="niveles">
+  <div data-n="1"><p>To learn physics, play and ask! Do simple experiments at home (with balls, magnets, flashlights), ask «why?» and look for the answer with an adult. Draw what you observe and tell someone about it: if you can explain it, you understood it.</p></div>
+  <div data-n="3"><ol>
+    <li><b>First the idea, then the formula.</b> Before memorizing \(F=ma\), understand what it means: more force, more acceleration; more mass, less acceleration.</li>
+    <li><b>Do problems, lots of them.</b> Physics is learned with a pencil in hand. Reading solutions isn't the same as solving.</li>
+    <li><b>Active recall.</b> Close your notebook and write down what you remember; then compare. It's much more effective than rereading.</li>
+    <li><b>Spaced review.</b> Review a topic the next day, after a week and after a month. That way it stays in long-term memory.</li>
+    <li><b>The Feynman technique.</b> Explain the topic in simple words, as if to a child. Wherever you get stuck is what you don't understand.</li>
+    <li><b>Check units and orders of magnitude.</b> If a car comes out at 3,000 m/s, something is wrong.</li>
+    <li><b>Sleep.</b> Sleep consolidates what you learned; staying up before an exam pays off less than sleeping well.</li>
+  </ol></div>
+  <div data-n="4"><p>On top of that: master the mathematical tools at the same time as the physics (vector calculus, differential equations, linear algebra); derive formulas instead of memorizing them; solve problems from several books, because each author trains different intuitions; learn to program simple simulations (Python with NumPy and Matplotlib) and form study groups where each person explains a problem at the board.</p></div>
+  <div data-n="5"><p>In graduate school and research, the challenge is no longer solving problems but posing them. Read original papers (arXiv), reproduce classic results with your own calculations, keep a research notebook, discuss your ideas early with others and practice writing: a result that isn't communicated well barely exists.</p></div>
+</div>
+</section>
+
+<section class="seccion"><h2 id="problemas">A checklist for solving any problem</h2>
+<p>Based on George Pólya's method. Check off each step as you solve.</p>
+<ul class="checklist" id="check">
+  <li><label><input type="checkbox"> <b>I read the problem twice</b> and underline what's being asked.</label></li>
+  <li><label><input type="checkbox"> <b>I make a drawing or diagram</b> (free-body, ray, circuit…).</label></li>
+  <li><label><input type="checkbox"> <b>I write down the data with units</b> and convert them to SI.</label></li>
+  <li><label><input type="checkbox"> <b>I identify the physical principle</b>: Newton's laws? Conservation of energy? Of momentum?</label></li>
+  <li><label><input type="checkbox"> <b>I write the equation in symbols</b> and solve for the unknown before plugging in numbers.</label></li>
+  <li><label><input type="checkbox"> <b>I substitute and calculate</b> carefully, watching significant figures.</label></li>
+  <li><label><input type="checkbox"> <b>I check:</b> do the units work out? Is the result reasonable? What happens in extreme cases?</label></li>
+</ul>
+<button type="button" class="btn chico" id="check-borrar">Start another problem</button>
+</section>
+
+<section class="seccion"><h2 id="pomodoro">Study timer</h2>
+<p>Study in blocks of total focus followed by short breaks (the Pomodoro technique). During a block: phone away and one task only.</p>
+<div class="pomo" id="pomo">
+  <div class="pomo-modo" role="group" aria-label="Duration"><button type="button" class="chip" data-m="25" aria-pressed="true">Study 25 min</button><button type="button" class="chip" data-m="50" aria-pressed="false">Study 50 min</button><button type="button" class="chip" data-m="5" aria-pressed="false">Break 5 min</button><button type="button" class="chip" data-m="15" aria-pressed="false">Break 15 min</button></div>
+  <div class="pomo-reloj" aria-live="polite" id="pomo-t">25:00</div>
+  <div class="fila-btn"><button type="button" class="btn prim" id="pomo-ir">Start</button><button type="button" class="btn" id="pomo-re">Reset</button></div>
+  <p class="chico" id="pomo-n">Blocks completed today: 0</p>
+</div>
+</section>
+
+<section class="seccion"><h2 id="ruta">Learning path</h2>
+<p>What to learn, in what order, from elementary school to graduate school. Open each stage to see its physics topics and the math you need.</p>
+<div class="mapa" data-titulo="The physics learning path" data-abrir="1"><script type="application/json">
+{"t":"Your path in physics","d":"Each stage builds on the previous one. Math and physics move forward together.","h":[
+ {"t":"Elementary school (Explorer)","d":"Curiosity and observation.","h":[{"t":"Physics","d":"Forces and motion in the playground, light and shadows, magnets, heat and the states of water, the Solar System."},{"t":"Math","d":"Measuring, simple tables and graphs, fractions."}]},
+ {"t":"Middle school (Curious)","d":"First laws and first formulas.","h":[{"t":"Physics","d":"Speed and acceleration, Newton's laws, energy, waves and sound, the particle model, basic electricity.","a":"Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#basico"},{"t":"Math","d":"Algebra, solving equations, proportionality, scientific notation, geometry and the Pythagorean theorem."}]},
+ {"t":"High school (High school)","d":"Quantitative physics with problems.","h":[{"t":"Physics","d":"Kinematics and dynamics, energy and momentum, fluids, thermodynamics, electricity and magnetism, waves and optics, introduction to modern physics.","a":"Explicaciones%20nivel%20bachillerato.html"},{"t":"Math","d":"Trigonometry, vectors, functions, analytic geometry and an introduction to differential and integral calculus."}]},
+ {"t":"Bachelor's degree (University)","d":"Where the equations come from.","h":[{"t":"Physics","d":"Classical mechanics (Lagrangian and Hamiltonian), electromagnetism, quantum mechanics, thermodynamics and statistical physics, optics, special relativity, labs and computational physics."},{"t":"Math","d":"Vector calculus, differential equations, linear algebra, complex analysis, Fourier series, probability and numerical methods."}]},
+ {"t":"Graduate school (Physicist)","d":"Specialization and research.","h":[{"t":"Physics","d":"Quantum field theory, general relativity, condensed matter, nuclear and particle physics, astrophysics and cosmology, quantum information."},{"t":"Math","d":"Group theory, differential geometry, functional analysis, topology and advanced computational methods."}]}]}
+</script></div>
+</section>
+
+<section class="seccion"><h2 id="recursos">Resources by level</h2>
+<p>Resources for your level are shown first. You can see those for another level with the buttons.</p>
+<div class="chips" id="rec-n" role="group" aria-label="Resource level"></div>
+<div class="recursos" id="rec"></div>
+</section>
+
+<section class="seccion"><h2 id="experimentar">Experiment with your phone</h2>
+<p>Your phone has an accelerometer, gyroscope, magnetometer, microphone and light sensor: it's a pocket lab! The free app <b>phyphox</b> (from RWTH Aachen University) lets you measure an elevator's acceleration, a pendulum's period, the frequency of your voice or a magnet's field. And with <b>Tracker</b> you can analyze videos of motion frame by frame.</p>
+</section>
+
+<section class="seccion"><h2 id="errores">Common mistakes when studying physics</h2>
+<ul class="lista-tic">
+  <li>Memorizing formulas without understanding what each letter means.</li>
+  <li>Plugging in numbers from the start instead of working with symbols.</li>
+  <li>Forgetting units or mixing systems (km/h with seconds).</li>
+  <li>Not drawing: a good diagram solves half the problem.</li>
+  <li>Reading the solution before trying the problem for at least 15 minutes.</li>
+  <li>Studying everything the night before instead of a little every day.</li>
+</ul>
+</section>
+
+<section class="seccion"><h2 id="olimpiadas">Olympiads and competitions</h2>
+<p>If you like physics, olympiads are the best way to take it further. In Mexico, the <b>National Physics Olympiad</b> organized by the Mexican Physical Society selects the students who represent the country at the Ibero-American Olympiad and the International Physics Olympiad. Problems from past olympiads are excellent practice material.</p>
+</section>
+</div>
+
+<script>
+(function(){
+// nivel, tipo, título, descripción
+var R=[
+[1,"Book","George's Secret Key to the Universe — Lucy and Stephen Hawking","An adventure novel with real science about space and black holes."],
+[1,"Simulations","PhET (University of Colorado)","Hundreds of free simulations: forces, circuits, waves, atoms."],
+[1,"Video","Date un Vlog and QuantumFracture (YouTube, in Spanish)","Clear, very funny explanations of physics questions."],
+[1,"Experiments","phyphox","A free app for measuring with your phone's sensors."],
+[2,"Book","Conceptual Physics — Paul G. Hewitt","All of physics through ideas and almost no formulas. Ideal for getting started seriously."],
+[2,"Book","Mr Tompkins in Wonderland — George Gamow","A classic that imagines a world where relativity and quantum effects can be seen with the naked eye."],
+[2,"Course","Khan Academy","Free physics and math lessons and exercises."],
+[2,"Video","CdeCiencia and Veritasium","Surprising experiments and questions; CdeCiencia is in Spanish, Veritasium in English."],
+[3,"Book","Física general — Héctor Pérez Montiel","A Mexican textbook widely used in high school, with many worked exercises."],
+[3,"Book","Physics: Concepts and Applications — Paul E. Tippens","Clear, well organized and with graded problems."],
+[3,"Book","Physics: Principles with Applications — Douglas Giancoli","Excellent for preparing for entrance exams."],
+[3,"Book","A Brief History of Time — Stephen Hawking","Classic popular science about cosmology and black holes."],
+[3,"Website","HyperPhysics (Georgia State University)","A linked concept map of almost all of physics, with formulas."],
+[3,"Practice","National Physics Olympiad (Mexican Physical Society)","Past exams: the best training to go further."],
+[4,"Book","University Physics — Sears, Zemansky, Young and Freedman","The standard text for the first semesters."],
+[4,"Book","Physics for Scientists and Engineers — Serway and Jewett","A very complete alternative with lots of problems."],
+[4,"Book","An Introduction to Mechanics — Kleppner and Kolenkow","Mechanics in more depth; challenging problems."],
+[4,"Book","Introduction to Electrodynamics / Quantum Mechanics — David J. Griffiths","The two best-loved undergraduate books."],
+[4,"Book","Mathematical Methods in the Physical Sciences — Mary L. Boas","The math you need, explained for physicists."],
+[4,"Course","MIT OpenCourseWare (8.01, 8.02, 8.04…)","Complete free courses with notes, assignments and exams."],
+[4,"Book","The Feynman Lectures on Physics","Free online at feynmanlectures.caltech.edu. A unique way of thinking about physics."],
+[4,"Video","3Blue1Brown and PBS Space Time","Visual intuition for math and frontier physics."],
+[5,"Book","Classical Mechanics — Herbert Goldstein","The reference text on analytical mechanics."],
+[5,"Book","Classical Electrodynamics — J. D. Jackson","The graduate electromagnetism classic."],
+[5,"Book","Modern Quantum Mechanics — Sakurai and Napolitano","Modern quantum mechanics, with an algebraic approach."],
+[5,"Book","Spacetime and Geometry — Sean Carroll","General relativity, clear and modern."],
+[5,"Book","An Introduction to Quantum Field Theory — Peskin and Schroeder","The standard text on quantum field theory."],
+[5,"Book","Course of Theoretical Physics — Landau and Lifshitz","Ten volumes, legendary for their depth and concision."],
+[5,"Notes","David Tong's lecture notes (University of Cambridge)","Excellent free notes for almost every graduate course."],
+[5,"Papers","arXiv.org","Where the preprints of almost all of today's physics are posted."]
+];
+var nv;
+function pintar(){
+  document.getElementById("rec-n").innerHTML=PF.NIVELES.map(function(x){ return '<button type="button" class="chip" data-n="'+x.n+'" aria-pressed="'+(x.n===nv)+'">'+x.nom+'</button>'; }).join("");
+  document.getElementById("rec").innerHTML=R.filter(function(r){return r[0]===nv;}).map(function(r){ return '<div class="ficha" style="--c:var(--n'+r[0]+')"><p class="meta">'+r[1]+'</p><h4>'+r[2]+'</h4><p>'+r[3]+'</p></div>'; }).join("");
+}
+// pomodoro
+var dur=25*60, rest=dur, timer=null, hechos=0;
+try{ var hoy=new Date().toDateString(); var g=JSON.parse(localStorage.getItem("pf:pomo")||"{}"); if(g.d===hoy) hechos=g.n||0; }catch(e){}
+function fmt(s){ return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0"); }
+function tic(){ rest--; document.getElementById("pomo-t").textContent=fmt(Math.max(0,rest)); document.title=fmt(Math.max(0,rest))+" · How to study physics"; if(rest<=0){ clearInterval(timer); timer=null; document.getElementById("pomo-ir").textContent="Start"; if(dur>=25*60){ hechos++; try{ localStorage.setItem("pf:pomo",JSON.stringify({d:new Date().toDateString(),n:hechos})); }catch(e){} } document.getElementById("pomo-n").textContent="Blocks completed today: "+hechos+". Time's up! "+(dur>=25*60?"Take a break.":"Back to studying."); try{ var ac=new (window.AudioContext||window.webkitAudioContext)(), o=ac.createOscillator(), gg=ac.createGain(); o.frequency.value=880; gg.gain.value=.1; o.connect(gg); gg.connect(ac.destination); o.start(); o.stop(ac.currentTime+.6); }catch(e){} } }
+document.addEventListener("pf:listo",function(){
+  nv=PF.nivel(); pintar();
+  document.getElementById("rec-n").addEventListener("click",function(e){ var b=e.target.closest(".chip"); if(!b) return; nv=+b.dataset.n; pintar(); });
+  document.addEventListener("pf:nivel",function(e){ nv=e.detail; pintar(); });
+  document.getElementById("check-borrar").onclick=function(){ document.querySelectorAll("#check input").forEach(function(i){ i.checked=false; }); };
+  document.getElementById("pomo-n").textContent="Blocks completed today: "+hechos;
+  document.querySelectorAll(".pomo-modo .chip").forEach(function(b){ b.onclick=function(){ document.querySelectorAll(".pomo-modo .chip").forEach(function(x){x.setAttribute("aria-pressed",String(x===b));}); dur=+b.dataset.m*60; rest=dur; if(timer){clearInterval(timer);timer=null;} document.getElementById("pomo-ir").textContent="Start"; document.getElementById("pomo-t").textContent=fmt(rest); }; });
+  document.getElementById("pomo-ir").onclick=function(){ if(timer){ clearInterval(timer); timer=null; this.textContent="Continue"; } else { if(rest<=0) rest=dur; timer=setInterval(tic,1000); this.textContent="Pause"; } };
+  document.getElementById("pomo-re").onclick=function(){ if(timer){clearInterval(timer);timer=null;} rest=dur; document.getElementById("pomo-t").textContent=fmt(rest); document.getElementById("pomo-ir").textContent="Start"; };
+});
+})();
+</script>
+
+</main>
+</body>
+</html>

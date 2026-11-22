@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Los grandes descubrimientos de la física — Pura Física!</title>
+<meta name="description" content="Los descubrimientos que cambiaron el mundo y la tecnología que hicieron posible.">
+<meta name="theme-color" content="#F1F5F2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%2317253F' stroke-width='3'%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(60 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(-60 32 32)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='8' fill='%23D2402E'/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="es" href="Los%20mejores%20descubrimientos.html"><link rel="alternate" hreflang="en" href="en/Los%20mejores%20descubrimientos.html"><link rel="alternate" hreflang="pt" href="pt/Los%20mejores%20descubrimientos.html">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<link rel="stylesheet" href="assets/pf.css">
+<script>try{var L="es",s=localStorage.getItem("pf:lang");if(s&&s!==L&&/^(es|en|pt)$/.test(s)){var f=location.pathname.split("/").pop()||"";location.replace((L==="es"?"":"../")+(s==="es"?"":s+"/")+f+location.hash);}var t=localStorage.getItem("pf:tema");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="pizarron";document.documentElement.setAttribute("data-tema",t||"papel");document.documentElement.setAttribute("data-nivel",localStorage.getItem("pf:nivel")||"3");}catch(e){}</script>
+<script defer src="assets/katex/katex.min.js"></script>
+<script defer src="assets/katex/auto-render.min.js"></script>
+<script defer src="assets/indice.js"></script>
+<script defer src="assets/pf.js"></script>
+<script defer src="assets/sims-base.js"></script><script defer src="assets/sims-ondas.js"></script><script defer src="assets/sims-moderna.js"></script>
+</head>
+<body data-pagina="descubrimientos" data-traducida>
+<main id="contenido" class="pf-main">
+<header class="cabeza">
+  <div class="migas"><a href="Pura%20F%C3%ADsica%21.html">Inicio</a> / Descubrimientos</div>
+  <h1>Los grandes descubrimientos de la física</h1>
+  <p>Dieciocho descubrimientos que cambiaron cómo vivimos. Para cada uno verás qué se descubrió, por qué importa y qué tecnologías hizo posibles. Toca una tecnología para ver de qué descubrimientos depende.</p>
+</header>
+
+<section aria-labelledby="red">
+  <h2 id="red">¿De qué física está hecho tu celular?</h2>
+  <p>Elige un objeto y se iluminarán los descubrimientos sin los cuales no existiría.</p>
+  <div class="chips" id="objetos" role="group" aria-label="Elige una tecnología"></div>
+  <p class="chico" id="obj-nota" aria-live="polite"></p>
+</section>
+
+<section aria-labelledby="lista-d">
+  <h2 id="lista-d">Los descubrimientos</h2>
+  <ol class="descubrimientos" id="desc"></ol>
+</section>
+
+<section aria-labelledby="juego">
+  <h2 id="juego">Juego: ordena la historia</h2>
+  <p>Toca los cinco descubrimientos en el orden en que ocurrieron, del más antiguo al más reciente.</p>
+  <div class="juego" id="juego-caja"></div>
+</section>
+
+<script>
+(function(){
+// año, nombre, quién, qué (sencillo), por qué importa (avanzado), tecnologías, sim, tema
+var D = [
+[1687,"Las leyes del movimiento y la gravitación","Isaac Newton","Las mismas reglas explican cómo cae una manzana y cómo gira la Luna.","Primera teoría física universal y matemática; permitió predecir órbitas, mareas y el regreso de cometas.",["Satélites","Cohetes","Puentes y edificios","Predicción de mareas"],"orbita","newton"],
+[1800,"La corriente eléctrica continua","Alessandro Volta","La pila: por primera vez una corriente eléctrica que dura.","Permitió los experimentos de Ørsted, Ampère, Ohm y Faraday; base de la electroquímica.",["Baterías","Celular","Coche eléctrico"],"circuito","circuitos"],
+[1831,"La inducción electromagnética","Michael Faraday","Mover un imán cerca de un cable produce electricidad.","Principio de todo generador y transformador; sin él no habría red eléctrica.",["Red eléctrica","Motores eléctricos","Cargador inalámbrico","Coche eléctrico","Guitarra eléctrica"],"campoB","electromagnetismo"],
+[1850,"Las leyes de la termodinámica","Carnot, Joule, Clausius, Kelvin","La energía se conserva y el calor fluye de lo caliente a lo frío.","Fijó los límites de todas las máquinas y dio dirección al tiempo con la entropía.",["Motores","Refrigerador","Centrales eléctricas","Aire acondicionado"],"carnot","termodinamica"],
+[1865,"La luz es una onda electromagnética","James Clerk Maxwell","Electricidad, magnetismo y luz son lo mismo.","Predijo las ondas de radio (producidas por Hertz en 1888) y unificó tres áreas de la física.",["Radio y televisión","Wi‑Fi","Celular","Radar","Microondas"],"espectro","luz-sonido"],
+[1895,"Los rayos X","Wilhelm Röntgen","Una luz invisible que atraviesa la piel pero no los huesos.","Revolucionó la medicina en meses y, con la difracción, reveló la estructura de cristales y del ADN.",["Radiografías","Tomografía","Revisión de equipaje","Cristalografía"],"espectro","luz-sonido"],
+[1896,"La radiactividad","Becquerel, Marie y Pierre Curie","Algunos átomos sueltan energía por sí solos.","Abrió la física nuclear y dio relojes naturales para fechar rocas y fósiles.",["Datación por carbono‑14","Medicina nuclear","Detectores de humo","Energía nuclear"],"decaimiento","nuclear"],
+[1897,"El electrón","J. J. Thomson","El átomo tiene piezas: la primera partícula subatómica.","Base de toda la electrónica y de la química moderna.",["Computadoras","Pantallas","Microscopio electrónico","Celular"],"atomo","particulas"],
+[1900,"Los cuantos de energía y el fotón","Max Planck y Albert Einstein","La luz y la energía vienen en paquetitos.","Inicio de la física cuántica; explica el efecto fotoeléctrico.",["Celdas solares","Cámaras digitales","Lectores de código de barras"],"fotoelectrico","cuantica"],
+[1905,"La relatividad","Albert Einstein","El tiempo y el espacio cambian según cómo te muevas, y la masa es energía.","E = mc² explica la energía de las estrellas y de los núcleos; la relatividad general describe la gravedad.",["GPS","Energía nuclear","Aceleradores de partículas"],"relatividad","relatividad"],
+[1911,"El núcleo atómico","Ernest Rutherford","Casi toda la masa del átomo está en un centro diminuto.","Llevó al modelo de Bohr y a la física nuclear.",["Energía nuclear","Medicina nuclear"],"atomo","nuclear"],
+[1911.1,"La superconductividad","Heike Kamerlingh Onnes","Algunos materiales muy fríos conducen la electricidad sin pérdidas.","Fenómeno cuántico macroscópico; explicado en 1957 (teoría BCS).",["Resonancia magnética","Aceleradores (LHC)","Trenes de levitación magnética","Computadoras cuánticas"],"","cuantica"],
+[1926,"La mecánica cuántica","Heisenberg, Schrödinger, Born, Dirac","Las reglas del mundo de los átomos.","Explica los enlaces químicos, los sólidos, los semiconductores y la luz de los átomos.",["Computadoras","Láser","Resonancia magnética","LED","Celular"],"caja","cuantica"],
+[1938,"La fisión nuclear","Meitner, Frisch, Hahn y Strassmann","El núcleo de uranio se puede partir y libera muchísima energía.","Una fisión libera unos 200 MeV; la reacción en cadena permite reactores y, lamentablemente, armas.",["Energía nuclear","Medicina nuclear"],"fision","nuclear"],
+[1947,"El transistor","Bardeen, Brattain y Shockley","Un interruptor diminuto controlado por electricidad, sin partes móviles.","Hoy un chip contiene decenas de miles de millones de transistores.",["Computadoras","Celular","Internet","Coche eléctrico"],"","circuitos"],
+[1960,"El láser","Theodore Maiman (con ideas de Einstein, Townes y otros)","Luz de un solo color, muy ordenada y concentrada.","Emisión estimulada; transformó las comunicaciones, la medicina y la metrología.",["Internet","Lectores de código de barras","Cirugía ocular","Impresoras láser"],"optica","optica"],
+[1965,"La radiación cósmica de fondo","Arno Penzias y Robert Wilson","El «eco» del Big Bang llega de todas direcciones.","Confirmó el Big Bang; sus pequeñas variaciones revelan la composición del universo.",["Cosmología de precisión"],"cosmos","cosmologia"],
+[2012,"El bosón de Higgs","Colaboraciones ATLAS y CMS (CERN)","La partícula del campo que da masa a las demás.","Completó el Modelo Estándar tras 48 años de búsqueda.",["Internet","Aceleradores médicos"],"modelo","particulas"],
+[2015,"Las ondas gravitacionales","LIGO","Oímos el choque de dos agujeros negros a 1 300 millones de años luz.","Inauguró la astronomía de ondas gravitacionales; Nobel 2017.",["Nueva astronomía"],"","relatividad"]
+];
+var NOTAS = {"Internet":"La World Wide Web se inventó en el CERN en 1989, en el laboratorio donde después se halló el Higgs."};
+var sel = null, abiertoSim = null;
+function objetos(){
+  var t = {}; D.forEach(function(d){ d[5].forEach(function(x){ t[x]=(t[x]||0)+1; }); });
+  var orden = Object.keys(t).sort(function(a,b){ return t[b]-t[a] || a.localeCompare(b,"es"); });
+  document.getElementById("objetos").innerHTML = orden.map(function(x){ return '<button type="button" class="chip" data-t="'+x+'" aria-pressed="'+(x===sel)+'">'+x+'</button>'; }).join("");
+  var n = sel ? D.filter(function(d){ return d[5].indexOf(sel)>=0; }).length : 0;
+  document.getElementById("obj-nota").textContent = sel ? (sel+": depende directamente de "+n+" descubrimiento"+(n>1?"s":"")+" de esta lista. "+(NOTAS[sel]||"")) : "";
+}
+function lista(){
+  var n = PF.nivel();
+  document.getElementById("desc").innerHTML = D.map(function(d,i){
+    var on = sel && d[5].indexOf(sel)>=0, off = sel && !on;
+    return '<li class="desc'+(on?' on':'')+(off?' off':'')+'"><span class="d-anio">'+Math.floor(d[0])+'</span><div><h3>'+d[1]+'</h3><p class="quien">'+d[2]+'</p><p>'+d[3]+(n>=3?' '+d[4]:'')+'</p><p class="hizo">Hizo posible: '+d[5].map(function(x){ return '<span'+(x===sel?' class="sel"':'')+'>'+x+'</span>'; }).join("")+'</p>'+
+      '<div class="fila-btn">'+(d[6]?'<button type="button" class="btn chico" data-sim="'+i+'">'+(abiertoSim===i?'Ocultar experimento':'Pruébalo')+'</button>':'')+'<a class="btn chico" href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#'+d[7]+'">Leer el tema</a></div>'+
+      (abiertoSim===i?'<div class="sim" data-sim="'+d[6]+'" data-ya></div>':'')+'</div></li>';
+  }).join("");
+  var s = document.querySelector("#desc .sim"); if(s) PFSim.montar(s);
+}
+// juego
+var ronda=[], hechos=[], fallo=false;
+function nuevaRonda(){
+  var idx = D.map(function(_,i){return i;}).sort(function(){return Math.random()-.5;}).slice(0,5);
+  ronda = idx; hechos=[]; fallo=false; pintarJuego();
+}
+function pintarJuego(){
+  var caja=document.getElementById("juego-caja");
+  var correcto = ronda.slice().sort(function(a,b){return D[a][0]-D[b][0];});
+  var fin = hechos.length===5;
+  caja.innerHTML = '<div class="juego-ops">'+ronda.map(function(i){ var k=hechos.indexOf(i); return '<button type="button" class="juego-op'+(k>=0?' hecho':'')+'" data-i="'+i+'"'+(k>=0||fin?' disabled':'')+'>'+(k>=0?'<b>'+(k+1)+'</b> ':'')+D[i][1]+(k>=0?' <small>('+Math.floor(D[i][0])+')</small>':'')+'</button>'; }).join("")+'</div>'+
+    '<p class="juego-msg" aria-live="polite">'+(fallo?'Ese no era el siguiente. Fíjate en los años que ya aparecieron y vuelve a intentarlo.':(fin?'¡Perfecto! Ordenaste la historia correctamente.':'Elige el '+["primero","segundo","tercero","cuarto","quinto"][hechos.length]+'.'))+'</p><button type="button" class="btn" id="otra">Otra ronda</button>';
+  caja.querySelectorAll(".juego-op").forEach(function(b){ b.onclick=function(){ var i=+b.dataset.i; if(i===correcto[hechos.length]){ hechos.push(i); fallo=false; } else fallo=true; pintarJuego(); }; });
+  document.getElementById("otra").onclick=nuevaRonda;
+}
+document.addEventListener("pf:listo", function(){
+  objetos(); lista(); nuevaRonda();
+  document.getElementById("objetos").addEventListener("click", function(e){ var b=e.target.closest(".chip"); if(!b) return; sel = sel===b.dataset.t ? null : b.dataset.t; objetos(); lista(); });
+  document.getElementById("desc").addEventListener("click", function(e){ var b=e.target.closest("[data-sim]"); if(!b||b.classList.contains("sim")) return; var i=+b.getAttribute("data-sim"); abiertoSim = abiertoSim===i ? null : i; lista(); });
+  document.addEventListener("pf:nivel", lista);
+});
+})();
+</script>
+
+</main>
+</body>
+</html>

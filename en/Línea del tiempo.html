@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Physics timeline — Pura Física!</title>
+<meta name="description" content="From Archimedes to the 2026 Nobel Prize: the history of physics, explorable.">
+<meta name="theme-color" content="#F1F5F2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%2317253F' stroke-width='3'%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(60 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(-60 32 32)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='8' fill='%23D2402E'/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="es" href="../L%C3%ADnea%20del%20tiempo.html"><link rel="alternate" hreflang="en" href="../en/L%C3%ADnea%20del%20tiempo.html"><link rel="alternate" hreflang="pt" href="../pt/L%C3%ADnea%20del%20tiempo.html">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/pf.css">
+<script>try{var L="en",s=localStorage.getItem("pf:lang");if(s&&s!==L&&/^(es|en|pt)$/.test(s)){var f=location.pathname.split("/").pop()||"";location.replace((L==="es"?"":"../")+(s==="es"?"":s+"/")+f+location.hash);}var t=localStorage.getItem("pf:tema");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="pizarron";document.documentElement.setAttribute("data-tema",t||"papel");document.documentElement.setAttribute("data-nivel",localStorage.getItem("pf:nivel")||"3");}catch(e){}</script>
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/indice.en.js"></script>
+<script defer src="../assets/pf.js"></script>
+<script defer src="../assets/sims-base.en.js"></script>
+</head>
+<body data-pagina="linea" data-traducida>
+<main id="contenido" class="pf-main">
+<header class="cabeza">
+  <div class="migas"><a href="Pura%20F%C3%ADsica%21.html">Home</a> / Timeline</div>
+  <h1>Physics timeline</h1>
+  <p>Two thousand six hundred years of questions, from Thales of Miletus rubbing amber to the 2026 Nobel Prize. Tap a point on the strip to jump to that era, filter by area or search for a name.</p>
+</header>
+
+<div class="eras" id="eras" aria-label="Map of eras"></div>
+
+<div class="linea-ctrl">
+  <div class="chips" id="cats" role="group" aria-label="Filter by area"></div>
+  <label class="buscador"><span class="oculto">Search the timeline</span><input type="search" id="q" placeholder="Search: Curie, laser, neutrino…"></label>
+</div>
+<p class="chico" id="cuenta"></p>
+<ol class="linea" id="linea"></ol>
+
+<script>
+(function(){
+var CAT = {mec:["Mechanics and gravity","var(--n3)"], opt:["Light and optics","var(--n1)"], ter:["Heat and energy","var(--n5)"], em:["Electricity and magnetism","var(--n4)"], cua:["Quantum","var(--n2)"], nuc:["Nucleus and particles","#C2185B"], cos:["Astronomy, relativity and cosmos","var(--tinta)"], tec:["Instruments and technology","#8D6E63"]};
+// [año, texto del año, título, quién, categoría, explicación sencilla, explicación avanzada, ancla en Temas]
+var E = [
+[-585,"c. 585 a.C.","Amber and the lodestone","Thales of Miletus","em","Discovers that rubbed amber attracts bits of straw and that magnetite attracts iron: the first observations of electricity and magnetism.","The word «electricity» comes from the Greek élektron, amber.","electromagnetismo"],
+[-400,"c. 400 a.C.","The idea of the atom","Leucippus and Democritus","cua","They propose that everything is made of tiny, indivisible particles called atoms.","A philosophical idea, without experiments; the evidence would come in the 19th century with chemistry and Brownian motion.","particulas"],
+[-350,"c. 350 a.C.","Aristotle's physics","Aristotle","mec","He writes the «Physics» and thinks heavy bodies fall faster. He was wrong, but his influence lasted almost two thousand years.","He distinguished «natural» and «violent» motions and believed that all motion needs a continuous cause.","gravedad"],
+[-250,"c. 250 a.C.","Levers and buoyancy","Archimedes of Syracuse","mec","Explains the lever and discovers that a submerged object receives an upward push equal to the weight of the water it displaces.","His method of exhaustion anticipates integral calculus.","fuerzas-friccion"],
+[-240,"c. 240 a.C.","Measuring the size of the Earth","Eratosthenes","cos","Using the shadow of a stick in two cities, he calculates the Earth's circumference with a small error.","He used the difference in the Sun's angle between Syene and Alexandria (about 7.2°).","gravedad"],
+[1021,"c. 1021","The Book of Optics","Ibn al-Haytham","opt","He shows with experiments that we see because light enters our eyes.","One of the first to use the experimental method systematically; he studied the camera obscura and refraction.","optica"],
+[1543,"1543","The Sun at the center","Nicolaus Copernicus","cos","He proposes that the Earth and the planets go around the Sun.","«De revolutionibus orbium coelestium» simplifies astronomy, although it still uses circular orbits.","gravedad"],
+[1600,"1600","The Earth is a magnet","William Gilbert","em","In «De Magnete» he shows that the Earth behaves like a huge magnet, which is why compasses work.","He distinguishes between electric and magnetic attraction.","electromagnetismo"],
+[1609,"1609–1619","Kepler's laws","Johannes Kepler","cos","He discovers that the planets move in ellipses and go faster near the Sun.","Third law: T² ∝ a³. He used Tycho Brahe's data.","gravedad"],
+[1610,"1610","The telescope looks at the sky","Galileo Galilei","tec","He observes mountains on the Moon, the moons of Jupiter and the phases of Venus.","The phases of Venus refute Ptolemy's geocentric model.","optica"],
+[1621,"1621","Law of refraction","Willebrord Snell","opt","He finds the mathematical rule for how light bends when it changes material.","n₁ sin θ₁ = n₂ sin θ₂ (Ibn Sahl also knew it in the 10th century).","optica"],
+[1638,"1638","Two New Sciences","Galileo Galilei","mec","He shows that everything falls with the same acceleration and that a projectile follows a parabola.","He introduces inertia and the composition of motions.","cinematica"],
+[1643,"1643","The barometer","Evangelista Torricelli","tec","He invents the mercury barometer and shows that air has weight.","A column of about 76 cm of mercury at sea level.","termodinamica"],
+[1662,"1662","Boyle's law","Robert Boyle","ter","If you compress a gas at fixed temperature, its pressure rises in the same proportion.","PV = constant at constant T.","termodinamica"],
+[1666,"1666","White light has colors","Isaac Newton","opt","With a prism he splits sunlight into the colors of the rainbow.","He shows that color is a property of light, not of the prism.","luz-sonido"],
+[1676,"1676","Light is not instantaneous","Ole Rømer","opt","By watching Jupiter's moons he discovers that light takes time to travel.","The first estimate of c, around 220,000 km/s.","luz-sonido"],
+[1687,"1687","The Principia","Isaac Newton","mec","He publishes the laws of motion and universal gravitation: the same law explains the apple and the Moon.","The basis of classical mechanics for more than two centuries.","newton"],
+[1690,"1690","Light as a wave","Christiaan Huygens","opt","He proposes that light is a wave and explains reflection and refraction.","Huygens' principle: every point on a wavefront is a new source.","optica"],
+[1738,"1738","Hydrodynamics","Daniel Bernoulli","mec","He explains why a fast-moving fluid has lower pressure, a key idea for airplanes.","He also proposes the kinetic theory of gases.","energia-trabajo"],
+[1752,"1752","Lightning is electricity","Benjamin Franklin","em","His famous kite experiment shows that lightning is an electrical discharge. He invents the lightning rod.","He introduces the convention of positive and negative charges.","electromagnetismo"],
+[1785,"1785","Coulomb's law","Charles-Augustin de Coulomb","em","He measures the force between electric charges with a torsion balance.","F ∝ q₁q₂/r².","electromagnetismo"],
+[1798,"1798","Weighing the Earth","Henry Cavendish","mec","He measures the weak gravitational attraction between lead spheres in his laboratory.","From his measurement come G and the Earth's mean density (≈ 5.5 g/cm³).","gravedad"],
+[1800,"1800","The electric battery","Alessandro Volta","tec","He invents the first battery: at last there's a steady electric current to experiment with.","A stack of zinc and copper discs with cardboard soaked in brine.","circuitos"],
+[1800.5,"1800","Invisible light: the infrared","William Herschel","opt","With a thermometer placed beyond the red of the rainbow, he discovers a light we can't see.","The first non-visible electromagnetic radiation discovered.","luz-sonido"],
+[1801,"1801","Light interferes","Thomas Young","opt","With two slits he shows that light forms fringes, like water waves.","Decisive evidence for the wave nature of light.","cuantica"],
+[1820,"1820","Current moves compasses","Hans Christian Ørsted","em","He discovers that an electric current deflects a compass: electricity and magnetism are related.","Ampère soon formalizes the force between currents.","electromagnetismo"],
+[1824,"1824","The motive power of fire","Sadi Carnot","ter","He studies the maximum work a steam engine can deliver.","His analysis contains the seed of the second law.","termodinamica"],
+[1827,"1827","Ohm's law","Georg Simon Ohm","em","He discovers the relationship between voltage, current and resistance.","V = IR.","circuitos"],
+[1831,"1831","Electromagnetic induction","Michael Faraday","em","By moving a magnet inside a coil he produces current: the principle of generators.","He introduces the concept of field lines.","electromagnetismo"],
+[1845,"1843–1847","Heat is energy","James Joule and Hermann von Helmholtz","ter","Joule measures how much work is equivalent to a given amount of heat; Helmholtz states the conservation of energy.","The first law of thermodynamics.","conservacion-energia"],
+[1865,"1865","Entropy","Rudolf Clausius","ter","He introduces entropy: the disorder of an isolated system tends to increase.","«The energy of the universe is constant; the entropy tends to a maximum».","termodinamica"],
+[1865.5,"1865","Light is electromagnetism","James Clerk Maxwell","em","He unifies electricity, magnetism and light in four equations.","He predicts electromagnetic waves traveling at c = 1/√(μ₀ε₀).","electromagnetismo"],
+[1877,"1877","Entropy and probability","Ludwig Boltzmann","ter","He explains entropy by counting how many ways the molecules can be arranged.","S = k log W.","termodinamica"],
+[1887,"1887","No ether","Albert Michelson and Edward Morley","cos","They look for the «ether» that light supposedly traveled through and don't find it.","The null result paves the way for special relativity.","relatividad"],
+[1888,"1886–1888","Radio waves","Heinrich Hertz","em","He produces and detects electromagnetic waves in his lab, as Maxwell predicted.","The basis of radio, television and Wi-Fi.","luz-sonido"],
+[1895,"1895","X-rays","Wilhelm Röntgen","nuc","He discovers invisible rays that pass through skin: the first X-ray image is of his wife's hand.","The first Nobel Prize in Physics (1901).","luz-sonido"],
+[1896,"1896","Radioactivity","Henri Becquerel","nuc","He discovers that uranium salts give off radiation on their own.","Nobel 1903, shared with Marie and Pierre Curie.","nuclear"],
+[1897,"1897","The electron","J. J. Thomson","nuc","He discovers the first subatomic particle: the electron.","He measures the charge-to-mass ratio with cathode rays.","particulas"],
+[1898,"1898","Polonium and radium","Marie and Pierre Curie","nuc","They discover two new radioactive elements. Marie coins the word «radioactivity».","Marie Curie is the only person with Nobel Prizes in two different sciences (Physics 1903, Chemistry 1911).","nuclear"],
+[1900,"1900","Quantum theory is born","Max Planck","cua","To explain the light from hot bodies, he proposes that energy comes in packets.","E = hf; it solves the black-body radiation problem.","cuantica"],
+[1905,"1905","The miracle year","Albert Einstein","cos","He explains the photoelectric effect, Brownian motion and special relativity, and derives E = mc².","Four papers in Annalen der Physik that transform physics.","relatividad"],
+[1911,"1911","The atomic nucleus","Ernest Rutherford","nuc","He discovers that almost all of the atom's mass is in a tiny nucleus.","Geiger and Marsden's experiment with alpha particles and gold foil.","nuclear"],
+[1911.5,"1911","Superconductivity","Heike Kamerlingh Onnes","cua","Mercury, cooled to −269 °C, conducts electricity with no resistance at all.","Explained in 1957 by BCS theory.","cuantica"],
+[1913,"1913","The Bohr atom","Niels Bohr","cua","Electrons can only be in certain orbits; when they jump they emit light of exact colors.","It explains hydrogen's Balmer series.","cuantica"],
+[1915,"1915","General relativity","Albert Einstein","cos","Gravity is the curvature of space and time.","Field equations; it explains the precession of Mercury.","relatividad"],
+[1919,"1919","Light bends","Arthur Eddington and Frank Dyson","cos","During an eclipse they measure how the Sun bends starlight, as Einstein predicted.","Expeditions to Príncipe Island and Sobral.","relatividad"],
+[1924,"1924","Matter waves","Louis de Broglie","cua","He proposes that electrons also behave like waves.","λ = h/p; confirmed in 1927 by Davisson and Germer.","cuantica"],
+[1926,"1925–1927","Quantum mechanics","Heisenberg, Schrödinger, Born, Pauli","cua","The complete quantum theory is built: the Schrödinger equation, the exclusion principle and uncertainty.","Matrix mechanics (1925), wave mechanics (1926), Born's probabilistic interpretation (1926) and uncertainty (1927).","cuantica"],
+[1928,"1928","The Dirac equation","Paul Dirac","cua","He joins quantum mechanics with relativity for the electron and predicts antimatter.","The positron is discovered in 1932.","tcc"],
+[1929,"1927–1929","The universe is expanding","Georges Lemaître and Edwin Hubble","cos","More distant galaxies recede faster: the universe is growing.","The Hubble–Lemaître law, v = H₀d.","cosmologia"],
+[1932,"1932","Neutron and positron","James Chadwick and Carl Anderson","nuc","Chadwick discovers the neutron; Anderson, the positron, the first antiparticle.","The neutron completes the basic model of the nucleus.","particulas"],
+[1939,"1938–1939","Nuclear fission","Lise Meitner, Otto Frisch, Otto Hahn and Fritz Strassmann","nuc","They discover that the uranium nucleus can split in two and release energy.","Meitner and Frisch give the physical explanation and the name «fission».","nuclear"],
+[1942,"1942","The first nuclear reactor","Enrico Fermi","nuc","In Chicago they achieve the first controlled chain reaction.","Chicago Pile-1, December 2, 1942.","nuclear"],
+[1947,"1947","The transistor","Bardeen, Brattain and Shockley","tec","They invent the transistor, the basic component of all modern electronics.","Bell Labs; Nobel 1956.","circuitos"],
+[1948,"1946–1949","Quantum electrodynamics","Feynman, Schwinger, Tomonaga and Dyson","cua","They complete the quantum theory of light and electrons, the most precise in physics.","Renormalization and Feynman diagrams.","tcc"],
+[1956,"1956","The neutrino is detected","Clyde Cowan and Frederick Reines","nuc","They catch neutrinos coming out of a nuclear reactor.","Predicted by Pauli in 1930.","particulas"],
+[1957,"1956–1957","Nature tells left from right","Chien-Shiung Wu","nuc","She shows that the weak force doesn't behave the same way in a mirror.","Parity violation, proposed by Lee and Yang.","particulas"],
+[1960,"1960","The laser","Theodore Maiman","opt","He builds the first laser, with a ruby crystal.","Based on stimulated emission, proposed by Einstein in 1917.","optica"],
+[1964,"1964","Quarks and the Higgs mechanism","Gell-Mann, Zweig, Higgs, Englert, Brout and others","nuc","It is proposed that protons are made of quarks and that a field gives particles their mass.","The key theoretical pieces of the Standard Model.","particulas"],
+[1965,"1965","The echo of the Big Bang","Arno Penzias and Robert Wilson","cos","They accidentally detect the cosmic microwave background.","A temperature of about 2.7 K; key evidence for the Big Bang.","cosmologia"],
+[1967,"1967","Pulsars","Jocelyn Bell Burnell","cos","She discovers radio signals that repeat with perfect regularity: spinning neutron stars.","Initially nicknamed, as a joke, «LGM-1» (little green men).","cosmologia"],
+[1968,"1967–1968","Electroweak unification","Glashow, Weinberg and Salam","nuc","They show that electromagnetism and the weak force are two faces of the same force.","Group SU(2)×U(1); confirmed by neutral currents (1973).","tcc"],
+[1974,"1974","Black holes glow","Stephen Hawking","cos","He calculates that black holes emit faint radiation and can evaporate.","T = ħc³/(8πGMk_B).","gravitacion-cuantica"],
+[1983,"1983","W and Z bosons","UA1 and UA2 experiments (CERN)","nuc","The particles that carry the weak force are discovered.","Nobel 1984 for Rubbia and van der Meer.","particulas"],
+[1995,"1995","The top quark and the Bose–Einstein condensate","Fermilab; Cornell, Wieman and Ketterle","cua","The heaviest quark is found and a new state of ultracold matter is created.","The condensate had been predicted in 1924–1925.","particulas"],
+[1998,"1998","The universe is speeding up","Perlmutter, Schmidt and Riess","cos","Using distant supernovae, they discover that the expansion of the universe is accelerating: dark energy.","That same year Super-Kamiokande shows that neutrinos have mass.","cosmologia"],
+[2012,"2012","The Higgs boson","ATLAS and CMS (CERN)","nuc","The particle associated with the field that gives mass is discovered.","Mass of about 125 GeV; Nobel 2013 for Higgs and Englert.","particulas"],
+[2015,"2015","Gravitational waves","LIGO","cos","Ripples in spacetime produced by two colliding black holes are detected.","Signal GW150914 of September 14, 2015; Nobel 2017.","relatividad"],
+[2015.5,"2015","Gamma rays from Puebla","HAWC Observatory","tec","An observatory that studies the most energetic gamma rays in the universe is inaugurated in the Sierra Negra, Puebla.","A collaboration between Mexico and the United States.","particulas"],
+[2019,"2019","The first photo of a black hole","Event Horizon Telescope","cos","The image of the shadow of the black hole in the galaxy M87 is obtained. The Large Millimeter Telescope Alfonso Serrano, in Puebla, took part.","Planet-scale interferometry; in 2022 the image of Sagittarius A* was published.","penrose"],
+[2022,"2022","A Nobel for entanglement","Aspect, Clauser and Zeilinger","cua","The experiments that demonstrated quantum entanglement are awarded the prize.","Violation of Bell inequalities.","cuantica"],
+[2025,"2025","Tunneling in a circuit","Clarke, Devoret and Martinis","cua","A Nobel Prize for showing quantum effects in electrical circuits that fit in your hand.","Macroscopic quantum tunneling and energy quantization in Josephson junctions: the basis of superconducting qubits.","cuantica"],
+[2026,"2026","Neutrinos from the Antarctic ice","Francis Halzen (IceCube)","nuc","A Nobel Prize for the leader of the IceCube observatory, a cubic kilometer of ice at the South Pole turned into a neutrino detector.","IceCube detected high-energy astrophysical neutrinos.","particulas"]
+];
+var activos = {}; Object.keys(CAT).forEach(function(k){ activos[k]=true; });
+var q = "";
+function escala(a){ // posición 0..1 no lineal
+  if(a < 1500) return (a+600)/(2100)*0.18;
+  if(a < 1900) return 0.18 + (a-1500)/400*0.42;
+  return 0.60 + (a-1900)/126*0.40;
+}
+function eras(){
+  var W = 1000, H = 70;
+  var s = '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Eventos distribuidos en el tiempo" preserveAspectRatio="none">';
+  [["Antiquity",-600,1500],["Scientific Revolution",1500,1800],["19th century",1800,1900],["20th century",1900,2000],["Today",2000,2026]].forEach(function(e,i){
+    var x1=escala(e[1])*W, x2=escala(e[2])*W;
+    s += '<rect x="'+x1+'" y="0" width="'+(x2-x1)+'" height="'+H+'" fill="'+(i%2?"var(--papel-2)":"var(--hoja)")+'"/><text x="'+(x1+6)+'" y="14" font-size="11" fill="var(--tinta-3)">'+e[0]+'</text>';
+  });
+  E.forEach(function(e,i){ var x=escala(e[0])*W; s += '<circle cx="'+x+'" cy="'+(30+(i%3)*12)+'" r="5" fill="'+CAT[e[4]][1]+'" data-i="'+i+'" style="cursor:pointer"><title>'+e[1]+' · '+e[2]+'</title></circle>'; });
+  s += '</svg>';
+  var el = document.getElementById("eras"); el.innerHTML = s;
+  el.onclick = function(ev){ var c = ev.target.closest("circle"); if(!c) return; var t = document.getElementById("ev-"+c.getAttribute("data-i")); if(t){ t.scrollIntoView({behavior:"smooth",block:"center"}); t.classList.add("destello"); setTimeout(function(){t.classList.remove("destello");},1600); } };
+}
+function chips(){
+  document.getElementById("cats").innerHTML = Object.keys(CAT).map(function(k){ return '<button type="button" class="chip" data-c="'+k+'" aria-pressed="'+(activos[k] && !Object.keys(activos).every(function(x){return activos[x];}))+'"><span class="pt" style="--c:'+CAT[k][1]+'"></span>'+CAT[k][0]+'</button>'; }).join("");
+}
+function norm(s){ return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""); }
+function lista(){
+  var n = PF.nivel(), nq = norm(q), cuenta = 0;
+  var h = E.map(function(e,i){
+    if(!activos[e[4]]) return "";
+    if(nq && norm(e.join(" ")).indexOf(nq) < 0) return "";
+    cuenta++;
+    return '<li id="ev-'+i+'" style="--c:'+CAT[e[4]][1]+'"><span class="anio">'+e[1]+'</span><div><h3 class="ev-t">'+e[2]+'</h3><p class="quien">'+e[3]+' · '+CAT[e[4]][0]+'</p><p>'+e[5]+(n>=3 && e[6] ? ' <span class="mas-info">'+e[6]+'</span>' : '')+'</p><a href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html#'+e[7]+'">See the topic</a></div></li>';
+  }).join("");
+  document.getElementById("linea").innerHTML = h || '<li class="vacio">No events match. Try another word or turn on more areas.</li>';
+  document.getElementById("cuenta").textContent = cuenta + " de " + E.length + " eventos";
+}
+document.addEventListener("pf:listo", function(){
+  eras(); chips(); lista();
+  document.getElementById("cats").addEventListener("click", function(e){ var b=e.target.closest(".chip"); if(!b) return; var k=b.dataset.c, todos=Object.keys(activos).every(function(x){return activos[x];});
+    if(todos){ Object.keys(activos).forEach(function(x){activos[x]=(x===k);}); }
+    else { activos[k]=!activos[k]; if(!Object.keys(activos).some(function(x){return activos[x];})) Object.keys(activos).forEach(function(x){activos[x]=true;}); } chips(); lista(); });
+  document.getElementById("q").addEventListener("input", function(){ q=this.value; lista(); });
+  document.addEventListener("pf:nivel", lista);
+});
+})();
+</script>
+
+</main>
+</body>
+</html>

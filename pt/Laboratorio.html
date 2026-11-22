@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laboratório virtual — Pura Física!</title>
+<meta name="description" content="Todas as simulações interativas do Pura Física! em um só lugar.">
+<meta name="theme-color" content="#F1F5F2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%2317253F' stroke-width='3'%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(60 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='10.5' transform='rotate(-60 32 32)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='8' fill='%23D2402E'/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="es" href="../Laboratorio.html"><link rel="alternate" hreflang="en" href="../en/Laboratorio.html"><link rel="alternate" hreflang="pt" href="../pt/Laboratorio.html">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/pf.css">
+<script>try{var L="pt",s=localStorage.getItem("pf:lang");if(s&&s!==L&&/^(es|en|pt)$/.test(s)){var f=location.pathname.split("/").pop()||"";location.replace((L==="es"?"":"../")+(s==="es"?"":s+"/")+f+location.hash);}var t=localStorage.getItem("pf:tema");if(!t&&matchMedia("(prefers-color-scheme: dark)").matches)t="pizarron";document.documentElement.setAttribute("data-tema",t||"papel");document.documentElement.setAttribute("data-nivel",localStorage.getItem("pf:nivel")||"3");}catch(e){}</script>
+<script defer src="../assets/katex/katex.min.js"></script>
+<script defer src="../assets/katex/auto-render.min.js"></script>
+<script defer src="../assets/indice.pt.js"></script>
+<script defer src="../assets/pf.js"></script>
+<script defer src="../assets/sims-base.pt.js"></script><script defer src="../assets/sims-ondas.pt.js"></script><script defer src="../assets/sims-moderna.pt.js"></script>
+</head>
+<body data-pagina="lab" data-traducida>
+<main id="contenido" class="pf-main">
+<header class="cabeza">
+  <div class="migas"><a href="Pura%20F%C3%ADsica%21.html">Início</a> / Laboratório</div>
+  <h1>Laboratório virtual</h1>
+  <p>Trinta e cinco experimentos que você pode tocar: lance projéteis, monte circuitos, dispare nêutrons ou curve o espaço-tempo. Escolha um da lista e ele aparecerá na bancada. Todos se adaptam ao seu nível.</p>
+</header>
+
+<section class="mesa" id="mesa" aria-live="polite" aria-label="Bancada">
+  <div class="mesa__cab"><h2 id="mesa-titulo">Bancada</h2><a id="mesa-tema" class="btn chico" href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html">Ler a teoria</a></div>
+  <div id="mesa-sim"></div>
+</section>
+
+<section aria-labelledby="catalogo">
+  <h2 id="catalogo">Escolha um experimento</h2>
+  <div class="chips" role="group" aria-label="Filtrar por área" id="filtros"></div>
+  <div class="lab-lista" id="lista"></div>
+</section>
+
+<script>
+(function(){
+var CAT = [
+ ["lanzador","Lançador de projéteis","mec",1,"Mire, dispare e acerte o alvo na Terra, na Lua ou em Júpiter.","cinematica"],
+ ["newton","Empurre a caixa","mec",1,"Segunda e terceira leis de Newton com atrito e patinadores.","newton"],
+ ["cinematica","Carrinho com gráficos","mec",2,"MRU e MRUV com gráficos x–t, v–t e a–t ao vivo.","cinematica"],
+ ["vectores","Soma de vetores","mec",2,"Arraste dois vetores e observe sua soma, diferença e componentes.","cinematica"],
+ ["energia","Pista de energia","mec",1,"Energia potencial, cinética e térmica numa rampa.","energia-trabajo"],
+ ["pendulo","Pêndulo","mec",1,"Período, energia e amortecimento em diferentes planetas.","conservacion-energia"],
+ ["caida","O que cai primeiro?","mec",1,"Uma pena e um martelo, com e sem ar, em vários mundos.","gravedad"],
+ ["orbita","O canhão de Newton","mec",2,"De cair a orbitar e a escapar da Terra.","gravedad"],
+ ["plano","Plano inclinado","mec",2,"Atrito estático e cinético; ângulo crítico.","fuerzas-friccion"],
+ ["choques","Colisões entre carrinhos","mec",3,"Conservação do momento em colisões elásticas e inelásticas.","newton"],
+ ["arquimedes","Flutua ou afunda?","mec",1,"Princípio de Arquimedes com diferentes materiais e líquidos.","fuerzas-friccion"],
+ ["espectro","Espectro eletromagnético","ond",1,"Das ondas de rádio aos raios gama.","luz-sonido"],
+ ["sonido","Ondas sonoras","ond",1,"Veja e ouça uma onda longitudinal.","luz-sonido"],
+ ["optica","Bancada óptica","ond",2,"Reflexão, refração, lentes e prisma.","optica"],
+ ["campoE","Campo elétrico","em",2,"Arraste cargas e observe linhas de campo e potencial.","electromagnetismo"],
+ ["campoB","Campo magnético","em",2,"Bússolas ao redor de correntes; fios que se atraem.","electromagnetismo"],
+ ["circuito","Circuito de lâmpadas","em",1,"Série, paralelo e misto, com elétrons em movimento.","circuitos"],
+ ["gas","Gás num pistão","ter",1,"Temperatura, pressão e volume com moléculas reais.","termodinamica"],
+ ["carnot","Ciclo de Carnot","ter",3,"O motor ideal e o limite da segunda lei.","termodinamica"],
+ ["relatividad","Relógio de luz","mod",1,"Dilatação do tempo e contração das distâncias.","relatividad"],
+ ["minkowski","Diagrama de Minkowski","mod",4,"Simultaneidade relativa e intervalo invariante.","relatividad"],
+ ["fotoelectrico","Efeito fotoelétrico","mod",2,"Por que a luz é feita de fótons.","cuantica"],
+ ["atomo","Átomo de hidrogênio","mod",2,"Saltos entre níveis e linhas espectrais.","cuantica"],
+ ["rendija","Fenda dupla","mod",1,"Interferência com partículas uma por uma.","cuantica"],
+ ["caja","Partícula numa caixa","mod",3,"Estados estacionários e superposição.","cuantica"],
+ ["oscilador","Oscilador harmônico quântico","mod",4,"Operadores de criação e aniquilação.","tcc"],
+ ["fision","Reação em cadeia","mod",1,"Fissão do urânio e barras de controle.","nuclear"],
+ ["decaimiento","Decaimento radioativo","mod",2,"Meia-vida do carbono‑14, iodo‑131 e mais.","nuclear"],
+ ["cuerda","Modos de uma corda","mod",1,"Ondas estacionárias e a ideia da teoria das cordas.","cuerdas"],
+ ["modelo","Modelo Padrão","cos",2,"As partículas elementares e suas forças.","particulas"],
+ ["feynman","Diagramas de Feynman","cos",4,"Como as partículas interagem.","tcc"],
+ ["agujero","Calculadora de buracos negros","cos",2,"Horizonte, temperatura e evaporação.","gravitacion-cuantica"],
+ ["escalas","Do tamanho de Planck ao universo","cos",1,"62 ordens de grandeza numa régua.","gravitacion-cuantica"],
+ ["cosmos","Destino do universo","cos",2,"As equações de Friedmann com seus próprios parâmetros.","cosmologia"],
+ ["calendario","Calendário cósmico","cos",1,"Toda a história do universo em um ano.","cosmologia"],
+ ["penrose","Diagramas de Penrose","cos",4,"O mapa completo de um buraco negro.","penrose"]
+];
+var AREAS = {todas:"Todas", mec:"Mecânica", ond:"Ondas e óptica", em:"Eletromagnetismo", ter:"Termodinâmica", mod:"Física moderna", cos:"Cosmos e fronteira"};
+var COL = {mec:"var(--n3)", ond:"var(--n1)", em:"var(--n4)", ter:"var(--n5)", mod:"var(--n2)", cos:"var(--tinta)"};
+var filtro = "todas";
+var temas = "Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html";
+function pintarFiltros(){
+  document.getElementById("filtros").innerHTML = Object.keys(AREAS).map(function(k){
+    return '<button type="button" class="chip" data-a="'+k+'" aria-pressed="'+(k===filtro)+'">'+(k!=="todas"?'<span class="pt" style="--c:'+COL[k]+'"></span>':'')+AREAS[k]+'</button>';
+  }).join("");
+}
+function pintarLista(){
+  var n = PF.nivel();
+  document.getElementById("lista").innerHTML = CAT.filter(function(x){ return filtro==="todas" || x[2]===filtro; }).map(function(x){
+    return '<button type="button" class="lab-item" data-id="'+x[0]+'" style="--c:'+COL[x[2]]+'"><b>'+x[1]+'</b><span>'+x[4]+'</span><small><span class="etiq" data-n="'+x[3]+'">Desde '+PF.NIVELES[x[3]-1].nom+'</span> '+AREAS[x[2]]+'</small></button>';
+  }).join("");
+}
+function abrir(id, desplazar){
+  var x = CAT.filter(function(c){ return c[0]===id; })[0]; if(!x) return;
+  var cont = document.getElementById("mesa-sim");
+  cont.innerHTML = '<div class="sim" data-sim="'+x[0]+'" data-ya></div>';
+  document.getElementById("mesa-titulo").textContent = x[1];
+  document.getElementById("mesa-tema").href = temas + "#" + x[5];
+  PFSim.montar(cont.firstChild);
+  try{ history.replaceState(null, "", "#sim=" + id); }catch(e){}
+  document.querySelectorAll(".lab-item").forEach(function(b){ b.setAttribute("aria-current", String(b.dataset.id===id)); });
+  if(desplazar) document.getElementById("mesa").scrollIntoView({behavior:"smooth", block:"start"});
+}
+document.addEventListener("pf:listo", function(){
+  pintarFiltros(); pintarLista();
+  document.getElementById("filtros").addEventListener("click", function(e){ var b=e.target.closest(".chip"); if(!b) return; filtro=b.dataset.a; pintarFiltros(); pintarLista(); });
+  document.getElementById("lista").addEventListener("click", function(e){ var b=e.target.closest(".lab-item"); if(b) abrir(b.dataset.id, true); });
+  document.addEventListener("pf:nivel", pintarLista);
+  var m = decodeURIComponent(location.hash).match(/sim=(\w+)/);
+  abrir(m ? m[1] : "lanzador", false);
+});
+})();
+</script>
+
+</main>
+</body>
+</html>
