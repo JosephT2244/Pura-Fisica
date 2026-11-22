@@ -19,21 +19,53 @@
 </head>
 <body data-pagina="lab" data-traducida>
 <main id="contenido" class="pf-main">
-<header class="cabeza">
-  <div class="migas"><a href="Pura%20F%C3%ADsica%21.html">Início</a> / Laboratório</div>
-  <h1>Laboratório virtual</h1>
-  <p>Trinta e cinco experimentos que você pode tocar: lance projéteis, monte circuitos, dispare nêutrons ou curve o espaço-tempo. Escolha um da lista e ele aparecerá na bancada. Todos se adaptam ao seu nível.</p>
+<header class="cabeza lab-cab">
+  <div class="lab-cab__txt">
+    <div class="migas"><a href="Pura%20F%C3%ADsica%21.html">Início</a> / Laboratório</div>
+    <h1>Laboratório virtual</h1>
+    <p>Trinta e seis experimentos que você pode tocar: lance projéteis, monte circuitos, dispare nêutrons ou curve o espaço-tempo. Escolha um da lista e ele aparecerá na bancada. Todos se adaptam ao seu nível.</p>
+  </div>
+  <svg class="lab-cab__dib" viewBox="0 0 320 200" aria-hidden="true">
+    <path class="b" d="M10 182h300"/>
+    <path class="b" d="M40 182V40h86"/><path class="b" d="M28 182h24"/>
+    <g class="pend"><path d="M110 40v92"/><circle cx="110" cy="142" r="11" class="f2"/></g>
+    <path class="d" d="M76 136q34 22 68 0"/>
+    <path class="b" d="M178 182v-58h34v58"/><path class="b" d="M178 124l-6-8h46l-6 8"/>
+    <path class="liq" d="M180 150q8-4 15 0t15 0v30h-30z"/>
+    <circle class="burb b1" cx="190" cy="170" r="2.4"/><circle class="burb b2" cx="200" cy="174" r="1.8"/><circle class="burb b3" cx="196" cy="166" r="1.5"/>
+    <path class="b" d="M240 182c0-30 12-44 30-44s30 14 30 44M254 182c0-20 6-28 16-28s16 8 16 28"/><path class="polo n" d="M240 170h14v12h-14z"/><path class="polo s" d="M286 170h14v12h-14z"/>
+    <path class="d" d="M252 120q18-14 36 0M246 104q24-22 48 0"/>
+    <path class="rayo" d="M222 60h48l22 24"/><path class="b" d="M270 44q7 16 0 32q-7-16 0-32z"/>
+  </svg>
 </header>
 
 <section class="mesa" id="mesa" aria-live="polite" aria-label="Bancada">
-  <div class="mesa__cab"><h2 id="mesa-titulo">Bancada</h2><a id="mesa-tema" class="btn chico" href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html">Ler a teoria</a></div>
+  <div class="mesa__cab">
+    <span class="mesa__ico" id="mesa-ico" aria-hidden="true"></span>
+    <div class="mesa__tit">
+      <small id="mesa-area">Bancada</small>
+      <h2 id="mesa-titulo">Bancada</h2>
+      <p id="mesa-desc"></p>
+    </div>
+    <div class="mesa__acc">
+      <button type="button" class="btn chico" id="mesa-ant" aria-label="Experimento anterior">‹ Anterior</button>
+      <button type="button" class="btn chico" id="mesa-sig" aria-label="Próximo experimento">Próximo ›</button>
+      <a id="mesa-tema" class="btn chico prim" href="Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html">Ler a teoria</a>
+    </div>
+  </div>
   <div id="mesa-sim"></div>
 </section>
 
-<section aria-labelledby="catalogo">
-  <h2 id="catalogo">Escolha um experimento</h2>
+<section class="catalogo" aria-labelledby="catalogo">
+  <div class="catalogo__cab">
+    <h2 id="catalogo">Escolha um experimento</h2>
+    <div class="catalogo__busca">
+      <input type="search" id="lab-q" placeholder="Buscar experimento…" aria-label="Buscar experimento" autocomplete="off">
+      <button type="button" class="btn chico" id="lab-azar">Aleatório</button>
+    </div>
+  </div>
   <div class="chips" role="group" aria-label="Filtrar por área" id="filtros"></div>
-  <div class="lab-lista" id="lista"></div>
+  <div id="lista"></div>
 </section>
 
 <script>
@@ -71,42 +103,111 @@ var CAT = [
  ["modelo","Modelo Padrão","cos",2,"As partículas elementares e suas forças.","particulas"],
  ["feynman","Diagramas de Feynman","cos",4,"Como as partículas interagem.","tcc"],
  ["agujero","Calculadora de buracos negros","cos",2,"Horizonte, temperatura e evaporação.","gravitacion-cuantica"],
- ["escalas","Do tamanho de Planck ao universo","cos",1,"62 ordens de grandeza numa régua.","gravitacion-cuantica"],
+ ["escalas","Do tamanho de Planck ao universo","cos",1,"Uma viagem com zoom das cordas ao universo observável.","gravitacion-cuantica"],
  ["cosmos","Destino do universo","cos",2,"As equações de Friedmann com seus próprios parâmetros.","cosmologia"],
  ["calendario","Calendário cósmico","cos",1,"Toda a história do universo em um ano.","cosmologia"],
  ["penrose","Diagramas de Penrose","cos",4,"O mapa completo de um buraco negro.","penrose"]
 ];
 var AREAS = {todas:"Todas", mec:"Mecânica", ond:"Ondas e óptica", em:"Eletromagnetismo", ter:"Termodinâmica", mod:"Física moderna", cos:"Cosmos e fronteira"};
 var COL = {mec:"var(--n3)", ond:"var(--n1)", em:"var(--n4)", ter:"var(--n5)", mod:"var(--n2)", cos:"var(--tinta)"};
-var filtro = "todas";
+var ICO = {
+lanzador:'<path d="M5 41l11-7"/><circle cx="8" cy="40" r="4" class="f"/><path d="M17 33Q28 2 43 31" class="p"/><circle cx="43" cy="33" r="3"/><path d="M38 41h10"/>',
+newton:'<rect x="21" y="19" width="18" height="17" class="f"/><path d="M3 37h42"/><path d="M5 27h11m-4-4 4 4-4 4"/><path d="M28 13v-3m-5 3-1-3m11 3 1-3"/>',
+cinematica:'<path d="M7 6v34h36"/><path d="M9 38Q24 37 41 10"/><circle cx="17" cy="35" r="2" class="d"/><circle cx="27" cy="29" r="2" class="d"/><circle cx="35" cy="20" r="2" class="d"/>',
+vectores:'<path d="M8 40L18 14"/><path d="M15 16l3-2 1 4"/><path d="M8 40h26"/><path d="M31 37l3 3-3 3"/><path d="M8 40L40 13" class="p"/><path d="M36 13h4v4"/>',
+energia:'<path d="M3 9Q14 44 24 40T45 12"/><circle cx="9" cy="21" r="3.5" class="f"/><path d="M3 44h42"/>',
+pendulo:'<path d="M8 6h32"/><path d="M24 6l9 25"/><circle cx="34" cy="34" r="5" class="f"/><path d="M11 30q13 12 26 0" class="p"/><path d="M24 6v28" class="p"/>',
+caida:'<path d="M14 12v28"/><rect x="7" y="6" width="14" height="7" class="f"/><path d="M34 6c7 7 5 18-3 26M34 6c-4 9-4 18-3 26"/><path d="M3 42h42"/>',
+orbita:'<circle cx="24" cy="27" r="9" class="f"/><ellipse cx="24" cy="27" rx="19" ry="16" class="p"/><path d="M24 18v-7m-2 0h4"/><circle cx="43" cy="27" r="2"/>',
+plano:'<path d="M4 41h40L4 15z"/><path d="M15 24l9 5.5-3.6 6-9-5.5z" class="f"/><path d="M36 41a12 12 0 0 0-2-6"/>',
+choques:'<rect x="4" y="22" width="15" height="11" class="f"/><rect x="29" y="22" width="15" height="11"/><circle cx="8" cy="36" r="2"/><circle cx="15" cy="36" r="2"/><circle cx="33" cy="36" r="2"/><circle cx="40" cy="36" r="2"/><path d="M6 15h9m-3-3 3 3-3 3M42 15h-9m3-3-3 3 3 3"/>',
+arquimedes:'<path d="M6 10v32h36V10"/><path d="M6 24q4-2.5 9 0t9 0 9 0 9 0"/><rect x="17" y="17" width="14" height="11" class="f"/><path d="M24 33v6m-3-3 3 3 3-3"/>',
+espectro:'<path d="M3 24C5 12 8 12 10 24S14 36 16 24 19 13 21 24 24 34 25.5 24 28 15 29.5 24 31.5 32 32.6 24 34.4 17 35.5 24 37 30 37.8 24 39.2 19 40 24 41 28.6 41.6 24 42.6 20.6 43 24"/><path d="M3 40h40" class="p"/>',
+sonido:'<path d="M5 19h7l8-7v24l-8-7H5z" class="f"/><path d="M26 18a8 8 0 0 1 0 12M31 13a15 15 0 0 1 0 22M36 8a22 22 0 0 1 0 32"/>',
+optica:'<path d="M24 7q7 17 0 34q-7-17 0-34z" class="f"/><path d="M3 15h21l21 18M3 33h21l21-18"/>',
+campoE:'<circle cx="11" cy="24" r="5" class="f"/><path d="M8.5 24h5M11 21.5v5"/><circle cx="37" cy="24" r="5"/><path d="M34.5 24h5"/><path d="M16 24h16M15 20q9-10 18 0M15 28q9 10 18 0" class="p"/>',
+campoB:'<circle cx="24" cy="24" r="3.5" class="f"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="18" class="p"/><path d="M36 8l4 4-4 4" />',
+circuito:'<path d="M8 22V12h11M29 12h11v26H8V28"/><path d="M3 22h10M5.5 28h5"/><circle cx="24" cy="12" r="5" class="f"/><path d="M21.5 9.5l5 5m0-5-5 5"/>',
+gas:'<path d="M10 8v34h28V8"/><rect x="10" y="15" width="28" height="4" class="f"/><path d="M24 15V4"/><circle cx="16" cy="25" r="1.6" class="d"/><circle cx="29" cy="27" r="1.6" class="d"/><circle cx="21" cy="34" r="1.6" class="d"/><circle cx="33" cy="37" r="1.6" class="d"/><circle cx="15" cy="38" r="1.6" class="d"/>',
+carnot:'<path d="M7 5v36h36"/><path d="M13 11Q19 20 27 22Q34 27 39 35Q29 31 22 29Q16 23 13 11z" class="f"/>',
+relatividad:'<path d="M9 8h12M27 8h12M9 40h12M27 40h12"/><path d="M15 40L24 8l9 32" class="p"/><circle cx="24" cy="8" r="2.5" class="d"/>',
+minkowski:'<path d="M24 43V5M5 43h38"/><path d="M6 42L42 6M42 42L6 6" class="p"/><path d="M24 43L33 6"/>',
+fotoelectrico:'<path d="M4 38h40"/><rect x="4" y="38" width="40" height="5" class="f"/><path d="M6 6l2.5 4 3-1 2.5 4 3-1 2.5 4 3-1 2.5 4"/><path d="M28 34l12-14"/><circle cx="40" cy="19" r="2.5" class="d"/>',
+atomo:'<circle cx="24" cy="24" r="3.5" class="f"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="18" class="p"/><circle cx="34" cy="24" r="2" class="d"/>',
+rendija:'<path d="M18 4v12M18 20v8M18 32v12"/><path d="M42 5v38"/><path d="M38 11h4M35 17.5h7M33 24h9M35 30.5h7M38 37h4"/><circle cx="6" cy="24" r="2" class="d"/><circle cx="11" cy="24" r="1.4" class="d"/>',
+caja:'<path d="M6 8v32h36V8"/><path d="M6 27q9-17 18 0t18 0"/><path d="M6 27q9 17 18 0t18 0" class="p"/>',
+oscilador:'<path d="M6 5q18 72 36 0"/><path d="M16 35h16M13 27h22M10.5 19h27M9 11h30" class="p"/>',
+fision:'<circle cx="13" cy="24" r="8" class="f"/><path d="M22 24h4"/><circle cx="35" cy="15" r="5.5"/><circle cx="35" cy="33" r="5.5"/><circle cx="44" cy="24" r="1.6" class="d"/><circle cx="30" cy="24" r="1.6" class="d"/><circle cx="4" cy="24" r="1.6" class="d"/>',
+decaimiento:'<path d="M6 5v36h37"/><path d="M8 8Q14 33 41 37"/><path d="M6 23h8v18M6 32h15v9" class="p"/>',
+cuerda:'<path d="M4 24q10-15 20 0t20 0"/><path d="M4 24q10 15 20 0t20 0" class="p"/><circle cx="4" cy="24" r="2.5" class="d"/><circle cx="44" cy="24" r="2.5" class="d"/><circle cx="24" cy="24" r="1.8" class="d"/>',
+modelo:'<circle cx="10" cy="10" r="4.5" class="f"/><circle cx="24" cy="10" r="4.5" class="f"/><circle cx="38" cy="10" r="4.5"/><circle cx="10" cy="24" r="4.5" class="f"/><circle cx="24" cy="24" r="4.5" class="f"/><circle cx="38" cy="24" r="4.5"/><circle cx="10" cy="38" r="4.5"/><circle cx="24" cy="38" r="4.5"/><circle cx="38" cy="38" r="4.5" class="f"/>',
+feynman:'<path d="M5 7l11 17L5 41M43 7L32 24l11 17"/><path d="M16 24c1.5-4 2.5-4 4 0s2.5 4 4 0 2.5-4 4 0 2.5 4 4 0"/><path d="M9 13l1 4-4 0M39 13l-1 4 4 0"/>',
+agujero:'<ellipse cx="24" cy="26" rx="21" ry="6.5" class="f"/><circle cx="24" cy="24" r="8.5" class="n"/><path d="M8 18q16-12 32 0" class="p"/>',
+escalas:'<circle cx="20" cy="20" r="13"/><path d="M30 30l12 12"/><circle cx="20" cy="20" r="7" class="p"/><circle cx="20" cy="20" r="2.5" class="f"/>',
+cosmos:'<path d="M6 42h37M6 42V5"/><path d="M8 40Q18 20 42 8"/><path d="M8 40Q20 10 32 24T40 40" class="p"/>',
+calendario:'<rect x="6" y="10" width="36" height="32" rx="3"/><path d="M6 18h36M15 6v8M33 6v8"/><path d="M24 22l2.4 5 5.4.6-4 3.7 1.1 5.3L24 34l-4.9 2.6 1.1-5.3-4-3.7 5.4-.6z" class="f"/>',
+penrose:'<path d="M24 5l19 19-19 19L5 24z" class="f"/><path d="M14.5 14.5h19" class="zig"/><path d="M24 43L14.5 14.5" class="p"/>'
+};
+var GEN = '<path d="M18 6h12M20 6v12L9 39a3 3 0 0 0 3 4h24a3 3 0 0 0 3-4L28 18V6"/><path d="M13 31h22" class="p"/>';
+function icono(id){ return '<svg viewBox="0 0 48 48" aria-hidden="true">'+(ICO[id]||GEN)+'</svg>'; }
+var filtro = "todas", q = "", actual = null, DESDE = "Desde";
 var temas = "Temas%20de%20inter%C3%A9s%20en%20la%20f%C3%ADsica.html";
+function cuenta(a){ return CAT.filter(function(x){ return a==="todas" || x[2]===a; }).length; }
+function sinAcento(t){ return t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""); }
 function pintarFiltros(){
   document.getElementById("filtros").innerHTML = Object.keys(AREAS).map(function(k){
-    return '<button type="button" class="chip" data-a="'+k+'" aria-pressed="'+(k===filtro)+'">'+(k!=="todas"?'<span class="pt" style="--c:'+COL[k]+'"></span>':'')+AREAS[k]+'</button>';
+    return '<button type="button" class="chip" data-a="'+k+'" aria-pressed="'+(k===filtro)+'">'+(k!=="todas"?'<span class="pt" style="--c:'+COL[k]+'"></span>':'')+AREAS[k]+' <span class="chip__n">'+cuenta(k)+'</span></button>';
   }).join("");
+}
+function puntos(L){ var h=""; for(var i=1;i<=5;i++) h+='<i'+(i<=L?' class="on"':'')+'></i>'; return '<span class="lab-niv" aria-hidden="true">'+h+'</span>'; }
+function tarjeta(x){
+  return '<button type="button" class="lab-item" data-id="'+x[0]+'" style="--c:'+COL[x[2]]+'"'+(x[0]===actual?' aria-current="true"':'')+'>'+
+    '<span class="lab-item__ico">'+icono(x[0])+'</span>'+
+    '<span class="lab-item__txt"><b>'+x[1]+'</b><span>'+x[4]+'</span></span>'+
+    '<small>'+puntos(x[3])+'<span class="etiq" data-n="'+x[3]+'">'+DESDE+' '+PF.NIVELES[x[3]-1].nom+'</span><span class="lab-item__ya">Na bancada</span></small></button>';
 }
 function pintarLista(){
-  var n = PF.nivel();
-  document.getElementById("lista").innerHTML = CAT.filter(function(x){ return filtro==="todas" || x[2]===filtro; }).map(function(x){
-    return '<button type="button" class="lab-item" data-id="'+x[0]+'" style="--c:'+COL[x[2]]+'"><b>'+x[1]+'</b><span>'+x[4]+'</span><small><span class="etiq" data-n="'+x[3]+'">Desde '+PF.NIVELES[x[3]-1].nom+'</span> '+AREAS[x[2]]+'</small></button>';
-  }).join("");
+  var t = sinAcento(q.trim());
+  var vis = CAT.filter(function(x){ return (filtro==="todas" || x[2]===filtro) && (!t || sinAcento(x[1]+" "+x[4]).indexOf(t)>=0); });
+  var el = document.getElementById("lista");
+  if(!vis.length){ el.innerHTML = '<p class="lab-vacio">Nenhum experimento corresponde à sua busca. Tente outra palavra, como «luz» ou «energia».</p>'; return; }
+  if(filtro==="todas" && !t){
+    el.innerHTML = Object.keys(AREAS).filter(function(a){ return a!=="todas"; }).map(function(a){
+      var xs = vis.filter(function(x){ return x[2]===a; });
+      return '<div class="lab-grupo" style="--c:'+COL[a]+'"><h3><span class="pt"></span>'+AREAS[a]+' <small>'+xs.length+'</small></h3><div class="lab-lista">'+xs.map(tarjeta).join("")+'</div></div>';
+    }).join("");
+  } else {
+    el.innerHTML = '<div class="lab-lista">'+vis.map(tarjeta).join("")+'</div>';
+  }
 }
 function abrir(id, desplazar){
-  var x = CAT.filter(function(c){ return c[0]===id; })[0]; if(!x) return;
+  var i = -1; CAT.forEach(function(c,k){ if(c[0]===id) i=k; }); if(i<0) return;
+  var x = CAT[i]; actual = id;
+  var mesa = document.getElementById("mesa");
+  mesa.style.setProperty("--c", COL[x[2]]);
   var cont = document.getElementById("mesa-sim");
   cont.innerHTML = '<div class="sim" data-sim="'+x[0]+'" data-ya></div>';
+  document.getElementById("mesa-ico").innerHTML = icono(x[0]);
+  document.getElementById("mesa-area").innerHTML = AREAS[x[2]]+' · <span class="etiq" data-n="'+x[3]+'">'+DESDE+' '+PF.NIVELES[x[3]-1].nom+'</span>';
   document.getElementById("mesa-titulo").textContent = x[1];
+  document.getElementById("mesa-desc").textContent = x[4];
   document.getElementById("mesa-tema").href = temas + "#" + x[5];
+  mesa.classList.remove("mesa--entra"); void mesa.offsetWidth; mesa.classList.add("mesa--entra");
   PFSim.montar(cont.firstChild);
   try{ history.replaceState(null, "", "#sim=" + id); }catch(e){}
-  document.querySelectorAll(".lab-item").forEach(function(b){ b.setAttribute("aria-current", String(b.dataset.id===id)); });
-  if(desplazar) document.getElementById("mesa").scrollIntoView({behavior:"smooth", block:"start"});
+  document.querySelectorAll(".lab-item").forEach(function(b){ if(b.dataset.id===id) b.setAttribute("aria-current","true"); else b.removeAttribute("aria-current"); });
+  if(desplazar) mesa.scrollIntoView({behavior:"smooth", block:"start"});
 }
+function mover(d){ var i=0; CAT.forEach(function(c,k){ if(c[0]===actual) i=k; }); abrir(CAT[(i+d+CAT.length)%CAT.length][0], false); }
 document.addEventListener("pf:listo", function(){
   pintarFiltros(); pintarLista();
   document.getElementById("filtros").addEventListener("click", function(e){ var b=e.target.closest(".chip"); if(!b) return; filtro=b.dataset.a; pintarFiltros(); pintarLista(); });
   document.getElementById("lista").addEventListener("click", function(e){ var b=e.target.closest(".lab-item"); if(b) abrir(b.dataset.id, true); });
-  document.addEventListener("pf:nivel", pintarLista);
+  document.getElementById("lab-q").addEventListener("input", function(e){ q=e.target.value; pintarLista(); });
+  document.getElementById("lab-azar").addEventListener("click", function(){ var o=CAT.filter(function(x){ return x[0]!==actual; }); abrir(o[Math.floor(Math.random()*o.length)][0], true); });
+  document.getElementById("mesa-ant").addEventListener("click", function(){ mover(-1); });
+  document.getElementById("mesa-sig").addEventListener("click", function(){ mover(1); });
+  document.addEventListener("pf:nivel", function(){ pintarLista(); if(actual){ var x=CAT.filter(function(c){return c[0]===actual;})[0]; document.getElementById("mesa-area").innerHTML = AREAS[x[2]]+' · <span class="etiq" data-n="'+x[3]+'">'+DESDE+' '+PF.NIVELES[x[3]-1].nom+'</span>'; } });
   var m = decodeURIComponent(location.hash).match(/sim=(\w+)/);
   abrir(m ? m[1] : "lanzador", false);
 });

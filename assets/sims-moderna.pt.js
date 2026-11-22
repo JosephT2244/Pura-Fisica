@@ -447,52 +447,185 @@ var ESC=[
  [1.6e-35,"Comprimento de Planck","Escala onde se espera que a gravidade quântica seja importante. Ninguém sabe o que há aqui.","Gravidade quântica (desconhecida)"],
  [1e-18,"Limite dos quarks e elétrons","Os experimentos não encontraram estrutura interna acima de ~10⁻¹⁸ m.","Teoria quântica de campos"],
  [1.7e-15,"Próton","Três quarks unidos por glúons. Mede cerca de 1,7 fm.","Cromodinâmica quântica"],
+ [1.5e-14,"Núcleo de urânio","Cerca de 235 prótons e nêutrons apertados em 15 fm.","Física nuclear"],
  [1e-10,"Átomo","A nuvem de elétrons é cerca de 100 000 vezes maior que o núcleo.","Mecânica quântica"],
  [2e-9,"DNA (largura da hélice)","A molécula que guarda as instruções da vida.","Química quântica"],
  [1e-7,"Vírus","Cerca de 100 nm: menor que o comprimento de onda da luz visível.","Física molecular"],
  [8e-6,"Glóbulo vermelho","Cerca de 8 µm. Já se vê com um microscópio óptico.","Física dos fluidos e biofísica"],
  [1e-3,"Formiga pequena","Um milímetro: o menor quadradinho do papel milimetrado.","Mecânica clássica"],
+ [8e-2,"Maçã","Cerca de 8 cm, como a que, segundo a história, inspirou Newton.","Gravidade de Newton"],
  [1.7,"Pessoa","Nossa escala: aqui funciona a física de Newton.","Mecânica clássica"],
+ [2.25e2,"Pirâmide do Sol","Teotihuacan: cerca de 225 m de lado na base.","Estática"],
  [8.8e3,"Monte Everest","8,8 km de altura.","Geofísica"],
+ [6e5,"Furacão","Cerca de 600 km de nuvens girando ao redor de um olho calmo.","Dinâmica dos fluidos"],
  [1.27e7,"A Terra","12 742 km de diâmetro.","Gravitação de Newton"],
  [1.39e9,"O Sol","Caberiam mais de um milhão de Terras dentro.","Física de plasmas e fusão"],
+ [3e11,"Órbita da Terra","Cerca de 300 milhões de km de um lado ao outro: duas unidades astronômicas.","Leis de Kepler"],
  [9e12,"Sistema Solar (órbita de Netuno)","A luz leva cerca de 4 horas para chegar a Netuno.","Mecânica celeste"],
+ [2.4e13,"Heliosfera","A bolha do vento solar. A Voyager 1 saiu dela em 2012, a cerca de 120 UA.","Física de plasmas"],
  [9.46e15,"Um ano-luz","O que a luz percorre em um ano.","Relatividade"],
+ [8e16,"Vizinhança solar","A estrela mais próxima, Próxima Centauri, está a 4.2 anos-luz.","Mecânica celeste"],
+ [2.3e17,"Nebulosa de Órion","Cerca de 24 anos-luz de gás brilhante onde estrelas estão nascendo.","Formação de estrelas"],
+ [1.6e18,"Aglomerado globular ω Centauri","Cerca de 10 milhões de estrelas numa esfera de 170 anos-luz.","Dinâmica estelar"],
+ [1.3e20,"Grande Nuvem de Magalhães","Uma galáxia satélite da Via Láctea, com cerca de 14 000 anos-luz. É vista a olho nu do hemisfério sul.","Dinâmica galáctica"],
  [9.5e20,"Via Láctea","Cerca de 100 000 anos-luz de diâmetro e centenas de bilhões de estrelas.","Dinâmica galáctica e matéria escura"],
+ [9.5e22,"Grupo Local","A Via Láctea, Andrômeda e dezenas de galáxias anãs, em cerca de 10 milhões de anos-luz.","Gravitação e matéria escura"],
+ [4.9e24,"Superaglomerado Laniakea","Cerca de 520 milhões de anos-luz: cem mil galáxias que fluem para um mesmo centro.","Cosmologia"],
  [8.8e26,"Universo observável","Cerca de 93 bilhões de anos-luz de diâmetro.","Cosmologia e relatividade geral"]
 ];
-PFSim.def("escalas",{t:"Do tamanho de Planck ao universo", ayuda:"Deslize para dar zoom"}, function(c){
-  var g = c.canvas(.45, 260, 400);
-  var L=Math.log10(1.7);
-  var s=c.slider({l:"Tamanho", min:-35, max:27, paso:.01, v:1.7, log:true, fmt:function(v){ return "10"+PF.sup(Math.round(Math.log10(v)))+" m"; }, on:function(v){ L=Math.log10(v); dibujar(); }});
+PFSim.def("escalas",{t:"Do tamanho de Planck ao universo", ayuda:"Deslize, toque na régua ou aperte «Viagem» para dar zoom"}, function(c){
+  var g = c.canvas(.5, 320, 470);
+  var L=Math.log10(1.7), Lv=L, auto=0, t=0, quieto = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var s=c.slider({l:"Tamanho", min:-35, max:27, paso:.01, v:1.7, log:true, fmt:function(v){ return tam(Math.log10(v)); }, on:function(v){ L=Math.log10(v); parar(); }});
   s.set(1.7);
-  c.alRedim(dibujar); c.alTema(dibujar); c.alNivel(dibujar);
+  var bs=c.botones();
+  var bt=bs.b("▶ Viagem automática", function(){ if(auto){ parar(); return; } auto = L>25 ? -1 : 1; if(L<-34) auto=1; bt.textContent="■ Parar"; }, true);
+  bs.b("Ir ao meu tamanho", function(){ parar(); L=Math.log10(1.7); s.set(1.7); });
+  function parar(){ auto=0; bt.textContent="▶ Viagem automática"; }
+  var regla={x:0,y:0,w:0}, ultimo="";
+  c.puntero(null,{abajo:function(p){ if(Math.abs(p.y-regla.y)<22 && p.x>regla.x-10 && p.x<regla.x+regla.w+10){ parar(); L=Math.max(-35,Math.min(27,-35+(p.x-regla.x)/regla.w*62)); s.set(Math.pow(10,L)); } },
+    mover:function(p,abajo){ if(abajo && Math.abs(p.y-regla.y)<40 && regla.w){ L=Math.max(-35,Math.min(27,-35+(p.x-regla.x)/regla.w*62)); s.set(Math.pow(10,L)); } }});
+  function hex(cv){ var m=/^#?([0-9a-f]{6})$/i.exec((cv||"").trim()); if(!m) return [128,128,128]; var n=parseInt(m[1],16); return [n>>16&255,n>>8&255,n&255]; }
+  function rgba(cv,a){ var k=hex(cv); return "rgba("+k[0]+","+k[1]+","+k[2]+","+a+")"; }
+  function mez(a,b,k){ var x=hex(a), y=hex(b); return "#"+[0,1,2].map(function(i){ var v=Math.round(x[i]+(y[i]-x[i])*k); return (v<16?"0":"")+v.toString(16); }).join(""); }
+  function esfera(x,y,r,col){ if(r<.6) return; var q=g.createRadialGradient(x-r*.38,y-r*.42,r*.08,x,y,r); q.addColorStop(0,mez(col,"#ffffff",.6)); q.addColorStop(.45,col); q.addColorStop(1,mez(col,"#000000",.5)); g.fillStyle=q; g.beginPath(); g.arc(x,y,r,0,7); g.fill(); }
+  function halo(x,y,r,col,a){ if(r<1) return; var q=g.createRadialGradient(x,y,0,x,y,r); q.addColorStop(0,rgba(col,a)); q.addColorStop(1,rgba(col,0)); g.fillStyle=q; g.beginPath(); g.arc(x,y,r,0,7); g.fill(); }
+  function rnd(i){ var v=Math.sin(i*127.1+311.7)*43758.5453; return v-Math.floor(v); }
+  var C={};
+  /* ilustraciones: (x, y, r = radio aparente, t = tiempo) */
+  var DIB=[
+    function(x,y,r){ for(var i=0;i<70;i++){ var a=rnd(i)*6.28, d=Math.sqrt(rnd(i+5))*r, rr=r*(.05+.12*Math.abs(Math.sin(t*3+i*1.7))); g.strokeStyle=rgba(i%3?C.n4:C.boli,.55); g.lineWidth=1; g.beginPath(); g.arc(x+d*Math.cos(a),y+d*Math.sin(a),Math.max(.5,rr),0,7); g.stroke(); } },
+    function(x,y,r){ halo(x,y,r,C.boli,.45); esfera(x,y,r*.12,C.boli); },
+    function(x,y,r){ halo(x,y,r,C.rojo,.18); g.strokeStyle=rgba(C.rojo,.5); g.lineWidth=1.2; g.beginPath(); g.arc(x,y,r,0,7); g.stroke();
+      var Q=[]; for(var k=0;k<3;k++){ var a=k*2.094+t*.6, rr=r*(.45+.08*Math.sin(t*2+k)); Q.push([x+rr*Math.cos(a),y+rr*Math.sin(a)]); }
+      for(var k=0;k<3;k++){ var A=Q[k], B=Q[(k+1)%3]; g.strokeStyle=C.n1; g.lineWidth=Math.max(1,r*.025); g.beginPath(); for(var j=0;j<=60;j++){ var u=j/60, o=Math.sin(u*Math.PI*14+t*8)*r*.05*Math.sin(Math.PI*u), dx=B[0]-A[0], dy=B[1]-A[1], l=Math.hypot(dx,dy)||1; var px=A[0]+dx*u-dy/l*o, py=A[1]+dy*u+dx/l*o; if(j) g.lineTo(px,py); else g.moveTo(px,py); } g.stroke(); }
+      Q.forEach(function(q,k){ esfera(q[0],q[1],r*.15,[C.rojo,C.verde,C.boli][k]); }); },
+    function(x,y,r){ halo(x,y,r*1.3,C.rojo,.12); for(var k=45;k>=0;k--){ var a=k*2.39996, d=r*.8*Math.sqrt((k+.5)/46), j=r*.018; esfera(x+d*Math.cos(a)+Math.sin(t*7+k)*j,y+d*Math.sin(a)+Math.cos(t*6+k*1.3)*j,r*.17,k%2?C.rojo:mez(C["tinta-3"],"#ffffff",.25)); } },
+    function(x,y,r){ var q=g.createRadialGradient(x,y,0,x,y,r); q.addColorStop(0,rgba(C.boli,.35)); q.addColorStop(.7,rgba(C.boli,.12)); q.addColorStop(1,rgba(C.boli,0)); g.fillStyle=q; g.beginPath(); g.arc(x,y,r,0,7); g.fill();
+      for(var k=0;k<3;k++){ g.save(); g.translate(x,y); g.rotate(k*1.05+t*.15); g.strokeStyle=rgba(C["tinta-3"],.6); g.lineWidth=1; g.beginPath(); g.ellipse(0,0,r*.75,r*.28,0,0,7); g.stroke(); var a=t*(1.5+k*.4); esfera(r*.75*Math.cos(a),r*.28*Math.sin(a),Math.max(1.5,r*.05),C.boli); g.restore(); }
+      esfera(x,y,Math.max(1.5,r*.06),C.rojo); },
+    function(x,y,r){ var hgt=r*1.8, n=40; for(var j=0;j<n;j++){ var u=j/(n-1), yy=y-hgt/2+u*hgt, ph=u*Math.PI*4+t*1.5, x1=x+Math.sin(ph)*r*.35, x2=x+Math.sin(ph+Math.PI)*r*.35, fr=Math.cos(ph)>0;
+        if(j%2===0){ g.strokeStyle=rgba([C.rojo,C.verde,C.n1,C.boli][(j/2)%4],.75); g.lineWidth=Math.max(1,r*.03); g.beginPath(); g.moveTo(x1,yy); g.lineTo(x2,yy); g.stroke(); } }
+      [0,Math.PI].forEach(function(desf,k){ g.strokeStyle=k?C.n4:C.boli; g.lineWidth=Math.max(1.5,r*.06); g.beginPath(); for(var j=0;j<=60;j++){ var u=j/60, yy=y-hgt/2+u*hgt, xx=x+Math.sin(u*Math.PI*4+t*1.5+desf)*r*.35; if(j) g.lineTo(xx,yy); else g.moveTo(xx,yy); } g.stroke(); }); },
+    function(x,y,r){ g.save(); g.translate(x,y); g.rotate(t*.25); for(var k=0;k<18;k++){ var a=k/18*6.283; g.strokeStyle=C.n5; g.lineWidth=Math.max(1,r*.05); g.beginPath(); g.moveTo(Math.cos(a)*r*.72,Math.sin(a)*r*.72); g.lineTo(Math.cos(a)*r*.98,Math.sin(a)*r*.98); g.stroke(); esfera(Math.cos(a)*r,Math.sin(a)*r,Math.max(1,r*.07),C.n5); } g.restore(); esfera(x,y,r*.72,mez(C.n5,"#ffffff",.25)); },
+    function(x,y,r){ g.save(); g.translate(x,y); g.rotate(.4+Math.sin(t*.7)*.2); g.scale(1,.55+.05*Math.sin(t*1.3)); var q=g.createRadialGradient(0,0,r*.1,0,0,r); q.addColorStop(0,mez(C.rojo,"#000000",.35)); q.addColorStop(.45,mez(C.rojo,"#ffffff",.15)); q.addColorStop(.8,C.rojo); q.addColorStop(1,mez(C.rojo,"#000000",.4)); g.fillStyle=q; g.beginPath(); g.arc(0,0,r,0,7); g.fill(); g.restore(); },
+    function(x,y,r){ var s2=r/1.0, pasos=Math.sin(t*10); g.strokeStyle=C.tinta; g.lineWidth=Math.max(1,r*.05); for(var k=0;k<3;k++){ for(var sgn=-1;sgn<=1;sgn+=2){ var bx=x+(k-1)*s2*.35, ph=(k%2?1:-1)*sgn*pasos*.2; g.beginPath(); g.moveTo(bx,y); g.lineTo(bx+s2*(.15+ph)*1,y+sgn*s2*.45); g.lineTo(bx+s2*(.25+ph),y+sgn*s2*.7); g.stroke(); } }
+      [[-.55,.22],[0,.18],[.48,.26]].forEach(function(p){ g.fillStyle=mez(C.tinta,C.rojo,.35); g.beginPath(); g.ellipse(x+p[0]*s2,y,p[1]*s2*1.3,p[1]*s2,0,0,7); g.fill(); });
+      g.beginPath(); g.moveTo(x+.7*s2,y-.1*s2); g.quadraticCurveTo(x+.95*s2,y-.4*s2,x+1.05*s2,y-.3*s2); g.moveTo(x+.7*s2,y+.1*s2); g.quadraticCurveTo(x+.95*s2,y+.4*s2,x+1.05*s2,y+.3*s2); g.stroke(); },
+    function(x,y,r){ var col=mez(C.rojo,C.n5,.3), cae=Math.abs(Math.sin(t*1.2))*r*.06; y+=cae; esfera(x-r*.27,y+r*.05,r*.7,col); esfera(x+r*.27,y+r*.05,r*.7,col); g.fillStyle=rgba("#ffffff",.3); g.beginPath(); g.ellipse(x-r*.42,y-r*.22,r*.13,r*.28,-.5,0,7); g.fill();
+      g.strokeStyle=mez(C.tinta,C.n1,.4); g.lineWidth=Math.max(1.5,r*.08); g.lineCap="round"; g.beginPath(); g.moveTo(x,y-r*.5); g.quadraticCurveTo(x+r*.05,y-r*.85,x+r*.18,y-r); g.stroke();
+      g.save(); g.translate(x+r*.1,y-r*.8); g.rotate(-.6+Math.sin(t*2)*.15); g.fillStyle=C.verde; g.beginPath(); g.ellipse(r*.25,0,r*.28,r*.11,0,0,7); g.fill(); g.restore(); },
+    function(x,y,r){ var h2=r*2, col=C.verde, lw=Math.max(1.5,r*.07), sal=Math.sin(t*4)*.5; g.strokeStyle=col; g.fillStyle=col; g.lineWidth=lw; g.lineCap="round";
+      g.beginPath(); g.arc(x,y-h2*.38,h2*.09,0,7); g.fill();
+      g.beginPath(); g.moveTo(x,y-h2*.28); g.lineTo(x,y+h2*.08); g.moveTo(x,y+h2*.08); g.lineTo(x-h2*.12,y+h2*.45); g.moveTo(x,y+h2*.08); g.lineTo(x+h2*.12,y+h2*.45);
+      g.moveTo(x,y-h2*.2); g.lineTo(x-h2*.2,y-h2*.02); g.moveTo(x,y-h2*.2); g.lineTo(x+h2*.18*Math.cos(-1.1+sal),y-h2*.2+h2*.18*Math.sin(-1.1+sal)); g.stroke(); },
+    function(x,y,r){ var b=y+r*.5, w=r, h=r*.6, n=5, sy2=b-h*1.25+Math.sin(t*.5)*r*.1; halo(x+r*.75,sy2,r*.4,C.marca,.7); esfera(x+r*.75,sy2,r*.1,mez(C.marca,C.n1,.3));
+      for(var k=0;k<n;k++){ var w1=w*(1-k*.17), w2=w*(1-(k+1)*.17+.03), y1=b-h*k/n, y2=b-h*(k+1)/n; g.fillStyle=mez(C.n1,C["tinta-3"],.3+k*.1); g.beginPath(); g.moveTo(x-w1,y1); g.lineTo(x-w2,y2); g.lineTo(x+w2,y2); g.lineTo(x+w1,y1); g.closePath(); g.fill(); g.strokeStyle=rgba(C.tinta,.35); g.lineWidth=1; g.stroke(); }
+      g.fillStyle=mez(C.n1,C.tinta,.2); g.fillRect(x-w*.08,b-h-h*.08,w*.16,h*.08);
+      g.strokeStyle=rgba(C.tinta,.3); for(var k=0;k<14;k++){ var yy=b-h*k/14, ww=w*(.07-.03*k/14); g.beginPath(); g.moveTo(x-ww,yy); g.lineTo(x+ww,yy); g.stroke(); }
+      g.strokeStyle=rgba(C.tinta,.55); g.lineWidth=1.5; g.beginPath(); g.moveTo(x-r*1.4,b); g.lineTo(x+r*1.4,b); g.stroke(); },
+    function(x,y,r){ var b=y+r*.75; g.fillStyle=mez(C["tinta-3"],C.tinta,.35); g.beginPath(); g.moveTo(x-r*1.3,b); g.lineTo(x-r*.35,y-r*.35); g.lineTo(x-r*.1,y-r*.15); g.lineTo(x+r*.05,y-r*.75); g.lineTo(x+r*1.3,b); g.closePath(); g.fill();
+      g.fillStyle="#f4f7fb"; g.beginPath(); g.moveTo(x+r*.05,y-r*.75); g.lineTo(x-r*.16,y-r*.4); g.lineTo(x-r*.02,y-r*.46); g.lineTo(x+r*.12,y-r*.36); g.lineTo(x+r*.3,y-r*.42); g.closePath(); g.fill();
+      for(var k=0;k<3;k++){ var cx2=x-r*1.2+((t*.08*r+k*r*.9)%(r*2.6)), cy2=y-r*(.2+.25*k); halo(cx2,cy2,r*.35,"#ffffff",.7); } },
+    function(x,y,r){ g.save(); g.translate(x,y); g.rotate(-t*.35); for(var arm=0;arm<4;arm++){ for(var k=0;k<34;k++){ var u=k/34, rr=r*(.14+.86*u), a=arm*1.571+u*3.4; halo(rr*Math.cos(a),rr*Math.sin(a),r*(.24-.13*u),mez(C["tinta-3"],"#ffffff",.35),.4*(1-u*.6)); } } g.restore();
+      halo(x,y,r*.16,C.boli,.25); g.strokeStyle=rgba(C["tinta-3"],.7); g.lineWidth=1.5; g.beginPath(); g.arc(x,y,r*.07,0,7); g.stroke(); },
+    function(x,y,r){ halo(x,y,r*1.25,C.boli,.35); esfera(x,y,r,mez(C.boli,"#1f6fd1",.3)); g.save(); g.beginPath(); g.arc(x,y,r,0,7); g.clip(); g.fillStyle=rgba(C.verde,.75);
+      for(var k=0;k<7;k++){ var px=x+((rnd(k)*2.4*r+t*r*.12)%(2.6*r))-1.3*r, py=y+(rnd(k+9)-.5)*1.4*r; g.beginPath(); g.ellipse(px,py,r*(.18+.2*rnd(k+3)),r*(.1+.12*rnd(k+4)),rnd(k+2)*3,0,7); g.fill(); }
+      g.fillStyle=rgba("#ffffff",.6); g.beginPath(); g.ellipse(x,y-r*.92,r*.5,r*.12,0,0,7); g.fill(); g.restore(); },
+    function(x,y,r){ halo(x,y,r*1.8,C.marca,.45); for(var k=0;k<14;k++){ var a=k/14*6.283+t*.05, l=r*(1.1+.25*Math.abs(Math.sin(t*1.7+k*2.1))); g.strokeStyle=rgba(C.n1,.35); g.lineWidth=Math.max(1,r*.04); g.beginPath(); g.moveTo(x+Math.cos(a)*r*.95,y+Math.sin(a)*r*.95); g.lineTo(x+Math.cos(a)*l,y+Math.sin(a)*l); g.stroke(); }
+      esfera(x,y,r,mez(C.marca,C.n1,.35)); g.save(); g.beginPath(); g.arc(x,y,r,0,7); g.clip(); for(var k=0;k<30;k++){ var px=x+(rnd(k)-.5)*2*r, py=y+(rnd(k+30)-.5)*2*r; g.fillStyle=rgba(C.n1,.15+.15*Math.sin(t*2+k)); g.beginPath(); g.arc(px,py,r*.12,0,7); g.fill(); } g.restore(); },
+    function(x,y,r){ halo(x,y,Math.max(8,r*.22),C.marca,.75); esfera(x,y,Math.max(3,r*.05),mez(C.marca,C.n1,.3));
+      [[.39,C.n1,4.15,.03],[.72,C.n5,1.62,.045],[1,C.boli,1,.05]].forEach(function(pl,k){ var rr=r*pl[0]; g.strokeStyle=rgba(C["tinta-3"],.45); g.lineWidth=1; g.setLineDash(k===2?[]:[3,4]); g.beginPath(); g.arc(x,y,rr,0,7); g.stroke(); g.setLineDash([]);
+        var an=t*.35*pl[2]+k*2; for(var q=1;q<14;q++){ var aq=an-q*.03; halo(x+rr*Math.cos(aq),y+rr*Math.sin(aq),Math.max(2,r*pl[3]*.6),pl[1],.18*(1-q/14)); } esfera(x+rr*Math.cos(an),y+rr*Math.sin(an),Math.max(2.5,r*pl[3]),pl[1]); }); },
+    function(x,y,r){ var orb=[.039,.072,.1,.152,.52,.95,1.92,3.0].map(function(a){ return a/3; }); esfera(x,y,Math.max(2,r*.035),C.marca); halo(x,y,r*.12,C.marca,.6);
+      orb.forEach(function(a,k){ var rr=r*Math.pow(a,.55); g.strokeStyle=rgba(C["tinta-3"],.45); g.lineWidth=1; g.beginPath(); g.arc(x,y,rr,0,7); g.stroke(); var an=t*(.9/Math.pow(a*3,1.5))+k; esfera(x+rr*Math.cos(an),y+rr*Math.sin(an),Math.max(1.5,r*(k>3?.03:.018)),[C["tinta-3"],C.n1,C.boli,C.rojo,C.n1,C.marca,C.n3,C.boli][k]); }); },
+    function(x,y,r){ g.save(); g.translate(x,y); var q=g.createRadialGradient(0,0,r*.2,0,0,r); q.addColorStop(0,rgba(C.marca,.05)); q.addColorStop(.85,rgba(C.n1,.14)); q.addColorStop(1,rgba(C.n1,0)); g.fillStyle=q; g.beginPath(); g.ellipse(r*.15,0,r*1.1,r*.85,0,0,7); g.fill();
+      g.strokeStyle=rgba(C.n1,.6); g.lineWidth=1.5; g.setLineDash([5,5]); g.beginPath(); g.ellipse(r*.15,0,r,r*.8,0,0,7); g.stroke(); g.setLineDash([]);
+      for(var k=0;k<18;k++){ var a=k/18*6.283, u=(t*.25+rnd(k))%1; halo(Math.cos(a)*r*.9*u,Math.sin(a)*r*.72*u,Math.max(2,r*.022),C.n1,.75*(1-u)); } g.restore();
+      halo(x,y,Math.max(5,r*.05),C.marca,.9); esfera(x,y,Math.max(2,r*.015),C.marca);
+      var vx=x+r*1.12*Math.cos(-.55)+r*.1, vy=y+r*.88*Math.sin(-.55); g.fillStyle=C.tinta; g.fillRect(vx-2.5,vy-2.5,5,5); g.strokeStyle=C.tinta; g.lineWidth=1; g.beginPath(); g.moveTo(vx-6,vy+3); g.lineTo(vx+6,vy-3); g.stroke(); if(r>50) F.texto(g,"Voyager 1",vx+8,vy-8,{tam:11,color:C["tinta-2"]}); },
+    function(x,y,r){ g.strokeStyle=rgba(C.n1,.6); g.lineWidth=1.5; g.setLineDash([4,5]); g.beginPath(); g.moveTo(x-r,y); g.lineTo(x+r,y); g.stroke(); g.setLineDash([]);
+      [[x-r],[x+r]].forEach(function(p){ g.beginPath(); g.moveTo(p[0],y-8); g.lineTo(p[0],y+8); g.stroke(); });
+      var u=(t*.25)%1, px=x-r+2*r*u; halo(px,y,Math.max(6,r*.15),C.marca,.9); for(var k=0;k<5;k++){ halo(px-k*r*.05,y,Math.max(3,r*.08),C.marca,.25*(1-k/5)); } },
+    function(x,y,r){ g.strokeStyle=rgba(C["tinta-3"],.35); g.lineWidth=1; g.setLineDash([3,5]); g.beginPath(); g.arc(x,y,r,0,7); g.stroke(); g.setLineDash([]);
+      halo(x,y,Math.max(7,r*.08),C.marca,.9); esfera(x,y,Math.max(2.5,r*.02),mez(C.marca,C.n1,.3));
+      var ES=[[1,-.55,C.n1,"α Centauri"],[1.4,2.3,C.rojo,""],[1.86,1.1,C.rojo,""],[2.03,3.6,C.boli,"Sírius"],[2.5,-2.2,C.n1,""],[2.7,.4,C.rojo,""]];
+      ES.forEach(function(e,k){ var px=x+r*e[0]*Math.cos(e[1]), py=y+r*e[0]*Math.sin(e[1])*.85, b=.65+.35*Math.sin(t*2.5+k*1.9); halo(px,py,Math.max(5,r*.06),e[2],.55*b); esfera(px,py,Math.max(2,r*.018),e[2]); if(e[3] && r>40) F.texto(g,e[3],px+9,py-8,{tam:12,color:C["tinta-2"]}); });
+      if(r>40){ g.strokeStyle=rgba(C.n1,.6); g.setLineDash([2,4]); g.beginPath(); g.moveTo(x,y); g.lineTo(x+r*Math.cos(-.55),y+r*Math.sin(-.55)*.85); g.stroke(); g.setLineDash([]); } },
+    function(x,y,r){ var cols=[C.rojo,C.n4,C.boli,C.n1,C.n5,C.n4]; for(var k=0;k<10;k++){ var a=rnd(k)*6.283+t*.04*(k%2?1:-1), d=r*.5*rnd(k+4); halo(x+d*Math.cos(a),y+d*Math.sin(a)*.8,r*(.3+.4*rnd(k+8)),cols[k%6],.26); }
+      g.strokeStyle=rgba(C.rojo,.25); g.lineWidth=Math.max(1,r*.01); for(var k=0;k<6;k++){ g.beginPath(); var a0=rnd(k+30)*6.283; for(var j=0;j<=30;j++){ var u=j/30, rr=r*(.2+.7*u), a=a0+u*1.2+Math.sin(t*.3+k)*.1; var px=x+rr*Math.cos(a), py=y+rr*Math.sin(a)*.75; j?g.lineTo(px,py):g.moveTo(px,py); } g.stroke(); }
+      for(var k=0;k<26;k++){ var px=x+(rnd(k+20)-.5)*2*r, py=y+(rnd(k+50)-.5)*1.6*r; halo(px,py,Math.max(2.5,r*.02),mez(C.marca,C.n1,.4),.8*(.6+.4*Math.sin(t*2+k))); }
+      [[0,0],[.05,.03],[-.04,.05],[.02,-.05]].forEach(function(p,k){ halo(x+p[0]*r,y+p[1]*r,Math.max(5,r*.06),C.boli,.85*(.75+.25*Math.sin(t*3+k))); esfera(x+p[0]*r,y+p[1]*r,Math.max(1.5,r*.012),C.boli); }); },
+    function(x,y,r){ halo(x,y,r*.7,C.marca,.4); for(var k=0;k<300;k++){ var a=rnd(k)*6.283, d=r*Math.pow(rnd(k+300),1.7), tw=.55+.45*Math.sin(t*3+k); g.fillStyle=rgba(k%6?C.n1:C.rojo,.8*tw); g.beginPath(); g.arc(x+d*Math.cos(a),y+d*Math.sin(a),Math.max(.9,r*.009),0,7); g.fill(); } },
+    function(x,y,r){ g.save(); g.translate(x,y); g.rotate(-.3+Math.sin(t*.2)*.05); g.scale(1,.55); halo(0,0,r*.55,C.n1,.3); g.fillStyle=rgba(C.n1,.22); g.beginPath(); g.ellipse(0,0,r*.55,r*.13,0,0,7); g.fill();
+      for(var k=0;k<240;k++){ var a=rnd(k)*6.283, d=r*Math.sqrt(rnd(k+500))*.95; g.fillStyle=rgba(k%7?C.boli:C.rojo,.45+.3*Math.sin(t*2+k)); g.beginPath(); g.arc(d*Math.cos(a),d*Math.sin(a),Math.max(.9,r*.01),0,7); g.fill(); }
+      halo(r*.35,-r*.25,r*.14,C.rojo,.55); g.restore(); },
+    function(x,y,r){ halo(x,y,r*.35,"#fff3c4",.8); g.save(); g.translate(x,y); g.scale(1,.62); for(var k=0;k<420;k++){ var arm=k%2, th=(k/420)*4.4, rr=r*.1*Math.exp(.52*th), a=th+arm*Math.PI+t*.08+(rnd(k)-.5)*.45; var px=rr*Math.cos(a)+(rnd(k+3)-.5)*r*.06, py=rr*Math.sin(a)+(rnd(k+7)-.5)*r*.06; g.fillStyle=rgba(k%9===0?"#ffffff":(k%3?C.n4:C.boli),.7); g.fillRect(px,py,1.6,1.6); } g.restore(); },
+    function(x,y,r){ function esp(cx,cy,sz,rot,col){ g.save(); g.translate(cx,cy); g.rotate(rot); g.scale(1,.5); halo(0,0,sz*.35,mez(C.marca,"#ffffff",.3),.85); for(var k=0;k<200;k++){ var arm=k%2, th=k/200*4, rr=sz*.12*Math.exp(.5*th), a=th+arm*Math.PI+t*.1+(rnd(k)-.5)*.35; g.fillStyle=rgba(col,.6); g.beginPath(); g.arc(rr*Math.cos(a),rr*Math.sin(a),Math.max(.8,sz*.012),0,7); g.fill(); } g.restore(); }
+      g.strokeStyle=rgba(C["tinta-3"],.35); g.lineWidth=1; g.setLineDash([3,5]); g.beginPath(); g.arc(x,y,r,0,7); g.stroke(); g.setLineDash([]);
+      esp(x-r*.3,y+r*.12,r*.22,.5,C.boli); esp(x+r*.32,y-r*.14,r*.3,-.7,C.n4);
+      for(var k=0;k<22;k++){ var a=rnd(k)*6.283+t*.02, d=r*(.15+.75*rnd(k+2)); halo(x+d*Math.cos(a),y+d*Math.sin(a)*.75,Math.max(2,r*.025),k%3?C["tinta-3"]:C.n1,.55); }
+      if(r>60){ F.texto(g,"Via Láctea",x-r*.3,y+r*.12+r*.2,{alin:"center",tam:11,color:C["tinta-2"]}); F.texto(g,"Andrômeda",x+r*.32,y-r*.14+r*.24,{alin:"center",tam:11,color:C["tinta-2"]}); } },
+    function(x,y,r){ halo(x,y,r*.45,C.n4,.2); for(var k=0;k<34;k++){ var a0=rnd(k)*6.283, d0=r*(.55+.45*rnd(k+3)), giro=(k%2?1:-1)*(.8+rnd(k+9)); g.strokeStyle=rgba(C.n4,.28); g.lineWidth=1.1; g.beginPath(); for(var j=0;j<=26;j++){ var u=j/26, d=d0*(1-u*.92), a=a0+u*giro; var px=x+d*Math.cos(a), py=y+d*Math.sin(a)*.8; j?g.lineTo(px,py):g.moveTo(px,py); } g.stroke();
+        for(var m=0;m<2;m++){ var u=(t*.08+rnd(k+7)+m*.5)%1, d=d0*(1-u*.92), a=a0+u*giro; halo(x+d*Math.cos(a),y+d*Math.sin(a)*.8,Math.max(2.5,r*.018),k%3?C.boli:C.n1,.9); } }
+      esfera(x,y,Math.max(3,r*.03),C.n4); },
+    function(x,y,r){ var q=g.createRadialGradient(x,y,r*.8,x,y,r); q.addColorStop(0,rgba(C.n1,0)); q.addColorStop(.9,rgba(C.n1,.25)); q.addColorStop(1,rgba(C.rojo,.0)); g.fillStyle=q; g.beginPath(); g.arc(x,y,r,0,7); g.fill();
+      var N=46, P2=[]; for(var k=0;k<N;k++){ var a=rnd(k)*6.283, d=Math.sqrt(rnd(k+40))*r*.9; P2.push([x+d*Math.cos(a),y+d*Math.sin(a)]); }
+      g.lineWidth=1; for(var i=0;i<N;i++) for(var j=i+1;j<N;j++){ var dd=Math.hypot(P2[i][0]-P2[j][0],P2[i][1]-P2[j][1]); if(dd<r*.28){ g.strokeStyle=rgba(C.n4,.35*(1-dd/(r*.28))); g.beginPath(); g.moveTo(P2[i][0],P2[i][1]); g.lineTo(P2[j][0],P2[j][1]); g.stroke(); } }
+      P2.forEach(function(p,k){ halo(p[0],p[1],Math.max(2,r*.025),k%2?C.n4:C.boli,.9*(.6+.4*Math.sin(t*2+k))); });
+      g.strokeStyle=rgba(C.rojo,.5); g.lineWidth=1.5; g.beginPath(); g.arc(x,y,r,0,7); g.stroke(); }
+  ];
+  c.loop(function(dt){
+    t += quieto ? 0 : dt;
+    if(auto){ L += auto*dt*(quieto?6:1.7); if(L>=27 || L<=-35){ L=Math.max(-35,Math.min(27,L)); parar(); } s.set(Math.pow(10,L)); }
+    Lv += (L-Lv)*Math.min(1, quieto?1:dt*5);
+    dibujar();
+  });
+  c.alNivel(function(){});
+   function tam(v){ var e=Math.floor(v+1e-9), m=Math.pow(10,v-e); if(m>=9.95){ m=1; e++; } if(e>=-2 && e<=3){ var x=m*Math.pow(10,e); return (x<1?x.toPrecision(2):x<100?x.toFixed(1):Math.round(x))+" m"; } return m.toFixed(1)+" × 10"+PF.sup(e)+" m"; }
   function dibujar(){
     if(!c.W) return; c.limpiar();
-    var tinta=c.col("tinta"), rojo=c.col("rojo"), boli=c.col("boli"), t3=c.col("tinta-3");
-    var cx=c.W*.3, cy=c.H/2, R=Math.min(c.W*.26,c.H*.44);
-    // dibuja objetos con tamaño relativo a 10^L (que ocupa R)
-    ESC.forEach(function(o,i){
-      var r = R*o[0]/Math.pow(10,L);
-      if(r<2 || r>R*30) return;
-      g.globalAlpha = r>R*1.05 ? .25 : 1;
-      g.strokeStyle = i%2?boli:rojo; g.lineWidth=2; g.beginPath(); g.arc(cx,cy,r,0,Math.PI*2); g.stroke();
-      if(r<R*1.05 && r>14) F.texto(g,o[1],cx,cy-r-5,{alin:"center",tam:12,color:i%2?boli:rojo});
-      g.globalAlpha=1;
-    });
-    // regla logarítmica
-    var rx=c.W*.6, rw=c.W*.37, ry=c.H-40;
-    F.linea(g,[[rx,ry],[rx+rw,ry]],tinta,1.5);
-    for(var e=-30;e<=20;e+=10){ var X=rx+(e+35)/62*rw; F.linea(g,[[X,ry-4],[X,ry+4]],tinta,1); F.texto(g,"10"+PF.sup(e),X,ry+18,{alin:"center",tam:10,color:t3}); }
-    var Xm=rx+(L+35)/62*rw; F.circulo(g,Xm,ry,6,rojo);
-    // objeto más cercano
-    var cerca=ESC.reduce(function(a,o){ return Math.abs(Math.log10(o[0])-L)<Math.abs(Math.log10(a[0])-L)?o:a; });
-    F.texto(g,cerca[1],rx,46,{serif:true,tam:20,color:tinta});
-    var palabras=cerca[2].split(" "), lin="", yy=72;
-    palabras.forEach(function(w){ var prueba=lin+w+" "; g.font='14px "Atkinson",sans-serif'; if(g.measureText(prueba).width>rw && lin){ F.texto(g,lin,rx,yy,{tam:14,color:tinta}); lin=w+" "; yy+=19; } else lin=prueba; });
-    F.texto(g,lin,rx,yy,{tam:14,color:tinta});
-    if(c.n>=2) F.texto(g,"Física dominante: "+cerca[3],rx,yy+28,{tam:13,color:boli});
-    c.datos('<span>O círculo grande mede <b>10'+PF.sup(Math.round(L))+' m</b>.</span><span>Há cerca de 62 ordens de grandeza entre o comprimento de Planck e o universo observável.</span>');
+    ["tinta","tinta-2","tinta-3","rojo","boli","verde","marca","n1","n3","n4","n5","papel"].forEach(function(k){ C[k]=c.col(k); });
+    var ancho=c.W>=560, sw=ancho?c.W*.58:c.W, sx=sw/2, sy=ancho?c.H/2:c.H*.42, R=Math.min(sw*.36,(ancho?c.H:c.H*.84)*.36);
+    var cercaO=ESC.reduce(function(a,o){ return Math.abs(Math.log10(o[0])-Lv)<Math.abs(Math.log10(a[0])-Lv)?o:a; });
+    var vis=0;
+    // objetos anidados, del más grande al más pequeño
+    for(var i=ESC.length-1;i>=0;i--){
+      var o=ESC[i], r=R*o[0]/Math.pow(10,Lv);
+      if(r<1.2 || r>R*7) continue;
+      var a = r<10 ? (r-1.2)/8.8 : (r>R*1.3 ? Math.max(0,1-(r/R-1.3)/2.2) : 1);
+      g.save(); g.globalAlpha=Math.max(0,Math.min(1,a)); DIB[i](sx,sy,r); g.restore(); if(a>.08) vis=Math.max(vis,Math.min(r,R*1.5));
+      if(r>Math.max(16,R*.3) && r<R*1.15 && (ancho || o!==cercaO)){ g.globalAlpha=Math.min(1,a); F.texto(g,o[1],sx,sy-Math.min(r,R*1.05)-12,{alin:"center",tam:13,color:C.tinta}); g.globalAlpha=1; }
+    }
+    if(vis<R*.15){ for(var k=0;k<40;k++){ var px=sx+(rnd(k)-.5)*sw*.8, py=sy+(rnd(k+40)-.5)*R*1.6; halo(px,py,6+4*Math.sin(t*4+k),C.n4,.18*(.5+.5*Math.sin(t*3+k*2.3))); }
+      var zona = Lv<-18.4 ? ["O grande deserto","Entre 10⁻³⁵ e 10⁻¹⁸ m não sabemos nada: nenhum experimento chega lá."] : Lv<-14 ? ["Dentro do próton","Quarks e glúons unidos pela força forte."] : ["Continue dando zoom","O próximo objeto está a poucas ordens de grandeza."];
+      F.texto(g,zona[0],sx,sy-8,{alin:"center",tam:24,mano:true,color:C["tinta-2"]}); F.texto(g,zona[1],sx,sy+18,{alin:"center",tam:13,color:C["tinta-3"]}); }
+    // barra de escala
+    var bx=ancho?18:14, by=c.H-(ancho?24:62);
+    F.linea(g,[[bx,by],[bx+R,by]],C.tinta,2); F.linea(g,[[bx,by-5],[bx,by+5]],C.tinta,2); F.linea(g,[[bx+R,by-5],[bx+R,by+5]],C.tinta,2);
+    F.texto(g,tam(Lv),bx+R+8,by+4,{tam:12,color:C["tinta-2"]});
+    // regla logarítmica con todos los objetos
+    var rx=ancho?sw+14:18, rw=ancho?c.W-sw-30:c.W-36, ry=ancho?c.H-46:c.H-22;
+    regla={x:rx,y:ry,w:rw};
+    var gr=g.createLinearGradient(rx,0,rx+rw,0); gr.addColorStop(0,C.n4); gr.addColorStop(.3,C.rojo); gr.addColorStop(.58,C.verde); gr.addColorStop(.8,C.boli); gr.addColorStop(1,C.n4);
+    g.strokeStyle=gr; g.lineWidth=4; g.lineCap="round"; g.beginPath(); g.moveTo(rx,ry); g.lineTo(rx+rw,ry); g.stroke();
+    for(var e=-30;e<=20;e+=10){ var X=rx+(e+35)/62*rw; F.linea(g,[[X,ry-5],[X,ry+5]],C.tinta,1); if(ancho) F.texto(g,"10"+PF.sup(e),X,ry+19,{alin:"center",tam:10,color:C["tinta-3"]}); }
+    ESC.forEach(function(o){ var X=rx+(Math.log10(o[0])+35)/62*rw; g.fillStyle=C["tinta-2"]; g.beginPath(); g.arc(X,ry,2.2,0,7); g.fill(); });
+    var Xm=rx+(Lv+35)/62*rw; halo(Xm,ry,14,C.rojo,.45); F.circulo(g,Xm,ry,6.5,C.rojo);
+    // ficha del objeto más cercano
+    var cerca=ESC.reduce(function(a,o){ return Math.abs(Math.log10(o[0])-Lv)<Math.abs(Math.log10(a[0])-Lv)?o:a; });
+    if(ancho){
+      F.texto(g,cerca[1],rx,40,{serif:true,tam:20,color:C.tinta});
+      var palabras=cerca[2].split(" "), lin="", yy=66;
+      g.font='14px "Atkinson Hyperlegible",sans-serif';
+      palabras.forEach(function(w){ var prueba=lin+w+" "; if(g.measureText(prueba).width>rw && lin){ F.texto(g,lin,rx,yy,{tam:14,color:C.tinta}); lin=w+" "; yy+=19; } else lin=prueba; });
+      F.texto(g,lin,rx,yy,{tam:14,color:C.tinta});
+      if(c.n>=2) F.texto(g,"Física dominante: "+cerca[3],rx,yy+28,{tam:13,color:C.boli});
+    } else {
+      F.texto(g,cerca[1],c.W/2,22,{alin:"center",serif:true,tam:17,color:C.tinta});
+    }
+    var clave=tam(Lv)+"|"+cerca[1]+"|"+ancho; if(clave===ultimo) return; ultimo=clave;
+    c.datos('<span>O que você vê mede cerca de <b>'+tam(Lv)+'</b>.</span><span>'+(ancho?'':cerca[2]+' ')+'Há cerca de 62 ordens de grandeza entre o comprimento de Planck e o universo observável.</span>');
   }
   c.nota("Cada escala tem sua própria física: quântica no pequeno, Newton no cotidiano, relatividade geral no enorme. Unir a quântica com a gravidade num só marco é um dos grandes problemas em aberto.");
 });
